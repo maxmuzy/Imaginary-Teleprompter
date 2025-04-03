@@ -1,4 +1,4 @@
-//import { encontrarPosicaoNoRoteiroFuzzy } from "./matchRecognition.js";
+import { encontrarPosicaoNoRoteiroFuzzy } from "./matchRecognition.js";
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if (SpeechRecognition) {

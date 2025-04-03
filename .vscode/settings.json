@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 5555,
+    "liveServer.settings.https": {
+        "enable": true, //set it true to enable the feature.
+        "cert": "C:\\Desenvolvimento\\Imaginary-Teleprompter\\Cert.cert", //full path
+        "key": "C:\\Desenvolvimento\\Imaginary-Teleprompter\\Cert.key", //full path
+        "passphrase": "1234"
+    }
+}

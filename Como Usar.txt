@@ -1,0 +1,1 @@
+Abrir diretamente no Visual Studio Code

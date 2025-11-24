@@ -1,0 +1,12 @@
+S INFORMAÇÕES SOBRE ..."
+VM520 injected.js:37 ✅ Elemento encontrado: P
+VM520 injected.js:37    📍 offsetTop: 25737px / height: 383814px
+VM520 injected.js:37    📊 Progresso: 6.7% (atual: -0.1%)
+VM520 injected.js:37    ✅ Último elemento validado: P (25737px)
+VM520 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764026201404
+VM520 injected.js:37    ✅ Teleprompter movido para a âncora
+VM520 injected.js:37 🎤 Parcial: "até a queda no total de acordo com as primeiras informações o trajeto Demorou apenas 5 minutos a decolagem aconteceu às 7:15 da manhã no Campo de Marte o avião colide com o solo às 7:20 da manhã na Avenida Marquês de São Vicente na Barra Funda na zona oeste de São Paulo de ontem o Daniel falou ainda pouco daqui a pouco eu trago mais informações sobre essa tragédia aérea em São Paulo te conto também agora que São Paulo teve mais um dia de transtornos causados pelas chuvas no fim da tarde e na noite desta quinta-feira milhares de pessoas estão sem energia um homem de 24 anos está desaparecido depois que o carro dele caiu em um córrego a Defesa Civil emitiu Alerta Severo para quase todas as regiões da capital paulista"
+VM520 injected.js:37    🔍 Procurando em 2878 elementos (último validado: P)...
+VM520 injected.js:37 ❌ Nenhum elemento encontrado para: "até a queda no total de acordo com as primeiras informações o trajeto Demorou apenas 5 minutos a decolagem aconteceu às 7:15 da manhã no Campo de Marte o avião colide com o solo às 7:20 da manhã na Avenida Marquês de São Vicente na Barra Funda na zona oeste de São Paulo de ontem o Daniel falou ainda pouco daqui a pouco eu trago mais informações sobre essa tragédia aérea em São Paulo te conto também agora que São Paulo teve mais um dia de transtornos causados pelas chuvas no fim da tarde e na noite desta quinta-feira milhares de pessoas estão sem energia um homem de 24 anos está desaparecido depois que o carro dele caiu em um córrego a Defesa Civil emitiu Alerta Severo para quase todas as regiões da capital paulista"
+VM520 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM520 injected.js:37 📄 Roteiro carregado: 1568 frases

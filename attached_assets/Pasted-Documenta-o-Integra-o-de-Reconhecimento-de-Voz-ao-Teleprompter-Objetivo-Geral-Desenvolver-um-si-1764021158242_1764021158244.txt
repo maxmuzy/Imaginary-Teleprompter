@@ -1,0 +1,107 @@
+Documentação – Integração de Reconhecimento de Voz ao Teleprompter
+Objetivo Geral
+
+Desenvolver um sistema capaz de sincronizar automaticamente o texto do teleprompter com a fala do apresentador, utilizando reconhecimento de voz em tempo real. O objetivo é permitir que o teleprompter role o texto dinamicamente conforme as palavras são ditas, criando um fluxo natural de apresentação sem necessidade de teclado ou controle manual.
+
+Objetivos Específicos
+
+Capturar áudio continuamente via Web Speech API.
+
+Obter resultados parciais (speech interim) para permitir rolagem em tempo real.
+
+Encontrar a posição do texto reconhecido dentro do conteúdo exibido no teleprompter.
+
+Rolar o texto automaticamente até o ponto correspondente.
+
+Permitir troca dinâmica de interlocutor, reinicializando o modelo quando necessário.
+
+Criar lógica com fuzzy matching para encontrar trechos aproximados quando o reconhecimento não é exato.
+
+Manter boa performance, mesmo com resultados parciais repetitivos e contínuos.
+
+Principais Pontos Discutidos e Decisões Tomadas
+1. Obtenção do texto visível do teleprompter
+
+O elemento com classe .prompt.move é criado dinamicamente ao clicar em Prompt It!.
+
+Foi criada uma função getVisibleText() para extrair seu conteúdo, e o problema inicial era que o elemento ainda não existia no momento da chamada.
+
+A função passou a funcionar após ser chamada apenas dentro do contexto em que o elemento já está na tela.
+
+2. Problemas com import/export
+
+O arquivo teleprompter.js não estava configurado como módulo, impedindo o uso de export.
+
+Discutimos:
+
+como habilitar o script como módulo (type="module"),
+
+riscos de interferência no restante do projeto,
+
+por fim, optou-se por não modificar a estrutura original, para evitar conflitos.
+
+3. Reconhecimento de voz muito lento e travando
+
+O método original acumulava texto assim:
+
+textoAcumulado += entradaParcial;
+
+
+Isso gerava uma string gigantesca e crescente, com repetições constantes.
+
+Esse aumento contínuo de texto estava travando a interface.
+
+4. Por que o parcial repete?
+
+Resultados intermediários da Web Speech API são cumulativos:
+
+Cada novo “interim” contém toda a frase reconhecida até aquele momento, não só o trecho novo.
+
+Por isso:
+
+textoAcumulado += entradaParcial duplicava conteúdo várias vezes.
+
+5. Solução eficiente implementada
+
+Foi introduzido um método mais leve de atualização:
+
+if (!textoAcumulado.endsWith(entradaParcial)) {
+    textoAcumulado += " " + entradaParcial;
+}
+
+
+Benefícios:
+
+Elimina duplicação de conteúdo.
+
+Mantém o texto sempre atualizado.
+
+Evita crescimento exponencial de string.
+
+Reduz drasticamente travamentos.
+
+6. Outras discussões técnicas
+
+Troca de voz / interlocutor:
+– Sim, o reconhecimento tende a se adaptar à voz.
+– Solução: reiniciar o SpeechRecognition quando terminar um trecho ou quando mudar o apresentador.
+
+Fixar idioma:
+– É possível (recognition.lang = "pt-BR").
+– Ajuda na precisão, mas não traz grande ganho de performance.
+
+Identificar personagens pela voz:
+– Não possível apenas com Web Speech API; seria necessário um modelo avançado externo (speaker identification).
+
+Eventos úteis além do isFinal:
+– onspeechstart, onspeechend, onaudiostart, onaudioend, onsoundstart, onsoundend, onresult (interim + final), onerror.
+
+Resumo do Estado Atual
+
+Reconhecimento parcial funcionando.
+
+Texto visível sendo capturado corretamente.
+
+Acúmulo otimizado para evitar travamentos.
+
+Base pronta para aplicar fuzzy matching e sincronizar com o teleprompter.

@@ -69,6 +69,7 @@ function calcularLevenshtein(a, b) {
       if (similarity > bestSimilarity && similarity >= threshold) {
         bestSimilarity = similarity;
         bestMatchIndex = i;
+        console.log(`Melhor correspondência encontrada: "${roteiro[i]}" com similaridade ${similarity}`);
       }
     }
     

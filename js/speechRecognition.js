@@ -9,6 +9,8 @@ let textoAcumulado = "";
 let debounceTimer = null;
 let isProcessing = false;
 let ultimoElementoValidado = null; // Rastreia o último elemento validado (Node) para ordem documental
+let observerDebounceTimer = null; // Debounce para evitar resets consecutivos
+let ultimoHashRoteiro = ""; // Hash do roteiro para detectar mudanças reais
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
@@ -133,19 +135,54 @@ if (SpeechRecognition) {
 
     carregarRoteiro();
 
-    // Observer para resetar progresso quando o prompt muda (ex: usuário carrega novo roteiro)
+    // Calcula hash simples de uma string (para detectar mudanças reais no roteiro)
+    function calcularHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash.toString();
+    }
+    
+    // Verifica se o roteiro mudou e reseta se necessário
+    function verificarMudancaRoteiro() {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return;
+        
+        const textoAtual = (promptElement.innerText || promptElement.textContent || "").trim();
+        const hashAtual = calcularHash(textoAtual);
+        
+        // Só reseta se o hash for diferente (conteúdo realmente mudou)
+        if (hashAtual !== ultimoHashRoteiro && ultimoHashRoteiro !== "") {
+            console.log('🔄 Roteiro REALMENTE alterado, resetando rastreamento');
+            ultimoElementoValidado = null;
+            carregarRoteiro();
+        }
+        
+        ultimoHashRoteiro = hashAtual;
+    }
+    
+    // Observer para detectar quando o prompt muda (ex: usuário carrega novo roteiro)
+    // Usa debounce + verificação de hash para evitar resets falsos
     function observarMudancasNoPrompt() {
         const promptElement = document.querySelector('.prompt');
         if (!promptElement) return;
+        
+        // Salva hash inicial
+        const textoInicial = (promptElement.innerText || promptElement.textContent || "").trim();
+        ultimoHashRoteiro = calcularHash(textoInicial);
 
         const observer = new MutationObserver((mutations) => {
+            // Filtra mutations de âncoras temporárias
+            let temMutacaoReal = false;
+            
             for (const mutation of mutations) {
-                // Ignora mudanças causadas por âncoras temporárias de scroll (voice-sync-*)
-                // Verifica TANTO addedNodes QUANTO removedNodes
                 if (mutation.type === 'childList') {
+                    // Verifica se é âncora temporária
                     let eAncoraTemporaria = false;
                     
-                    // Verifica nós adicionados
                     for (const node of mutation.addedNodes) {
                         if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
                             eAncoraTemporaria = true;
@@ -153,7 +190,6 @@ if (SpeechRecognition) {
                         }
                     }
                     
-                    // Verifica nós removidos também
                     if (!eAncoraTemporaria) {
                         for (const node of mutation.removedNodes) {
                             if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
@@ -163,44 +199,26 @@ if (SpeechRecognition) {
                         }
                     }
                     
-                    if (eAncoraTemporaria) {
-                        continue; // Ignora mutations de âncoras temporárias (add/remove)
+                    if (!eAncoraTemporaria) {
+                        temMutacaoReal = true;
                     }
-                    
-                    // Se chegou aqui, é uma mudança real - mas verifica se é significativa
-                    // Ignora se for apenas nós de texto vazios ou whitespace
-                    let mudancaSignificativa = false;
-                    for (const node of mutation.addedNodes) {
-                        if (node.nodeType === Node.ELEMENT_NODE) {
-                            mudancaSignificativa = true;
-                            break;
-                        }
-                        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
-                            mudancaSignificativa = true;
-                            break;
-                        }
-                    }
-                    for (const node of mutation.removedNodes) {
-                        if (node.nodeType === Node.ELEMENT_NODE && !node.id?.startsWith('voice-sync-')) {
-                            mudancaSignificativa = true;
-                            break;
-                        }
-                    }
-                    
-                    if (!mudancaSignificativa) {
-                        continue; // Ignora mudanças não significativas
-                    }
-                }
-                
-                // Se houve mudança real no conteúdo (não apenas âncoras temporárias)
-                if (mutation.type === 'childList' || mutation.type === 'characterData') {
-                    console.log('🔄 Prompt alterado (reload de roteiro), resetando rastreamento');
-                    ultimoElementoValidado = null;
-                    // Recarrega o roteiro também
-                    carregarRoteiro();
-                    break;
+                } else if (mutation.type === 'characterData') {
+                    temMutacaoReal = true;
                 }
             }
+            
+            if (!temMutacaoReal) {
+                return; // Ignora mutations de âncoras
+            }
+            
+            // Agenda verificação de hash com debounce
+            if (observerDebounceTimer) {
+                clearTimeout(observerDebounceTimer);
+            }
+            
+            observerDebounceTimer = setTimeout(() => {
+                verificarMudancaRoteiro();
+            }, 1000); // 1 segundo de debounce
         });
 
         observer.observe(promptElement, {
@@ -209,7 +227,7 @@ if (SpeechRecognition) {
             characterData: true
         });
 
-        console.log('👁️ Observer de mudanças no prompt ativado');
+        console.log('👁️ Observer ativado (usa hash para detectar mudanças reais)');
     }
 
     // Ativa observer após breve delay para garantir que prompt está carregado
@@ -259,6 +277,13 @@ if (SpeechRecognition) {
         if (!promptElement) {
             console.warn('⚠️ Elemento .prompt não encontrado');
             return null;
+        }
+        
+        // Verifica se o último elemento validado ainda está conectado ao DOM
+        // Se não estiver (ex: roteiro foi recarregado), reseta
+        if (ultimoElementoValidado && !document.body.contains(ultimoElementoValidado)) {
+            console.log('🔄 Último elemento desconectado do DOM, resetando rastreamento');
+            ultimoElementoValidado = null;
         }
 
         const textoNormalizado = textoFalado.toLowerCase().trim();
@@ -427,7 +452,6 @@ if (SpeechRecognition) {
                 const ancoraRemover = document.getElementById(anchorId);
                 if (ancoraRemover) {
                     ancoraRemover.remove();
-                    console.log(`   🗑️ Âncora removida`);
                 }
             }, 2000);
         }, 50);

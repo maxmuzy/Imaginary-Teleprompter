@@ -73,7 +73,7 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
-### 2024-11-24: Sistema de Reconhecimento de Voz (v16 - Final)
+### 2024-11-24: Sistema de Reconhecimento de Voz (v17 - Correção de Matching)
 - **Implementação Completa do Sistema de Sincronização com Voz**:
   - Criado `js/speechRecognition.js` (módulo ES6) para reconhecimento de voz via Web Speech API
   - Criado `js/matchRecognition.js` com algoritmo de Levenshtein para fuzzy matching (mantido para compatibilidade, mas não utilizado)
@@ -114,7 +114,7 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
   - Reseta progresso apenas em mudanças reais do roteiro
   - Evita reset durante ciclo de scroll normal
   
-- **Correções de Bugs (v1-v16)**:
+- **Correções de Bugs (v1-v17)**:
   - v1-v3: Carregamento duplicado, funções não expostas, roteiro não carregado
   - v4-v9: Frases repetidas sempre faziam match com primeira ocorrência
   - v10-v11: Lógica de compareDocumentPosition invertida
@@ -122,7 +122,8 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
   - v13: Lógica de ordem documental corrigida
   - v14: Adicionado check de descendants (contains)
   - v15: Filtro de âncoras em addedNodes (incompleto)
-  - v16: Filtro completo de âncoras em addedNodes E removedNodes ✅
+  - v16: Filtro completo de âncoras em addedNodes E removedNodes
+  - v17: Janela móvel de 8 palavras para matching (resolve acúmulo de texto longo) ✅
 
 - **Arquivos Criados/Modificados**:
   - `teleprompter.html`: Removido carregamento duplicado do script

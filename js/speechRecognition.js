@@ -279,11 +279,20 @@ if (SpeechRecognition) {
             return null;
         }
         
-        // Verifica se o último elemento validado ainda está conectado ao DOM
-        // Se não estiver (ex: roteiro foi recarregado), reseta
-        if (ultimoElementoValidado && !document.body.contains(ultimoElementoValidado)) {
-            console.log('🔄 Último elemento desconectado do DOM, resetando rastreamento');
-            ultimoElementoValidado = null;
+        // Verifica se o último elemento validado ainda está conectado ao prompt
+        // Usa promptElement.contains() ao invés de document.body.contains()
+        // pois o .prompt pode estar em estruturas DOM diferentes
+        if (ultimoElementoValidado) {
+            const estaNoPrompt = promptElement.contains(ultimoElementoValidado);
+            const estaNoDocument = document.contains(ultimoElementoValidado);
+            const temParent = ultimoElementoValidado.parentNode !== null;
+            
+            if (!estaNoPrompt) {
+                console.log(`🔄 Último elemento desconectado do prompt`);
+                console.log(`   DEBUG: noPrompt=${estaNoPrompt}, noDocument=${estaNoDocument}, temParent=${temParent}`);
+                console.log(`   DEBUG: elemento era: ${ultimoElementoValidado.tagName}, texto: "${(ultimoElementoValidado.innerText || '').substring(0, 30)}..."`);
+                ultimoElementoValidado = null;
+            }
         }
 
         const textoNormalizado = textoFalado.toLowerCase().trim();

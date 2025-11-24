@@ -1,0 +1,304 @@
+Nenhuma correspondência suficientemente similar encontrada.
+VM42 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM42 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM42 injected.js:37 👁️ Observer ativado (usa hash para detectar mudanças reais)
+VM42 injected.js:37 🎤 Parcial: "cinco minutos" (de 2 palavras)
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (50%) em 1982px: "DAQUI A POUCO, MEIO-DIA E QUARENTA E CINCO, NO REP..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1982px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.8% (atual: -0.3%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1982px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+2VM42 injected.js:37 Aumentando Velocidade
+VM42 injected.js:37 Moving to anchor: overlayFocus
+VM42 injected.js:37 🎤 Parcial: "minutos a decolagem aconteceu às 7:15 da manhã" (de 9 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (80%) em 7873px: "NO TOTAL, DE ACORDO COM AS PRIMEIRAS INFORMAÇÕES, ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 7873px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.3% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (7873px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027801075
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "manhã no Campo de Marte o avião colide" (de 16 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 7873px: "NO TOTAL, DE ACORDO COM AS PRIMEIRAS INFORMAÇÕES, ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 7873px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.3% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (7873px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027803207
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "o solo às 7:20 da manhã na avenida" (de 25 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (75%) em 7873px: "NO TOTAL, DE ACORDO COM AS PRIMEIRAS INFORMAÇÕES, ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 7873px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.3% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (7873px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027806603
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "manhã na Avenida Marquês de São Vicente na" (de 30 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 6163px: "MOMENTO, NÃO EXISTE MAIS RISCO DE EXPLOSÃO./ O LOC..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 6163px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 5.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (6163px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027808582
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "Avenida Marquês de São Vicente na Barra Funda" (de 32 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 6163px: "MOMENTO, NÃO EXISTE MAIS RISCO DE EXPLOSÃO./ O LOC..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 6163px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 5.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (6163px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027809659
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "Paulo de ontem o Daniel falou ainda pouco" (de 45 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (33%) em 5656px: "ABRIMOS ESSA EDIÇÃO COM INFORMAÇÕES DIRETO DE SÃO ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 5656px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 5.3% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (5656px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027813267
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "o Daniel falou ainda pouco daqui a pouco" (de 48 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (50%) em 1539px: "DAQUI A POUCO, NO REPÓRTER BRASIL./..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1539px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.4% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1539px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.0%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "falou ainda pouco daqui a pouco eu trago" (de 50 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (50%) em 1539px: "DAQUI A POUCO, NO REPÓRTER BRASIL./..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1539px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.4% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1539px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.0%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "ainda pouco daqui a pouco eu trago mais" (de 51 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (67%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027815427
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "a pouco eu trago mais informações sobre essa" (de 54 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (83%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027816790
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "pouco eu trago mais informações sobre essa tragédia" (de 55 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (86%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027817281
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "informações sobre essa tragédia aérea em São Paulo" (de 59 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027818897
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "tragédia aérea em São Paulo te conto também" (de 62 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (67%) em 6163px: "MOMENTO, NÃO EXISTE MAIS RISCO DE EXPLOSÃO./ O LOC..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 6163px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 5.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (6163px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027819416
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "te conto também agora que São Paulo teve" (de 67 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (71%) em 35808px: "LULA NASCEU NA PEQUENA CIDADE DE GARANHUNS, NO INT..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 35808px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 33.2% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (35808px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027821171
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "te conto também agora que São Paulo teve" (de 67 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (71%) em 35808px: "LULA NASCEU NA PEQUENA CIDADE DE GARANHUNS, NO INT..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 35808px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 33.2% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (35808px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027821573
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "São Paulo teve mais um dia de transtornos" (de 72 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027823275
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "Paulo teve mais um dia de transtornos causados" (de 73 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027824124
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "fim da tarde e na noite desta quinta-feira" (de 84 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027827092
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "fim da tarde e na noite desta quinta-feira" (de 84 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027827669
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "e na noite desta quinta-feira milhares de pessoas" (de 87 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027828795
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "desta quinta-feira milhares de pessoas estão sem energia" (de 90 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027830066
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "desta quinta-feira milhares de pessoas estão sem energia" (de 90 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 8253px: "DAQUI A POUCO A GENTE TRAZ MAIS INFORMAÇÕES SOBRE ..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 8253px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 7.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (8253px)
+VM42 injected.js:37    🎯 Criando âncora temporária: voice-sync-1764027830718
+VM42 injected.js:37    ✅ Teleprompter movido para a âncora
+VM42 injected.js:37 🎤 Parcial: "estão sem energia um homem de 24 anos" (de 95 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "energia um homem de 24 anos está desaparecido" (de 97 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "anos está desaparecido depois que o carro dele" (de 102 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "anos está desaparecido depois que o carro dele" (de 102 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "está desaparecido depois que o carro dele caiu" (de 103 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "que o carro dele caiu em um córrego" (de 106 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "que o carro dele caiu em um córrego" (de 106 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado
+VM42 injected.js:37 🎤 Parcial: "que o carro dele caiu em um córrego" (de 106 palavras)
+VM42 injected.js:37 🔄 Último elemento desconectado do DOM, resetando rastreamento
+VM42 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM42 injected.js:37    ✓ Melhor match (100%) em 1792px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM42 injected.js:37 ✅ Elemento encontrado: P
+VM42 injected.js:37    📍 offsetTop: 1792px / height: 107721px
+VM42 injected.js:37    📊 Progresso: 1.7% (atual: -0.5%)
+VM42 injected.js:37    ✅ Último elemento validado: P (1792px)
+VM42 injected.js:37    ⏭️ Já sincronizado (diferença: 2.2%), progresso atualizado

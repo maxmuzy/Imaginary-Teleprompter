@@ -73,10 +73,10 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
-### 2024-11-24: Sistema de Reconhecimento de Voz (v17 - Correção de Matching)
+### 2024-11-24: Sistema de Reconhecimento de Voz (v18.3 - MutationObserver Corrigido)
 - **Implementação Completa do Sistema de Sincronização com Voz**:
   - Criado `js/speechRecognition.js` (módulo ES6) para reconhecimento de voz via Web Speech API
-  - Criado `js/matchRecognition.js` com algoritmo de Levenshtein para fuzzy matching (mantido para compatibilidade, mas não utilizado)
+  - Criado `js/matchRecognition.js` com algoritmo de Levenshtein para fuzzy matching (mantido para compatibilidade)
   - Sistema detecta fala do apresentador e sincroniza automaticamente o scroll do teleprompter
   
 - **Funcionalidades Principais**:
@@ -91,30 +91,35 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
   - Suporte completo para frases repetidas - avança sequencialmente sem voltar
   - Feedback visual detalhado no console
   
-- **Algoritmo de Matching (v16)**:
+- **Algoritmo de Matching (v18.3)**:
+  - Janela móvel de 8 palavras (últimas reconhecidas)
+  - Threshold mínimo: 25% de similaridade
   - Busca diretamente em elementos DOM (p, h1-h6, li, ol, ul, span, strong, em, b, i)
   - Calcula similaridade de cobertura: proporção de palavras faladas presentes no elemento
   - Normaliza palavras: lowercase + remove acentos (NFD) + remove pontuação
-  - Threshold mínimo: 30% de similaridade
   - Rastreia último elemento validado para progressão sequencial
   - Filtra elementos anteriores, iguais, ou descendants do último validado
   - Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo)
   - Usa compareDocumentPosition para ordem estável independente de CSS
+  - Verifica conectividade DOM antes de usar ultimoElementoValidado
   
 - **Rastreamento de Progresso**:
   - Variável global: `ultimoElementoValidado` (referência ao Node)
   - Atualizado SEMPRE em scrollParaElemento (antes do check de 3%)
   - Garante avanço sequencial em frases repetidas
-  - Resetado automaticamente quando roteiro muda (MutationObserver)
+  - Resetado quando: roteiro muda (hash diferente) OU elemento desconectado do DOM
   - Preservado durante scrolls (filtro de âncoras temporárias)
   
-- **MutationObserver**:
+- **MutationObserver (v18.3)**:
   - Monitora mudanças no elemento .prompt
   - Filtra âncoras temporárias (voice-sync-*) em addedNodes E removedNodes
-  - Reseta progresso apenas em mudanças reais do roteiro
-  - Evita reset durante ciclo de scroll normal
+  - Usa hash do conteúdo para detectar mudanças REAIS do roteiro
+  - Debounce de 1 segundo para evitar resets consecutivos
+  - NÃO reseta em scroll normal (hash igual)
+  - RESETA quando roteiro muda (hash diferente)
+  - Fallback: verifica document.body.contains(ultimoElementoValidado) antes de cada match
   
-- **Correções de Bugs (v1-v17)**:
+- **Correções de Bugs (v1-v18.3)**:
   - v1-v3: Carregamento duplicado, funções não expostas, roteiro não carregado
   - v4-v9: Frases repetidas sempre faziam match com primeira ocorrência
   - v10-v11: Lógica de compareDocumentPosition invertida
@@ -123,13 +128,16 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
   - v14: Adicionado check de descendants (contains)
   - v15: Filtro de âncoras em addedNodes (incompleto)
   - v16: Filtro completo de âncoras em addedNodes E removedNodes
-  - v17: Janela móvel de 8 palavras para matching (resolve acúmulo de texto longo) ✅
+  - v17: Janela móvel de 8 palavras para matching (resolve acúmulo de texto longo)
+  - v18: MutationObserver resetando constantemente (observer pausado durante operações)
+  - v18.2: Hash para detectar mudanças reais (sem pausar observer)
+  - v18.3: Verificação de conectividade DOM para ultimoElementoValidado ✅
 
 - **Arquivos Criados/Modificados**:
   - `teleprompter.html`: Removido carregamento duplicado do script
-  - `js/teleprompter.js`: Expostas funções globalmente (increaseVelocity, decreaseVelocity, moveTeleprompterToAnchor, getTeleprompterProgress, animateTeleprompter)
-  - `js/speechRecognition.js`: Implementação completa v16 (novo)
-  - `js/matchRecognition.js`: Fuzzy matching com Levenshtein (novo, mantido para compatibilidade)
+  - `js/teleprompter.js`: Expostas funções globalmente
+  - `js/speechRecognition.js`: Implementação completa v18.3
+  - `js/matchRecognition.js`: Fuzzy matching com Levenshtein (mantido para compatibilidade)
 
 ### 2024-11-24: Initial Replit Setup
 - Created `server.js` to serve static files on port 5000

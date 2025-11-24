@@ -1,15 +1,24 @@
 import { encontrarPosicaoNoRoteiroFuzzy } from "./matchRecognition.js";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-var overlayFocus = document.getElementById('overlayFocus');
-console.log(typeof window.increaseVelocity); // Deve ser "function"
-console.log(typeof window.decreaseVelocity); // Deve ser "function"
+
+// Estado global do reconhecimento
+let roteiro = [];
+let roteiroTextoCompleto = "";
+let textoAcumulado = "";
+let debounceTimer = null;
+let isProcessing = false;
+let ultimoElementoValidado = null; // Rastreia o último elemento validado (Node) para ordem documental
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
-    recognition.interimResults = true; // Ativa resultados intermediários
+    recognition.interimResults = true;
     recognition.lang = 'pt-BR';
+
+    recognition.onstart = function() {
+        console.log('🎤 Reconhecimento de voz iniciado');
+    };
 
     recognition.onresult = function (event) {
         let interimTranscript = '';
@@ -18,31 +27,27 @@ if (SpeechRecognition) {
         // Percorre os resultados para separar os finais dos intermediários
         for (let i = event.resultIndex; i < event.results.length; i++) {
             if (event.results[i].isFinal) {
-                //console.log('Resultado final:', event.results[i][0].transcript);
-                recognition.abort();
-                //recognition.
-                // Depois de um breve intervalo, reiniciar:
-                setTimeout(() => {
-                    recognition.start();
-                }, 200);
-
-
                 finalTranscript += event.results[i][0].transcript;
+                
+                // Processa resultado final
+                processarEntrada(finalTranscript, true);
+                
+                // Reinicia após breve pausa
+                setTimeout(() => {
+                    if (recognition) {
+                        recognition.abort();
+                        setTimeout(() => recognition.start(), 100);
+                    }
+                }, 200);
             } else {
-                //console.log('Resultado intermediário:', event.results[i][0].transcript);
                 interimTranscript += event.results[i][0].transcript;
-
-                let lastResult = event.results[event.resultIndex];
-                atualizarDebug(processarEntrada(lastResult));
             }
         }
 
-        // Atualiza o debug (mostrando os resultados intermediários em negrito)
-        //atualizarDebug(interimTranscript, finalTranscript);
-
-        // Aqui você pode decidir se processa sempre o interimTranscript ou só quando há um final
-        // Por exemplo, para sincronizar a rolagem, talvez use uma combinação dos dois.
-        //sincronizarTeleprompter(interimTranscript || finalTranscript);
+        // Processa resultados intermediários com debounce
+        if (interimTranscript) {
+            processarEntradaComDebounce(interimTranscript, false);
+        }
     };
 
     // Função auxiliar para escapar caracteres especiais que podem existir na string (útil para usar com regex)
@@ -50,120 +55,353 @@ if (SpeechRecognition) {
         return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
+    // Carrega o roteiro do teleprompter (elemento .prompt existe desde o início)
     function getVisibleText() {
         return new Promise((resolve) => {
+            // Primeiro tenta pegar imediatamente do elemento .prompt
+            const promptElements = document.querySelectorAll('.prompt');
+            if (promptElements.length > 0) {
+                const textoCompleto = promptElements[0].innerText || promptElements[0].textContent || "";
+                if (textoCompleto.trim().length > 0) {
+                    resolve(textoCompleto);
+                    return;
+                }
+            }
+            
+            // Se não encontrou, aguarda aparecer com observer
             const observer = new MutationObserver((mutationsList) => {
                 for (const mutation of mutationsList) {
                     if (mutation.type === "childList" || mutation.type === "subtree") {
-                        const debugElements = document.getElementsByClassName('prompt move');
-                        if (debugElements.length > 0) {
-                            const texto = debugElements[0].innerText || debugElements[0].textContent || "";
-                            observer.disconnect(); // Para de observar após encontrar
-                            resolve(texto); // Retorna o texto via Promise
-                            return;
+                        const elements = document.querySelectorAll('.prompt');
+                        if (elements.length > 0) {
+                            const texto = elements[0].innerText || elements[0].textContent || "";
+                            if (texto.trim().length > 0) {
+                                observer.disconnect();
+                                resolve(texto);
+                                return;
+                            }
                         }
                     }
                 }
             });
     
-            // Observar mudanças no corpo da página
             observer.observe(document.body, { childList: true, subtree: true });
         });
     }
 
-    function atualizarDebug(interimText) {
-        // Seleciona a primeira div com a classe "prompt move"
-        const debugElements = document.getElementsByClassName('prompt move');
-        if (debugElements.length === 0) return; // Se não encontrar nenhum, sai da função
-        const debugElement = debugElements[0];
-
-        // Se "finalText" representa o conteúdo completo que desejamos exibir,
-        // vamos usá-lo como base. Caso contrário, você pode usar o debugElement.innerHTML.
-        let novoConteudo = debugElement.innerHTML;
-
-        // Se interimText estiver definido e não for apenas espaços, procedemos à substituição
-        if (interimText && interimText.trim() !== "") {
-            // Escapa os caracteres especiais para uso seguro em regex
-            const interimTextEscapado = escapeRegExp(interimText);
-            // Cria uma expressão regular que irá encontrar somente a primeira ocorrência
-            const regex = new RegExp(interimTextEscapado);
-            // Substitui a primeira ocorrência de interimText por ele mesmo envolto pela tag <strong>
-            novoConteudo = novoConteudo.replace(regex, `<strong style="color: red;">${interimText}</strong>`);
-        }
-
-        // Atualiza o conteúdo da div com o novo conteúdo processado
-        debugElement.innerHTML = novoConteudo;
+    // Transforma texto em array de frases (separadas por ponto, quebra de linha ou parágrafo)
+    function textoParaArrayDeFrases(texto) {
+        if (!texto) return [];
+        
+        // Quebra por linhas e por pontos finais
+        let frases = texto
+            .split(/\n+/)
+            .map(linha => linha.trim())
+            .filter(linha => linha.length > 0);
+        
+        // Divide frases longas por pontos finais
+        let frasesFinais = [];
+        frases.forEach(linha => {
+            const partes = linha.split(/\.+/).map(p => p.trim()).filter(p => p.length > 3);
+            frasesFinais.push(...partes);
+        });
+        
+        return frasesFinais;
     }
 
-    let textoAcumulado = "";
-    let roteiro = "";
+    // Debounce para evitar processamento excessivo
+    function processarEntradaComDebounce(texto, isFinal) {
+        if (debounceTimer) {
+            clearTimeout(debounceTimer);
+        }
+        
+        debounceTimer = setTimeout(() => {
+            processarEntrada(texto, isFinal);
+        }, isFinal ? 0 : 300); // Sem delay para finais, 300ms para parciais
+    }
     
-    // Uso da função com await
+    // Carrega o roteiro quando o teleprompter estiver pronto
     async function carregarRoteiro() {
-        roteiro = await getVisibleText();
+        try {
+            roteiroTextoCompleto = await getVisibleText();
+            roteiro = textoParaArrayDeFrases(roteiroTextoCompleto);
+            console.log(`📄 Roteiro carregado: ${roteiro.length} frases`);
+        } catch (error) {
+            console.error('Erro ao carregar roteiro:', error);
+        }
     }
 
     carregarRoteiro();
 
-    function processarEntrada(entradaParcial) {
-        textoAcumulado = entradaParcial;
+    // Observer para resetar progresso quando o prompt muda (ex: usuário carrega novo roteiro)
+    function observarMudancasNoPrompt() {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return;
 
-        // Se o acumulado tiver um tamanho mínimo (ex.: 5 caracteres), tenta fazer o matching
-        if (textoAcumulado.length >= 5) {
-            //console.log('Procurando no roteiro:', roteiro);
-            console.log('Texto acumulado:', textoAcumulado);
-
-            // Aqui você pode chamar a função de fuzzy matching comparando textoAcumulado com o roteiro
-            const posicaoRoteiro = encontrarPosicaoNoRoteiroFuzzy(textoAcumulado, roteiro);
-            if (posicaoRoteiro !== -1) {
-                console.log("Posição encontrada no roteiro: " + posicaoRoteiro);
-                syncSpeechWithTeleprompter(textoAcumulado);
-                // Limpa o acumulado após identificar a posição
-                textoAcumulado = "";
+        const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                // Ignora mudanças causadas por âncoras temporárias de scroll (voice-sync-*)
+                // Verifica TANTO addedNodes QUANTO removedNodes
+                if (mutation.type === 'childList') {
+                    let eAncoraTemporaria = false;
+                    
+                    // Verifica nós adicionados
+                    for (const node of mutation.addedNodes) {
+                        if (node.id && node.id.startsWith('voice-sync-')) {
+                            eAncoraTemporaria = true;
+                            break;
+                        }
+                    }
+                    
+                    // Verifica nós removidos também
+                    if (!eAncoraTemporaria) {
+                        for (const node of mutation.removedNodes) {
+                            if (node.id && node.id.startsWith('voice-sync-')) {
+                                eAncoraTemporaria = true;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    if (eAncoraTemporaria) {
+                        continue; // Ignora mutations de âncoras temporárias (add/remove)
+                    }
+                }
+                
+                // Se houve mudança real no conteúdo (não apenas âncoras temporárias)
+                if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                    console.log('🔄 Prompt alterado (reload de roteiro), resetando rastreamento');
+                    ultimoElementoValidado = null;
+                    // Recarrega o roteiro também
+                    carregarRoteiro();
+                    break;
+                }
             }
-        }
+        });
+
+        observer.observe(promptElement, {
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+
+        console.log('👁️ Observer de mudanças no prompt ativado');
     }
 
-    function syncSpeechWithTeleprompter(recognizedText) {
-        // Obtém o texto visível no teleprompter (na área de foco)
-        var textoVisivel = getVisibleText();
+    // Ativa observer após breve delay para garantir que prompt está carregado
+    setTimeout(observarMudancasNoPrompt, 1000);
 
-        // Executa o fuzzy matching entre o texto reconhecido e o visível
-        var resultadoFuzzy = encontrarPosicaoNoRoteiroFuzzy(recognizedText, textoVisivel);
+    // Processa a entrada de voz e sincroniza com o teleprompter
+    function processarEntrada(texto, isFinal) {
+        if (isProcessing) return;
+        
+        // Atualiza o texto acumulado
+        textoAcumulado = texto.trim();
 
-        if (resultadoFuzzy.index !== -1) {
-            // Encontrou uma correspondência. Por exemplo, podemos assumir que:
-            // - Se a correspondência ocorrer em uma linha abaixo do meio do texto visível, o apresentador já avançou além do que é exibido,
-            //   e a velocidade deve aumentar.
-            // - Se a correspondência estiver acima do meio, a rolagem pode estar adiantada e a velocidade deve diminuir.
-            var totalLinhas = resultadoFuzzy.linhas.length;
+        // Precisa ter tamanho mínimo para processar
+        if (textoAcumulado.length < 5) return;
 
-            console.log("Linha correspondente: " + resultadoFuzzy.linhas[resultadoFuzzy.index]);
-            console.log("Similaridade: " + resultadoFuzzy.similaridade);
+        isProcessing = true;
 
-            if (resultadoFuzzy.index > totalLinhas / 2) {
-                // O apresentador está "à frente" do que está sendo exibido: acelera para acompanhar
-                window.increaseVelocity();
-            } else {
-                // O apresentador está "atrasado": diminui a velocidade para não ultrapassar
-                window.decreaseVelocity();
+        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${textoAcumulado}"`);
+
+        // Busca diretamente no DOM ao invés de usar o array de roteiro
+        const elementoEncontrado = encontrarElementoDOMComTexto(textoAcumulado);
+        
+        if (elementoEncontrado) {
+            console.log(`✅ Elemento encontrado: ${elementoEncontrado.tagName}`);
+            scrollParaElemento(elementoEncontrado);
+            
+            // Limpa o acumulado se for resultado final
+            if (isFinal) {
+                textoAcumulado = "";
             }
-
-            // Opcional: para fins de debug/feedback, você pode realçar a linha correspondente.
-            // Uma abordagem simples é atualizar o innerHTML da área de foco (overlayFocus) destacando a linha.
-            // Veja o exemplo a seguir:
-            var linhasHTML = resultadoFuzzy.linhas.map(function (linha, i) {
-                if (i === resultadoFuzzy.index) {
-                    return "<strong>" + linha + "</strong>";  // em negrito (ou com outro estilo)
-                }
-                return linha;
-            }).join("<br>");
-            overlayFocus.innerHTML = linhasHTML;
-
         } else {
-            // Se não houver correspondência suficiente, pode-se optar por não alterar a velocidade ou adotar outra estratégia.
-            console.log("Nenhuma correspondência suficientemente similar encontrada para: " + recognizedText);
+            console.log(`❌ Nenhum elemento encontrado para: "${textoAcumulado}"`);
         }
+
+        isProcessing = false;
+    }
+
+    // Busca diretamente no DOM pelo elemento que melhor corresponde ao texto falado
+    // Considera a última posição de scroll para evitar voltar a frases repetidas anteriores
+    function encontrarElementoDOMComTexto(textoFalado) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) {
+            console.warn('⚠️ Elemento .prompt não encontrado');
+            return null;
+        }
+
+        const textoNormalizado = textoFalado.toLowerCase().trim();
+        
+        // Pega todos os elementos de texto (incluindo spans, strong, em para markup inline)
+        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, ol, ul, span, strong, em, b, i');
+        
+        let melhorElemento = null;
+        let melhorSimilaridade = 0;
+        const threshold = 0.3; // 30% mínimo
+        
+        const ultimoElemLog = ultimoElementoValidado ? `${ultimoElementoValidado.tagName}` : 'nenhum';
+        console.log(`   🔍 Procurando em ${elementos.length} elementos (último validado: ${ultimoElemLog})...`);
+        
+        // Percorre todos os elementos e encontra o com melhor similaridade
+        // Prioriza elementos APÓS o último validado na ordem do documento
+        for (let elem of elementos) {
+            const textoElemento = (elem.innerText || elem.textContent || '').trim();
+            const textoElemNormalizado = textoElemento.toLowerCase().trim();
+            
+            // Calcula similaridade baseada em cobertura (melhor para frases parciais)
+            const similaridade = calcularSimilaridadeCobertura(textoNormalizado, textoElemNormalizado);
+            
+            if (similaridade >= threshold) {
+                // NUNCA seleciona o mesmo elemento, elementos anteriores, ou descendants
+                // (evita voltar para trás ou ficar preso em frases repetidas)
+                if (ultimoElementoValidado) {
+                    const eMesmo = elem === ultimoElementoValidado;
+                    
+                    // Verifica se elem está contido dentro de ultimoElementoValidado (descendant)
+                    const eDescendant = ultimoElementoValidado.contains(elem);
+                    
+                    if (eMesmo || eDescendant) {
+                        continue; // Ignora o mesmo elemento ou seus descendants
+                    }
+                    
+                    // Verifica se elem está DEPOIS de ultimoElementoValidado na ordem do documento
+                    const comparacao = ultimoElementoValidado.compareDocumentPosition(elem);
+                    const estaDepois = (comparacao & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
+                    
+                    // Ignora se NÃO está depois (está antes ou sem relação)
+                    if (!estaDepois) {
+                        continue;
+                    }
+                }
+                
+                // Atualiza se:
+                // 1. É o primeiro candidato válido (após ultimoElementoValidado) OU
+                // 2. Tem similaridade estritamente maior (match melhor)
+                // Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo na sequência)
+                const primeiroValido = melhorElemento === null;
+                const matchMelhor = similaridade > melhorSimilaridade;
+                
+                if (primeiroValido || matchMelhor) {
+                    melhorSimilaridade = similaridade;
+                    melhorElemento = elem;
+                }
+            }
+        }
+        
+        if (melhorElemento) {
+            const textoMatch = (melhorElemento.innerText || melhorElemento.textContent || '').substring(0, 50);
+            console.log(`   ✓ Melhor match (${(melhorSimilaridade * 100).toFixed(0)}%) em ${melhorElemento.offsetTop}px: "${textoMatch}..."`);
+        }
+        
+        return melhorElemento;
+    }
+
+    // Move o teleprompter para um elemento específico
+    function scrollParaElemento(elemento) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) {
+            console.warn('⚠️ Elemento .prompt não encontrado');
+            return;
+        }
+
+        // Calcula a posição vertical do elemento no prompt
+        const offsetTop = elemento.offsetTop;
+        const promptHeight = promptElement.scrollHeight;
+        
+        // Calcula o progresso baseado na posição real do elemento
+        const progressoCalculado = offsetTop / promptHeight;
+        const posicaoAtual = window.getTeleprompterProgress ? window.getTeleprompterProgress() : 0;
+        
+        console.log(`   📍 offsetTop: ${offsetTop}px / height: ${promptHeight}px`);
+        console.log(`   📊 Progresso: ${(progressoCalculado * 100).toFixed(1)}% (atual: ${(posicaoAtual * 100).toFixed(1)}%)`);
+        
+        const diferenca = progressoCalculado - posicaoAtual;
+        const diferencaPercentual = Math.abs(diferenca) * 100;
+        
+        // SEMPRE atualiza o rastreamento de progresso (crítico para frases repetidas)
+        ultimoElementoValidado = elemento;
+        console.log(`   ✅ Último elemento validado: ${elemento.tagName} (${offsetTop}px)`);
+        
+        // Se a diferença for muito pequena, não faz scroll (mas já atualizou o progresso)
+        if (diferencaPercentual < 3) {
+            console.log(`   ⏭️ Já sincronizado (diferença: ${diferencaPercentual.toFixed(1)}%), progresso atualizado`);
+            return;
+        }
+        
+        // Cria uma âncora temporária e move o teleprompter
+        criarAncoraTemporariaEMover(elemento);
+    }
+
+    // Normaliza uma palavra: remove pontuação e acentos
+    function normalizarPalavra(palavra) {
+        return palavra
+            .toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+            .replace(/[^\w\s]/g, '') // Remove pontuação
+            .trim();
+    }
+
+    // Calcula similaridade baseada em cobertura (palavras faladas presentes no texto)
+    // Mais adequada para frases curtas em parágrafos longos
+    function calcularSimilaridadeCobertura(textoFalado, textoElemento) {
+        // Normaliza e filtra palavras (> 2 chars)
+        const palavrasFaladas = textoFalado
+            .split(/\s+/)
+            .map(p => normalizarPalavra(p))
+            .filter(p => p.length > 2);
+        
+        const palavrasElemento = new Set(
+            textoElemento
+                .split(/\s+/)
+                .map(p => normalizarPalavra(p))
+                .filter(p => p.length > 2)
+        );
+        
+        if (palavrasFaladas.length === 0) return 0;
+        
+        // Conta quantas palavras do texto falado aparecem no elemento
+        let palavrasEncontradas = 0;
+        for (let palavra of palavrasFaladas) {
+            if (palavrasElemento.has(palavra)) {
+                palavrasEncontradas++;
+            }
+        }
+        
+        // Retorna a proporção de palavras do texto falado que foram encontradas
+        return palavrasEncontradas / palavrasFaladas.length;
+    }
+
+    // Cria uma âncora temporária e move o teleprompter
+    function criarAncoraTemporariaEMover(elemento) {
+        const anchorId = 'voice-sync-' + Date.now();
+        
+        // Cria uma âncora antes do elemento
+        const ancora = document.createElement('a');
+        ancora.id = anchorId;
+        ancora.name = anchorId;
+        elemento.parentNode.insertBefore(ancora, elemento);
+        
+        console.log(`   🎯 Criando âncora temporária: ${anchorId}`);
+        
+        // Aguarda um frame para o DOM atualizar
+        setTimeout(() => {
+            // Move o teleprompter usando sua API
+            if (window.moveTeleprompterToAnchor) {
+                window.moveTeleprompterToAnchor(anchorId);
+                console.log(`   ✅ Teleprompter movido para a âncora`);
+            }
+            
+            // Remove a âncora após 2 segundos
+            setTimeout(() => {
+                const ancoraRemover = document.getElementById(anchorId);
+                if (ancoraRemover) {
+                    ancoraRemover.remove();
+                    console.log(`   🗑️ Âncora removida`);
+                }
+            }, 2000);
+        }, 50);
     }
 
     recognition.onerror = function (event) {

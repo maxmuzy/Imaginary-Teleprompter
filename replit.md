@@ -71,12 +71,70 @@ Since Replit runs in the browser (not Electron), these desktop-specific features
 
 The core teleprompter functionality (editing, prompting, controls, themes) works fully in the browser.
 
-## Recent Changes (Replit Setup)
-- **2024-11-24**: Initial Replit setup
-  - Created `server.js` to serve static files on port 5000
-  - Installed Express.js dependency
-  - Configured workflow to run web server
-  - Documented project structure and setup
+## Recent Changes
+
+### 2024-11-24: Sistema de Reconhecimento de Voz (v16 - Final)
+- **Implementação Completa do Sistema de Sincronização com Voz**:
+  - Criado `js/speechRecognition.js` (módulo ES6) para reconhecimento de voz via Web Speech API
+  - Criado `js/matchRecognition.js` com algoritmo de Levenshtein para fuzzy matching (mantido para compatibilidade, mas não utilizado)
+  - Sistema detecta fala do apresentador e sincroniza automaticamente o scroll do teleprompter
+  
+- **Funcionalidades Principais**:
+  - Reconhecimento de voz contínuo em português (pt-BR)
+  - Resultados parciais (interim) para feedback em tempo real
+  - Fuzzy matching baseado em similaridade de cobertura (palavras faladas presentes no texto)
+  - Normalização completa: remove pontuação e acentos para matching robusto
+  - Debounce (300ms) para evitar processamento excessivo
+  - Scroll automático para posição da fala reconhecida
+  - Âncoras temporárias (voice-sync-*) para movimento preciso no DOM
+  - Rastreamento de progresso com ordem documental (compareDocumentPosition)
+  - Suporte completo para frases repetidas - avança sequencialmente sem voltar
+  - Feedback visual detalhado no console
+  
+- **Algoritmo de Matching (v16)**:
+  - Busca diretamente em elementos DOM (p, h1-h6, li, ol, ul, span, strong, em, b, i)
+  - Calcula similaridade de cobertura: proporção de palavras faladas presentes no elemento
+  - Normaliza palavras: lowercase + remove acentos (NFD) + remove pontuação
+  - Threshold mínimo: 30% de similaridade
+  - Rastreia último elemento validado para progressão sequencial
+  - Filtra elementos anteriores, iguais, ou descendants do último validado
+  - Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo)
+  - Usa compareDocumentPosition para ordem estável independente de CSS
+  
+- **Rastreamento de Progresso**:
+  - Variável global: `ultimoElementoValidado` (referência ao Node)
+  - Atualizado SEMPRE em scrollParaElemento (antes do check de 3%)
+  - Garante avanço sequencial em frases repetidas
+  - Resetado automaticamente quando roteiro muda (MutationObserver)
+  - Preservado durante scrolls (filtro de âncoras temporárias)
+  
+- **MutationObserver**:
+  - Monitora mudanças no elemento .prompt
+  - Filtra âncoras temporárias (voice-sync-*) em addedNodes E removedNodes
+  - Reseta progresso apenas em mudanças reais do roteiro
+  - Evita reset durante ciclo de scroll normal
+  
+- **Correções de Bugs (v1-v16)**:
+  - v1-v3: Carregamento duplicado, funções não expostas, roteiro não carregado
+  - v4-v9: Frases repetidas sempre faziam match com primeira ocorrência
+  - v10-v11: Lógica de compareDocumentPosition invertida
+  - v12: ultimoElementoValidado não era atualizado em scrolls pequenos
+  - v13: Lógica de ordem documental corrigida
+  - v14: Adicionado check de descendants (contains)
+  - v15: Filtro de âncoras em addedNodes (incompleto)
+  - v16: Filtro completo de âncoras em addedNodes E removedNodes ✅
+
+- **Arquivos Criados/Modificados**:
+  - `teleprompter.html`: Removido carregamento duplicado do script
+  - `js/teleprompter.js`: Expostas funções globalmente (increaseVelocity, decreaseVelocity, moveTeleprompterToAnchor, getTeleprompterProgress, animateTeleprompter)
+  - `js/speechRecognition.js`: Implementação completa v16 (novo)
+  - `js/matchRecognition.js`: Fuzzy matching com Levenshtein (novo, mantido para compatibilidade)
+
+### 2024-11-24: Initial Replit Setup
+- Created `server.js` to serve static files on port 5000
+- Installed Express.js dependency
+- Configured workflow to run web server
+- Documented project structure and setup
 
 ## Development Notes
 - The JavaScript code uses feature detection (`inElectron()`) to gracefully skip Electron-specific features when running in a browser

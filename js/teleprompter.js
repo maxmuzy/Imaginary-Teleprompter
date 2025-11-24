@@ -947,6 +947,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         editor.postMessage({ 'request': 1, 'data': getProgress() }, getDomain());
     }
 
+    // Expor funções no escopo global para uso do reconhecimento de voz
+    window.increaseVelocity = increaseVelocity;
+    window.decreaseVelocity = decreaseVelocity;
+    window.moveTeleprompterToAnchor = internalMoveToAnchor;
+    window.getTeleprompterProgress = getProgress;
+    window.animateTeleprompter = animate;
+
     function incSteps() {
         steps++;
         if (steps > 140)

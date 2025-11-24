@@ -1,0 +1,180 @@
+Nenhuma correspondência suficientemente similar encontrada.
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM1458 injected.js:37 👁️ Observer de mudanças no prompt ativado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+2VM1458 injected.js:37 Aumentando Velocidade
+VM1458 injected.js:37 Moving to anchor: overlayFocus
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "da chuva milhares de pessoas estão sem energia" (de 9 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "da chuva milhares de pessoas estão sem energia" (de 9 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "sem energia um homem de 24 anos está" (de 15 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "energia um homem de 24 anos está desaparecido" (de 16 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "está desaparecido depois que o carro dele caiu" (de 22 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "depois que o carro dele caiu em um" (de 24 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "que o carro dele caiu em um córrego" (de 25 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "que o carro dele caiu em um córrego" (de 25 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+out-4.5.45.js:1  POST https://m.stripe.com/6 net::ERR_NAME_NOT_RESOLVED
+(anônimo) @ out-4.5.45.js:1
+i @ out-4.5.45.js:1
+s @ out-4.5.45.js:1
+(anônimo) @ out-4.5.45.js:1
+(anônimo) @ out-4.5.45.js:1
+Promise.then
+S @ out-4.5.45.js:1
+y @ out-4.5.45.js:1
+E @ out-4.5.45.js:1
+e.onload @ inner.html:1
+script
+(anônimo) @ inner.html:1
+(anônimo) @ inner.html:1Entenda o erro
+VM1458 injected.js:37 🎤 Parcial: "a chuva deu uma trégua mas os transtornos" (de 35 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "mas os transtornos para a população São enormes" (de 40 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "mas os transtornos para a população São enormes" (de 40 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "transtornos para a população São enormes sete pessoas" (de 42 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "para a população São enormes sete pessoas morreram" (de 43 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases
+VM1458 injected.js:37 🎤 Parcial: "população São enormes sete pessoas morreram e mais" (de 45 palavras)
+VM1458 injected.js:37    🔍 Procurando em 2878 elementos (último validado: nenhum)...
+VM1458 injected.js:37    ✓ Melhor match (100%) em 3465px: "SÃO PAULO TEM MAIS UM DIA DIFÍCIL POR CAUSA DA CHU..."
+VM1458 injected.js:37 ✅ Elemento encontrado: P
+VM1458 injected.js:37    📍 offsetTop: 3465px / height: 383814px
+VM1458 injected.js:37    📊 Progresso: 0.9% (atual: -0.2%)
+VM1458 injected.js:37    ✅ Último elemento validado: P (3465px)
+VM1458 injected.js:37    ⏭️ Já sincronizado (diferença: 1.1%), progresso atualizado
+VM1458 injected.js:37 🔄 Prompt alterado (reload de roteiro), resetando rastreamento
+VM1458 injected.js:37 📄 Roteiro carregado: 1568 frases

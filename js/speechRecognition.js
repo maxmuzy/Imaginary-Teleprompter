@@ -147,7 +147,7 @@ if (SpeechRecognition) {
                     
                     // Verifica nós adicionados
                     for (const node of mutation.addedNodes) {
-                        if (node.id && node.id.startsWith('voice-sync-')) {
+                        if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
                             eAncoraTemporaria = true;
                             break;
                         }
@@ -156,7 +156,7 @@ if (SpeechRecognition) {
                     // Verifica nós removidos também
                     if (!eAncoraTemporaria) {
                         for (const node of mutation.removedNodes) {
-                            if (node.id && node.id.startsWith('voice-sync-')) {
+                            if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
                                 eAncoraTemporaria = true;
                                 break;
                             }
@@ -165,6 +165,30 @@ if (SpeechRecognition) {
                     
                     if (eAncoraTemporaria) {
                         continue; // Ignora mutations de âncoras temporárias (add/remove)
+                    }
+                    
+                    // Se chegou aqui, é uma mudança real - mas verifica se é significativa
+                    // Ignora se for apenas nós de texto vazios ou whitespace
+                    let mudancaSignificativa = false;
+                    for (const node of mutation.addedNodes) {
+                        if (node.nodeType === Node.ELEMENT_NODE) {
+                            mudancaSignificativa = true;
+                            break;
+                        }
+                        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                            mudancaSignificativa = true;
+                            break;
+                        }
+                    }
+                    for (const node of mutation.removedNodes) {
+                        if (node.nodeType === Node.ELEMENT_NODE && !node.id?.startsWith('voice-sync-')) {
+                            mudancaSignificativa = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!mudancaSignificativa) {
+                        continue; // Ignora mudanças não significativas
                     }
                 }
                 
@@ -203,10 +227,15 @@ if (SpeechRecognition) {
 
         isProcessing = true;
 
-        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${textoAcumulado}"`);
+        // IMPORTANTE: Usa apenas as ÚLTIMAS 8 palavras para matching
+        // A Web Speech API acumula muito texto, tornando o matching impossível
+        const palavras = textoAcumulado.split(/\s+/).filter(p => p.length > 0);
+        const palavrasParaMatch = palavras.slice(-8).join(' '); // Últimas 8 palavras
+        
+        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${palavrasParaMatch}" (de ${palavras.length} palavras)`);
 
         // Busca diretamente no DOM ao invés de usar o array de roteiro
-        const elementoEncontrado = encontrarElementoDOMComTexto(textoAcumulado);
+        const elementoEncontrado = encontrarElementoDOMComTexto(palavrasParaMatch);
         
         if (elementoEncontrado) {
             console.log(`✅ Elemento encontrado: ${elementoEncontrado.tagName}`);
@@ -239,7 +268,7 @@ if (SpeechRecognition) {
         
         let melhorElemento = null;
         let melhorSimilaridade = 0;
-        const threshold = 0.3; // 30% mínimo
+        const threshold = 0.25; // 25% mínimo (mais permissivo para frases curtas)
         
         const ultimoElemLog = ultimoElementoValidado ? `${ultimoElementoValidado.tagName}` : 'nenhum';
         console.log(`   🔍 Procurando em ${elementos.length} elementos (último validado: ${ultimoElemLog})...`);

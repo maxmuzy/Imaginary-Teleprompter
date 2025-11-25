@@ -1,0 +1,226 @@
+[P1] 🎤 parcial: "da TV é do Espírito Santo a nossa parceira chega agora com detalhes pra gente"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=93%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=38, total=42, progresso=92.9%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=38, total=42, progresso=92.9%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=92.9% → monotônico=92.9%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=92.9%
+VM16928 injected.js:37 [P1] 🎤 parcial: "a sério boa tarde"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=93%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM16928 injected.js:37    📍 scrollParaElemento: offset=81000, prog=100% (instantâneo)
+VM16928 injected.js:37 📍 moveToOffset: offset=81000, jump=-80484, smooth=false
+VM16928 injected.js:37 [P1] 🎤 parcial: "bem-vinda"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM16928 injected.js:37 [P1] 🎤 parcial: "Santo a nossa parceira chega agora com detalhes pra gente a sério boa tarde bem-vinda"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=1)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P1] 🎤 FINAL: "Santo a nossa parceira chega agora com detalhes pra gente a sério boa tarde bem-vinda"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📝 Confirmadas 45 palavras pendentes
+VM16928 injected.js:37    📊 FINAL: cumulativo=45, pointer=42, total=42
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    🔍 shouldScrollTo: novo=100.0%, last=100.0%, diff=0.0% → false
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+
+A identificação e jump ate aqui foram corretas, porem não houve scrooll e sim vários jumps.
+Abaixo também identificou corretamente outra pessoa falando.
+
+VM16928 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 2 =====
+VM16928 injected.js:37 [P2] 🎤 parcial: "boa"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=40, total=42, progresso=97.6%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=40, total=42, progresso=97.6%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=97.6% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P2] 🎤 parcial: "boa tarde"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P2] 🎤 parcial: "tarde"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P2] 🎤 parcial: "É isso mesmo"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM16928 injected.js:37 [P2] 🎤 parcial: "para você"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=1)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=42, progresso=50.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=42, progresso=50.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=50.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P2] 🎤 parcial: "para todo mundo"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=42, progresso=50.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=42, progresso=50.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=50.0% → monotônico=100.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM16928 injected.js:37 [P2] 🎤 parcial: "todo mundo que"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 619, Misses: 0
+VM16928 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 619 a 639...
+VM16928 injected.js:37    ✅ Avançou! Índice 619 → 635 (33%)
+VM16928 injected.js:37    📊 Tracking iniciado: 54 palavras no elemento
+VM16928 injected.js:37    📍 scrollParaElemento: offset=81533, prog=0% (SUAVE 300ms)
+VM16928 injected.js:37 📍 moveToOffset: offset=81533, jump=-81017, smooth=true
+VM16928 injected.js:37 [P2] 🎤 parcial: "que que nos"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=54, progresso=18.5%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=54, progresso=18.5%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=18.5% → monotônico=18.5%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ✓✓ FAZENDO SCROLL para 18.5% (parcial)
+VM16928 injected.js:37    📍 scrollParaElemento: offset=81814, prog=19% (instantâneo)
+VM16928 injected.js:37 📍 moveToOffset: offset=81814.48148148147, jump=-81298.48148148147, smooth=false
+VM16928 injected.js:37 [P2] 🎤 parcial: "acompanham"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=19%
+VM16928 injected.js:37 [P2] 🎤 parcial: "exportações de"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=19%
+VM16928 injected.js:37 [P2] 🎤 parcial: "de café"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=19%
+VM16928 injected.js:37 [P2] 🎤 parcial: "café"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=19%
+VM16928 injected.js:37 [P2] 🎤 parcial: "Capixaba"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=19%
+VM16928 injected.js:37 [P2] 🎤 parcial: "tarde para você para todo mundo que que nos acompanham as exportações de café Capixaba"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=46, total=54, progresso=87.0%
+VM16928 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=46, total=54, progresso=87.0%
+VM16928 injected.js:37    📊 PARCIAL: alinhado=87.0% → monotônico=87.0%
+VM16928 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM16928 injected.js:37    ✓✓ FAZENDO SCROLL para 87.0% (parcial)
+VM16928 injected.js:37    📍 scrollParaElemento: offset=82856, prog=87% (instantâneo)
+VM16928 injected.js:37 📍 moveToOffset: offset=82855.96296296296, jump=-82339.96296296296, smooth=false
+VM16928 injected.js:37 [P2] 🎤 parcial: "aumenta"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "aumentaram"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "consideravelmente"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "entre"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "2023"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "2024"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "os dados"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "e isso re"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "referente"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "à exportação"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "exportação para União"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "União Europe"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "Europeia"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "o volume"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "exportado saiu"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "1,6"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "milhão"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "sacas"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+VM16928 injected.js:37 [P2] 🎤 parcial: "para"
+VM16928 injected.js:37    Estado: LOCKED, Índice: 635, Misses: 0
+VM16928 injected.js:37    🔒 LOCKED: Verificando elementos 635 a 640...
+VM16928 injected.js:37    ⏳ Aguardando (parcial)... progresso=87%
+
+A partir desta fala acima, houve somente improvisação não havendo texto correspondente, porem o sistema identificou palavras especificas e fez o jump (ou seja, foi muito impreciso nesse caso) o sistema poderia fazer um registro da voz principal (apresentador --- e utilizar como guia para o roteiro, ou seja considerar que o match desta voz vai ser maior) e das outras vozes considerar mais como improviso. Só lembrando que após identificar sequencias corretas (como foi o primeiro caso) o sistema nunca irá pular para muito mais a frente, é um roteiro sequencial. è possível fazer uma pre analise do roteiro? utilizando IA e prever o rolamento do texto? Como podemos deixar bem preciso?

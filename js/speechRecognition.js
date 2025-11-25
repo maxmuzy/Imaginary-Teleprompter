@@ -63,20 +63,31 @@ const AutoScrollController = {
     isPaused: false,
     lastWordCount: 0,
     lastTimestamp: Date.now(),
-    wpsHistory: [],           // Mantido para compatibilidade
+    lastProgressoEnviado: 0,  // Último progresso enviado para evitar jitter
     
-    // Inicializa o controlador
+    // Inicializa o controlador e ADQUIRE controle exclusivo
     start: function() {
         this.isActive = true;
         this.isPaused = false;
         this.lastWordCount = 0;
+        this.lastProgressoEnviado = 0;
+        
+        // ADQUIRE controle exclusivo do scroll
+        if (window.teleprompterVoiceControl) {
+            window.teleprompterVoiceControl.acquire();
+        }
         console.log('🚀 AutoScroll ATIVADO (modo direto)');
     },
     
-    // Para o controlador
+    // Para o controlador e LIBERA controle
     stop: function() {
         this.isActive = false;
         this.isPaused = false;
+        
+        // LIBERA controle do scroll
+        if (window.teleprompterVoiceControl) {
+            window.teleprompterVoiceControl.release();
+        }
         console.log('🛑 AutoScroll DESATIVADO');
     },
     
@@ -101,11 +112,22 @@ const AutoScrollController = {
         this.lastWordCount = 0;
         this.lastTimestamp = Date.now();
         this.isPaused = false;
+        this.lastProgressoEnviado = 0;
     },
     
     // Verifica se deve fazer scroll
     shouldScroll: function() {
         return this.isActive && !this.isPaused;
+    },
+    
+    // Verifica se deve fazer scroll para um novo progresso (evita jitter)
+    shouldScrollTo: function(novoProgresso) {
+        // Só faz scroll se o progresso aumentou significativamente (5%)
+        if (novoProgresso > this.lastProgressoEnviado + 0.05) {
+            this.lastProgressoEnviado = novoProgresso;
+            return true;
+        }
+        return false;
     },
     
     // Atualiza contador (simplificado)
@@ -318,8 +340,8 @@ if (SpeechRecognition) {
         }
 
         if (melhorMatch) {
-            // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo
-            if (pendingFinalWords.length > 0) {
+            // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo (só para finais)
+            if (isFinal && pendingFinalWords.length > 0) {
                 cumulativeFinalWords.push(...pendingFinalWords);
                 console.log(`   📝 Confirmadas ${pendingFinalWords.length} palavras pendentes`);
                 pendingFinalWords = [];
@@ -352,24 +374,32 @@ if (SpeechRecognition) {
                     scrollParaElemento(melhorMatch, 0);
                 }
             } else {
-                // Ainda no mesmo elemento - calcula progresso
-                const palavrasAcumuladas = cumulativeFinalWords.length;
+                // Ainda no mesmo elemento - calcula progresso por ALINHAMENTO
+                // Para PARCIAIS: usa alinhamento direto das palavras faladas
+                // Para FINAIS: usa buffer cumulativo como antes
                 
-                // Avança o pointer monotonicamente
-                if (palavrasAcumuladas > currentWordPointer && currentElementTotalWords > 0) {
-                    currentWordPointer = Math.min(palavrasAcumuladas, currentElementTotalWords);
-                    
-                    // Calcula progresso baseado no pointer
-                    const progresso = currentWordPointer / currentElementTotalWords;
-                    
-                    console.log(`   ✓ Progresso: ${currentWordPointer}/${currentElementTotalWords} (${(progresso * 100).toFixed(0)}%)`);
-                    
-                    // SCROLL DIRETO proporcional ao progresso (se não pausado)
-                    if (AutoScrollController.shouldScroll()) {
-                        scrollParaElemento(melhorMatch, progresso);
+                let progresso = 0;
+                
+                if (isFinal) {
+                    // Final: usa buffer cumulativo
+                    const palavrasAcumuladas = cumulativeFinalWords.length;
+                    if (palavrasAcumuladas > currentWordPointer && currentElementTotalWords > 0) {
+                        currentWordPointer = Math.min(palavrasAcumuladas, currentElementTotalWords);
                     }
+                    progresso = currentWordPointer / currentElementTotalWords;
                 } else {
-                    console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                    // PARCIAL: calcula progresso por alinhamento de palavras
+                    progresso = calcularProgressoPorAlinhamento(textoNormalizado, melhorMatch);
+                    // Garante monotonia: só avança, nunca volta
+                    progresso = Math.max(progresso, currentWordPointer / currentElementTotalWords);
+                }
+                
+                // Só faz scroll se progresso aumentou significativamente (evita jitter)
+                if (AutoScrollController.shouldScroll() && AutoScrollController.shouldScrollTo(progresso)) {
+                    console.log(`   ✓ Scroll para progresso: ${(progresso * 100).toFixed(0)}% (${isFinal ? 'final' : 'parcial'})`);
+                    scrollParaElemento(melhorMatch, progresso);
+                } else {
+                    console.log(`   ✓ Match no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%) - progresso=${(progresso * 100).toFixed(0)}%`);
                 }
             }
         } else {
@@ -425,6 +455,34 @@ if (SpeechRecognition) {
         } else {
             console.log(`   ❌ moveTeleprompterToOffset não disponível!`);
         }
+    }
+
+    // Calcula progresso dentro do elemento baseado em alinhamento de palavras
+    // Encontra a última palavra falada que aparece no elemento e retorna sua posição relativa
+    function calcularProgressoPorAlinhamento(textoFalado, elemento) {
+        if (currentElementTotalWords === 0) return 0;
+        
+        const palavrasFaladas = textoFalado.split(/\s+/).filter(p => p.length > 1);
+        if (palavrasFaladas.length === 0) return 0;
+        
+        // Pega as últimas 5 palavras faladas para buscar no elemento
+        const ultimasPalavras = palavrasFaladas.slice(-5);
+        
+        let ultimaPosicaoEncontrada = -1;
+        
+        // Busca cada palavra nas palavras do elemento
+        for (const palavraFalada of ultimasPalavras) {
+            for (let i = 0; i < currentElementWords.length; i++) {
+                if (currentElementWords[i] === palavraFalada && i > ultimaPosicaoEncontrada) {
+                    ultimaPosicaoEncontrada = i;
+                }
+            }
+        }
+        
+        if (ultimaPosicaoEncontrada < 0) return 0;
+        
+        // Retorna progresso baseado na posição da última palavra encontrada
+        return (ultimaPosicaoEncontrada + 1) / currentElementTotalWords;
     }
 
     // Normaliza texto para comparação

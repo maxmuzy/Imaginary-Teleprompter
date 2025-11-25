@@ -671,7 +671,16 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         resumeAnimation();
     }
 
+    // Flag de controle de voz - quando ativa, desabilita moveToAnchor automático
+    var voiceControlActive = false;
+    
     function internalMoveToAnchor(theAnchor) {
+        // Se controle de voz está ativo, ignora chamadas automáticas de posicionamento
+        if (voiceControlActive) {
+            console.log(`🎯 internalMoveToAnchor BLOQUEADO (voiceControl ativo): ${theAnchor}`);
+            return;
+        }
+        
         // Proceed to anchor only if anchor is valid.
         const anchorElement = document.getElementById(theAnchor);
         console.log(`🎯 internalMoveToAnchor chamado com: ${theAnchor}`);
@@ -683,6 +692,21 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         else {
             console.log(`   ❌ Âncora inválida: ${theAnchor}`);
         }
+    }
+    
+    // API de controle de voz - permite que o sistema de reconhecimento tome controle exclusivo
+    function acquireVoiceControl() {
+        voiceControlActive = true;
+        console.log('🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado');
+    }
+    
+    function releaseVoiceControl() {
+        voiceControlActive = false;
+        console.log('🎤 Controle de voz LIBERADO - moveToAnchor reabilitado');
+    }
+    
+    function isVoiceControlActive() {
+        return voiceControlActive;
     }
 
     function moveToAnchor(theAnchor) {
@@ -1120,6 +1144,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     window.moveTeleprompterToOffset = moveToOffset;
     window.getTeleprompterProgress = getProgress;
     window.animateTeleprompter = animate;
+    
+    // API de controle de voz
+    window.teleprompterVoiceControl = {
+        acquire: acquireVoiceControl,
+        release: releaseVoiceControl,
+        isActive: isVoiceControlActive
+    };
 
     function incSteps() {
         steps++;

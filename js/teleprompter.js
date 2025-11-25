@@ -649,11 +649,22 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
 
     function moveToCSSAnchor(theAnchor) {
         var jump;
+        const anchorOffset = document.getElementById(theAnchor).offsetTop;
+        const focusCorrection = focusVerticalDisplacementCorrector();
+        
+        console.log(`📍 moveToCSSAnchor:`);
+        console.log(`   anchorOffset: ${anchorOffset}`);
+        console.log(`   promptHeight: ${promptHeight}`);
+        console.log(`   screenHeight: ${screenHeight}`);
+        console.log(`   focusCorrection: ${focusCorrection}`);
+        console.log(`   flipV: ${flipV}`);
+        
         if (flipV)
-            jump = -promptHeight + document.getElementById(theAnchor).offsetTop + screenHeight - focusVerticalDisplacementCorrector();
+            jump = -promptHeight + anchorOffset + screenHeight - focusCorrection;
         else
-            jump = -document.getElementById(theAnchor).offsetTop + focusVerticalDisplacementCorrector();
-        if (debug) console.log("Jumped to: " + jump) && false;
+            jump = -anchorOffset + focusCorrection;
+        
+        console.log(`   jump calculado: ${jump}`);
         // Jump to anchor
         animate(0, jump);
         // Resume animation
@@ -662,10 +673,16 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
 
     function internalMoveToAnchor(theAnchor) {
         // Proceed to anchor only if anchor is valid.
-        if (document.getElementById(theAnchor))
+        const anchorElement = document.getElementById(theAnchor);
+        console.log(`🎯 internalMoveToAnchor chamado com: ${theAnchor}`);
+        console.log(`   Âncora encontrada: ${!!anchorElement}`);
+        if (anchorElement) {
+            console.log(`   offsetTop da âncora: ${anchorElement.offsetTop}`);
             moveToCSSAnchor(theAnchor);
-        else
-            if (debug) console.log("Invalid Anchor") && false;
+        }
+        else {
+            console.log(`   ❌ Âncora inválida: ${theAnchor}`);
+        }
     }
 
     function moveToAnchor(theAnchor) {

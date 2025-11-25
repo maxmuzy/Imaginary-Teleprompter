@@ -255,42 +255,44 @@ if (SpeechRecognition) {
 
     // Move o teleprompter para um elemento
     function scrollParaElemento(elemento) {
-        const promptElement = document.querySelector('.prompt');
-        if (!promptElement) return;
-
-        const offsetTop = elemento.offsetTop;
-        const promptHeight = promptElement.scrollHeight;
-        const progressoCalculado = offsetTop / promptHeight;
-        const posicaoAtual = window.getTeleprompterProgress ? window.getTeleprompterProgress() : 0;
-        
-        const diferenca = Math.abs(progressoCalculado - posicaoAtual) * 100;
-        
-        console.log(`   📊 Progresso: ${(progressoCalculado * 100).toFixed(1)}% (atual: ${(posicaoAtual * 100).toFixed(1)}%)`);
-        
-        // Se já está muito próximo, não faz scroll
-        if (diferenca < 3) {
-            console.log(`   ⏭️ Já sincronizado`);
+        if (!elemento) {
+            console.log(`   ❌ Elemento inválido para scroll`);
             return;
         }
-        
-        // Cria âncora temporária e move
+
+        // Cria âncora temporária antes do elemento
         const anchorId = 'voice-sync-' + Date.now();
         const ancora = document.createElement('a');
         ancora.id = anchorId;
         ancora.name = anchorId;
-        elemento.parentNode.insertBefore(ancora, elemento);
         
+        // Insere a âncora antes do elemento
+        if (elemento.parentNode) {
+            elemento.parentNode.insertBefore(ancora, elemento);
+            console.log(`   📍 Âncora criada: ${anchorId}`);
+        } else {
+            console.log(`   ❌ Elemento sem parentNode`);
+            return;
+        }
+        
+        // Move o teleprompter usando a função nativa
         setTimeout(() => {
             if (window.moveTeleprompterToAnchor) {
+                console.log(`   🎯 Chamando moveTeleprompterToAnchor(${anchorId})`);
                 window.moveTeleprompterToAnchor(anchorId);
-                console.log(`   🎯 Teleprompter movido`);
+            } else {
+                console.log(`   ❌ moveTeleprompterToAnchor não disponível!`);
             }
             
+            // Remove a âncora após 3 segundos
             setTimeout(() => {
                 const ancoraRemover = document.getElementById(anchorId);
-                if (ancoraRemover) ancoraRemover.remove();
-            }, 2000);
-        }, 50);
+                if (ancoraRemover) {
+                    ancoraRemover.remove();
+                    console.log(`   🗑️ Âncora removida: ${anchorId}`);
+                }
+            }, 3000);
+        }, 100);
     }
 
     // Normaliza texto para comparação

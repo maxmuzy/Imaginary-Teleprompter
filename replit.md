@@ -73,6 +73,13 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Reset Seletivo do Contador (v27)
+- **Correção crítica**:
+  - `parciaisSemMatchNoFim` agora SÓ reseta quando realmente avança para próximo elemento
+  - Antes: resetava em qualquer match (palavras comuns como "boa", "tarde" causavam reset)
+  - Agora: mantém contador se match é no elemento atual já em 100%
+  - Isso garante que transição P1→P2 force SEARCHING após 5 parciais sem avanço real
+
 ### 2024-11-25: Lookahead Dinâmico + Detecção de Transição (v26)
 - **Lookahead dinâmico**:
   - Quando progresso > 90%, expande de 5 para 20 elementos

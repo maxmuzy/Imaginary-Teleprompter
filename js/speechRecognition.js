@@ -386,11 +386,13 @@ if (SpeechRecognition) {
                 AutoScrollController.resume();
             }
             
-            // Reseta contadores de misses
+            // Reseta contador de misses (improvisação)
             consecutiveMisses = 0;
-            parciaisSemMatchNoFim = 0;
+            // NÃO reseta parciaisSemMatchNoFim aqui - só quando realmente avançar!
             
             if (avancou) {
+                // SÓ AQUI reseta o contador de parciais sem match (realmente avançou)
+                parciaisSemMatchNoFim = 0;
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
                 currentElementIndex = melhorIndice;
                 

@@ -23,20 +23,21 @@ const STATE = {
 
 // Configurações
 const CONFIG = {
-    // Matching
-    searchThreshold: 0.35,      // Threshold para encontrar posição inicial (SEARCHING)
-    lockedThreshold: 0.25,      // Threshold mais relaxado quando já está LOCKED
-    wordWindow: 10,             // Janela de palavras para matching
+    // Matching - tolerância aumentada para detecção inicial
+    searchThreshold: 0.20,      // Threshold baixo para encontrar posição inicial (20%)
+    lockedThreshold: 0.15,      // Threshold ainda mais relaxado quando já está LOCKED (15%)
+    wordWindow: 15,             // Janela maior de palavras para matching (15 palavras)
     lookaheadElements: 5,       // Quantos elementos olhar à frente em LOCKED
+    minWordsForMatch: 3,        // Mínimo de palavras para tentar match
     
-    // Improvisação
-    maxConsecutiveMisses: 3,    // Misses antes de voltar para SEARCHING
+    // Improvisação - pausa imediata
+    maxConsecutiveMisses: 2,    // Menos misses antes de pausar (mais sensível)
     
     // Buffer
-    maxBufferWords: 50,         // Máximo de palavras no buffer
+    maxBufferWords: 60,         // Buffer maior para capturar mais contexto
     
     // Debounce
-    debounceMs: 300             // Debounce para resultados parciais
+    debounceMs: 200             // Debounce menor para resposta mais rápida
 };
 
 // Estado global
@@ -54,103 +55,63 @@ let currentElementWords = [];       // Array de palavras normalizadas do element
 let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 
 // ========================================
-// AutoScrollController - Controle de velocidade baseado em WPS
+// AutoScrollController - Controle SIMPLIFICADO de scroll
+// Abordagem: scroll direto para posição do match, sem velocidade calculada
 // ========================================
 const AutoScrollController = {
+    isActive: false,
+    isPaused: false,
     lastWordCount: 0,
     lastTimestamp: Date.now(),
-    wpsHistory: [],           // Histórico de WPS para suavização
-    wpsWindowSize: 5,         // Tamanho da janela de suavização
-    isActive: false,
+    wpsHistory: [],           // Mantido para compatibilidade
     
     // Inicializa o controlador
     start: function() {
         this.isActive = true;
+        this.isPaused = false;
         this.lastWordCount = 0;
-        this.lastTimestamp = Date.now();
-        this.wpsHistory = [];
-        
-        if (window.teleprompterAuto) {
-            window.teleprompterAuto.start();
-            console.log('🚀 AutoScrollController INICIADO');
-        } else {
-            console.log('⚠️ teleprompterAuto não disponível');
-        }
+        console.log('🚀 AutoScroll ATIVADO (modo direto)');
     },
     
     // Para o controlador
     stop: function() {
         this.isActive = false;
-        if (window.teleprompterAuto) {
-            window.teleprompterAuto.stop();
-            console.log('🛑 AutoScrollController PARADO');
-        }
+        this.isPaused = false;
+        console.log('🛑 AutoScroll DESATIVADO');
     },
     
-    // Atualiza velocidade baseado em progresso
-    // Chamado sempre que há um match/progresso
-    update: function(wordCount) {
-        if (!this.isActive) return;
-        
-        const now = Date.now();
-        const elapsed = (now - this.lastTimestamp) / 1000; // segundos
-        
-        // Evita divisão por zero e picos
-        if (elapsed < 0.3) return; // Mínimo 300ms entre updates
-        
-        // Calcula novas palavras desde último update
-        const newWords = wordCount - this.lastWordCount;
-        
-        // Calcula WPS instantâneo
-        const instantWps = newWords > 0 ? newWords / elapsed : 0;
-        
-        // Adiciona ao histórico para suavização
-        this.wpsHistory.push(instantWps);
-        if (this.wpsHistory.length > this.wpsWindowSize) {
-            this.wpsHistory.shift();
-        }
-        
-        // Calcula WPS suavizado (média móvel)
-        const avgWps = this.wpsHistory.reduce((a, b) => a + b, 0) / this.wpsHistory.length;
-        
-        // Atualiza marcadores
-        this.lastWordCount = wordCount;
-        this.lastTimestamp = now;
-        
-        console.log(`📊 WPS: instant=${instantWps.toFixed(2)}, avg=${avgWps.toFixed(2)}, words=${wordCount}`);
-        
-        // Aplica velocidade no teleprompter
-        if (window.teleprompterAuto) {
-            window.teleprompterAuto.setSpeed(avgWps);
-        }
-    },
-    
-    // Pausa quando não há fala detectada (improvisação ou silêncio)
+    // Pausa durante improvisação
     pause: function() {
-        if (!this.isActive) return;
-        
-        console.log('⏸️ AutoScrollController: Pausando (sem match)');
-        if (window.teleprompterAuto) {
-            window.teleprompterAuto.pause();
+        if (this.isActive && !this.isPaused) {
+            this.isPaused = true;
+            console.log('⏸️ AutoScroll PAUSADO (improvisação detectada)');
         }
     },
     
-    // Resume quando detecta fala novamente
+    // Resume após voltar ao roteiro
     resume: function() {
-        if (!this.isActive) return;
-        
-        console.log('▶️ AutoScrollController: Resumindo');
-        if (window.teleprompterAuto) {
-            window.teleprompterAuto.resume();
+        if (this.isActive && this.isPaused) {
+            this.isPaused = false;
+            console.log('▶️ AutoScroll RESUMIDO');
         }
     },
     
-    // Reseta estado (novo elemento ou mudança de estado)
+    // Reseta baselines (chamado ao mudar de elemento)
     reset: function() {
-        this.lastWordCount = cumulativeFinalWords.length;
+        this.lastWordCount = 0;
         this.lastTimestamp = Date.now();
-        this.wpsHistory = [];
-        console.log('🔄 AutoScrollController: Estado resetado');
+        this.isPaused = false;
+    },
+    
+    // Verifica se deve fazer scroll
+    shouldScroll: function() {
+        return this.isActive && !this.isPaused;
+    },
+    
+    // Atualiza contador (simplificado)
+    update: function(wordCount) {
+        this.lastWordCount = wordCount;
+        this.lastTimestamp = Date.now();
     }
 };
 
@@ -319,11 +280,6 @@ if (SpeechRecognition) {
         cumulativeFinalWords = []; // Reseta buffer cumulativo ao trocar de elemento
         pendingFinalWords = []; // Limpa também palavras pendentes
         
-        // IMPORTANTE: Reseta o baseline do AutoScrollController para evitar WPS falso
-        AutoScrollController.lastWordCount = 0;
-        AutoScrollController.lastTimestamp = Date.now();
-        AutoScrollController.wpsHistory = [];
-        
         console.log(`   📊 Tracking iniciado: ${currentElementTotalWords} palavras no elemento`);
     }
 
@@ -372,17 +328,18 @@ if (SpeechRecognition) {
             // Verifica se é um AVANÇO (próximo elemento) ou CONFIRMAÇÃO (mesmo elemento)
             const avancou = melhorIndice > currentElementIndex;
             
-            // Se estava pausado (misses > 0), resume PRIMEIRO antes de qualquer atualização
-            const estavaPausado = consecutiveMisses > 0;
-            if (estavaPausado) {
+            // Se estava pausado, resume quando volta ao roteiro
+            if (AutoScrollController.isPaused) {
                 console.log(`   ▶️ Retornando ao roteiro após improvisação`);
                 AutoScrollController.resume();
             }
             
+            // Reseta contador de misses
+            consecutiveMisses = 0;
+            
             if (avancou) {
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
                 currentElementIndex = melhorIndice;
-                consecutiveMisses = 0;
                 
                 // Inicializa tracking do novo elemento
                 inicializarTrackingElemento(melhorMatch);
@@ -390,13 +347,12 @@ if (SpeechRecognition) {
                 // Reseta o controlador para novo elemento
                 AutoScrollController.reset();
                 
-                // Move o teleprompter para o novo elemento
-                scrollParaElemento(melhorMatch, 0);
+                // SCROLL DIRETO para o novo elemento (se não pausado)
+                if (AutoScrollController.shouldScroll()) {
+                    scrollParaElemento(melhorMatch, 0);
+                }
             } else {
-                // Ainda no mesmo elemento - avança o pointer baseado no buffer cumulativo
-                consecutiveMisses = 0;
-                
-                // Usa o tamanho do buffer cumulativo como proxy para progresso
+                // Ainda no mesmo elemento - calcula progresso
                 const palavrasAcumuladas = cumulativeFinalWords.length;
                 
                 // Avança o pointer monotonicamente
@@ -406,16 +362,14 @@ if (SpeechRecognition) {
                     // Calcula progresso baseado no pointer
                     const progresso = currentWordPointer / currentElementTotalWords;
                     
-                    console.log(`   ✓ Progresso no índice ${melhorIndice}: ${currentWordPointer}/${currentElementTotalWords} (${(progresso * 100).toFixed(0)}%)`);
+                    console.log(`   ✓ Progresso: ${currentWordPointer}/${currentElementTotalWords} (${(progresso * 100).toFixed(0)}%)`);
                     
-                    // ATUALIZA VELOCIDADE baseado em WPS
-                    AutoScrollController.update(palavrasAcumuladas);
-                    
-                    // Faz scroll incremental proporcional ao progresso
-                    scrollParaElemento(melhorMatch, progresso);
+                    // SCROLL DIRETO proporcional ao progresso (se não pausado)
+                    if (AutoScrollController.shouldScroll()) {
+                        scrollParaElemento(melhorMatch, progresso);
+                    }
                 } else {
                     console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
-                    // Mantém velocidade atual (NÃO chama resume para evitar reset)
                 }
             }
         } else {

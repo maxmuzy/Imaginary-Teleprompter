@@ -1,4 +1,5 @@
 import { encontrarPosicaoNoRoteiroFuzzy } from "./matchRecognition.js";
+import { iniciarAnalise, pararAnalise, obterStreamMicrofone } from "./audioAnalyzer.js";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -11,6 +12,7 @@ let isProcessing = false;
 let ultimoIndiceValidado = -1; // Índice do último elemento validado na lista de elementos
 let observerDebounceTimer = null; // Debounce para evitar resets consecutivos
 let ultimoHashRoteiro = ""; // Hash do roteiro para detectar mudanças reais
+let speakerChangeCount = 0; // Contador de mudanças de speaker para debug
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
@@ -18,11 +20,104 @@ if (SpeechRecognition) {
     recognition.interimResults = true;
     recognition.lang = 'pt-BR';
 
-    recognition.onstart = function() {
+    recognition.onstart = async function() {
         console.log('🎤 Reconhecimento de voz iniciado');
+        
+        // Inicia análise de áudio para detectar mudança de speaker
+        try {
+            const stream = await obterStreamMicrofone();
+            await iniciarAnalise(stream, onSpeakerChange);
+            console.log('🔊 Análise de áudio para detecção de speaker ativada');
+        } catch (error) {
+            console.warn('⚠️ Não foi possível iniciar análise de áudio:', error);
+            console.log('   O reconhecimento de voz continuará sem detecção de speaker');
+        }
+    };
+    
+    // Controle de sessão para segmentação por speaker
+    let sessionId = 0; // ID da sessão atual de reconhecimento
+    let lastProcessedSessionId = 0; // Última sessão processada
+    let pendingSpeakerReset = false; // Flag: precisa reiniciar após onend
+    let restartAttempts = 0; // Contador de tentativas de restart
+    const MAX_RESTART_ATTEMPTS = 3;
+    
+    // Callback chamado quando o analisador detecta mudança de speaker
+    function onSpeakerChange(evento) {
+        speakerChangeCount++;
+        
+        const textoAnterior = textoAcumulado.substring(0, 50);
+        console.log(`🔄 MUDANÇA DE SPEAKER #${speakerChangeCount} detectada!`);
+        console.log(`   Tipo: ${evento.tipo}`);
+        console.log(`   Texto descartado: "${textoAnterior}..."`);
+        
+        // Reseta o acumulador - próximas palavras são de outro speaker
+        textoAcumulado = "";
+        
+        // NÃO reseta o índice - o scroll deve continuar de onde parou
+        // Cada speaker lê sua parte sequencialmente no teleprompter
+        
+        // Marca que precisamos reiniciar a sessão
+        pendingSpeakerReset = true;
+        restartAttempts = 0;
+        
+        // Incrementa sessionId - resultados da sessão antiga serão ignorados
+        sessionId++;
+        console.log(`   📌 Nova sessão: ${sessionId}`);
+        
+        try {
+            recognition.abort();
+            console.log('   🔄 Reconhecimento abortado, aguardando onend para reiniciar...');
+        } catch (e) {
+            console.log('   ⚠️ Erro ao abortar:', e.message);
+            // Se abort falhar, tenta reiniciar diretamente
+            tentarReiniciarReconhecimento();
+        }
+    }
+    
+    // Função para reiniciar reconhecimento com retry
+    function tentarReiniciarReconhecimento() {
+        if (!pendingSpeakerReset) return;
+        
+        restartAttempts++;
+        console.log(`   🔄 Tentativa de restart #${restartAttempts}...`);
+        
+        try {
+            recognition.start();
+            pendingSpeakerReset = false;
+            console.log(`   ✅ Reconhecimento reiniciado (sessão ${sessionId})`);
+        } catch (e) {
+            console.log(`   ⚠️ Erro no restart: ${e.message}`);
+            
+            if (restartAttempts < MAX_RESTART_ATTEMPTS) {
+                // Tenta novamente após delay progressivo
+                setTimeout(tentarReiniciarReconhecimento, 100 * restartAttempts);
+            } else {
+                console.error('   ❌ Falha ao reiniciar reconhecimento após múltiplas tentativas');
+                pendingSpeakerReset = false;
+            }
+        }
+    }
+    
+    // Handler para onend - reinicia se necessário
+    recognition.onend = function() {
+        console.log('🎤 Reconhecimento encerrado');
+        
+        if (pendingSpeakerReset) {
+            // Reinicia após mudança de speaker
+            setTimeout(tentarReiniciarReconhecimento, 50);
+        }
     };
 
     recognition.onresult = function (event) {
+        // Marca a sessão atual nos primeiros resultados
+        const currentSession = sessionId;
+        
+        // Se estamos em processo de reset de speaker, ignora resultados da sessão antiga
+        if (pendingSpeakerReset) {
+            console.log(`⏳ Ignorando resultado (reset de speaker em andamento, sessão ${currentSession})...`);
+            return;
+        }
+        
         let interimTranscript = '';
         let finalTranscript = '';
 
@@ -34,13 +129,15 @@ if (SpeechRecognition) {
                 // Processa resultado final
                 processarEntrada(finalTranscript, true);
                 
-                // Reinicia após breve pausa
-                setTimeout(() => {
-                    if (recognition) {
-                        recognition.abort();
-                        setTimeout(() => recognition.start(), 100);
-                    }
-                }, 200);
+                // Reinicia após breve pausa (mas NÃO se estamos em processo de reset de speaker)
+                if (!pendingSpeakerReset) {
+                    setTimeout(() => {
+                        if (recognition && !pendingSpeakerReset) {
+                            recognition.abort();
+                            setTimeout(() => recognition.start(), 100);
+                        }
+                    }, 200);
+                }
             } else {
                 interimTranscript += event.results[i][0].transcript;
             }

@@ -73,6 +73,19 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Scroll Suave + Identificação de Vozes (v25)
+- **Jump inicial suave**:
+  - `moveToOffset(offsetTop, smooth)` aceita parâmetro smooth
+  - Quando smooth=true: `animate(300, jump, 'ease-out')` (300ms suave)
+  - Jump inicial e avanço para novo elemento = SUAVE
+  - Scroll de progresso = instantâneo (não atrasa)
+
+- **Identificação de sessões de fala**:
+  - Contador `currentSpeakerSession` (Pessoa 1, 2, 3...)
+  - Pausa > 2 segundos = nova sessão de fala
+  - Logs: `[P1] 🎤 parcial: "texto..."` 
+  - Mensagem: `👤 ===== NOVA SESSÃO DE FALA: Pessoa N =====`
+
 ### 2024-11-25: Controle Exclusivo de Voz + Parciais (v24)
 - **Correção do Conflito de Posicionamento**:
   - Problema: `moveToAnchor('overlayFocus')` sobrescrevia o scroll por voz

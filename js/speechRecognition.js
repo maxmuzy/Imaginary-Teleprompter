@@ -128,7 +128,10 @@ const AutoScrollController = {
     // Verifica se deve fazer scroll para um novo progresso (evita jitter)
     shouldScrollTo: function(novoProgresso) {
         // Só faz scroll se o progresso aumentou significativamente (5%)
-        if (novoProgresso > this.lastProgressoEnviado + 0.05) {
+        const diferenca = novoProgresso - this.lastProgressoEnviado;
+        const deveScroll = novoProgresso > this.lastProgressoEnviado + 0.05;
+        console.log(`   🔍 shouldScrollTo: novo=${(novoProgresso*100).toFixed(1)}%, last=${(this.lastProgressoEnviado*100).toFixed(1)}%, diff=${(diferenca*100).toFixed(1)}% → ${deveScroll}`);
+        if (deveScroll) {
             this.lastProgressoEnviado = novoProgresso;
             return true;
         }
@@ -400,19 +403,46 @@ if (SpeechRecognition) {
                         currentWordPointer = Math.min(palavrasAcumuladas, currentElementTotalWords);
                     }
                     progresso = currentWordPointer / currentElementTotalWords;
+                    console.log(`   📊 FINAL: cumulativo=${palavrasAcumuladas}, pointer=${currentWordPointer}, total=${currentElementTotalWords}`);
                 } else {
                     // PARCIAL: calcula progresso por alinhamento de palavras
                     progresso = calcularProgressoPorAlinhamento(textoNormalizado, melhorMatch);
                     // Garante monotonia: só avança, nunca volta
-                    progresso = Math.max(progresso, currentWordPointer / currentElementTotalWords);
+                    const progressoMinimo = currentWordPointer / currentElementTotalWords;
+                    progresso = Math.max(progresso, progressoMinimo);
+                    if (progresso > progressoMinimo) {
+                        currentWordPointer = Math.round(progresso * currentElementTotalWords);
+                    }
+                    console.log(`   📊 PARCIAL: alinhado=${(calcularProgressoPorAlinhamento(textoNormalizado, melhorMatch)*100).toFixed(1)}% → monotônico=${(progresso*100).toFixed(1)}%`);
                 }
                 
                 // Só faz scroll se progresso aumentou significativamente (evita jitter)
-                if (AutoScrollController.shouldScroll() && AutoScrollController.shouldScrollTo(progresso)) {
-                    console.log(`   ✓ Scroll para progresso: ${(progresso * 100).toFixed(0)}% (${isFinal ? 'final' : 'parcial'})`);
-                    scrollParaElemento(melhorMatch, progresso);
+                const podeScroll = AutoScrollController.shouldScroll();
+                console.log(`   🔍 shouldScroll()=${podeScroll} (isActive=${AutoScrollController.isActive}, isPaused=${AutoScrollController.isPaused})`);
+                
+                // Para PARCIAIS: scroll mesmo com pouca mudança (apenas atualiza lastProgressoEnviado)
+                // Para FINAIS: respeita hysteresis de 5%
+                let deveScroll = false;
+                if (podeScroll) {
+                    if (!isFinal) {
+                        // PARCIAL: scroll mais liberal - mas ainda atualiza o lastProgressoEnviado
+                        const diferenca = progresso - AutoScrollController.lastProgressoEnviado;
+                        deveScroll = diferenca > 0.02; // Apenas 2% de mudança
+                    } else {
+                        // FINAL: respeita 5% de hysteresis
+                        deveScroll = AutoScrollController.shouldScrollTo(progresso);
+                    }
+                }
+                
+                if (deveScroll) {
+                    console.log(`   ✓✓ FAZENDO SCROLL para ${(progresso * 100).toFixed(1)}% (${isFinal ? 'FINAL' : 'parcial'})`);
+                    scrollParaElemento(melhorMatch, progresso, false);
+                    // Atualiza baseline mesmo se for parcial
+                    if (!isFinal) {
+                        AutoScrollController.lastProgressoEnviado = progresso;
+                    }
                 } else {
-                    console.log(`   ✓ Match no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%) - progresso=${(progresso * 100).toFixed(0)}%`);
+                    console.log(`   ℹ️ Sem scroll: podeScroll=${podeScroll}, progresso=${(progresso * 100).toFixed(1)}%`);
                 }
             }
         } else {
@@ -446,7 +476,7 @@ if (SpeechRecognition) {
 
     // Move o teleprompter para um elemento, com progresso opcional dentro do elemento
     // progresso: 0 = início do elemento, 1 = fim do elemento
-    // isInitialJump: se true, usa animação suave (jump inicial)
+    // isInitialJump: se true, usa animação suave (jump inicial); senão instantâneo
     function scrollParaElemento(elemento, progresso = 0, isInitialJump = false) {
         if (!elemento) {
             console.log(`   ❌ Elemento inválido para scroll`);
@@ -461,10 +491,12 @@ if (SpeechRecognition) {
         const offsetAdicional = alturaElemento * progresso;
         const offsetFinal = offsetTopBase + offsetAdicional;
         
-        console.log(`   📍 Scroll: offset=${offsetFinal.toFixed(0)}, progresso=${(progresso*100).toFixed(0)}%${isInitialJump ? ' (SUAVE)' : ''}`);
+        const tipoScroll = isInitialJump ? '(SUAVE 300ms)' : '(instantâneo)';
+        console.log(`   📍 scrollParaElemento: offset=${offsetFinal.toFixed(0)}, prog=${(progresso*100).toFixed(0)}% ${tipoScroll}`);
         
         // Move usando a função que aceita offset diretamente
         // Passa smooth=true para jump inicial (animação suave de 300ms)
+        // Acompanhamento de voz = instantâneo para não atrasar
         if (window.moveTeleprompterToOffset) {
             window.moveTeleprompterToOffset(offsetFinal, isInitialJump);
         } else {
@@ -494,10 +526,11 @@ if (SpeechRecognition) {
             }
         }
         
-        if (ultimaPosicaoEncontrada < 0) return 0;
+        const progresso = ultimaPosicaoEncontrada < 0 ? 0 : (ultimaPosicaoEncontrada + 1) / currentElementTotalWords;
+        console.log(`   📊 calcularProgressoPorAlinhamento: última palavra pos=${ultimaPosicaoEncontrada}, total=${currentElementTotalWords}, progresso=${(progresso*100).toFixed(1)}%`);
         
         // Retorna progresso baseado na posição da última palavra encontrada
-        return (ultimaPosicaoEncontrada + 1) / currentElementTotalWords;
+        return progresso;
     }
 
     // Normaliza texto para comparação

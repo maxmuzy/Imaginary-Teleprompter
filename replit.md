@@ -73,6 +73,40 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Sistema de Auto-Scroll Controlado por Voz (v22)
+- **API de Controle Automático em `teleprompter.js`** (`window.teleprompterAuto`):
+  - `start()` / `stop()` - Ativa/desativa modo auto-scroll
+  - `pause()` / `resume()` - Pausa/resume com persistência de velocidade
+  - `setSpeed(wps)` - Define velocidade baseada em palavras por segundo
+  - Mapeia WPS para velocidade: 0=parado, 2=lento, 3=normal, 4+=rápido
+  - `autoScrollCurrentX` persiste velocidade para uso em resume
+
+- **AutoScrollController em `speechRecognition.js`**:
+  - Calcula WPS (palavras/segundo) com suavização de média móvel
+  - Integrado com máquina de estados SEARCHING/LOCKED
+  - `start()` quando entra em LOCKED
+  - `update()` quando há progresso confirmado
+  - `pause()` quando detecta improvisação
+  - `resume()` quando retorna ao roteiro
+
+- **Sistema de Buffer Pendente**:
+  - `pendingFinalWords[]` - palavras aguardando confirmação de match
+  - `cumulativeFinalWords[]` - apenas palavras CONFIRMADAS
+  - Match confirmado → move pendentes para cumulativo
+  - Miss (improvisação) → descarta pendentes
+  - Evita corrupção de tracking durante improvisação
+
+- **Sincronização de Baseline**:
+  - `inicializarTrackingElemento()` reseta todos os baselines juntos
+  - AutoScrollController.lastWordCount sincronizado com cumulativeFinalWords
+  - Evita WPS falso ao mudar de elemento
+
+- **Comportamento**:
+  - Rolagem automática inicia quando posição é encontrada
+  - Velocidade ajusta automaticamente baseada em WPS
+  - Pausa durante improvisação (scroll fica estacionário)
+  - Resume com velocidade correta quando volta ao roteiro
+
 ### 2024-11-25: Arquitetura Simplificada com Máquina de Estados (v21)
 - **Reescrito `js/speechRecognition.js`** com nova arquitetura baseada em estados:
   - Removido audioAnalyzer.js (causava loop infinito de restarts)

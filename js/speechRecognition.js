@@ -59,6 +59,10 @@ let currentSpeakerSession = 1;      // Sessão atual de fala (Pessoa 1, 2, 3...)
 let lastSpeechTimestamp = 0;        // Timestamp do último resultado
 const SPEAKER_PAUSE_THRESHOLD = 2000; // Pausa > 2s = nova sessão de fala
 
+// Contador de parciais sem match quando perto do fim do elemento
+let parciaisSemMatchNoFim = 0;      // Quantos parciais sem match quando progresso > 90%
+const MAX_PARCIAIS_SEM_MATCH = 5;   // Após 5 parciais sem match, força busca expandida
+
 // ========================================
 // AutoScrollController - Controle SIMPLIFICADO de scroll
 // Abordagem: scroll direto para posição do match, sem velocidade calculada
@@ -329,10 +333,20 @@ if (SpeechRecognition) {
         const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
         const textoNormalizado = normalizarTexto(textoFalado);
         
+        // Calcula progresso atual para decidir se expande lookahead
+        const progressoAtual = currentElementTotalWords > 0 ? currentWordPointer / currentElementTotalWords : 0;
+        
+        // EXPANSÃO DINÂMICA: quando perto do fim (>90%) ou após muitos parciais sem match, expande busca
+        let lookahead = CONFIG.lookaheadElements;
+        if (progressoAtual > 0.90 || parciaisSemMatchNoFim >= MAX_PARCIAIS_SEM_MATCH) {
+            lookahead = 20; // Expande de 5 para 20 elementos
+            console.log(`   🔭 Lookahead EXPANDIDO: ${lookahead} (progresso=${(progressoAtual*100).toFixed(0)}%, parciaisSemMatch=${parciaisSemMatchNoFim})`);
+        }
+        
         // IMPORTANTE: Inclui o elemento ATUAL (apresentador pode ainda estar lendo ele)
         // Olha do atual até os próximos N elementos
         const startIdx = Math.max(0, currentElementIndex);
-        const endIdx = Math.min(startIdx + CONFIG.lookaheadElements + 1, elementos.length);
+        const endIdx = Math.min(startIdx + lookahead + 1, elementos.length);
         
         let melhorMatch = null;
         let melhorSimilaridade = 0;
@@ -372,8 +386,9 @@ if (SpeechRecognition) {
                 AutoScrollController.resume();
             }
             
-            // Reseta contador de misses
+            // Reseta contadores de misses
             consecutiveMisses = 0;
+            parciaisSemMatchNoFim = 0;
             
             if (avancou) {
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
@@ -446,10 +461,27 @@ if (SpeechRecognition) {
                 }
             }
         } else {
-            // NÃO encontrou match - pode ser improvisação
+            // NÃO encontrou match - pode ser improvisação OU transição para próximo elemento
+            
+            // Se estamos perto do fim do elemento (>90%), conta parciais sem match
+            if (progressoAtual > 0.90) {
+                parciaisSemMatchNoFim++;
+                console.log(`   ⚠️ Sem match perto do fim! parciaisSemMatch=${parciaisSemMatchNoFim}/${MAX_PARCIAIS_SEM_MATCH}`);
+                
+                // Se atingiu limite, força volta para SEARCHING para re-localizar
+                if (parciaisSemMatchNoFim >= MAX_PARCIAIS_SEM_MATCH) {
+                    console.log(`   🔄 Muitos parciais sem match no fim, voltando para SEARCHING...`);
+                    currentState = STATE.SEARCHING;
+                    parciaisSemMatchNoFim = 0;
+                    consecutiveMisses = 0;
+                    AutoScrollController.stop();
+                    return; // Sai da função para re-buscar na próxima chamada
+                }
+            }
+            
             if (isFinal) {
                 consecutiveMisses++;
-                console.log(`   ⏸️ Sem match (improvisação?). Misses: ${consecutiveMisses}/${CONFIG.maxConsecutiveMisses}`);
+                console.log(`   ⏸️ Sem match FINAL (improvisação?). Misses: ${consecutiveMisses}/${CONFIG.maxConsecutiveMisses}`);
                 
                 // DESCARTA palavras pendentes (eram improvisação)
                 if (pendingFinalWords.length > 0) {
@@ -462,14 +494,15 @@ if (SpeechRecognition) {
                 
                 // Se muitos misses, volta para SEARCHING
                 if (consecutiveMisses >= CONFIG.maxConsecutiveMisses) {
-                    console.log(`   🔄 Muitos misses, voltando para SEARCHING...`);
+                    console.log(`   🔄 Muitos misses FINAL, voltando para SEARCHING...`);
                     currentState = STATE.SEARCHING;
                     consecutiveMisses = 0;
+                    parciaisSemMatchNoFim = 0;
                     // Para o controlador ao sair de LOCKED
                     AutoScrollController.stop();
                 }
             } else {
-                console.log(`   ⏳ Aguardando (parcial)...`);
+                console.log(`   ⏳ Aguardando (parcial)... progresso=${(progressoAtual*100).toFixed(0)}%`);
             }
         }
     }

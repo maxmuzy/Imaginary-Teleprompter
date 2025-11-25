@@ -73,6 +73,22 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Lookahead Dinâmico + Detecção de Transição (v26)
+- **Lookahead dinâmico**:
+  - Quando progresso > 90%, expande de 5 para 20 elementos
+  - Permite encontrar próximo parágrafo mesmo que esteja longe
+  - Log: `🔭 Lookahead EXPANDIDO: 20`
+
+- **Contador de parciais sem match**:
+  - `parciaisSemMatchNoFim`: conta parciais sem match quando perto do fim
+  - Após 5 parciais sem match, força volta para SEARCHING
+  - Log: `⚠️ Sem match perto do fim! parciaisSemMatch=X/5`
+
+- **Auto-volta para SEARCHING**:
+  - Quando atingir limite de parciais sem match, re-localiza posição
+  - Resolve problema de transição entre repórter/apresentadora
+  - Log: `🔄 Muitos parciais sem match no fim, voltando para SEARCHING...`
+
 ### 2024-11-25: Scroll Suave + Identificação de Vozes (v25)
 - **Jump inicial suave**:
   - `moveToOffset(offsetTop, smooth)` aceita parâmetro smooth

@@ -1,0 +1,120 @@
+   📌 Nova sessão: 82
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 82)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 500ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #83 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 83
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 83)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 500ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #84 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 84
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 84)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 601ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #85 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 85
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 85)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 549ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #86 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 86
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 86)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 500ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #87 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 87
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 87)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 500ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #88 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 88
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 88)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 500ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #89 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."
+VM2330 injected.js:37    📌 Nova sessão: 89
+VM2330 injected.js:37    🔄 Reconhecimento abortado, aguardando onend para reiniciar...
+VM2330 injected.js:37 Erro no reconhecimento de voz: aborted
+(anônimo) @ VM2330 injected.js:37
+recognition.onerror @ VM2339 speechRecognition.js:534Entenda o erro
+VM2330 injected.js:37 🎤 Reconhecimento encerrado
+VM2330 injected.js:37    🔄 Tentativa de restart #1...
+VM2330 injected.js:37    ✅ Reconhecimento reiniciado (sessão 89)
+VM2330 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM2330 injected.js:37 🔊 Analisador já está rodando
+VM2330 injected.js:37 🔊 Análise de áudio para detecção de speaker ativada
+VM2330 injected.js:37 🔇 Pausa detectada: 550ms
+VM2330 injected.js:37 🔄 MUDANÇA DE SPEAKER #90 detectada!
+VM2330 injected.js:37    Tipo: pausa
+VM2330 injected.js:37    Texto descartado: "..."

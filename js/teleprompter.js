@@ -988,6 +988,131 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         resumeAnimation();
     }
 
+    // ========================================
+    // API de Controle Automático para Reconhecimento de Voz
+    // ========================================
+    
+    var autoScrollActive = false;
+    var autoScrollCurrentX = 3; // Velocidade atual calculada por WPS (persistida)
+    var autoScrollPaused = false; // Estado de pausa (para saber quando realmente pausou)
+    var lastAutoWps = 0; // Última taxa WPS registrada
+    
+    // Define velocidade baseada em palavras por segundo (WPS)
+    // WPS típico de leitura: 2-4 palavras/segundo
+    // Mapeia WPS para valor de x (velocidade do teleprompter)
+    function setAutoSpeed(wps) {
+        if (!autoScrollActive) return;
+        
+        // Limita WPS a valores razoáveis
+        wps = Math.max(0, Math.min(wps, 6));
+        lastAutoWps = wps;
+        
+        // Mapeia WPS para x:
+        // 0 WPS = x = 0 (parado)
+        // 2 WPS = x = 3 (leitura lenta)
+        // 3 WPS = x = 5 (leitura normal)
+        // 4+ WPS = x = 7 (leitura rápida)
+        var targetX;
+        if (wps < 0.5) {
+            targetX = 0; // Parado
+        } else if (wps < 2) {
+            targetX = Math.round(wps * 1.5); // 1-3
+        } else if (wps < 3.5) {
+            targetX = Math.round(2 + (wps - 2) * 2); // 3-5
+        } else {
+            targetX = Math.round(5 + (wps - 3.5) * 1.5); // 5-8
+        }
+        
+        // Suaviza a transição (não muda bruscamente)
+        if (Math.abs(targetX - x) > 1) {
+            x = x + (targetX > x ? 1 : -1);
+        } else {
+            x = targetX;
+        }
+        
+        // IMPORTANTE: Persiste a velocidade atual para uso em resume()
+        autoScrollCurrentX = x;
+        autoScrollPaused = false; // Está ativo, não pausado
+        
+        console.log(`🎚️ Auto-speed: WPS=${wps.toFixed(1)} → x=${x} → velocity=${velocity.toFixed(1)}`);
+        
+        updateVelocity();
+        resumeAnimation();
+    }
+    
+    // Define velocidade diretamente via valor de x
+    function setVelocityDirect(xValue) {
+        x = Math.max(0, Math.min(xValue, 10)); // Limita entre 0 e 10
+        autoScrollCurrentX = x; // Persiste
+        updateVelocity();
+        if (play) {
+            resumeAnimation();
+        }
+        console.log(`🎚️ Velocidade direta: x=${x}, velocity=${velocity.toFixed(1)}`);
+    }
+    
+    // Ativa o modo auto-scroll (controlado por voz)
+    function startAutoScroll() {
+        autoScrollActive = true;
+        autoScrollPaused = false;
+        autoScrollCurrentX = 3; // Velocidade inicial padrão
+        x = autoScrollCurrentX;
+        play = true; // Garante que está em modo play
+        updateVelocity();
+        console.log('🎤 Auto-scroll ATIVADO');
+        resumeAnimation();
+    }
+    
+    // Desativa o modo auto-scroll
+    function stopAutoScroll() {
+        autoScrollActive = false;
+        autoScrollPaused = false;
+        console.log('🎤 Auto-scroll DESATIVADO');
+    }
+    
+    // Pausa o teleprompter localmente (sem afetar sync)
+    function pauseAutoScroll() {
+        if (autoScrollActive && !autoScrollPaused) {
+            autoScrollPaused = true;
+            x = 0;
+            updateVelocity();
+            animate(0, getCurrPos()); // Para na posição atual
+            timer.stopTimer();
+            console.log('⏸️ Auto-scroll PAUSADO');
+        }
+    }
+    
+    // Resume o teleprompter com velocidade PERSISTIDA (não padrão!)
+    function resumeAutoScroll() {
+        if (autoScrollActive && autoScrollPaused) {
+            autoScrollPaused = false;
+            // Usa a velocidade persistida, não um valor padrão!
+            x = autoScrollCurrentX > 0 ? autoScrollCurrentX : 3;
+            updateVelocity();
+            resumeAnimation();
+            timer.startTimer();
+            console.log(`▶️ Auto-scroll RESUMIDO (x=${x})`);
+        }
+        // Se não estava pausado, NÃO faz nada (evita reset de velocidade)
+    }
+    
+    // Verifica se auto-scroll está ativo
+    function isAutoScrollActive() {
+        return autoScrollActive;
+    }
+    
+    // Expor API de auto-scroll globalmente
+    window.teleprompterAuto = {
+        start: startAutoScroll,
+        stop: stopAutoScroll,
+        pause: pauseAutoScroll,
+        resume: resumeAutoScroll,
+        setSpeed: setAutoSpeed,
+        setVelocity: setVelocityDirect,
+        isActive: isAutoScrollActive,
+        getWps: function() { return lastAutoWps; }
+    };
+    
     // Expor funções no escopo global para uso do reconhecimento de voz
     window.increaseVelocity = increaseVelocity;
     window.decreaseVelocity = decreaseVelocity;

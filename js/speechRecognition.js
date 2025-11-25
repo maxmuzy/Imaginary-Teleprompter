@@ -44,13 +44,115 @@ let currentState = STATE.SEARCHING;
 let currentElementIndex = -1;       // Índice atual no roteiro
 let consecutiveMisses = 0;          // Contador de misses para detectar improvisação
 let wordBuffer = [];                // Buffer de palavras reconhecidas
-let cumulativeFinalWords = [];      // Buffer cumulativo de palavras finalizadas (não truncado)
+let cumulativeFinalWords = [];      // Buffer cumulativo de palavras finalizadas CONFIRMADAS (não truncado)
+let pendingFinalWords = [];         // Buffer temporário de palavras finais PENDENTES de confirmação
 let lastProcessedFinalIndex = 0;    // Índice do último final processado
 let debounceTimer = null;
 let ultimoHashRoteiro = "";
 let currentWordPointer = 0;         // Ponteiro monotônico: índice da palavra atual no elemento
 let currentElementWords = [];       // Array de palavras normalizadas do elemento atual
 let currentElementTotalWords = 0;   // Total de palavras no elemento atual
+
+// ========================================
+// AutoScrollController - Controle de velocidade baseado em WPS
+// ========================================
+const AutoScrollController = {
+    lastWordCount: 0,
+    lastTimestamp: Date.now(),
+    wpsHistory: [],           // Histórico de WPS para suavização
+    wpsWindowSize: 5,         // Tamanho da janela de suavização
+    isActive: false,
+    
+    // Inicializa o controlador
+    start: function() {
+        this.isActive = true;
+        this.lastWordCount = 0;
+        this.lastTimestamp = Date.now();
+        this.wpsHistory = [];
+        
+        if (window.teleprompterAuto) {
+            window.teleprompterAuto.start();
+            console.log('🚀 AutoScrollController INICIADO');
+        } else {
+            console.log('⚠️ teleprompterAuto não disponível');
+        }
+    },
+    
+    // Para o controlador
+    stop: function() {
+        this.isActive = false;
+        if (window.teleprompterAuto) {
+            window.teleprompterAuto.stop();
+            console.log('🛑 AutoScrollController PARADO');
+        }
+    },
+    
+    // Atualiza velocidade baseado em progresso
+    // Chamado sempre que há um match/progresso
+    update: function(wordCount) {
+        if (!this.isActive) return;
+        
+        const now = Date.now();
+        const elapsed = (now - this.lastTimestamp) / 1000; // segundos
+        
+        // Evita divisão por zero e picos
+        if (elapsed < 0.3) return; // Mínimo 300ms entre updates
+        
+        // Calcula novas palavras desde último update
+        const newWords = wordCount - this.lastWordCount;
+        
+        // Calcula WPS instantâneo
+        const instantWps = newWords > 0 ? newWords / elapsed : 0;
+        
+        // Adiciona ao histórico para suavização
+        this.wpsHistory.push(instantWps);
+        if (this.wpsHistory.length > this.wpsWindowSize) {
+            this.wpsHistory.shift();
+        }
+        
+        // Calcula WPS suavizado (média móvel)
+        const avgWps = this.wpsHistory.reduce((a, b) => a + b, 0) / this.wpsHistory.length;
+        
+        // Atualiza marcadores
+        this.lastWordCount = wordCount;
+        this.lastTimestamp = now;
+        
+        console.log(`📊 WPS: instant=${instantWps.toFixed(2)}, avg=${avgWps.toFixed(2)}, words=${wordCount}`);
+        
+        // Aplica velocidade no teleprompter
+        if (window.teleprompterAuto) {
+            window.teleprompterAuto.setSpeed(avgWps);
+        }
+    },
+    
+    // Pausa quando não há fala detectada (improvisação ou silêncio)
+    pause: function() {
+        if (!this.isActive) return;
+        
+        console.log('⏸️ AutoScrollController: Pausando (sem match)');
+        if (window.teleprompterAuto) {
+            window.teleprompterAuto.pause();
+        }
+    },
+    
+    // Resume quando detecta fala novamente
+    resume: function() {
+        if (!this.isActive) return;
+        
+        console.log('▶️ AutoScrollController: Resumindo');
+        if (window.teleprompterAuto) {
+            window.teleprompterAuto.resume();
+        }
+    },
+    
+    // Reseta estado (novo elemento ou mudança de estado)
+    reset: function() {
+        this.lastWordCount = cumulativeFinalWords.length;
+        this.lastTimestamp = Date.now();
+        this.wpsHistory = [];
+        console.log('🔄 AutoScrollController: Estado resetado');
+    }
+};
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
@@ -94,12 +196,12 @@ if (SpeechRecognition) {
                 // Adiciona palavras ao buffer normal (para matching)
                 wordBuffer.push(...words);
                 
-                // Adiciona ao buffer cumulativo (para tracking de progresso)
+                // Adiciona ao buffer PENDENTE (será movido para cumulativo só quando match confirmado)
                 // IMPORTANTE: Usa o mesmo filtro que currentElementWords (palavras > 1 char)
                 const palavrasFiltradas = words.filter(w => w.length > 1);
-                cumulativeFinalWords.push(...palavrasFiltradas);
+                pendingFinalWords.push(...palavrasFiltradas);
                 
-                // Limita tamanho do buffer de matching (mas não do cumulativo)
+                // Limita tamanho do buffer de matching (mas não do pendente)
                 if (wordBuffer.length > CONFIG.maxBufferWords) {
                     wordBuffer = wordBuffer.slice(-CONFIG.maxBufferWords);
                 }
@@ -182,6 +284,13 @@ if (SpeechRecognition) {
             console.log(`   ✅ FOUND! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
             console.log(`   📝 "${(melhorMatch.innerText || '').substring(0, 50)}..."`);
             
+            // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo
+            if (pendingFinalWords.length > 0) {
+                cumulativeFinalWords.push(...pendingFinalWords);
+                console.log(`   📝 Confirmadas ${pendingFinalWords.length} palavras pendentes`);
+                pendingFinalWords = [];
+            }
+            
             // Transição para LOCKED
             currentState = STATE.LOCKED;
             currentElementIndex = melhorIndice;
@@ -189,6 +298,10 @@ if (SpeechRecognition) {
             
             // Inicializa tracking do elemento
             inicializarTrackingElemento(melhorMatch);
+            
+            // INICIA AUTO-SCROLL quando entra em LOCKED
+            AutoScrollController.start();
+            AutoScrollController.reset();
             
             // Move o teleprompter para o início do elemento
             scrollParaElemento(melhorMatch, 0);
@@ -204,6 +317,12 @@ if (SpeechRecognition) {
         currentElementTotalWords = currentElementWords.length;
         currentWordPointer = 0;
         cumulativeFinalWords = []; // Reseta buffer cumulativo ao trocar de elemento
+        pendingFinalWords = []; // Limpa também palavras pendentes
+        
+        // IMPORTANTE: Reseta o baseline do AutoScrollController para evitar WPS falso
+        AutoScrollController.lastWordCount = 0;
+        AutoScrollController.lastTimestamp = Date.now();
+        AutoScrollController.wpsHistory = [];
         
         console.log(`   📊 Tracking iniciado: ${currentElementTotalWords} palavras no elemento`);
     }
@@ -243,8 +362,22 @@ if (SpeechRecognition) {
         }
 
         if (melhorMatch) {
+            // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo
+            if (pendingFinalWords.length > 0) {
+                cumulativeFinalWords.push(...pendingFinalWords);
+                console.log(`   📝 Confirmadas ${pendingFinalWords.length} palavras pendentes`);
+                pendingFinalWords = [];
+            }
+            
             // Verifica se é um AVANÇO (próximo elemento) ou CONFIRMAÇÃO (mesmo elemento)
             const avancou = melhorIndice > currentElementIndex;
+            
+            // Se estava pausado (misses > 0), resume PRIMEIRO antes de qualquer atualização
+            const estavaPausado = consecutiveMisses > 0;
+            if (estavaPausado) {
+                console.log(`   ▶️ Retornando ao roteiro após improvisação`);
+                AutoScrollController.resume();
+            }
             
             if (avancou) {
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
@@ -253,6 +386,9 @@ if (SpeechRecognition) {
                 
                 // Inicializa tracking do novo elemento
                 inicializarTrackingElemento(melhorMatch);
+                
+                // Reseta o controlador para novo elemento
+                AutoScrollController.reset();
                 
                 // Move o teleprompter para o novo elemento
                 scrollParaElemento(melhorMatch, 0);
@@ -272,10 +408,14 @@ if (SpeechRecognition) {
                     
                     console.log(`   ✓ Progresso no índice ${melhorIndice}: ${currentWordPointer}/${currentElementTotalWords} (${(progresso * 100).toFixed(0)}%)`);
                     
+                    // ATUALIZA VELOCIDADE baseado em WPS
+                    AutoScrollController.update(palavrasAcumuladas);
+                    
                     // Faz scroll incremental proporcional ao progresso
                     scrollParaElemento(melhorMatch, progresso);
                 } else {
                     console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                    // Mantém velocidade atual (NÃO chama resume para evitar reset)
                 }
             }
         } else {
@@ -284,11 +424,22 @@ if (SpeechRecognition) {
                 consecutiveMisses++;
                 console.log(`   ⏸️ Sem match (improvisação?). Misses: ${consecutiveMisses}/${CONFIG.maxConsecutiveMisses}`);
                 
+                // DESCARTA palavras pendentes (eram improvisação)
+                if (pendingFinalWords.length > 0) {
+                    console.log(`   🗑️ Descartadas ${pendingFinalWords.length} palavras de improvisação`);
+                    pendingFinalWords = [];
+                }
+                
+                // PAUSA scroll durante improvisação
+                AutoScrollController.pause();
+                
                 // Se muitos misses, volta para SEARCHING
                 if (consecutiveMisses >= CONFIG.maxConsecutiveMisses) {
                     console.log(`   🔄 Muitos misses, voltando para SEARCHING...`);
                     currentState = STATE.SEARCHING;
                     consecutiveMisses = 0;
+                    // Para o controlador ao sair de LOCKED
+                    AutoScrollController.stop();
                 }
             } else {
                 console.log(`   ⏳ Aguardando (parcial)...`);

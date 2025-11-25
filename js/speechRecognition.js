@@ -44,9 +44,13 @@ let currentState = STATE.SEARCHING;
 let currentElementIndex = -1;       // Índice atual no roteiro
 let consecutiveMisses = 0;          // Contador de misses para detectar improvisação
 let wordBuffer = [];                // Buffer de palavras reconhecidas
+let cumulativeFinalWords = [];      // Buffer cumulativo de palavras finalizadas (não truncado)
 let lastProcessedFinalIndex = 0;    // Índice do último final processado
 let debounceTimer = null;
 let ultimoHashRoteiro = "";
+let currentWordPointer = 0;         // Ponteiro monotônico: índice da palavra atual no elemento
+let currentElementWords = [];       // Array de palavras normalizadas do elemento atual
+let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
@@ -87,10 +91,15 @@ if (SpeechRecognition) {
             
             if (event.results[i].isFinal) {
                 isFinal = true;
-                // Adiciona palavras ao buffer
+                // Adiciona palavras ao buffer normal (para matching)
                 wordBuffer.push(...words);
                 
-                // Limita tamanho do buffer
+                // Adiciona ao buffer cumulativo (para tracking de progresso)
+                // IMPORTANTE: Usa o mesmo filtro que currentElementWords (palavras > 1 char)
+                const palavrasFiltradas = words.filter(w => w.length > 1);
+                cumulativeFinalWords.push(...palavrasFiltradas);
+                
+                // Limita tamanho do buffer de matching (mas não do cumulativo)
                 if (wordBuffer.length > CONFIG.maxBufferWords) {
                     wordBuffer = wordBuffer.slice(-CONFIG.maxBufferWords);
                 }
@@ -178,11 +187,25 @@ if (SpeechRecognition) {
             currentElementIndex = melhorIndice;
             consecutiveMisses = 0;
             
-            // Move o teleprompter
-            scrollParaElemento(melhorMatch);
+            // Inicializa tracking do elemento
+            inicializarTrackingElemento(melhorMatch);
+            
+            // Move o teleprompter para o início do elemento
+            scrollParaElemento(melhorMatch, 0);
         } else {
             console.log(`   ❌ Nenhum match encontrado (threshold: ${CONFIG.searchThreshold * 100}%)`);
         }
+    }
+
+    // Inicializa tracking para um novo elemento
+    function inicializarTrackingElemento(elemento) {
+        const textoElemento = elemento.innerText || elemento.textContent || '';
+        currentElementWords = normalizarTexto(textoElemento).split(/\s+/).filter(p => p.length > 1);
+        currentElementTotalWords = currentElementWords.length;
+        currentWordPointer = 0;
+        cumulativeFinalWords = []; // Reseta buffer cumulativo ao trocar de elemento
+        
+        console.log(`   📊 Tracking iniciado: ${currentElementTotalWords} palavras no elemento`);
     }
 
     // LOCKED: Verifica elemento atual e próximos (sequencial)
@@ -228,12 +251,32 @@ if (SpeechRecognition) {
                 currentElementIndex = melhorIndice;
                 consecutiveMisses = 0;
                 
-                // Move o teleprompter apenas quando avança
-                scrollParaElemento(melhorMatch);
+                // Inicializa tracking do novo elemento
+                inicializarTrackingElemento(melhorMatch);
+                
+                // Move o teleprompter para o novo elemento
+                scrollParaElemento(melhorMatch, 0);
             } else {
-                // Ainda no mesmo elemento - OK, reseta misses mas não move
-                console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                // Ainda no mesmo elemento - avança o pointer baseado no buffer cumulativo
                 consecutiveMisses = 0;
+                
+                // Usa o tamanho do buffer cumulativo como proxy para progresso
+                const palavrasAcumuladas = cumulativeFinalWords.length;
+                
+                // Avança o pointer monotonicamente
+                if (palavrasAcumuladas > currentWordPointer && currentElementTotalWords > 0) {
+                    currentWordPointer = Math.min(palavrasAcumuladas, currentElementTotalWords);
+                    
+                    // Calcula progresso baseado no pointer
+                    const progresso = currentWordPointer / currentElementTotalWords;
+                    
+                    console.log(`   ✓ Progresso no índice ${melhorIndice}: ${currentWordPointer}/${currentElementTotalWords} (${(progresso * 100).toFixed(0)}%)`);
+                    
+                    // Faz scroll incremental proporcional ao progresso
+                    scrollParaElemento(melhorMatch, progresso);
+                } else {
+                    console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                }
             }
         } else {
             // NÃO encontrou match - pode ser improvisação
@@ -253,21 +296,27 @@ if (SpeechRecognition) {
         }
     }
 
-    // Move o teleprompter para um elemento
-    function scrollParaElemento(elemento) {
+    // Move o teleprompter para um elemento, com progresso opcional dentro do elemento
+    // progresso: 0 = início do elemento, 1 = fim do elemento
+    function scrollParaElemento(elemento, progresso = 0) {
         if (!elemento) {
             console.log(`   ❌ Elemento inválido para scroll`);
             return;
         }
 
-        // Calcula o offsetTop do elemento
-        const offsetTop = elemento.offsetTop;
-        console.log(`   📍 Elemento offsetTop: ${offsetTop}`);
+        // Calcula o offsetTop base do elemento
+        const offsetTopBase = elemento.offsetTop;
+        const alturaElemento = elemento.offsetHeight || 0;
         
-        // Move usando a nova função que aceita offset diretamente
+        // Adiciona offset proporcional ao progresso dentro do elemento
+        const offsetAdicional = alturaElemento * progresso;
+        const offsetFinal = offsetTopBase + offsetAdicional;
+        
+        console.log(`   📍 Scroll: base=${offsetTopBase}, altura=${alturaElemento}, progresso=${(progresso*100).toFixed(0)}%, final=${offsetFinal.toFixed(0)}`);
+        
+        // Move usando a função que aceita offset diretamente
         if (window.moveTeleprompterToOffset) {
-            console.log(`   🎯 Chamando moveTeleprompterToOffset(${offsetTop})`);
-            window.moveTeleprompterToOffset(offsetTop);
+            window.moveTeleprompterToOffset(offsetFinal);
         } else {
             console.log(`   ❌ moveTeleprompterToOffset não disponível!`);
         }

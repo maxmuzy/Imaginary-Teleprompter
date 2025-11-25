@@ -54,6 +54,11 @@ let currentWordPointer = 0;         // Ponteiro monotônico: índice da palavra 
 let currentElementWords = [];       // Array de palavras normalizadas do elemento atual
 let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 
+// Identificação de sessões de fala (para debug)
+let currentSpeakerSession = 1;      // Sessão atual de fala (Pessoa 1, 2, 3...)
+let lastSpeechTimestamp = 0;        // Timestamp do último resultado
+const SPEAKER_PAUSE_THRESHOLD = 2000; // Pausa > 2s = nova sessão de fala
+
 // ========================================
 // AutoScrollController - Controle SIMPLIFICADO de scroll
 // Abordagem: scroll direto para posição do match, sem velocidade calculada
@@ -224,7 +229,15 @@ if (SpeechRecognition) {
     function executarMatching(textoFalado, isFinal) {
         if (textoFalado.length < 3) return;
 
-        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${textoFalado}"`);
+        // Detecta mudança de sessão de fala (pausa longa = possível novo falante)
+        const agora = Date.now();
+        if (lastSpeechTimestamp > 0 && (agora - lastSpeechTimestamp) > SPEAKER_PAUSE_THRESHOLD) {
+            currentSpeakerSession++;
+            console.log(`👤 ===== NOVA SESSÃO DE FALA: Pessoa ${currentSpeakerSession} =====`);
+        }
+        lastSpeechTimestamp = agora;
+
+        console.log(`[P${currentSpeakerSession}] 🎤 ${isFinal ? 'FINAL' : 'parcial'}: "${textoFalado}"`);
         console.log(`   Estado: ${currentState}, Índice: ${currentElementIndex}, Misses: ${consecutiveMisses}`);
 
         if (currentState === STATE.SEARCHING) {
@@ -286,8 +299,8 @@ if (SpeechRecognition) {
             AutoScrollController.start();
             AutoScrollController.reset();
             
-            // Move o teleprompter para o início do elemento
-            scrollParaElemento(melhorMatch, 0);
+            // Move o teleprompter para o início do elemento (SUAVE - jump inicial)
+            scrollParaElemento(melhorMatch, 0, true);
         } else {
             console.log(`   ❌ Nenhum match encontrado (threshold: ${CONFIG.searchThreshold * 100}%)`);
         }
@@ -369,9 +382,9 @@ if (SpeechRecognition) {
                 // Reseta o controlador para novo elemento
                 AutoScrollController.reset();
                 
-                // SCROLL DIRETO para o novo elemento (se não pausado)
+                // SCROLL para o novo elemento (SUAVE - jump para novo parágrafo)
                 if (AutoScrollController.shouldScroll()) {
-                    scrollParaElemento(melhorMatch, 0);
+                    scrollParaElemento(melhorMatch, 0, true);
                 }
             } else {
                 // Ainda no mesmo elemento - calcula progresso por ALINHAMENTO
@@ -433,7 +446,8 @@ if (SpeechRecognition) {
 
     // Move o teleprompter para um elemento, com progresso opcional dentro do elemento
     // progresso: 0 = início do elemento, 1 = fim do elemento
-    function scrollParaElemento(elemento, progresso = 0) {
+    // isInitialJump: se true, usa animação suave (jump inicial)
+    function scrollParaElemento(elemento, progresso = 0, isInitialJump = false) {
         if (!elemento) {
             console.log(`   ❌ Elemento inválido para scroll`);
             return;
@@ -447,11 +461,12 @@ if (SpeechRecognition) {
         const offsetAdicional = alturaElemento * progresso;
         const offsetFinal = offsetTopBase + offsetAdicional;
         
-        console.log(`   📍 Scroll: base=${offsetTopBase}, altura=${alturaElemento}, progresso=${(progresso*100).toFixed(0)}%, final=${offsetFinal.toFixed(0)}`);
+        console.log(`   📍 Scroll: offset=${offsetFinal.toFixed(0)}, progresso=${(progresso*100).toFixed(0)}%${isInitialJump ? ' (SUAVE)' : ''}`);
         
         // Move usando a função que aceita offset diretamente
+        // Passa smooth=true para jump inicial (animação suave de 300ms)
         if (window.moveTeleprompterToOffset) {
-            window.moveTeleprompterToOffset(offsetFinal);
+            window.moveTeleprompterToOffset(offsetFinal, isInitialJump);
         } else {
             console.log(`   ❌ moveTeleprompterToOffset não disponível!`);
         }

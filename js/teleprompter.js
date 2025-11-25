@@ -989,25 +989,24 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     }
 
     // Move o teleprompter para um offsetTop específico (usado pelo reconhecimento de voz)
-    function moveToOffset(offsetTop) {
+    // smooth: se true, usa animação suave (300ms ease-out); se false, instantâneo
+    function moveToOffset(offsetTop, smooth) {
         var jump;
         const focusCorrection = focusVerticalDisplacementCorrector();
-        
-        console.log(`📍 moveToOffset:`);
-        console.log(`   offsetTop: ${offsetTop}`);
-        console.log(`   promptHeight: ${promptHeight}`);
-        console.log(`   screenHeight: ${screenHeight}`);
-        console.log(`   focusCorrection: ${focusCorrection}`);
-        console.log(`   flipV: ${flipV}`);
         
         if (flipV)
             jump = -promptHeight + offsetTop + screenHeight - focusCorrection;
         else
             jump = -offsetTop + focusCorrection;
         
-        console.log(`   jump calculado: ${jump}`);
-        // Jump instantâneo
-        animate(0, jump);
+        console.log(`📍 moveToOffset: offset=${offsetTop}, jump=${jump}, smooth=${!!smooth}`);
+        
+        // Animação: suave (300ms) ou instantânea (0ms)
+        if (smooth) {
+            animate(300, jump, 'ease-out');
+        } else {
+            animate(0, jump);
+        }
         // Resume animation
         resumeAnimation();
     }

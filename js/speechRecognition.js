@@ -8,7 +8,7 @@ let roteiroTextoCompleto = "";
 let textoAcumulado = "";
 let debounceTimer = null;
 let isProcessing = false;
-let ultimoElementoValidado = null; // Rastreia o último elemento validado (Node) para ordem documental
+let ultimoIndiceValidado = -1; // Índice do último elemento validado na lista de elementos
 let observerDebounceTimer = null; // Debounce para evitar resets consecutivos
 let ultimoHashRoteiro = ""; // Hash do roteiro para detectar mudanças reais
 
@@ -157,7 +157,7 @@ if (SpeechRecognition) {
         // Só reseta se o hash for diferente (conteúdo realmente mudou)
         if (hashAtual !== ultimoHashRoteiro && ultimoHashRoteiro !== "") {
             console.log('🔄 Roteiro REALMENTE alterado, resetando rastreamento');
-            ultimoElementoValidado = null;
+            ultimoIndiceValidado = -1; // Reseta para o início
             carregarRoteiro();
         }
         
@@ -253,11 +253,11 @@ if (SpeechRecognition) {
         console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${palavrasParaMatch}" (de ${palavras.length} palavras)`);
 
         // Busca diretamente no DOM ao invés de usar o array de roteiro
-        const elementoEncontrado = encontrarElementoDOMComTexto(palavrasParaMatch);
+        const resultado = encontrarElementoDOMComTexto(palavrasParaMatch);
         
-        if (elementoEncontrado) {
-            console.log(`✅ Elemento encontrado: ${elementoEncontrado.tagName}`);
-            scrollParaElemento(elementoEncontrado);
+        if (resultado && resultado.elemento) {
+            console.log(`✅ Elemento encontrado: ${resultado.elemento.tagName} (índice ${resultado.indice})`);
+            scrollParaElemento(resultado.elemento, resultado.indice);
             
             // Limpa o acumulado se for resultado final
             if (isFinal) {
@@ -271,28 +271,12 @@ if (SpeechRecognition) {
     }
 
     // Busca diretamente no DOM pelo elemento que melhor corresponde ao texto falado
-    // Considera a última posição de scroll para evitar voltar a frases repetidas anteriores
+    // Usa índice na lista de elementos - estável mesmo quando DOM é recriado
     function encontrarElementoDOMComTexto(textoFalado) {
         const promptElement = document.querySelector('.prompt');
         if (!promptElement) {
             console.warn('⚠️ Elemento .prompt não encontrado');
             return null;
-        }
-        
-        // Verifica se o último elemento validado ainda está conectado ao prompt
-        // Usa promptElement.contains() ao invés de document.body.contains()
-        // pois o .prompt pode estar em estruturas DOM diferentes
-        if (ultimoElementoValidado) {
-            const estaNoPrompt = promptElement.contains(ultimoElementoValidado);
-            const estaNoDocument = document.contains(ultimoElementoValidado);
-            const temParent = ultimoElementoValidado.parentNode !== null;
-            
-            if (!estaNoPrompt) {
-                console.log(`🔄 Último elemento desconectado do prompt`);
-                console.log(`   DEBUG: noPrompt=${estaNoPrompt}, noDocument=${estaNoDocument}, temParent=${temParent}`);
-                console.log(`   DEBUG: elemento era: ${ultimoElementoValidado.tagName}, texto: "${(ultimoElementoValidado.innerText || '').substring(0, 30)}..."`);
-                ultimoElementoValidado = null;
-            }
         }
 
         const textoNormalizado = textoFalado.toLowerCase().trim();
@@ -301,15 +285,18 @@ if (SpeechRecognition) {
         const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, ol, ul, span, strong, em, b, i');
         
         let melhorElemento = null;
+        let melhorIndice = -1;
         let melhorSimilaridade = 0;
         const threshold = 0.25; // 25% mínimo (mais permissivo para frases curtas)
         
-        const ultimoElemLog = ultimoElementoValidado ? `${ultimoElementoValidado.tagName}` : 'nenhum';
-        console.log(`   🔍 Procurando em ${elementos.length} elementos (último validado: ${ultimoElemLog})...`);
+        console.log(`   🔍 Procurando em ${elementos.length} elementos (último índice: ${ultimoIndiceValidado})...`);
         
-        // Percorre todos os elementos e encontra o com melhor similaridade
-        // Prioriza elementos APÓS o último validado na ordem do documento
-        for (let elem of elementos) {
+        // Percorre todos os elementos a partir do índice seguinte ao último validado
+        // Isso garante progressão mesmo quando o DOM é recriado
+        const indiceInicio = ultimoIndiceValidado + 1;
+        
+        for (let i = indiceInicio; i < elementos.length; i++) {
+            const elem = elementos[i];
             const textoElemento = (elem.innerText || elem.textContent || '').trim();
             const textoElemNormalizado = textoElemento.toLowerCase().trim();
             
@@ -317,52 +304,31 @@ if (SpeechRecognition) {
             const similaridade = calcularSimilaridadeCobertura(textoNormalizado, textoElemNormalizado);
             
             if (similaridade >= threshold) {
-                // NUNCA seleciona o mesmo elemento, elementos anteriores, ou descendants
-                // (evita voltar para trás ou ficar preso em frases repetidas)
-                if (ultimoElementoValidado) {
-                    const eMesmo = elem === ultimoElementoValidado;
-                    
-                    // Verifica se elem está contido dentro de ultimoElementoValidado (descendant)
-                    const eDescendant = ultimoElementoValidado.contains(elem);
-                    
-                    if (eMesmo || eDescendant) {
-                        continue; // Ignora o mesmo elemento ou seus descendants
-                    }
-                    
-                    // Verifica se elem está DEPOIS de ultimoElementoValidado na ordem do documento
-                    const comparacao = ultimoElementoValidado.compareDocumentPosition(elem);
-                    const estaDepois = (comparacao & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
-                    
-                    // Ignora se NÃO está depois (está antes ou sem relação)
-                    if (!estaDepois) {
-                        continue;
-                    }
-                }
-                
                 // Atualiza se:
-                // 1. É o primeiro candidato válido (após ultimoElementoValidado) OU
+                // 1. É o primeiro candidato válido OU
                 // 2. Tem similaridade estritamente maior (match melhor)
-                // Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo na sequência)
+                // Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo)
                 const primeiroValido = melhorElemento === null;
                 const matchMelhor = similaridade > melhorSimilaridade;
                 
                 if (primeiroValido || matchMelhor) {
                     melhorSimilaridade = similaridade;
                     melhorElemento = elem;
+                    melhorIndice = i;
                 }
             }
         }
         
         if (melhorElemento) {
             const textoMatch = (melhorElemento.innerText || melhorElemento.textContent || '').substring(0, 50);
-            console.log(`   ✓ Melhor match (${(melhorSimilaridade * 100).toFixed(0)}%) em ${melhorElemento.offsetTop}px: "${textoMatch}..."`);
+            console.log(`   ✓ Melhor match (${(melhorSimilaridade * 100).toFixed(0)}%) índice ${melhorIndice}: "${textoMatch}..."`);
         }
         
-        return melhorElemento;
+        return { elemento: melhorElemento, indice: melhorIndice };
     }
 
     // Move o teleprompter para um elemento específico
-    function scrollParaElemento(elemento) {
+    function scrollParaElemento(elemento, indice) {
         const promptElement = document.querySelector('.prompt');
         if (!promptElement) {
             console.warn('⚠️ Elemento .prompt não encontrado');
@@ -383,13 +349,14 @@ if (SpeechRecognition) {
         const diferenca = progressoCalculado - posicaoAtual;
         const diferencaPercentual = Math.abs(diferenca) * 100;
         
-        // SEMPRE atualiza o rastreamento de progresso (crítico para frases repetidas)
-        ultimoElementoValidado = elemento;
-        console.log(`   ✅ Último elemento validado: ${elemento.tagName} (${offsetTop}px)`);
+        // SEMPRE atualiza o índice validado (crítico para frases repetidas)
+        // Usar índice é resiliente a recriações do DOM
+        ultimoIndiceValidado = indice;
+        console.log(`   ✅ Último índice validado: ${indice}`);
         
-        // Se a diferença for muito pequena, não faz scroll (mas já atualizou o progresso)
+        // Se a diferença for muito pequena, não faz scroll (mas já atualizou o índice)
         if (diferencaPercentual < 3) {
-            console.log(`   ⏭️ Já sincronizado (diferença: ${diferencaPercentual.toFixed(1)}%), progresso atualizado`);
+            console.log(`   ⏭️ Já sincronizado (diferença: ${diferencaPercentual.toFixed(1)}%), índice atualizado`);
             return;
         }
         

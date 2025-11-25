@@ -73,31 +73,34 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Controle Exclusivo de Voz + Parciais (v24)
+- **Correção do Conflito de Posicionamento**:
+  - Problema: `moveToAnchor('overlayFocus')` sobrescrevia o scroll por voz
+  - Solução: Flag `voiceControlActive` desabilita moveToAnchor quando voz está ativa
+  - API `window.teleprompterVoiceControl.{acquire, release, isActive}` exposta
+
+- **Resultados Parciais Agora Fazem Scroll**:
+  - `calcularProgressoPorAlinhamento()` - encontra última palavra falada no elemento
+  - Parciais calculam progresso por alinhamento de palavras
+  - Finais usam buffer cumulativo como antes
+  - Hysteresis de 5% evita jitter (só faz scroll se progresso > 5%)
+
+- **Controle Exclusivo Integrado**:
+  - `AutoScrollController.start()` chama `acquire()` - toma controle
+  - `AutoScrollController.stop()` chama `release()` - libera controle
+  - Enquanto voz ativa, teleprompter NÃO pode mover para âncoras
+
+- **Fluxo Corrigido**:
+  1. Detecção inicial → encontra posição → `acquire()` → scroll para elemento
+  2. Leitura parcial → alinhamento de palavras → scroll progressivo
+  3. Improvisação → pause → scroll para
+  4. Retorno ao roteiro → resume → scroll continua
+  5. Sai de LOCKED → `release()` → moveToAnchor volta a funcionar
+
 ### 2024-11-25: Sistema de Scroll Direto (v23)
-- **Abordagem Simplificada**:
-  - Removido cálculo complexo de WPS (words per second)
-  - Scroll DIRETO para posição do match quando reconhece
-  - Pausa imediata quando não há match
-  - Resume quando volta ao roteiro
-
-- **Thresholds Ajustados para Maior Tolerância**:
-  - `searchThreshold`: 20% (antes 35%) - detecção inicial mais tolerante
-  - `lockedThreshold`: 15% (antes 25%) - acompanhamento mais flexível
-  - `wordWindow`: 15 palavras (antes 10) - janela maior de contexto
-  - `maxConsecutiveMisses`: 2 (antes 3) - pausa mais rápida
-  - `debounceMs`: 200ms (antes 300ms) - resposta mais rápida
-
-- **AutoScrollController Simplificado**:
-  - `start()` / `stop()` - Ativa/desativa modo auto-scroll
-  - `pause()` / `resume()` - Pausa/resume durante improvisação
-  - `shouldScroll()` - Verifica se deve fazer scroll (ativo E não pausado)
-  - Sem cálculo de velocidade - scroll é instantâneo para posição
-
-- **Comportamento Esperado**:
-  1. **Detecção inicial**: Aceita 20% de match com janela de 15 palavras
-  2. **Leitura sequencial**: Scroll direto proporcional ao progresso no elemento
-  3. **Improvisação**: Pausa imediata no primeiro miss, descarta palavras
-  4. **Retorno ao roteiro**: Resume scroll quando match é encontrado novamente
+- Thresholds ajustados: searchThreshold 20%, lockedThreshold 15%, wordWindow 15
+- Scroll direto para posição do match (sem WPS)
+- Pausa imediata no primeiro miss (improvisação)
 
 ### 2024-11-25: Arquitetura Simplificada com Máquina de Estados (v21)
 - **Reescrito `js/speechRecognition.js`** com nova arquitetura baseada em estados:

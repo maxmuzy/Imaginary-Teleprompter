@@ -1,18 +1,52 @@
-import { encontrarPosicaoNoRoteiroFuzzy } from "./matchRecognition.js";
-import { iniciarAnalise, pararAnalise, obterStreamMicrofone } from "./audioAnalyzer.js";
+/**
+ * Sistema de Reconhecimento de Voz para Teleprompter
+ * v21 - Arquitetura Simplificada com Máquina de Estados
+ * 
+ * Estados:
+ * - SEARCHING: Buscando posição inicial no roteiro
+ * - LOCKED: Posição encontrada, avançando sequencialmente
+ * 
+ * Comportamento:
+ * - Em SEARCHING: busca no roteiro todo para encontrar onde o apresentador está
+ * - Em LOCKED: só verifica próximos elementos (sequencial)
+ * - Se não encontrar match em LOCKED: NÃO move (pode ser improvisação)
+ * - Após N misses consecutivos: volta para SEARCHING
+ */
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// Estado global do reconhecimento
-let roteiro = [];
-let roteiroTextoCompleto = "";
-let textoAcumulado = "";
+// Estados da máquina
+const STATE = {
+    SEARCHING: 'SEARCHING',
+    LOCKED: 'LOCKED'
+};
+
+// Configurações
+const CONFIG = {
+    // Matching
+    searchThreshold: 0.35,      // Threshold para encontrar posição inicial (SEARCHING)
+    lockedThreshold: 0.25,      // Threshold mais relaxado quando já está LOCKED
+    wordWindow: 10,             // Janela de palavras para matching
+    lookaheadElements: 5,       // Quantos elementos olhar à frente em LOCKED
+    
+    // Improvisação
+    maxConsecutiveMisses: 3,    // Misses antes de voltar para SEARCHING
+    
+    // Buffer
+    maxBufferWords: 50,         // Máximo de palavras no buffer
+    
+    // Debounce
+    debounceMs: 300             // Debounce para resultados parciais
+};
+
+// Estado global
+let currentState = STATE.SEARCHING;
+let currentElementIndex = -1;       // Índice atual no roteiro
+let consecutiveMisses = 0;          // Contador de misses para detectar improvisação
+let wordBuffer = [];                // Buffer de palavras reconhecidas
+let lastProcessedFinalIndex = 0;    // Índice do último final processado
 let debounceTimer = null;
-let isProcessing = false;
-let ultimoIndiceValidado = -1; // Índice do último elemento validado na lista de elementos
-let observerDebounceTimer = null; // Debounce para evitar resets consecutivos
-let ultimoHashRoteiro = ""; // Hash do roteiro para detectar mudanças reais
-let speakerChangeCount = 0; // Contador de mudanças de speaker para debug
+let ultimoHashRoteiro = "";
 
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
@@ -20,230 +54,283 @@ if (SpeechRecognition) {
     recognition.interimResults = true;
     recognition.lang = 'pt-BR';
 
-    recognition.onstart = async function() {
+    recognition.onstart = function() {
         console.log('🎤 Reconhecimento de voz iniciado');
-        
-        // Inicia análise de áudio para detectar mudança de speaker
-        try {
-            const stream = await obterStreamMicrofone();
-            await iniciarAnalise(stream, onSpeakerChange);
-            console.log('🔊 Análise de áudio para detecção de speaker ativada');
-        } catch (error) {
-            console.warn('⚠️ Não foi possível iniciar análise de áudio:', error);
-            console.log('   O reconhecimento de voz continuará sem detecção de speaker');
-        }
+        console.log(`📍 Estado inicial: ${currentState}`);
     };
-    
-    // Controle de sessão para segmentação por speaker
-    let sessionId = 0; // ID da sessão atual de reconhecimento
-    let lastProcessedSessionId = 0; // Última sessão processada
-    let pendingSpeakerReset = false; // Flag: precisa reiniciar após onend
-    let restartAttempts = 0; // Contador de tentativas de restart
-    const MAX_RESTART_ATTEMPTS = 3;
-    
-    // Callback chamado quando o analisador detecta mudança de speaker
-    function onSpeakerChange(evento) {
-        speakerChangeCount++;
-        
-        const textoAnterior = textoAcumulado.substring(0, 50);
-        console.log(`🔄 MUDANÇA DE SPEAKER #${speakerChangeCount} detectada!`);
-        console.log(`   Tipo: ${evento.tipo}`);
-        console.log(`   Texto descartado: "${textoAnterior}..."`);
-        
-        // Reseta o acumulador - próximas palavras são de outro speaker
-        textoAcumulado = "";
-        
-        // NÃO reseta o índice - o scroll deve continuar de onde parou
-        // Cada speaker lê sua parte sequencialmente no teleprompter
-        
-        // Marca que precisamos reiniciar a sessão
-        pendingSpeakerReset = true;
-        restartAttempts = 0;
-        
-        // Incrementa sessionId - resultados da sessão antiga serão ignorados
-        sessionId++;
-        console.log(`   📌 Nova sessão: ${sessionId}`);
-        
-        try {
-            recognition.abort();
-            console.log('   🔄 Reconhecimento abortado, aguardando onend para reiniciar...');
-        } catch (e) {
-            console.log('   ⚠️ Erro ao abortar:', e.message);
-            // Se abort falhar, tenta reiniciar diretamente
-            tentarReiniciarReconhecimento();
-        }
-    }
-    
-    // Função para reiniciar reconhecimento com retry
-    function tentarReiniciarReconhecimento() {
-        if (!pendingSpeakerReset) return;
-        
-        restartAttempts++;
-        console.log(`   🔄 Tentativa de restart #${restartAttempts}...`);
-        
-        try {
-            recognition.start();
-            pendingSpeakerReset = false;
-            console.log(`   ✅ Reconhecimento reiniciado (sessão ${sessionId})`);
-        } catch (e) {
-            console.log(`   ⚠️ Erro no restart: ${e.message}`);
-            
-            if (restartAttempts < MAX_RESTART_ATTEMPTS) {
-                // Tenta novamente após delay progressivo
-                setTimeout(tentarReiniciarReconhecimento, 100 * restartAttempts);
-            } else {
-                console.error('   ❌ Falha ao reiniciar reconhecimento após múltiplas tentativas');
-                pendingSpeakerReset = false;
-            }
-        }
-    }
-    
-    // Handler para onend - reinicia se necessário
+
     recognition.onend = function() {
-        console.log('🎤 Reconhecimento encerrado');
-        
-        if (pendingSpeakerReset) {
-            // Reinicia após mudança de speaker
-            setTimeout(tentarReiniciarReconhecimento, 50);
+        console.log('🎤 Reconhecimento encerrado, reiniciando...');
+        setTimeout(() => {
+            try {
+                recognition.start();
+            } catch (e) {
+                console.log('⚠️ Erro ao reiniciar:', e.message);
+            }
+        }, 100);
+    };
+
+    recognition.onerror = function(event) {
+        if (event.error !== 'aborted') {
+            console.error('Erro no reconhecimento de voz:', event.error);
         }
     };
 
-    recognition.onresult = function (event) {
-        // Marca a sessão atual nos primeiros resultados
-        const currentSession = sessionId;
-        
-        // Se estamos em processo de reset de speaker, ignora resultados da sessão antiga
-        if (pendingSpeakerReset) {
-            console.log(`⏳ Ignorando resultado (reset de speaker em andamento, sessão ${currentSession})...`);
-            return;
-        }
-        
-        let interimTranscript = '';
-        let finalTranscript = '';
+    recognition.onresult = function(event) {
+        let newWords = [];
+        let isFinal = false;
 
-        // Percorre os resultados para separar os finais dos intermediários
+        // Extrai apenas palavras NOVAS desde o último processamento
         for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript.trim();
+            const words = transcript.split(/\s+/).filter(w => w.length > 0);
+            
             if (event.results[i].isFinal) {
-                finalTranscript += event.results[i][0].transcript;
+                isFinal = true;
+                // Adiciona palavras ao buffer
+                wordBuffer.push(...words);
                 
-                // Processa resultado final
-                processarEntrada(finalTranscript, true);
-                
-                // Reinicia após breve pausa (mas NÃO se estamos em processo de reset de speaker)
-                if (!pendingSpeakerReset) {
-                    setTimeout(() => {
-                        if (recognition && !pendingSpeakerReset) {
-                            recognition.abort();
-                            setTimeout(() => recognition.start(), 100);
-                        }
-                    }, 200);
+                // Limita tamanho do buffer
+                if (wordBuffer.length > CONFIG.maxBufferWords) {
+                    wordBuffer = wordBuffer.slice(-CONFIG.maxBufferWords);
                 }
             } else {
-                interimTranscript += event.results[i][0].transcript;
+                // Para interim, usa as palavras diretamente (não acumula)
+                newWords = words;
             }
         }
 
-        // Processa resultados intermediários com debounce
-        if (interimTranscript) {
-            processarEntradaComDebounce(interimTranscript, false);
+        if (isFinal) {
+            // Processa resultado final imediatamente
+            processarReconhecimento(true);
+        } else if (newWords.length > 0) {
+            // Processa interim com debounce
+            processarComDebounce(newWords, false);
         }
     };
 
-    // Função auxiliar para escapar caracteres especiais que podem existir na string (útil para usar com regex)
-    function escapeRegExp(string) {
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
-
-    // Carrega o roteiro do teleprompter (elemento .prompt existe desde o início)
-    function getVisibleText() {
-        return new Promise((resolve) => {
-            // Primeiro tenta pegar imediatamente do elemento .prompt
-            const promptElements = document.querySelectorAll('.prompt');
-            if (promptElements.length > 0) {
-                const textoCompleto = promptElements[0].innerText || promptElements[0].textContent || "";
-                if (textoCompleto.trim().length > 0) {
-                    resolve(textoCompleto);
-                    return;
-                }
-            }
-            
-            // Se não encontrou, aguarda aparecer com observer
-            const observer = new MutationObserver((mutationsList) => {
-                for (const mutation of mutationsList) {
-                    if (mutation.type === "childList" || mutation.type === "subtree") {
-                        const elements = document.querySelectorAll('.prompt');
-                        if (elements.length > 0) {
-                            const texto = elements[0].innerText || elements[0].textContent || "";
-                            if (texto.trim().length > 0) {
-                                observer.disconnect();
-                                resolve(texto);
-                                return;
-                            }
-                        }
-                    }
-                }
-            });
-    
-            observer.observe(document.body, { childList: true, subtree: true });
-        });
-    }
-
-    // Transforma texto em array de frases (separadas por ponto, quebra de linha ou parágrafo)
-    function textoParaArrayDeFrases(texto) {
-        if (!texto) return [];
-        
-        // Quebra por linhas e por pontos finais
-        let frases = texto
-            .split(/\n+/)
-            .map(linha => linha.trim())
-            .filter(linha => linha.length > 0);
-        
-        // Divide frases longas por pontos finais
-        let frasesFinais = [];
-        frases.forEach(linha => {
-            const partes = linha.split(/\.+/).map(p => p.trim()).filter(p => p.length > 3);
-            frasesFinais.push(...partes);
-        });
-        
-        return frasesFinais;
-    }
-
-    // Debounce para evitar processamento excessivo
-    function processarEntradaComDebounce(texto, isFinal) {
+    function processarComDebounce(words, isFinal) {
         if (debounceTimer) {
             clearTimeout(debounceTimer);
         }
         
         debounceTimer = setTimeout(() => {
-            processarEntrada(texto, isFinal);
-        }, isFinal ? 0 : 300); // Sem delay para finais, 300ms para parciais
+            // Para interim, usa as palavras passadas diretamente
+            const palavrasParaMatch = words.slice(-CONFIG.wordWindow).join(' ');
+            executarMatching(palavrasParaMatch, isFinal);
+        }, CONFIG.debounceMs);
     }
-    
-    // Carrega o roteiro quando o teleprompter estiver pronto
-    async function carregarRoteiro() {
-        try {
-            roteiroTextoCompleto = await getVisibleText();
-            roteiro = textoParaArrayDeFrases(roteiroTextoCompleto);
-            console.log(`📄 Roteiro carregado: ${roteiro.length} frases`);
-        } catch (error) {
-            console.error('Erro ao carregar roteiro:', error);
+
+    function processarReconhecimento(isFinal) {
+        // Usa as últimas N palavras do buffer para matching
+        const palavrasParaMatch = wordBuffer.slice(-CONFIG.wordWindow).join(' ');
+        executarMatching(palavrasParaMatch, isFinal);
+    }
+
+    function executarMatching(textoFalado, isFinal) {
+        if (textoFalado.length < 3) return;
+
+        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${textoFalado}"`);
+        console.log(`   Estado: ${currentState}, Índice: ${currentElementIndex}, Misses: ${consecutiveMisses}`);
+
+        if (currentState === STATE.SEARCHING) {
+            buscarPosicaoInicial(textoFalado);
+        } else {
+            verificarProximoElemento(textoFalado, isFinal);
         }
     }
 
-    carregarRoteiro();
+    // SEARCHING: Busca posição inicial no roteiro todo
+    function buscarPosicaoInicial(textoFalado) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return;
 
-    // Calcula hash simples de uma string (para detectar mudanças reais no roteiro)
-    function calcularHash(str) {
+        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+        const textoNormalizado = normalizarTexto(textoFalado);
+        
+        let melhorMatch = null;
+        let melhorSimilaridade = 0;
+        let melhorIndice = -1;
+
+        console.log(`   🔍 SEARCHING: Buscando em ${elementos.length} elementos...`);
+
+        for (let i = 0; i < elementos.length; i++) {
+            const elem = elementos[i];
+            const textoElemento = normalizarTexto(elem.innerText || elem.textContent || '');
+            
+            if (textoElemento.length < 3) continue;
+            
+            const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+            
+            if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
+                melhorSimilaridade = similaridade;
+                melhorMatch = elem;
+                melhorIndice = i;
+            }
+        }
+
+        if (melhorMatch) {
+            console.log(`   ✅ FOUND! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+            console.log(`   📝 "${(melhorMatch.innerText || '').substring(0, 50)}..."`);
+            
+            // Transição para LOCKED
+            currentState = STATE.LOCKED;
+            currentElementIndex = melhorIndice;
+            consecutiveMisses = 0;
+            
+            // Move o teleprompter
+            scrollParaElemento(melhorMatch);
+        } else {
+            console.log(`   ❌ Nenhum match encontrado (threshold: ${CONFIG.searchThreshold * 100}%)`);
+        }
+    }
+
+    // LOCKED: Verifica elemento atual e próximos (sequencial)
+    function verificarProximoElemento(textoFalado, isFinal) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return;
+
+        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+        const textoNormalizado = normalizarTexto(textoFalado);
+        
+        // IMPORTANTE: Inclui o elemento ATUAL (apresentador pode ainda estar lendo ele)
+        // Olha do atual até os próximos N elementos
+        const startIdx = Math.max(0, currentElementIndex);
+        const endIdx = Math.min(startIdx + CONFIG.lookaheadElements + 1, elementos.length);
+        
+        let melhorMatch = null;
+        let melhorSimilaridade = 0;
+        let melhorIndice = -1;
+
+        console.log(`   🔒 LOCKED: Verificando elementos ${startIdx} a ${endIdx - 1}...`);
+
+        for (let i = startIdx; i < endIdx; i++) {
+            const elem = elementos[i];
+            const textoElemento = normalizarTexto(elem.innerText || elem.textContent || '');
+            
+            if (textoElemento.length < 3) continue;
+            
+            const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+            
+            if (similaridade > melhorSimilaridade && similaridade >= CONFIG.lockedThreshold) {
+                melhorSimilaridade = similaridade;
+                melhorMatch = elem;
+                melhorIndice = i;
+            }
+        }
+
+        if (melhorMatch) {
+            // Verifica se é um AVANÇO (próximo elemento) ou CONFIRMAÇÃO (mesmo elemento)
+            const avancou = melhorIndice > currentElementIndex;
+            
+            if (avancou) {
+                console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                currentElementIndex = melhorIndice;
+                consecutiveMisses = 0;
+                
+                // Move o teleprompter apenas quando avança
+                scrollParaElemento(melhorMatch);
+            } else {
+                // Ainda no mesmo elemento - OK, reseta misses mas não move
+                console.log(`   ✓ Confirmado no índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                consecutiveMisses = 0;
+            }
+        } else {
+            // NÃO encontrou match - pode ser improvisação
+            if (isFinal) {
+                consecutiveMisses++;
+                console.log(`   ⏸️ Sem match (improvisação?). Misses: ${consecutiveMisses}/${CONFIG.maxConsecutiveMisses}`);
+                
+                // Se muitos misses, volta para SEARCHING
+                if (consecutiveMisses >= CONFIG.maxConsecutiveMisses) {
+                    console.log(`   🔄 Muitos misses, voltando para SEARCHING...`);
+                    currentState = STATE.SEARCHING;
+                    consecutiveMisses = 0;
+                }
+            } else {
+                console.log(`   ⏳ Aguardando (parcial)...`);
+            }
+        }
+    }
+
+    // Move o teleprompter para um elemento
+    function scrollParaElemento(elemento) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return;
+
+        const offsetTop = elemento.offsetTop;
+        const promptHeight = promptElement.scrollHeight;
+        const progressoCalculado = offsetTop / promptHeight;
+        const posicaoAtual = window.getTeleprompterProgress ? window.getTeleprompterProgress() : 0;
+        
+        const diferenca = Math.abs(progressoCalculado - posicaoAtual) * 100;
+        
+        console.log(`   📊 Progresso: ${(progressoCalculado * 100).toFixed(1)}% (atual: ${(posicaoAtual * 100).toFixed(1)}%)`);
+        
+        // Se já está muito próximo, não faz scroll
+        if (diferenca < 3) {
+            console.log(`   ⏭️ Já sincronizado`);
+            return;
+        }
+        
+        // Cria âncora temporária e move
+        const anchorId = 'voice-sync-' + Date.now();
+        const ancora = document.createElement('a');
+        ancora.id = anchorId;
+        ancora.name = anchorId;
+        elemento.parentNode.insertBefore(ancora, elemento);
+        
+        setTimeout(() => {
+            if (window.moveTeleprompterToAnchor) {
+                window.moveTeleprompterToAnchor(anchorId);
+                console.log(`   🎯 Teleprompter movido`);
+            }
+            
+            setTimeout(() => {
+                const ancoraRemover = document.getElementById(anchorId);
+                if (ancoraRemover) ancoraRemover.remove();
+            }, 2000);
+        }, 50);
+    }
+
+    // Normaliza texto para comparação
+    function normalizarTexto(texto) {
+        return texto
+            .toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^\w\s]/g, '')
+            .trim();
+    }
+
+    // Calcula similaridade (cobertura de palavras)
+    function calcularSimilaridade(textoFalado, textoElemento) {
+        const palavrasFaladas = textoFalado.split(/\s+/).filter(p => p.length > 2);
+        const palavrasElemento = new Set(textoElemento.split(/\s+/).filter(p => p.length > 2));
+        
+        if (palavrasFaladas.length === 0) return 0;
+        
+        let encontradas = 0;
+        for (const palavra of palavrasFaladas) {
+            if (palavrasElemento.has(palavra)) {
+                encontradas++;
+            }
+        }
+        
+        return encontradas / palavrasFaladas.length;
+    }
+
+    // Calcula hash simples para detectar mudanças no roteiro
+    function calcularHash(texto) {
         let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
+        for (let i = 0; i < Math.min(texto.length, 1000); i++) {
+            const char = texto.charCodeAt(i);
             hash = ((hash << 5) - hash) + char;
-            hash = hash & hash; // Convert to 32bit integer
+            hash = hash & hash;
         }
         return hash.toString();
     }
-    
-    // Verifica se o roteiro mudou e reseta se necessário
+
+    // Verifica se o roteiro mudou
     function verificarMudancaRoteiro() {
         const promptElement = document.querySelector('.prompt');
         if (!promptElement) return;
@@ -251,36 +338,36 @@ if (SpeechRecognition) {
         const textoAtual = (promptElement.innerText || promptElement.textContent || "").trim();
         const hashAtual = calcularHash(textoAtual);
         
-        // Só reseta se o hash for diferente (conteúdo realmente mudou)
         if (hashAtual !== ultimoHashRoteiro && ultimoHashRoteiro !== "") {
-            console.log('🔄 Roteiro REALMENTE alterado, resetando rastreamento');
-            ultimoIndiceValidado = -1; // Reseta para o início
-            carregarRoteiro();
+            console.log('🔄 Roteiro alterado, voltando para SEARCHING');
+            currentState = STATE.SEARCHING;
+            currentElementIndex = -1;
+            consecutiveMisses = 0;
+            wordBuffer = [];
         }
         
         ultimoHashRoteiro = hashAtual;
     }
-    
-    // Observer para detectar quando o prompt muda (ex: usuário carrega novo roteiro)
-    // Usa debounce + verificação de hash para evitar resets falsos
+
+    // Observer para detectar mudanças no roteiro
     function observarMudancasNoPrompt() {
         const promptElement = document.querySelector('.prompt');
-        if (!promptElement) return;
-        
-        // Salva hash inicial
+        if (!promptElement) {
+            setTimeout(observarMudancasNoPrompt, 1000);
+            return;
+        }
+
         const textoInicial = (promptElement.innerText || promptElement.textContent || "").trim();
         ultimoHashRoteiro = calcularHash(textoInicial);
 
         const observer = new MutationObserver((mutations) => {
-            // Filtra mutations de âncoras temporárias
             let temMutacaoReal = false;
             
             for (const mutation of mutations) {
                 if (mutation.type === 'childList') {
-                    // Verifica se é âncora temporária
                     let eAncoraTemporaria = false;
                     
-                    for (const node of mutation.addedNodes) {
+                    for (const node of [...mutation.addedNodes, ...mutation.removedNodes]) {
                         if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
                             eAncoraTemporaria = true;
                             break;
@@ -288,253 +375,30 @@ if (SpeechRecognition) {
                     }
                     
                     if (!eAncoraTemporaria) {
-                        for (const node of mutation.removedNodes) {
-                            if (node.nodeType === Node.ELEMENT_NODE && node.id && node.id.startsWith('voice-sync-')) {
-                                eAncoraTemporaria = true;
-                                break;
-                            }
-                        }
-                    }
-                    
-                    if (!eAncoraTemporaria) {
                         temMutacaoReal = true;
                     }
-                } else if (mutation.type === 'characterData') {
-                    temMutacaoReal = true;
                 }
             }
             
-            if (!temMutacaoReal) {
-                return; // Ignora mutations de âncoras
+            if (temMutacaoReal) {
+                setTimeout(verificarMudancaRoteiro, 500);
             }
-            
-            // Agenda verificação de hash com debounce
-            if (observerDebounceTimer) {
-                clearTimeout(observerDebounceTimer);
-            }
-            
-            observerDebounceTimer = setTimeout(() => {
-                verificarMudancaRoteiro();
-            }, 1000); // 1 segundo de debounce
         });
 
         observer.observe(promptElement, {
             childList: true,
-            subtree: true,
-            characterData: true
+            subtree: true
         });
 
-        console.log('👁️ Observer ativado (usa hash para detectar mudanças reais)');
+        console.log('👁️ Observer de roteiro ativado');
     }
 
-    // Ativa observer após breve delay para garantir que prompt está carregado
+    // Inicia após delay para garantir que prompt está carregado
     setTimeout(observarMudancasNoPrompt, 1000);
 
-    // Processa a entrada de voz e sincroniza com o teleprompter
-    function processarEntrada(texto, isFinal) {
-        if (isProcessing) return;
-        
-        // Atualiza o texto acumulado
-        textoAcumulado = texto.trim();
-
-        // Precisa ter tamanho mínimo para processar
-        if (textoAcumulado.length < 5) return;
-
-        isProcessing = true;
-
-        // IMPORTANTE: Usa apenas as ÚLTIMAS 8 palavras para matching
-        // A Web Speech API acumula muito texto, tornando o matching impossível
-        const palavras = textoAcumulado.split(/\s+/).filter(p => p.length > 0);
-        const palavrasParaMatch = palavras.slice(-8).join(' '); // Últimas 8 palavras
-        
-        console.log(`🎤 ${isFinal ? 'Final' : 'Parcial'}: "${palavrasParaMatch}" (de ${palavras.length} palavras)`);
-
-        // Busca diretamente no DOM ao invés de usar o array de roteiro
-        const resultado = encontrarElementoDOMComTexto(palavrasParaMatch);
-        
-        if (resultado && resultado.elemento) {
-            console.log(`✅ Elemento encontrado: ${resultado.elemento.tagName} (índice ${resultado.indice})`);
-            scrollParaElemento(resultado.elemento, resultado.indice);
-            
-            // Limpa o acumulado se for resultado final
-            if (isFinal) {
-                textoAcumulado = "";
-            }
-        } else {
-            console.log(`❌ Nenhum elemento encontrado para: "${textoAcumulado}"`);
-        }
-
-        isProcessing = false;
-    }
-
-    // Busca diretamente no DOM pelo elemento que melhor corresponde ao texto falado
-    // Usa índice na lista de elementos - estável mesmo quando DOM é recriado
-    function encontrarElementoDOMComTexto(textoFalado) {
-        const promptElement = document.querySelector('.prompt');
-        if (!promptElement) {
-            console.warn('⚠️ Elemento .prompt não encontrado');
-            return null;
-        }
-
-        const textoNormalizado = textoFalado.toLowerCase().trim();
-        
-        // Pega todos os elementos de texto (incluindo spans, strong, em para markup inline)
-        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, ol, ul, span, strong, em, b, i');
-        
-        let melhorElemento = null;
-        let melhorIndice = -1;
-        let melhorSimilaridade = 0;
-        const threshold = 0.25; // 25% mínimo (mais permissivo para frases curtas)
-        
-        console.log(`   🔍 Procurando em ${elementos.length} elementos (último índice: ${ultimoIndiceValidado})...`);
-        
-        // Percorre todos os elementos a partir do índice seguinte ao último validado
-        // Isso garante progressão mesmo quando o DOM é recriado
-        const indiceInicio = ultimoIndiceValidado + 1;
-        
-        for (let i = indiceInicio; i < elementos.length; i++) {
-            const elem = elementos[i];
-            const textoElemento = (elem.innerText || elem.textContent || '').trim();
-            const textoElemNormalizado = textoElemento.toLowerCase().trim();
-            
-            // Calcula similaridade baseada em cobertura (melhor para frases parciais)
-            const similaridade = calcularSimilaridadeCobertura(textoNormalizado, textoElemNormalizado);
-            
-            if (similaridade >= threshold) {
-                // Atualiza se:
-                // 1. É o primeiro candidato válido OU
-                // 2. Tem similaridade estritamente maior (match melhor)
-                // Em caso de empate, mantém o PRIMEIRO encontrado (mais próximo)
-                const primeiroValido = melhorElemento === null;
-                const matchMelhor = similaridade > melhorSimilaridade;
-                
-                if (primeiroValido || matchMelhor) {
-                    melhorSimilaridade = similaridade;
-                    melhorElemento = elem;
-                    melhorIndice = i;
-                }
-            }
-        }
-        
-        if (melhorElemento) {
-            const textoMatch = (melhorElemento.innerText || melhorElemento.textContent || '').substring(0, 50);
-            console.log(`   ✓ Melhor match (${(melhorSimilaridade * 100).toFixed(0)}%) índice ${melhorIndice}: "${textoMatch}..."`);
-        }
-        
-        return { elemento: melhorElemento, indice: melhorIndice };
-    }
-
-    // Move o teleprompter para um elemento específico
-    function scrollParaElemento(elemento, indice) {
-        const promptElement = document.querySelector('.prompt');
-        if (!promptElement) {
-            console.warn('⚠️ Elemento .prompt não encontrado');
-            return;
-        }
-
-        // Calcula a posição vertical do elemento no prompt
-        const offsetTop = elemento.offsetTop;
-        const promptHeight = promptElement.scrollHeight;
-        
-        // Calcula o progresso baseado na posição real do elemento
-        const progressoCalculado = offsetTop / promptHeight;
-        const posicaoAtual = window.getTeleprompterProgress ? window.getTeleprompterProgress() : 0;
-        
-        console.log(`   📍 offsetTop: ${offsetTop}px / height: ${promptHeight}px`);
-        console.log(`   📊 Progresso: ${(progressoCalculado * 100).toFixed(1)}% (atual: ${(posicaoAtual * 100).toFixed(1)}%)`);
-        
-        const diferenca = progressoCalculado - posicaoAtual;
-        const diferencaPercentual = Math.abs(diferenca) * 100;
-        
-        // SEMPRE atualiza o índice validado (crítico para frases repetidas)
-        // Usar índice é resiliente a recriações do DOM
-        ultimoIndiceValidado = indice;
-        console.log(`   ✅ Último índice validado: ${indice}`);
-        
-        // Se a diferença for muito pequena, não faz scroll (mas já atualizou o índice)
-        if (diferencaPercentual < 3) {
-            console.log(`   ⏭️ Já sincronizado (diferença: ${diferencaPercentual.toFixed(1)}%), índice atualizado`);
-            return;
-        }
-        
-        // Cria uma âncora temporária e move o teleprompter
-        criarAncoraTemporariaEMover(elemento);
-    }
-
-    // Normaliza uma palavra: remove pontuação e acentos
-    function normalizarPalavra(palavra) {
-        return palavra
-            .toLowerCase()
-            .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
-            .replace(/[^\w\s]/g, '') // Remove pontuação
-            .trim();
-    }
-
-    // Calcula similaridade baseada em cobertura (palavras faladas presentes no texto)
-    // Mais adequada para frases curtas em parágrafos longos
-    function calcularSimilaridadeCobertura(textoFalado, textoElemento) {
-        // Normaliza e filtra palavras (> 2 chars)
-        const palavrasFaladas = textoFalado
-            .split(/\s+/)
-            .map(p => normalizarPalavra(p))
-            .filter(p => p.length > 2);
-        
-        const palavrasElemento = new Set(
-            textoElemento
-                .split(/\s+/)
-                .map(p => normalizarPalavra(p))
-                .filter(p => p.length > 2)
-        );
-        
-        if (palavrasFaladas.length === 0) return 0;
-        
-        // Conta quantas palavras do texto falado aparecem no elemento
-        let palavrasEncontradas = 0;
-        for (let palavra of palavrasFaladas) {
-            if (palavrasElemento.has(palavra)) {
-                palavrasEncontradas++;
-            }
-        }
-        
-        // Retorna a proporção de palavras do texto falado que foram encontradas
-        return palavrasEncontradas / palavrasFaladas.length;
-    }
-
-    // Cria uma âncora temporária e move o teleprompter
-    function criarAncoraTemporariaEMover(elemento) {
-        const anchorId = 'voice-sync-' + Date.now();
-        
-        // Cria uma âncora antes do elemento
-        const ancora = document.createElement('a');
-        ancora.id = anchorId;
-        ancora.name = anchorId;
-        elemento.parentNode.insertBefore(ancora, elemento);
-        
-        console.log(`   🎯 Criando âncora temporária: ${anchorId}`);
-        
-        // Aguarda um frame para o DOM atualizar
-        setTimeout(() => {
-            // Move o teleprompter usando sua API
-            if (window.moveTeleprompterToAnchor) {
-                window.moveTeleprompterToAnchor(anchorId);
-                console.log(`   ✅ Teleprompter movido para a âncora`);
-            }
-            
-            // Remove a âncora após 2 segundos
-            setTimeout(() => {
-                const ancoraRemover = document.getElementById(anchorId);
-                if (ancoraRemover) {
-                    ancoraRemover.remove();
-                }
-            }, 2000);
-        }, 50);
-    }
-
-    recognition.onerror = function (event) {
-        console.error('Erro no reconhecimento de voz:', event.error);
-    };
-
+    // Inicia reconhecimento
     recognition.start();
+    
 } else {
     console.warn('Seu navegador não suporta a API de reconhecimento de voz.');
 }

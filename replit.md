@@ -73,39 +73,31 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
-### 2024-11-25: Sistema de Auto-Scroll Controlado por Voz (v22)
-- **API de Controle Automático em `teleprompter.js`** (`window.teleprompterAuto`):
+### 2024-11-25: Sistema de Scroll Direto (v23)
+- **Abordagem Simplificada**:
+  - Removido cálculo complexo de WPS (words per second)
+  - Scroll DIRETO para posição do match quando reconhece
+  - Pausa imediata quando não há match
+  - Resume quando volta ao roteiro
+
+- **Thresholds Ajustados para Maior Tolerância**:
+  - `searchThreshold`: 20% (antes 35%) - detecção inicial mais tolerante
+  - `lockedThreshold`: 15% (antes 25%) - acompanhamento mais flexível
+  - `wordWindow`: 15 palavras (antes 10) - janela maior de contexto
+  - `maxConsecutiveMisses`: 2 (antes 3) - pausa mais rápida
+  - `debounceMs`: 200ms (antes 300ms) - resposta mais rápida
+
+- **AutoScrollController Simplificado**:
   - `start()` / `stop()` - Ativa/desativa modo auto-scroll
-  - `pause()` / `resume()` - Pausa/resume com persistência de velocidade
-  - `setSpeed(wps)` - Define velocidade baseada em palavras por segundo
-  - Mapeia WPS para velocidade: 0=parado, 2=lento, 3=normal, 4+=rápido
-  - `autoScrollCurrentX` persiste velocidade para uso em resume
+  - `pause()` / `resume()` - Pausa/resume durante improvisação
+  - `shouldScroll()` - Verifica se deve fazer scroll (ativo E não pausado)
+  - Sem cálculo de velocidade - scroll é instantâneo para posição
 
-- **AutoScrollController em `speechRecognition.js`**:
-  - Calcula WPS (palavras/segundo) com suavização de média móvel
-  - Integrado com máquina de estados SEARCHING/LOCKED
-  - `start()` quando entra em LOCKED
-  - `update()` quando há progresso confirmado
-  - `pause()` quando detecta improvisação
-  - `resume()` quando retorna ao roteiro
-
-- **Sistema de Buffer Pendente**:
-  - `pendingFinalWords[]` - palavras aguardando confirmação de match
-  - `cumulativeFinalWords[]` - apenas palavras CONFIRMADAS
-  - Match confirmado → move pendentes para cumulativo
-  - Miss (improvisação) → descarta pendentes
-  - Evita corrupção de tracking durante improvisação
-
-- **Sincronização de Baseline**:
-  - `inicializarTrackingElemento()` reseta todos os baselines juntos
-  - AutoScrollController.lastWordCount sincronizado com cumulativeFinalWords
-  - Evita WPS falso ao mudar de elemento
-
-- **Comportamento**:
-  - Rolagem automática inicia quando posição é encontrada
-  - Velocidade ajusta automaticamente baseada em WPS
-  - Pausa durante improvisação (scroll fica estacionário)
-  - Resume com velocidade correta quando volta ao roteiro
+- **Comportamento Esperado**:
+  1. **Detecção inicial**: Aceita 20% de match com janela de 15 palavras
+  2. **Leitura sequencial**: Scroll direto proporcional ao progresso no elemento
+  3. **Improvisação**: Pausa imediata no primeiro miss, descarta palavras
+  4. **Retorno ao roteiro**: Resume scroll quando match é encontrado novamente
 
 ### 2024-11-25: Arquitetura Simplificada com Máquina de Estados (v21)
 - **Reescrito `js/speechRecognition.js`** com nova arquitetura baseada em estados:

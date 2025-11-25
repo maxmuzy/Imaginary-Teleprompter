@@ -73,29 +73,32 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
-### 2024-11-25: Detecção de Mudança de Speaker (v20 - Segmentação de Vozes)
-- **Novo módulo `js/audioAnalyzer.js`**:
-  - Usa Web Audio API para análise em tempo real do stream de áudio
-  - Detecta pausas longas (>500ms de silêncio via RMS)
-  - Detecta mudanças de timbre (centroide espectral com janela móvel)
-  - Callback `onSpeakerChange` dispara quando detecta troca de speaker
-
-- **Segmentação por Speaker**:
-  - Quando múltiplas pessoas falam, a Web Speech API concatenava todas as falas
-  - Agora o sistema detecta mudança de speaker e reinicia a sessão de reconhecimento
-  - Cada speaker tem seu próprio buffer de texto para matching
-  - Scroll continua sequencial (índice não é resetado)
-
-- **Controle de Sessão Robusto**:
-  - `sessionId` incrementa a cada mudança de speaker
-  - `pendingSpeakerReset` flag para ignorar resultados durante transição
-  - Restart via `onend` com retry progressivo (até 3 tentativas)
-  - Não perde palavras do novo speaker (guard baseado em estado, não tempo)
-
-- **Configurações Ajustáveis** (audioAnalyzer.js):
-  - `silenceThreshold: 0.01` - RMS abaixo = silêncio
-  - `pauseDuration: 500` - ms de pausa para detectar troca
-  - `spectralChangeThreshold: 0.3` - variação de 30% no centroide
+### 2024-11-25: Arquitetura Simplificada com Máquina de Estados (v21)
+- **Reescrito `js/speechRecognition.js`** com nova arquitetura baseada em estados:
+  - Removido audioAnalyzer.js (causava loop infinito de restarts)
+  - Máquina de estados: SEARCHING → LOCKED
+  
+- **Estado SEARCHING**:
+  - Busca posição inicial no roteiro todo
+  - Threshold de 35% para encontrar primeiro match
+  - Transita para LOCKED quando encontra posição
+  
+- **Estado LOCKED**:
+  - Verifica apenas elemento atual + próximos 5 (sequencial)
+  - Threshold relaxado de 25%
+  - Distingue "Confirmação" (mesmo elemento) vs "Avanço" (próximo elemento)
+  - NÃO move se não encontrar match (pode ser improvisação)
+  - Após 3 misses consecutivos → volta para SEARCHING
+  
+- **Comportamento de Teleprompter Real**:
+  - Uma vez identificada posição inicial, scroll é sequencial
+  - Se apresentador improvisar → teleprompter NÃO move
+  - Quando voltar ao roteiro → continua de onde parou
+  
+- **Buffer Incremental**:
+  - Máximo 50 palavras no buffer
+  - Usa últimas 10 palavras para matching
+  - Não acumula infinitamente
 
 ### 2024-11-25: Rastreamento por Índice (v19.1)
 - Refatorado rastreamento de progresso para usar índice do elemento na lista

@@ -73,6 +73,35 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Detecção de Mudança de Speaker (v20 - Segmentação de Vozes)
+- **Novo módulo `js/audioAnalyzer.js`**:
+  - Usa Web Audio API para análise em tempo real do stream de áudio
+  - Detecta pausas longas (>500ms de silêncio via RMS)
+  - Detecta mudanças de timbre (centroide espectral com janela móvel)
+  - Callback `onSpeakerChange` dispara quando detecta troca de speaker
+
+- **Segmentação por Speaker**:
+  - Quando múltiplas pessoas falam, a Web Speech API concatenava todas as falas
+  - Agora o sistema detecta mudança de speaker e reinicia a sessão de reconhecimento
+  - Cada speaker tem seu próprio buffer de texto para matching
+  - Scroll continua sequencial (índice não é resetado)
+
+- **Controle de Sessão Robusto**:
+  - `sessionId` incrementa a cada mudança de speaker
+  - `pendingSpeakerReset` flag para ignorar resultados durante transição
+  - Restart via `onend` com retry progressivo (até 3 tentativas)
+  - Não perde palavras do novo speaker (guard baseado em estado, não tempo)
+
+- **Configurações Ajustáveis** (audioAnalyzer.js):
+  - `silenceThreshold: 0.01` - RMS abaixo = silêncio
+  - `pauseDuration: 500` - ms de pausa para detectar troca
+  - `spectralChangeThreshold: 0.3` - variação de 30% no centroide
+
+### 2024-11-25: Rastreamento por Índice (v19.1)
+- Refatorado rastreamento de progresso para usar índice do elemento na lista
+- Índice é resiliente a recriações do DOM (innerHTML) pelo teleprompter
+- Funciona independentemente de transformações CSS, zoom, modos de espelho
+
 ### 2024-11-24: Sistema de Reconhecimento de Voz (v18.3 - MutationObserver Corrigido)
 - **Implementação Completa do Sistema de Sincronização com Voz**:
   - Criado `js/speechRecognition.js` (módulo ES6) para reconhecimento de voz via Web Speech API

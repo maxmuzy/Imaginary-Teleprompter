@@ -260,39 +260,17 @@ if (SpeechRecognition) {
             return;
         }
 
-        // Cria âncora temporária antes do elemento
-        const anchorId = 'voice-sync-' + Date.now();
-        const ancora = document.createElement('a');
-        ancora.id = anchorId;
-        ancora.name = anchorId;
+        // Calcula o offsetTop do elemento
+        const offsetTop = elemento.offsetTop;
+        console.log(`   📍 Elemento offsetTop: ${offsetTop}`);
         
-        // Insere a âncora antes do elemento
-        if (elemento.parentNode) {
-            elemento.parentNode.insertBefore(ancora, elemento);
-            console.log(`   📍 Âncora criada: ${anchorId}`);
+        // Move usando a nova função que aceita offset diretamente
+        if (window.moveTeleprompterToOffset) {
+            console.log(`   🎯 Chamando moveTeleprompterToOffset(${offsetTop})`);
+            window.moveTeleprompterToOffset(offsetTop);
         } else {
-            console.log(`   ❌ Elemento sem parentNode`);
-            return;
+            console.log(`   ❌ moveTeleprompterToOffset não disponível!`);
         }
-        
-        // Move o teleprompter usando a função nativa
-        setTimeout(() => {
-            if (window.moveTeleprompterToAnchor) {
-                console.log(`   🎯 Chamando moveTeleprompterToAnchor(${anchorId})`);
-                window.moveTeleprompterToAnchor(anchorId);
-            } else {
-                console.log(`   ❌ moveTeleprompterToAnchor não disponível!`);
-            }
-            
-            // Remove a âncora após 3 segundos
-            setTimeout(() => {
-                const ancoraRemover = document.getElementById(anchorId);
-                if (ancoraRemover) {
-                    ancoraRemover.remove();
-                    console.log(`   🗑️ Âncora removida: ${anchorId}`);
-                }
-            }, 3000);
-        }, 100);
     }
 
     // Normaliza texto para comparação

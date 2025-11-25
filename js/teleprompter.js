@@ -964,10 +964,35 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         editor.postMessage({ 'request': 1, 'data': getProgress() }, getDomain());
     }
 
+    // Move o teleprompter para um offsetTop específico (usado pelo reconhecimento de voz)
+    function moveToOffset(offsetTop) {
+        var jump;
+        const focusCorrection = focusVerticalDisplacementCorrector();
+        
+        console.log(`📍 moveToOffset:`);
+        console.log(`   offsetTop: ${offsetTop}`);
+        console.log(`   promptHeight: ${promptHeight}`);
+        console.log(`   screenHeight: ${screenHeight}`);
+        console.log(`   focusCorrection: ${focusCorrection}`);
+        console.log(`   flipV: ${flipV}`);
+        
+        if (flipV)
+            jump = -promptHeight + offsetTop + screenHeight - focusCorrection;
+        else
+            jump = -offsetTop + focusCorrection;
+        
+        console.log(`   jump calculado: ${jump}`);
+        // Jump instantâneo
+        animate(0, jump);
+        // Resume animation
+        resumeAnimation();
+    }
+
     // Expor funções no escopo global para uso do reconhecimento de voz
     window.increaseVelocity = increaseVelocity;
     window.decreaseVelocity = decreaseVelocity;
     window.moveTeleprompterToAnchor = internalMoveToAnchor;
+    window.moveTeleprompterToOffset = moveToOffset;
     window.getTeleprompterProgress = getProgress;
     window.animateTeleprompter = animate;
 

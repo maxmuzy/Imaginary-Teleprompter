@@ -988,16 +988,21 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         editor.postMessage({ 'request': 1, 'data': getProgress() }, getDomain());
     }
 
-    // Move o teleprompter para um offsetTop específico (usado pelo reconhecimento de voz)
-    // smooth: se true, usa animação suave (300ms ease-out); se false, instantâneo
-    function moveToOffset(offsetTop, smooth) {
-        var jump;
+    // Converte offsetTop do DOM para posição de scroll (coordenada CSS translateY)
+    // Esta função é usada pelo controlador de voz para alinhar targets corretamente
+    function convertOffsetToScrollPos(offsetTop) {
         const focusCorrection = focusVerticalDisplacementCorrector();
         
         if (flipV)
-            jump = -promptHeight + offsetTop + screenHeight - focusCorrection;
+            return -promptHeight + offsetTop + screenHeight - focusCorrection;
         else
-            jump = -offsetTop + focusCorrection;
+            return -offsetTop + focusCorrection;
+    }
+    
+    // Move o teleprompter para um offsetTop específico (usado pelo reconhecimento de voz)
+    // smooth: se true, usa animação suave (300ms ease-out); se false, instantâneo
+    function moveToOffset(offsetTop, smooth) {
+        var jump = convertOffsetToScrollPos(offsetTop);
         
         console.log(`📍 moveToOffset: offset=${offsetTop}, jump=${jump}, smooth=${!!smooth}`);
         
@@ -1143,6 +1148,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     window.moveTeleprompterToOffset = moveToOffset;
     window.getTeleprompterProgress = getProgress;
     window.getTeleprompterCurrentPos = getCurrPos;  // Exposição para scroll contínuo
+    window.convertOffsetToScrollPos = convertOffsetToScrollPos;  // Conversão de coordenadas
     window.animateTeleprompter = animate;
     
     // API de auto-scroll para controle por voz

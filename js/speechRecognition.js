@@ -159,15 +159,18 @@ const AutoScrollController = {
             return;
         }
         
-        // Obtém posição atual do teleprompter
+        // Obtém posição atual do teleprompter (CSS translateY)
         const currPos = window.getTeleprompterCurrentPos ? window.getTeleprompterCurrentPos() : 0;
         
-        // currPos é negativo (translateY), targetOffset é positivo
-        // Para converter: posição visual = -currPos
-        const posicaoAtual = -currPos;
+        // Converte targetOffset (DOM) para coordenada CSS usando a mesma lógica do teleprompter
+        // Isso garante alinhamento correto com focus area e flip
+        const targetScrollPos = window.convertOffsetToScrollPos ? 
+            window.convertOffsetToScrollPos(this.targetOffset) : -this.targetOffset;
         
-        // Calcula diferença: positivo = precisamos avançar (target está à frente)
-        const diferenca = this.targetOffset - posicaoAtual;
+        // Calcula diferença: negativo = precisamos avançar (target está abaixo, scroll mais negativo)
+        // currPos é negativo e fica mais negativo conforme descemos
+        // targetScrollPos também é negativo
+        const diferenca = currPos - targetScrollPos; // positivo = precisamos descer mais
         
         // Dead zone: se diferença muito pequena, mantém velocidade atual
         if (Math.abs(diferenca) < this.DEAD_ZONE) {
@@ -175,7 +178,7 @@ const AutoScrollController = {
             const velocidadeAlvo = 1;
             this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
         } else if (diferenca > 0) {
-            // Precisamos avançar (target está à frente)
+            // Precisamos avançar (target está abaixo)
             // Velocidade proporcional à diferença
             const velocidadeAlvo = Math.min(this.MAX_VELOCITY, diferenca * this.VELOCITY_GAIN);
             
@@ -196,7 +199,7 @@ const AutoScrollController = {
         
         // Log ocasional (a cada 1 segundo aproximadamente)
         if (Math.random() < 0.1) {
-            console.log(`   🎚️ Velocidade: x=${velocidadeX}, diff=${diferenca.toFixed(0)}px, target=${this.targetOffset.toFixed(0)}, atual=${posicaoAtual.toFixed(0)}`);
+            console.log(`   🎚️ Velocidade: x=${velocidadeX}, diff=${diferenca.toFixed(0)}px, targetScroll=${targetScrollPos.toFixed(0)}, currPos=${currPos.toFixed(0)}`);
         }
     },
     

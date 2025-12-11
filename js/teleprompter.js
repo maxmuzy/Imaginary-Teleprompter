@@ -1142,7 +1142,20 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     window.moveTeleprompterToAnchor = internalMoveToAnchor;
     window.moveTeleprompterToOffset = moveToOffset;
     window.getTeleprompterProgress = getProgress;
+    window.getTeleprompterCurrentPos = getCurrPos;  // Exposição para scroll contínuo
     window.animateTeleprompter = animate;
+    
+    // API de auto-scroll para controle por voz
+    window.teleprompterAutoScroll = {
+        start: startAutoScroll,
+        stop: stopAutoScroll,
+        pause: pauseAutoScroll,
+        resume: resumeAutoScroll,
+        setSpeed: setAutoSpeed,
+        setVelocity: setVelocityDirect,
+        isActive: isAutoScrollActive,
+        getWps: function() { return lastAutoWps; }
+    };
     
     // API de controle de voz
     window.teleprompterVoiceControl = {

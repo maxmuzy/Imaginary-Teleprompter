@@ -73,6 +73,29 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Scroll Contínuo com Velocidade Variável (v28)
+- **Arquitetura reescrita**:
+  - Substituído sistema de jumps discretos por scroll contínuo
+  - `AutoScrollController` agora mantém `targetOffset` e ajusta velocidade em loop (100ms)
+  - Velocidade proporcional à diferença entre posição atual e target
+  
+- **Novo fluxo de scroll**:
+  - Voz detecta palavra → atualiza `targetOffset`
+  - Loop de velocidade calcula diferença: `target - posiçãoAtual`
+  - Se atrasado → acelera suavemente (até MAX_VELOCITY=8)
+  - Se adiantado → desacelera
+  - Resultado: scroll suave e contínuo ao invés de pulos
+
+- **Parâmetros de controle**:
+  - `VELOCITY_GAIN: 0.015` - quão rápido ajusta velocidade
+  - `DEAD_ZONE: 30px` - tolerância antes de ajustar
+  - `SMOOTH_FACTOR: 0.3` - suavização exponencial
+  - `UPDATE_RATE: 100ms` - frequência de atualização
+
+- **APIs expostas**:
+  - `window.getTeleprompterCurrentPos` - retorna posição atual
+  - `window.teleprompterAutoScroll.setVelocity(x)` - define velocidade direta
+
 ### 2024-11-25: Reset Seletivo do Contador (v27)
 - **Correção crítica**:
   - `parciaisSemMatchNoFim` agora SÓ reseta quando realmente avança para próximo elemento

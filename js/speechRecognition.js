@@ -64,15 +64,30 @@ let parciaisSemMatchNoFim = 0;      // Quantos parciais sem match quando progres
 const MAX_PARCIAIS_SEM_MATCH = 5;   // Após 5 parciais sem match, força busca expandida
 
 // ========================================
-// AutoScrollController - Controle SIMPLIFICADO de scroll
-// Abordagem: scroll direto para posição do match, sem velocidade calculada
+// AutoScrollController - Controle CONTÍNUO de scroll com velocidade variável
+// Abordagem: mantém target offset e ajusta velocidade suavemente
 // ========================================
 const AutoScrollController = {
     isActive: false,
     isPaused: false,
     lastWordCount: 0,
     lastTimestamp: Date.now(),
-    lastProgressoEnviado: 0,  // Último progresso enviado para evitar jitter
+    lastProgressoEnviado: 0,
+    
+    // NOVO: Sistema de scroll contínuo
+    targetOffset: 0,           // Onde o apresentador está (target)
+    currentElement: null,      // Elemento atual sendo lido
+    updateInterval: null,      // Intervalo de atualização de velocidade
+    UPDATE_RATE: 100,          // Atualiza velocidade a cada 100ms
+    
+    // Constantes de ajuste de velocidade
+    VELOCITY_GAIN: 0.015,      // Ganho proporcional (quão rápido ajusta)
+    MAX_VELOCITY: 8,           // Velocidade máxima
+    MIN_VELOCITY: 0,           // Velocidade mínima (não volta)
+    DEAD_ZONE: 30,             // Pixels de tolerância (não ajusta se diferença < 30px)
+    SMOOTH_FACTOR: 0.3,        // Fator de suavização (0-1, menor = mais suave)
+    
+    currentVelocity: 0,        // Velocidade atual suavizada
     
     // Inicializa o controlador e ADQUIRE controle exclusivo
     start: function() {
@@ -80,12 +95,18 @@ const AutoScrollController = {
         this.isPaused = false;
         this.lastWordCount = 0;
         this.lastProgressoEnviado = 0;
+        this.targetOffset = 0;
+        this.currentVelocity = 0;
         
         // ADQUIRE controle exclusivo do scroll
         if (window.teleprompterVoiceControl) {
             window.teleprompterVoiceControl.acquire();
         }
-        console.log('🚀 AutoScroll ATIVADO (modo direto)');
+        
+        // Inicia loop de atualização de velocidade
+        this.startVelocityLoop();
+        
+        console.log('🚀 AutoScroll ATIVADO (modo contínuo com velocidade)');
     },
     
     // Para o controlador e LIBERA controle
@@ -93,11 +114,108 @@ const AutoScrollController = {
         this.isActive = false;
         this.isPaused = false;
         
+        // Para o loop de velocidade
+        this.stopVelocityLoop();
+        
+        // Para o scroll
+        if (window.teleprompterAutoScroll) {
+            window.teleprompterAutoScroll.setVelocity(0);
+        }
+        
         // LIBERA controle do scroll
         if (window.teleprompterVoiceControl) {
             window.teleprompterVoiceControl.release();
         }
         console.log('🛑 AutoScroll DESATIVADO');
+    },
+    
+    // Inicia loop de ajuste de velocidade
+    startVelocityLoop: function() {
+        if (this.updateInterval) return;
+        
+        this.updateInterval = setInterval(() => {
+            this.updateVelocity();
+        }, this.UPDATE_RATE);
+    },
+    
+    // Para loop de velocidade
+    stopVelocityLoop: function() {
+        if (this.updateInterval) {
+            clearInterval(this.updateInterval);
+            this.updateInterval = null;
+        }
+    },
+    
+    // CORE: Atualiza velocidade baseado na diferença entre posição atual e target
+    updateVelocity: function() {
+        if (!this.isActive || this.isPaused) {
+            // Pausado: para suavemente
+            if (this.currentVelocity > 0) {
+                this.currentVelocity = Math.max(0, this.currentVelocity - 0.5);
+                if (window.teleprompterAutoScroll) {
+                    window.teleprompterAutoScroll.setVelocity(Math.round(this.currentVelocity));
+                }
+            }
+            return;
+        }
+        
+        // Obtém posição atual do teleprompter
+        const currPos = window.getTeleprompterCurrentPos ? window.getTeleprompterCurrentPos() : 0;
+        
+        // currPos é negativo (translateY), targetOffset é positivo
+        // Para converter: posição visual = -currPos
+        const posicaoAtual = -currPos;
+        
+        // Calcula diferença: positivo = precisamos avançar (target está à frente)
+        const diferenca = this.targetOffset - posicaoAtual;
+        
+        // Dead zone: se diferença muito pequena, mantém velocidade atual
+        if (Math.abs(diferenca) < this.DEAD_ZONE) {
+            // Mantém velocidade mínima para não parar completamente
+            const velocidadeAlvo = 1;
+            this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
+        } else if (diferenca > 0) {
+            // Precisamos avançar (target está à frente)
+            // Velocidade proporcional à diferença
+            const velocidadeAlvo = Math.min(this.MAX_VELOCITY, diferenca * this.VELOCITY_GAIN);
+            
+            // Suavização exponencial
+            this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
+        } else {
+            // Estamos adiantados (raro) - desacelera suavemente
+            const velocidadeAlvo = Math.max(this.MIN_VELOCITY, 0);
+            this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
+        }
+        
+        // Aplica velocidade
+        const velocidadeX = Math.round(Math.max(0, Math.min(this.MAX_VELOCITY, this.currentVelocity)));
+        
+        if (window.teleprompterAutoScroll) {
+            window.teleprompterAutoScroll.setVelocity(velocidadeX);
+        }
+        
+        // Log ocasional (a cada 1 segundo aproximadamente)
+        if (Math.random() < 0.1) {
+            console.log(`   🎚️ Velocidade: x=${velocidadeX}, diff=${diferenca.toFixed(0)}px, target=${this.targetOffset.toFixed(0)}, atual=${posicaoAtual.toFixed(0)}`);
+        }
+    },
+    
+    // NOVO: Atualiza o target offset (chamado pela detecção de voz)
+    setTargetOffset: function(offset) {
+        this.targetOffset = offset;
+    },
+    
+    // NOVO: Atualiza target baseado em elemento + progresso
+    setTargetFromElement: function(elemento, progresso) {
+        if (!elemento) return;
+        
+        const offsetTopBase = elemento.offsetTop;
+        const alturaElemento = elemento.offsetHeight || 0;
+        const offsetAdicional = alturaElemento * progresso;
+        const offsetFinal = offsetTopBase + offsetAdicional;
+        
+        this.targetOffset = offsetFinal;
+        this.currentElement = elemento;
     },
     
     // Pausa durante improvisação
@@ -129,20 +247,18 @@ const AutoScrollController = {
         return this.isActive && !this.isPaused;
     },
     
-    // Verifica se deve fazer scroll para um novo progresso (evita jitter)
+    // Verifica se deve atualizar target (evita jitter)
     shouldScrollTo: function(novoProgresso) {
-        // Só faz scroll se o progresso aumentou significativamente (5%)
         const diferenca = novoProgresso - this.lastProgressoEnviado;
-        const deveScroll = novoProgresso > this.lastProgressoEnviado + 0.05;
-        console.log(`   🔍 shouldScrollTo: novo=${(novoProgresso*100).toFixed(1)}%, last=${(this.lastProgressoEnviado*100).toFixed(1)}%, diff=${(diferenca*100).toFixed(1)}% → ${deveScroll}`);
-        if (deveScroll) {
+        const deveAtualizar = novoProgresso > this.lastProgressoEnviado + 0.02; // 2% para resposta mais rápida
+        if (deveAtualizar) {
             this.lastProgressoEnviado = novoProgresso;
             return true;
         }
         return false;
     },
     
-    // Atualiza contador (simplificado)
+    // Atualiza contador
     update: function(wordCount) {
         this.lastWordCount = wordCount;
         this.lastTimestamp = Date.now();
@@ -511,7 +627,8 @@ if (SpeechRecognition) {
 
     // Move o teleprompter para um elemento, com progresso opcional dentro do elemento
     // progresso: 0 = início do elemento, 1 = fim do elemento
-    // isInitialJump: se true, usa animação suave (jump inicial); senão instantâneo
+    // isInitialJump: se true, faz jump suave para posição (mudança de elemento)
+    //                se false, apenas atualiza target para scroll contínuo
     function scrollParaElemento(elemento, progresso = 0, isInitialJump = false) {
         if (!elemento) {
             console.log(`   ❌ Elemento inválido para scroll`);
@@ -526,16 +643,23 @@ if (SpeechRecognition) {
         const offsetAdicional = alturaElemento * progresso;
         const offsetFinal = offsetTopBase + offsetAdicional;
         
-        const tipoScroll = isInitialJump ? '(SUAVE 300ms)' : '(instantâneo)';
-        console.log(`   📍 scrollParaElemento: offset=${offsetFinal.toFixed(0)}, prog=${(progresso*100).toFixed(0)}% ${tipoScroll}`);
-        
-        // Move usando a função que aceita offset diretamente
-        // Passa smooth=true para jump inicial (animação suave de 300ms)
-        // Acompanhamento de voz = instantâneo para não atrasar
-        if (window.moveTeleprompterToOffset) {
-            window.moveTeleprompterToOffset(offsetFinal, isInitialJump);
+        if (isInitialJump) {
+            // JUMP INICIAL (mudança de elemento): faz salto suave direto
+            console.log(`   📍 scrollParaElemento: JUMP SUAVE para offset=${offsetFinal.toFixed(0)}, prog=${(progresso*100).toFixed(0)}%`);
+            
+            // Primeiro atualiza o target
+            AutoScrollController.setTargetOffset(offsetFinal);
+            
+            // Faz jump suave para a nova posição
+            if (window.moveTeleprompterToOffset) {
+                window.moveTeleprompterToOffset(offsetFinal, true);
+            }
         } else {
-            console.log(`   ❌ moveTeleprompterToOffset não disponível!`);
+            // SCROLL CONTÍNUO: apenas atualiza o target, deixa o loop de velocidade fazer o trabalho
+            console.log(`   📍 scrollParaElemento: TARGET atualizado para offset=${offsetFinal.toFixed(0)}, prog=${(progresso*100).toFixed(0)}%`);
+            
+            // Atualiza o target - o loop de velocidade vai ajustar automaticamente
+            AutoScrollController.setTargetFromElement(elemento, progresso);
         }
     }
 

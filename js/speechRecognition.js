@@ -186,6 +186,9 @@ function isTagTecnica(texto) {
     return isTag;
 }
 
+// Expõe função globalmente para uso em outros módulos (teleprompter.js)
+window.isTagTecnica = isTagTecnica;
+
 // Verifica se um elemento DOM é uma tag técnica
 function isElementoTag(elemento) {
     if (!elemento) return true;
@@ -1036,7 +1039,10 @@ if (SpeechRecognition) {
         }
     }
 
-    // SEARCHING: Busca posição inicial no roteiro todo
+    // SEARCHING: Busca posição no roteiro
+    // Se já temos um índice conhecido, busca primeiro em janela LOCAL antes de expandir
+    const SEARCH_LOCAL_WINDOW = 50; // Janela de busca local: 50 elementos para frente e para trás
+    
     function buscarPosicaoInicial(textoFalado) {
         const promptElement = document.querySelector('.prompt');
         if (!promptElement) return;
@@ -1047,10 +1053,22 @@ if (SpeechRecognition) {
         let melhorMatch = null;
         let melhorSimilaridade = 0;
         let melhorIndice = -1;
+        
+        // Se temos um índice conhecido, primeiro busca em janela LOCAL
+        // Isso evita saltos gigantes quando o apresentador está apenas improvisando
+        const temIndiceConhecido = currentElementIndex >= 0;
+        let startIdx = 0;
+        let endIdx = elementos.length;
+        
+        if (temIndiceConhecido) {
+            startIdx = Math.max(0, currentElementIndex - SEARCH_LOCAL_WINDOW);
+            endIdx = Math.min(elementos.length, currentElementIndex + SEARCH_LOCAL_WINDOW);
+            console.log(`   🔍 SEARCHING LOCAL: Buscando em janela [${startIdx}-${endIdx}] (${endIdx - startIdx} elementos)...`);
+        } else {
+            console.log(`   🔍 SEARCHING GLOBAL: Buscando em ${elementos.length} elementos...`);
+        }
 
-        console.log(`   🔍 SEARCHING: Buscando em ${elementos.length} elementos...`);
-
-        for (let i = 0; i < elementos.length; i++) {
+        for (let i = startIdx; i < endIdx; i++) {
             const elem = elementos[i];
             const textoOriginal = elem.innerText || elem.textContent || '';
             
@@ -1068,6 +1086,42 @@ if (SpeechRecognition) {
                 melhorSimilaridade = similaridade;
                 melhorMatch = elem;
                 melhorIndice = i;
+            }
+        }
+        
+        // Se busca LOCAL não encontrou nada e temos índice conhecido,
+        // tenta busca GLOBAL como fallback (apresentador pode ter pulado parte do roteiro)
+        if (!melhorMatch && temIndiceConhecido && elementos.length > SEARCH_LOCAL_WINDOW * 2) {
+            console.log(`   🔄 Busca local falhou, tentando busca GLOBAL...`);
+            
+            // Busca antes da janela local
+            for (let i = 0; i < startIdx; i++) {
+                const elem = elementos[i];
+                const textoOriginal = elem.innerText || elem.textContent || '';
+                if (isTagTecnica(textoOriginal)) continue;
+                const textoElemento = normalizarTexto(textoOriginal);
+                if (textoElemento.length === 0) continue;
+                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
+                    melhorSimilaridade = similaridade;
+                    melhorMatch = elem;
+                    melhorIndice = i;
+                }
+            }
+            
+            // Busca após a janela local
+            for (let i = endIdx; i < elementos.length; i++) {
+                const elem = elementos[i];
+                const textoOriginal = elem.innerText || elem.textContent || '';
+                if (isTagTecnica(textoOriginal)) continue;
+                const textoElemento = normalizarTexto(textoOriginal);
+                if (textoElemento.length === 0) continue;
+                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
+                    melhorSimilaridade = similaridade;
+                    melhorMatch = elem;
+                    melhorIndice = i;
+                }
             }
         }
 

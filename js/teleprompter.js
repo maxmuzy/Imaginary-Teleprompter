@@ -721,11 +721,18 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
             // Ignora elementos vazios
             if (!text || text === '\u00A0' || text === '&nbsp;') continue;
             
-            // Ignora tags técnicas comuns
-            if (/^\(\(\(.*\)\)\)$/.test(text)) continue; // (((CAM1)))
-            if (/^\(\(.*\)\)$/.test(text)) continue; // ((OFF))
-            if (/^\/.*\/$/.test(text)) continue; // /VINHETA/
-            if (/^\(\/.*\/\)$/.test(text)) continue; // (/VINHETA/)
+            // Usa a função global isTagTecnica se disponível (de speechRecognition.js)
+            if (typeof window.isTagTecnica === 'function') {
+                if (window.isTagTecnica(text)) continue;
+            } else {
+                // Fallback: regras abrangentes de detecção de tags técnicas
+                // Texto que começa com ( - instruções técnicas
+                if (/^\s*\(/.test(text)) continue;
+                // Texto entre [ ]
+                if (/^\s*\[.*\]\s*$/.test(text)) continue;
+                // /VINHETA/
+                if (/^\/.*\/$/.test(text)) continue;
+            }
             
             return el;
         }

@@ -1,0 +1,1388 @@
+eq_config.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+eq_editor-lite-17.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+VM17303 injected.js:37 🏷️ Prefixos customizados carregados do localStorage: ['(']
+VM17303 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM17303 injected.js:37 📍 Estado inicial: SEARCHING
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(/VINHETA/"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "((CAM 3)))"
+VM17303 injected.js:37 📖 Primeiro elemento legível encontrado: índice 7
+VM17303 injected.js:37    "OLÁ, BOA TARDE./..."
+VM17303 injected.js:37 📍 Posicionando no primeiro elemento legível (índice 7)
+VM17303 injected.js:37    Texto: "OLÁ, BOA TARDE./..."
+VM17303 injected.js:37    offsetElemento: 1260
+VM17303 injected.js:37    📐 convertOffsetToScrollPosTop: topOffset=268.32
+VM17303 injected.js:37 📍 moveToOffset (TOPO): offset=1260, jump=-991.6800000000001, smooth=true
+VM17303 injected.js:37 👁️ Observer de roteiro ativado
+VM17303 injected.js:37 Aumentando Velocidade
+VM17303 injected.js:37 Aumentando Velocidade
+VM17303 injected.js:37 📍 positionFirstTextInFocus:
+VM17303 injected.js:37    Primeiro elemento: "(/VINHETA/..."
+VM17303 injected.js:37    offsetTop: 1108
+VM17303 injected.js:37    focusTopOffset: 268.32
+VM17303 injected.js:37    jump: -839.6800000000001
+VM17303 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM17303 injected.js:37    Estado: SEARCHING, Índice: 7, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 1)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.1)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(LAPAR VT 11.2"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "((CAM 1)))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ABRE SOM DO LINK"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.3)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(RODA VT: 11.4"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.5)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(RODA VT: 11.6"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.7)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(/VINHETA ABERTURA/)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 2)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((ABRE LINK)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(ILUSTRA)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "( ===== LAPAR ===== LAPAR ===="
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "( ((CAM)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "( ((CAM 2)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((RODA VT)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(RODA VT"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 17.1)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 17.2)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ABRE SOM DO VT"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(LINK LINK LINK"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ACRESCENTAR VOTOS A PARTIR"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "( ((CAM 1)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "(((RODA VT))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((OFF))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((OFF RECUPERA))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 3)))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ABRE SOM LINK"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO )"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((CAM 1))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(LINK"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(// RODA VINHETA)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(LÁ NA NOSSA TRANSMISSÃO AO"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(OFF"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(DEPOIS DE DEIXAR O GRUPO DE"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(FOI GRAVADO POR ARTISTAS"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "("
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(NA QUINTA FEIRA, SEMANA PASSA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((FADE)))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(RODA VT SONORO"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.2")"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(AUSTERO: NÃO GOSTAVA DAS"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(À FRENTE DO GOVERNO, MUJICA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.1")"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ENTRE AS NOVIDADES DO"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.2" + FADE)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(A CARREIRA POLÍTICA DE"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC.1"))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((PAUSA LOC.1")"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "( FOI LIBERTADO GRAÇAS A UMA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC. 1"))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(QUANDO DEIXOU O GOVERNO, MUJI"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC. 1" + FADE))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(O    ESTILO AUSTERO DE VIDA, "
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "((QUADRO PARADO MUJICA+FADE)))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "(( SOBE SOM))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(( SOBE SOM)))"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(SOBE SOM"
+VM17303 injected.js:37    🏷️ TAG detectada (Colchetes): "[C]"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(ENDEREÇO QUE ESTÁ FUNCIONANDO"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(. O ENDEREÇO ANTERIOR ESTÁ CO"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(/"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(USUÁRIO: TVBRASIL"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ACESSAR PELO WINDOWS"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(LOGIN: TVBRASIL"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(//"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(61) 99214-7501"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(61) 98141-0000"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(61 98177-5959)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(61) 98158-1223"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(("
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ENDEREÇO QUE ESTÁ FUNCIONANDO"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(NO RR, CHAMA-SE ""
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(EVITAR: MENOR/MENOR DE IDADE/"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(EVITAR: PESSOA TEM HIV): DEMA"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(EVITAR VALA NEGRA OU LÍNGUA N"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COMBATES CONGO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: EMBAIXADAS)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: SITUAÇÃO HUMANITÁRIA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: RESGATE)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: MOMENTO QUEDA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PÓS ACIDENTE)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PATINADORES)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: POST TRUMP)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(ABE SOM DO VT"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(SOBE SOM)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MIDIA: IMAGENS MUSK / MÍDIA:"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(PRINT: ORGANIZAÇÃO"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PRINT: AGÊNCIA COVID)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PRINTE: SITE FORA DO AR)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: USAID    / MPIDIA: TRA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: AJUDA EXTERNA 1 E 2)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUMP / MÍDIA: POST TR"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: CANADÁ)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUDEAU)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: TRUMP / MÍDIA: FRONTEI"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: POST MEXICO / MÍDIA:"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: CHINA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: UE)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: TARIFAS CHINA    / MÍD"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: CANADÁ E MÉXICO    / M"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FRONTEIRA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: VISITA RÚBIO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: BUKELE / MÍDIA: CADEIA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: MARCO RUBIO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PROTESTOS)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: TRUMP / MÍDIA:"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: EMBARQUE)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ORDEM TRUMP)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GUANTÁNAMO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: DEPORTAÇÕES)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COLETIVA / MÍDIA: GAZA"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: DECLARAÇÃO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: NETANYAHU)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: BEZALEL SMOTRICH)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM )))"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GAZA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FALA TRUMP)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ISRAEL KATZ)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COLETIVA)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUMP)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FALAS TRUMP)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ENTREVISTA NETANYAHU /"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(BEZALEL SMOTRICH)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TPI)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MÍDIA: GAZA    ( YOAV GALLANT"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: PUTIN)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COMUNICADO)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GIDEON SAAR)"
+VM17303 injected.js:37    🏷️ TAG detectada (prefixo (): "(MIDIA: TRUMP    / MÍDIA: ASSI"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: RELATORA ONU)"
+VM17303 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FACHADA ONU)"
+VM17303 injected.js:37    ✅ FOUND! Índice 7 (100%)
+VM17303 injected.js:37    📝 "OLÁ, BOA TARDE./..."
+VM17303 injected.js:37    📊 Tracking iniciado: 3 palavras no elemento
+VM17303 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM17303 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1260, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=1260, jump=-923.1800000000001, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 12...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1336, prog=100%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37    🎚️ Velocidade: x=2, diff=156px, targetScroll=-999, currPos=-843
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=142px, targetScroll=-999, currPos=-857
+VM17303 injected.js:37 [P1] 🎤 parcial: "um avião de"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 27...
+VM17303 injected.js:37    ✅ Avançou! Índice 7 → 13 (100%)
+VM17303 injected.js:37    📊 Tracking iniciado: 6 palavras no elemento
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1412, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=1412, jump=-1075.18, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=208px, targetScroll=-1075, currPos=-867
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "pequeno porte"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=83.3% → monotônico=83.3%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 83.3% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1539, prog=83%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=304px, targetScroll=-1202, currPos=-898
+VM17303 injected.js:37 [P1] 🎤 parcial: "porte"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=83.3% → monotônico=83.3%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=83.3%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=258px, targetScroll=-1202, currPos=-944
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "cai no meio de"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=6, progresso=100.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=6, progresso=100.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1564, prog=100%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=251px, targetScroll=-1227, currPos=-976
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37    🎚️ Velocidade: x=5, diff=224px, targetScroll=-1227, currPos=-1003
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "movimentada"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 33...
+VM17303 injected.js:37    ✅ Avançou! Índice 13 → 19 (100%)
+VM17303 injected.js:37    📊 Tracking iniciado: 42 palavras no elemento
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1640, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=1640, jump=-1303.18, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37    🎚️ Velocidade: x=5, diff=255px, targetScroll=-1303, currPos=-1048
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 [P1] 🎤 parcial: "da capital"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=42, progresso=19.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=42, progresso=19.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=19.0% → monotônico=19.0%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 19.0% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1843, prog=19%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 [P1] 🎤 parcial: "paulista"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=42, progresso=21.4%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=42, progresso=21.4%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=21.4% → monotônico=21.4%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 21.4% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1868, prog=21%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37    🎚️ Velocidade: x=8, diff=332px, targetScroll=-1531, currPos=-1199
+VM17303 injected.js:37 [P1] 🎤 parcial: "duas pessoas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=42, progresso=26.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=42, progresso=26.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=26.2% → monotônico=26.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 26.2% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1919, prog=26%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37    🎚️ Velocidade: x=8, diff=336px, targetScroll=-1582, currPos=-1246
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=265px, targetScroll=-1582, currPos=-1317
+VM17303 injected.js:37 [P1] 🎤 parcial: "estavam na"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=42, progresso=33.3%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=42, progresso=33.3%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=33.3% → monotônico=33.3%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 33.3% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1995, prog=33%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "morreram"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=42, progresso=38.1%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=42, progresso=38.1%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=38.1% → monotônico=38.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 38.1% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2045, prog=38%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "meio de uma avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=57.1% → monotônico=57.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 57.1% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2248, prog=57%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 [P1] 🎤 parcial: "feridas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=45.2% → monotônico=57.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram vocês ficaram feridas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=45.2% → monotônico=57.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 [P1] 🎤 parcial: "as primeira"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=57%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=185px, targetScroll=-1911, currPos=-1726
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "informações"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=42, progresso=52.4%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=42, progresso=52.4%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=52.4% → monotônico=57.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=177px, targetScroll=-1911, currPos=-1735
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=154px, targetScroll=-1911, currPos=-1757
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "apontam"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=22, total=42, progresso=54.8%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=22, total=42, progresso=54.8%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=54.8% → monotônico=57.1%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=141px, targetScroll=-1911, currPos=-1770
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=126px, targetScroll=-1911, currPos=-1786
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "piloto"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=24, total=42, progresso=59.5%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=24, total=42, progresso=59.5%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=59.5% → monotônico=59.5%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 59.5% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2273, prog=60%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "que estavam na aeronave morreram vocês ficaram feridas as primeiras informações apontam que o piloto"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=24, total=42, progresso=59.5%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=24, total=42, progresso=59.5%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=59.5% → monotônico=59.5%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=59.5%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=128px, targetScroll=-1937, currPos=-1809
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "tentou"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=25, total=42, progresso=61.9%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=25, total=42, progresso=61.9%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=61.9% → monotônico=61.9%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 61.9% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2299, prog=62%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=125px, targetScroll=-1962, currPos=-1837
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=116px, targetScroll=-1962, currPos=-1846
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=113px, targetScroll=-1962, currPos=-1848
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "acabou"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=42, progresso=71.4%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=42, progresso=71.4%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=71.4% → monotônico=71.4%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 71.4% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2400, prog=71%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=186px, targetScroll=-2063, currPos=-1877
+VM17303 injected.js:37 [P1] 🎤 parcial: "batendo"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=30, total=42, progresso=73.8%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=30, total=42, progresso=73.8%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=73.8% → monotônico=73.8%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 73.8% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2425, prog=74%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "em uma"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=35, total=42, progresso=85.7%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=35, total=42, progresso=85.7%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=85.7% → monotônico=85.7%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 85.7% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2552, prog=86%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "uma árvore"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=33, total=42, progresso=81.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=33, total=42, progresso=81.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=81.0% → monotônico=85.7%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=85.7%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=274px, targetScroll=-2215, currPos=-1941
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37    🎚️ Velocidade: x=5, diff=204px, targetScroll=-2215, currPos=-2011
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=178px, targetScroll=-2215, currPos=-2037
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "de um ônibus"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2704, prog=100%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "e acabou batendo em uma árvore logo em seguida atingiu a traseira de um ônibus"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 39...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=180px, targetScroll=-2367, currPos=-2188
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "as vítimas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 39...
+VM17303 injected.js:37    ✅ Avançou! Índice 19 → 28 (100%)
+VM17303 injected.js:37    📊 Tracking iniciado: 11 palavras no elemento
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=2856, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=2856, jump=-2519.18, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=299px, targetScroll=-2519, currPos=-2221
+VM17303 injected.js:37 [P1] 🎤 parcial: "vítimas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=1, total=11, progresso=18.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=1, total=11, progresso=18.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=18.2% → monotônico=18.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 18.2% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2911, prog=18%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=340px, targetScroll=-2574, currPos=-2234
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 [P1] 🎤 parcial: "batendo em uma árvore logo em seguida atingiu a traseira de um ônibus as vítimas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=18%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=258px, targetScroll=-2574, currPos=-2317
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37    🎚️ Velocidade: x=6, diff=235px, targetScroll=-2574, currPos=-2340
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=173px, targetScroll=-2574, currPos=-2401
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=165px, targetScroll=-2574, currPos=-2410
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=113px, targetScroll=-2574, currPos=-2461
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "batendo em uma árvore logo em seguida atingiu a traseira de um ônibus as vítimas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=18%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 FINAL: "batendo em uma árvore logo em seguida atingiu a traseira de um ônibus as vítimas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 1/2
+VM17303 injected.js:37    🗑️ Descartadas 53 palavras de improvisação
+VM17303 injected.js:37 ⏸️ AutoScroll PAUSADO (improvisação detectada)
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM17303 injected.js:37 [P1] 🎤 parcial: "do acidente"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 1, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    ▶️ Retornando ao roteiro após improvisação
+VM17303 injected.js:37 ▶️ AutoScroll RESUMIDO
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=11, progresso=36.4%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=11, progresso=36.4%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=36.4% → monotônico=36.4%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 36.4% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2967, prog=36%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37    🎚️ Velocidade: x=2, diff=134px, targetScroll=-2630, currPos=-2496
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=122px, targetScroll=-2630, currPos=-2507
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=117px, targetScroll=-2630, currPos=-2513
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "o piloto"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=54.5% → monotônico=54.5%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 54.5% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3022, prog=55%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 [P1] 🎤 parcial: "piloto e"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=54.5% → monotônico=54.5%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=54.5%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37    🎚️ Velocidade: x=3, diff=143px, targetScroll=-2685, currPos=-2542
+VM17303 injected.js:37 [P1] 🎤 parcial: "um empresário"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=72.7% → monotônico=72.7%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 72.7% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3077, prog=73%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=196px, targetScroll=-2740, currPos=-2544
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=192px, targetScroll=-2740, currPos=-2549
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "Gaúcho"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=81.8% → monotônico=81.8%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 81.8% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3105, prog=82%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=185px, targetScroll=-2768, currPos=-2583
+VM17303 injected.js:37 [P1] 🎤 parcial: "Daniel"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=90.9% → monotônico=90.9%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 90.9% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3132, prog=91%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "Melo"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37    🎚️ Velocidade: x=4, diff=169px, targetScroll=-2796, currPos=-2626
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "do acidente são o piloto e um empresário Gaúcho Daniel Melo"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=1)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=90.9% → monotônico=90.9%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=90.9%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "o"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=1)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37    🎚️ Velocidade: x=2, diff=85px, targetScroll=-2796, currPos=-2711
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "o local"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=2)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 [P1] 🎤 parcial: "isolado para"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=3)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=4/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37    🎚️ Velocidade: x=1, diff=63px, targetScroll=-2796, currPos=-2733
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 [P1] 🎤 parcial: "realização"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=4)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=5/5
+VM17303 injected.js:37    🔄 Muitos parciais sem match no fim, voltando para SEARCHING...
+VM17303 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM17303 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM17303 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM17303 injected.js:37 [P1] 🎤 parcial: "dos trabalhos"
+VM17303 injected.js:37    Estado: SEARCHING, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM17303 injected.js:37    ✅ FOUND! Índice 1119 (100%)
+VM17303 injected.js:37    📝 "CONHECIDO DO GRANDE PÚBLICO POR CAUSA DOS MUITOS P..."
+VM17303 injected.js:37    📊 Tracking iniciado: 191 palavras no elemento
+VM17303 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM17303 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=159145, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=159145, jump=-158808.18, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM17303 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 [P1] 🎤 parcial: "de perícia"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 [P1] 🎤 parcial: "perícia"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155989px, targetScroll=-158808, currPos=-2819
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "e"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "linhas de ônibus"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155801px, targetScroll=-158808, currPos=-3007
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "tiveram"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155707px, targetScroll=-158808, currPos=-3101
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155597px, targetScroll=-158808, currPos=-3211
+VM17303 injected.js:37 [P1] 🎤 parcial: "desviadas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155539px, targetScroll=-158808, currPos=-3269
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155497px, targetScroll=-158808, currPos=-3311
+VM17303 injected.js:37 [P1] 🎤 FINAL: "para realização dos trabalhos de perícia e 10 linhas de ônibus tiveram que ser desviadas"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    📝 Confirmadas 28 palavras pendentes
+VM17303 injected.js:37    📊 FINAL: cumulativo=28, pointer=28, total=191
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 14.7% (FINAL)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=159858, prog=15%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=156183px, targetScroll=-159521, currPos=-3339
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "no cerrado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=15%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155959px, targetScroll=-159521, currPos=-3562
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "caiu"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=15%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "33"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=15%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=155796px, targetScroll=-159521, currPos=-3725
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "33%"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=15%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "no ano"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1124...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=178, total=191, progresso=93.7%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=178, total=191, progresso=93.7%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=93.7% → monotônico=93.7%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 93.7% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=163704, prog=94%
+VM17303 injected.js:37    🚀 JUMP HÍBRIDO: diff=159515px > 500px, prog=94%
+VM17303 injected.js:37 📍 moveToOffset: offset=163704.3455497382, jump=-163367.5255497382, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=159504px, targetScroll=-163368, currPos=-3864
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=159435px, targetScroll=-163368, currPos=-3933
+VM17303 injected.js:37 [P1] 🎤 parcial: "passado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=94%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "Kelly Oliveira"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=1)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=94%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "o desmatamento no cerrado caiu 33% no ano passado Kelly Oliveira"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=2)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=94%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=159200px, targetScroll=-163368, currPos=-4167
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=159018px, targetScroll=-163368, currPos=-4350
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "foram"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=3)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=191, progresso=9.4%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=191, progresso=9.4%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=9.4% → monotônico=93.7%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=93.7%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=158849px, targetScroll=-163368, currPos=-4519
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "712"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=3)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=4/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=94%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "hectares"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=94%, parciaisSemMatch=4)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 1119 a 1139...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=5/5
+VM17303 injected.js:37    🔄 Muitos parciais sem match no fim, voltando para SEARCHING...
+VM17303 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "desmatados"
+VM17303 injected.js:37    Estado: SEARCHING, Índice: 1119, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM17303 injected.js:37    ✅ FOUND! Índice 447 (100%)
+VM17303 injected.js:37    📝 "QUE NOS ACOMPANHAM. FORAM 712 MIL HECTARES DESMATA..."
+VM17303 injected.js:37    📊 Tracking iniciado: 164 palavras no elemento
+VM17303 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM17303 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM17303 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=48162, prog=0%
+VM17303 injected.js:37 📍 moveToOffset: offset=48162, jump=-47825.18, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "no cerrado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=160, total=164, progresso=98.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=160, total=164, progresso=98.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=98.2% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ✓✓ FAZENDO SCROLL para 98.2% (parcial)
+VM17303 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=52490, prog=98%
+VM17303 injected.js:37    🚀 JUMP HÍBRIDO: diff=47228px > 500px, prog=98%
+VM17303 injected.js:37 📍 moveToOffset: offset=52490.34756097561, jump=-52153.52756097561, smooth=true
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=47186px, targetScroll=-52154, currPos=-4967
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=47173px, targetScroll=-52154, currPos=-4981
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "no ano passado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=159, total=164, progresso=97.6%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=159, total=164, progresso=97.6%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=97.6% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "passado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=164, progresso=7.9%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=164, progresso=7.9%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=7.9% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "no ano passado Kelly Oliveira foram 712 mil hectares desmatados no cerrado no ano passado"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=160, total=164, progresso=98.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=160, total=164, progresso=98.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=98.2% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=46982px, targetScroll=-52154, currPos=-5171
+VM17303 injected.js:37 [P1] 🎤 parcial: "apesar"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=164, progresso=18.3%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=164, progresso=18.3%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=18.3% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "da redução"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=0)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=98%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "redução"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=1)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM17303 injected.js:37    ⏳ Aguardando (parcial)... progresso=98%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=46836px, targetScroll=-52154, currPos=-5318
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=46819px, targetScroll=-52154, currPos=-5334
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "pesquisadores"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=31, total=164, progresso=19.5%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=31, total=164, progresso=19.5%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=19.5% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=46758px, targetScroll=-52154, currPos=-5395
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 [P1] 🎤 parcial: "alertam que"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=73, total=164, progresso=45.1%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=73, total=164, progresso=45.1%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=45.1% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37    🎚️ Velocidade: x=9, diff=46548px, targetScroll=-52154, currPos=-5605
+VM17303 injected.js:37 [P1] 🎤 parcial: "a área total"
+VM17303 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0, SpeakerMode: ANCHOR
+VM17303 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+VM17303 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=147, total=164, progresso=90.2%
+VM17303 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=147, total=164, progresso=90.2%
+VM17303 injected.js:37    📊 PARCIAL: alinhado=90.2% → monotônico=98.2%
+VM17303 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM17303 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=98.2%
+VM17303 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM17303 injected.js:37 🔄 Roteiro alterado, voltando para SEARCHING
+VM17309 teleprompter.js:295 Uncaught TypeError: Cannot read properties of null (reading 'html')
+    at updateContents (VM17309 teleprompter.js:295:55)
+    at listener (VM17309 teleprompter.js:1457:21)
+updateContents @ VM17309 teleprompter.js:295
+listener @ VM17309 teleprompter.js:1457
+postMessage
+listener @ editor.js:798
+postMessage
+forwardLog @ VM17303 injected.js:3
+(anônimo) @ VM17303 injected.js:35
+executarMatching @ VM17312 speechRecognition.js:1029
+(anônimo) @ VM17312 speechRecognition.js:986
+setTimeout
+processarComDebounce @ VM17312 speechRecognition.js:983
+recognition.onresult @ VM17312 speechRecognition.js:974

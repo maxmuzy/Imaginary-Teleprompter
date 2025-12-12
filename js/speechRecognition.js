@@ -235,6 +235,20 @@ function posicionarNoInicio() {
     currentElementIndex = primeiro.index;
 }
 
+// Carrega prefixos customizados do localStorage ao iniciar
+function loadCustomPrefixesFromStorage() {
+    try {
+        var stored = localStorage.getItem('voiceCustomPrefixes');
+        if (stored) {
+            var prefixes = JSON.parse(stored);
+            TAG_CONFIG.customPrefixes = Array.isArray(prefixes) ? prefixes : [];
+            console.log(`🏷️ Prefixos customizados carregados do localStorage:`, TAG_CONFIG.customPrefixes);
+        }
+    } catch(e) {
+        console.error('Erro ao carregar prefixos do localStorage:', e);
+    }
+}
+
 // Expõe configuração de tags globalmente para interface
 window.voiceTagConfig = {
     getPatterns: function() {
@@ -253,6 +267,9 @@ window.voiceTagConfig = {
     addCustomPrefix: function(prefix) {
         if (prefix && !TAG_CONFIG.customPrefixes.includes(prefix)) {
             TAG_CONFIG.customPrefixes.push(prefix);
+            try {
+                localStorage.setItem('voiceCustomPrefixes', JSON.stringify(TAG_CONFIG.customPrefixes));
+            } catch(e) {}
             limparCacheTags();
             console.log(`🏷️ Prefixo customizado adicionado: "${prefix}"`);
         }
@@ -261,13 +278,20 @@ window.voiceTagConfig = {
         const index = TAG_CONFIG.customPrefixes.indexOf(prefix);
         if (index > -1) {
             TAG_CONFIG.customPrefixes.splice(index, 1);
+            try {
+                localStorage.setItem('voiceCustomPrefixes', JSON.stringify(TAG_CONFIG.customPrefixes));
+            } catch(e) {}
             limparCacheTags();
             console.log(`🏷️ Prefixo customizado removido: "${prefix}"`);
         }
     },
     isTag: isTagTecnica,
-    posicionarNoInicio: posicionarNoInicio
+    posicionarNoInicio: posicionarNoInicio,
+    customPrefixes: TAG_CONFIG.customPrefixes
 };
+
+// Carrega prefixos ao iniciar o módulo
+loadCustomPrefixesFromStorage();
 
 // Estado global
 let currentState = STATE.SEARCHING;

@@ -611,7 +611,28 @@ CKEDITOR.on( 'dialogDefinition', function( ev ) {
 
 // ========================================
 // Voice Tag Configuration Modal Functions
+// Sistema funciona via localStorage (independente do teleprompter)
 // ========================================
+
+// Funções auxiliares para localStorage
+function getStoredCustomPrefixes() {
+        try {
+                var stored = localStorage.getItem('voiceCustomPrefixes');
+                return stored ? JSON.parse(stored) : [];
+        } catch(e) {
+                return [];
+        }
+}
+
+function saveCustomPrefixes(prefixes) {
+        try {
+                localStorage.setItem('voiceCustomPrefixes', JSON.stringify(prefixes));
+                // Também atualiza o objeto global se existir (sincroniza com teleprompter)
+                if (typeof window.voiceTagConfig !== 'undefined' && window.voiceTagConfig.customPrefixes) {
+                        window.voiceTagConfig.customPrefixes = prefixes;
+                }
+        } catch(e) {}
+}
 
 function openVoiceTagConfig() {
         window.location.hash = 'openVoiceTagConfig';
@@ -627,21 +648,22 @@ function renderVoiceTagPatterns() {
         var container = document.getElementById('tagPatternsContainer');
         if (!container) return;
         
-        // Check if voiceTagConfig is available (from teleprompter)
-        if (typeof window.voiceTagConfig === 'undefined') {
-                container.innerHTML = '<p style="color: #999;">Configuração disponível apenas durante prompting.</p>';
-                return;
-        }
+        // Padrões padrão - sempre disponíveis
+        var patterns = {
+                'parentesesTriplos': { name: 'Parênteses Triplos', description: '(((CAM1)))', enabled: true },
+                'parentesesDuplos': { name: 'Parênteses Duplos', description: '((ABRE LINK))', enabled: true },
+                'parentesesSimples': { name: 'Parênteses Simples', description: '(OFF VIVO)', enabled: true },
+                'colchetes': { name: 'Colchetes', description: '[C]', enabled: true },
+                'barra': { name: 'Barra', description: '(/VINHETA/)', enabled: true }
+        };
         
-        var patterns = window.voiceTagConfig.getPatterns();
         var html = '';
-        
         for (var key in patterns) {
                 var pattern = patterns[key];
                 var checked = pattern.enabled ? 'checked' : '';
                 html += '<div class="checkbox" style="margin: 8px 0;">';
                 html += '<label>';
-                html += '<input type="checkbox" ' + checked + ' onchange="toggleTagPattern(\'' + key + '\', this.checked)">';
+                html += '<input type="checkbox" ' + checked + ' disabled style="opacity: 0.6;">';
                 html += ' <strong>' + pattern.name + '</strong>';
                 html += ' <span style="color: #888; font-size: 12px;">- ' + pattern.description + '</span>';
                 html += '</label>';
@@ -657,11 +679,7 @@ function renderCustomPrefixes() {
         
         container.innerHTML = '';
         
-        if (typeof window.voiceTagConfig === 'undefined' || typeof window.voiceTagConfig.getCustomPrefixes !== 'function') {
-                return;
-        }
-        
-        var prefixes = window.voiceTagConfig.getCustomPrefixes();
+        var prefixes = getStoredCustomPrefixes();
         
         if (prefixes.length === 0) {
                 var emptyMsg = document.createElement('p');
@@ -680,7 +698,7 @@ function renderCustomPrefixes() {
                         
                         var removeLink = document.createElement('a');
                         removeLink.href = '#';
-                        removeLink.style.cssText = 'color: #fff; margin-left: 5px; font-weight: bold;';
+                        removeLink.style.cssText = 'color: #fff; margin-left: 5px; font-weight: bold; cursor: pointer;';
                         removeLink.textContent = '×';
                         removeLink.setAttribute('data-prefix', prefix);
                         removeLink.onclick = function(e) {
@@ -695,15 +713,8 @@ function renderCustomPrefixes() {
         }
 }
 
-function toggleTagPattern(patternKey, enabled) {
-        if (typeof window.voiceTagConfig !== 'undefined') {
-                window.voiceTagConfig.setPatternEnabled(patternKey, enabled);
-        }
-}
-
 function addCustomPrefix() {
         var input = document.getElementById('customPrefixInput');
-        var feedback = document.getElementById('customPrefixFeedback');
         if (!input) return;
         
         var prefix = input.value.trim();
@@ -713,20 +724,17 @@ function addCustomPrefix() {
                 return;
         }
         
-        if (typeof window.voiceTagConfig !== 'undefined' && typeof window.voiceTagConfig.getCustomPrefixes === 'function') {
-                var existingPrefixes = window.voiceTagConfig.getCustomPrefixes();
-                if (existingPrefixes.includes(prefix)) {
-                        showPrefixFeedback('Este prefixo já foi adicionado.', 'warning');
-                        return;
-                }
-                
-                window.voiceTagConfig.addCustomPrefix(prefix);
-                input.value = '';
-                renderCustomPrefixes();
-                showPrefixFeedback('Prefixo "' + prefix + '" adicionado com sucesso!', 'success');
-        } else {
-                showPrefixFeedback('Abra o teleprompter primeiro para configurar tags.', 'info');
+        var prefixes = getStoredCustomPrefixes();
+        if (prefixes.includes(prefix)) {
+                showPrefixFeedback('Este prefixo já foi adicionado.', 'warning');
+                return;
         }
+        
+        prefixes.push(prefix);
+        saveCustomPrefixes(prefixes);
+        input.value = '';
+        renderCustomPrefixes();
+        showPrefixFeedback('Prefixo "' + prefix + '" adicionado com sucesso!', 'success');
 }
 
 function showPrefixFeedback(message, type) {
@@ -742,8 +750,11 @@ function showPrefixFeedback(message, type) {
 }
 
 function removeCustomPrefix(prefix) {
-        if (typeof window.voiceTagConfig !== 'undefined' && typeof window.voiceTagConfig.removeCustomPrefix === 'function') {
-                window.voiceTagConfig.removeCustomPrefix(prefix);
+        var prefixes = getStoredCustomPrefixes();
+        var index = prefixes.indexOf(prefix);
+        if (index > -1) {
+                prefixes.splice(index, 1);
+                saveCustomPrefixes(prefixes);
                 renderCustomPrefixes();
         }
 }

@@ -1,0 +1,890 @@
+eq_editor-lite-17.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+VM21188 injected.js:37 🏷️ Prefixos customizados carregados do localStorage: ['(']
+VM21188 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM21188 injected.js:37 📍 Estado inicial: SEARCHING
+VM21188 injected.js:37 📖 Primeiro elemento legível encontrado: índice 0
+VM21188 injected.js:37    "​​​​​​​..."
+VM21188 injected.js:37 📍 Posicionando no primeiro elemento legível (índice 0)
+VM21188 injected.js:37    Texto: "​​​​​​​..."
+VM21188 injected.js:37    offsetElemento: 1032
+VM21188 injected.js:37    📐 convertOffsetToScrollPosTop: topOffset=268.32
+VM21188 injected.js:37 📍 moveToOffset (TOPO): offset=1032, jump=-763.6800000000001, smooth=true
+VM21188 injected.js:37 👁️ Observer de roteiro ativado
+eq_config.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+VM21188 injected.js:37 Aumentando Velocidade
+VM21188 injected.js:37 Aumentando Velocidade
+VM21188 injected.js:37 📍 positionFirstTextInFocus:
+VM21188 injected.js:37    Primeiro elemento: "​​​​​​​..."
+VM21188 injected.js:37    offsetTop: 1032
+VM21188 injected.js:37    focusTopOffset: 268.32
+VM21188 injected.js:37    jump: -763.6800000000001
+VM21188 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM21188 injected.js:37    Estado: SEARCHING, Índice: 0, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔍 SEARCHING LOCAL: ref=0, janela [0-50] (50 elementos)...
+VM21188 injected.js:37    🏷️ TAG detectada (prefixo (): "(/VINHETA/"
+VM21188 injected.js:37    🏷️ TAG detectada (prefixo (): "((CAM 3)))"
+VM21188 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 1)))"
+VM21188 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.1)"
+VM21188 injected.js:37    🏷️ TAG detectada (prefixo (): "(LAPAR VT 11.2"
+VM21188 injected.js:37    🏷️ TAG detectada (prefixo (): "((CAM 1)))"
+VM21188 injected.js:37    🏷️ TAG detectada (prefixo (): "(ABRE SOM DO LINK"
+VM21188 injected.js:37    ✅ LOCAL MATCH! Índice 7 (100%)
+VM21188 injected.js:37    📝 "OLÁ, BOA TARDE./..."
+VM21188 injected.js:37    📊 Tracking iniciado: 3 palavras no elemento
+VM21188 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM21188 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM21188 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1260, prog=0%
+VM21188 injected.js:37 📍 moveToOffset: offset=1260, jump=-923.1800000000001, smooth=true
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37    🎚️ Velocidade: x=2, diff=157px, targetScroll=-923, currPos=-766
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37    🎚️ Velocidade: x=3, diff=153px, targetScroll=-923, currPos=-770
+VM21188 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 12...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1336, prog=100%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=206px, targetScroll=-999, currPos=-793
+VM21188 injected.js:37 [P1] 🎤 parcial: "um avião"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 27...
+VM21188 injected.js:37    ✅ Avançou! Índice 7 → 13 (100%)
+VM21188 injected.js:37    📊 Tracking iniciado: 6 palavras no elemento
+VM21188 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1412, prog=0%
+VM21188 injected.js:37 📍 moveToOffset: offset=1412, jump=-1075.18, smooth=true
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    ⏱️ Retomando após 292ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=209px, targetScroll=-1075, currPos=-866
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "cai no meio de"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=6, progresso=100.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=6, progresso=100.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1564, prog=100%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "uma avenida"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 33...
+VM21188 injected.js:37    ✅ Avançou! Índice 13 → 19 (100%)
+VM21188 injected.js:37    📊 Tracking iniciado: 42 palavras no elemento
+VM21188 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1640, prog=0%
+VM21188 injected.js:37 📍 moveToOffset: offset=1640, jump=-1303.18, smooth=true
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37    🎚️ Velocidade: x=7, diff=361px, targetScroll=-1303, currPos=-942
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 [P1] 🎤 parcial: "avenida"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=42, progresso=11.9%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=42, progresso=11.9%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=11.9% → monotônico=11.9%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 11.9% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1767, prog=12%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37    🎚️ Velocidade: x=8, diff=471px, targetScroll=-1430, currPos=-959
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "movimentada"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=42, progresso=14.3%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=42, progresso=14.3%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=14.3% → monotônico=14.3%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 14.3% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1792, prog=14%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37    🎚️ Velocidade: x=9, diff=393px, targetScroll=-1455, currPos=-1063
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "da capital"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=42, progresso=19.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=42, progresso=19.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=19.0% → monotônico=19.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 19.0% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1843, prog=19%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 [P1] 🎤 parcial: "paulista"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=42, progresso=21.4%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=42, progresso=21.4%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=21.4% → monotônico=21.4%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 21.4% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1868, prog=21%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 [P1] 🎤 parcial: "duas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=42, progresso=23.8%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=42, progresso=23.8%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=23.8% → monotônico=23.8%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 23.8% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1893, prog=24%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 [P1] 🎤 parcial: "duas pessoas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=42, progresso=26.2%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=42, progresso=26.2%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=26.2% → monotônico=26.2%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 26.2% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1919, prog=26%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37    ⏱️ Retomando após 1297ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "meio de uma avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=57.1% → monotônico=57.1%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 57.1% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2248, prog=57%
+VM21188 injected.js:37    🚀 JUMP HÍBRIDO: diff=539px > 500px, prog=57%
+VM21188 injected.js:37 📍 moveToOffset: offset=2248, jump=-1911.18, smooth=true
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37    🎚️ Velocidade: x=8, diff=492px, targetScroll=-1911, currPos=-1419
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=9, velocity=96.8
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37    ⏱️ Retomando após 594ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37    🎚️ Velocidade: x=7, diff=391px, targetScroll=-1911, currPos=-1520
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 [P1] 🎤 parcial: "avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram vocês ficaram feridas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=18, total=42, progresso=45.2%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=45.2% → monotônico=57.1%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    ⏱️ Retomando após 529ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "capital paulista duas pessoas que estavam na aeronave morreram vocês ficaram feridas as primeiras informações"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=42, progresso=52.4%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=42, progresso=52.4%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=52.4% → monotônico=57.1%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "apontam que"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=42, progresso=57.1%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=57.1% → monotônico=57.1%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=57.1%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37    ⏱️ Retomando após 214ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37    🎚️ Velocidade: x=3, diff=135px, targetScroll=-1911, currPos=-1776
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 parcial: "tentou"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=25, total=42, progresso=61.9%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=25, total=42, progresso=61.9%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=61.9% → monotônico=61.9%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 61.9% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2299, prog=62%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37    🎚️ Velocidade: x=3, diff=177px, targetScroll=-1962, currPos=-1785
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37    ⏱️ Retomando após 320ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 parcial: "forçado e"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=28, total=42, progresso=69.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=28, total=42, progresso=69.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=69.0% → monotônico=69.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 69.0% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2375, prog=69%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "e acabou"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=42, progresso=71.4%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=29, total=42, progresso=71.4%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=71.4% → monotônico=71.4%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 71.4% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2400, prog=71%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "batendo"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=30, total=42, progresso=73.8%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=30, total=42, progresso=73.8%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=73.8% → monotônico=73.8%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 73.8% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2425, prog=74%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "em uma"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=35, total=42, progresso=85.7%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=35, total=42, progresso=85.7%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=85.7% → monotônico=85.7%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 85.7% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2552, prog=86%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "uma árvore"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=33, total=42, progresso=81.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=33, total=42, progresso=81.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=81.0% → monotônico=85.7%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=85.7%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37    ⏱️ Retomando após 889ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=182px, targetScroll=-2215, currPos=-2033
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "um ônibus"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 24...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=2704, prog=100%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "e acabou batendo em uma árvore logo em seguida atingiu a traseira de um ônibus"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 39...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=41, total=42, progresso=100.0%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37    🎚️ Velocidade: x=6, diff=283px, targetScroll=-2367, currPos=-2084
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37    ⏱️ Retomando após 924ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "vítimas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 19, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 19 a 39...
+VM21188 injected.js:37    ✅ Avançou! Índice 19 → 28 (100%)
+VM21188 injected.js:37    📊 Tracking iniciado: 11 palavras no elemento
+VM21188 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=2856, prog=0%
+VM21188 injected.js:37 📍 moveToOffset: offset=2856, jump=-2519.18, smooth=true
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "batendo em uma árvore logo em seguida atingiu a traseira de um ônibus as vítimas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37    ⏱️ Retomando após 1728ms de pausa (com impulso)
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO com IMPULSO (v=3)
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=211px, targetScroll=-2519, currPos=-2308
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "deparou"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "árvore logo em seguida atingiu a traseira de um ônibus as vítimas já se deparou"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37    ⏱️ Retomando após 378ms de pausa
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 parcial: "em chamas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 parcial: "chamas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 FINAL: "de um ônibus as vítimas já se deparou a aeronave que o ônibus em chamas"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 1/2
+VM21188 injected.js:37    🗑️ Descartadas 61 palavras de improvisação
+VM21188 injected.js:37 ⏸️ AutoScroll PAUSADO (improvisação detectada)
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37    ⏱️ Retomando após 2635ms de pausa (com impulso)
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO com IMPULSO (v=3)
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 [P1] 🎤 parcial: "o piloto"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 1, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=54.5% → monotônico=54.5%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 54.5% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3022, prog=55%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=262px, targetScroll=-2685, currPos=-2423
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "piloto e"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=11, progresso=54.5%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=54.5% → monotônico=54.5%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=54.5%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "o empresário"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=72.7% → monotônico=72.7%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 72.7% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3077, prog=73%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 [P1] 🎤 parcial: "o empresário ga"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=11, progresso=72.7%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=72.7% → monotônico=72.7%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=72.7%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37    🎚️ Velocidade: x=6, diff=252px, targetScroll=-2740, currPos=-2488
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "Gaúcho"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=81.8% → monotônico=81.8%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 81.8% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3105, prog=82%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37    🎚️ Velocidade: x=6, diff=248px, targetScroll=-2768, currPos=-2520
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "Daniel"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 33...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=90.9% → monotônico=90.9%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ✓✓ FAZENDO SCROLL para 90.9% (parcial)
+VM21188 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3132, prog=91%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37    🎚️ Velocidade: x=5, diff=234px, targetScroll=-2796, currPos=-2561
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "Melo"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=0)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM21188 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 [P1] 🎤 parcial: "as vítimas do acidente são o piloto e o empresário Gaúcho Daniel Melo"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=1)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM21188 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=11, progresso=90.9%
+VM21188 injected.js:37    📊 PARCIAL: alinhado=90.9% → monotônico=90.9%
+VM21188 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM21188 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=90.9%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=183px, targetScroll=-2796, currPos=-2613
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🔇 Silêncio detectado (800ms sem fala) - pausando scroll
+VM21188 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM21188 injected.js:37 📍 Pausa: Já está em texto legível
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM21188 injected.js:37    ⏱️ Retomando após 2222ms de pausa (com impulso)
+VM21188 injected.js:37 ▶️ AutoScroll RETOMADO com IMPULSO (v=3)
+VM21197 speechRecognition.js:831 Uncaught ReferenceError: armSilenceTimer is not defined
+    at Object.softResume (VM21197 speechRecognition.js:831:13)
+    at executarMatching (VM21197 speechRecognition.js:1170:34)
+    at VM21197 speechRecognition.js:1083:13
+softResume @ VM21197 speechRecognition.js:831
+executarMatching @ VM21197 speechRecognition.js:1170
+(anônimo) @ VM21197 speechRecognition.js:1083
+setTimeout
+processarComDebounce @ VM21197 speechRecognition.js:1080
+recognition.onresult @ VM21197 speechRecognition.js:1071
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37    🎚️ Velocidade: x=4, diff=232px, targetScroll=-2839, currPos=-2607
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 [P1] 🎤 parcial: "o local"
+VM21188 injected.js:37    Estado: LOCKED, Índice: 28, Misses: 0, SpeakerMode: ANCHOR
+VM21188 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=91%, parciaisSemMatch=1)
+VM21188 injected.js:37    🔒 LOCKED: Verificando elementos 28 a 48...
+VM21188 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM21188 injected.js:37    ⏳ Aguardando (parcial)... progresso=91%
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM21188 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+editor.js:425 Uncaught (in promise) TypeError: Failed to execute 'exitFullscreen' on 'Document': Document not active
+    at exitFullscreen (editor.js:425:28)
+    at togglePromptIt (editor.js:488:17)
+    at HTMLAnchorElement.restoreEditor (editor.js:620:13)
+exitFullscreen @ editor.js:425
+togglePromptIt @ editor.js:488
+restoreEditor @ editor.js:620
+VM21188 injected.js:37 🔄 Roteiro alterado, voltando para SEARCHING
+VM21188 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8

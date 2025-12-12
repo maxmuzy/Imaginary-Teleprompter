@@ -657,7 +657,7 @@ function renderCustomPrefixes() {
         
         container.innerHTML = '';
         
-        if (typeof window.voiceTagConfig === 'undefined') {
+        if (typeof window.voiceTagConfig === 'undefined' || typeof window.voiceTagConfig.getCustomPrefixes !== 'function') {
                 return;
         }
         
@@ -713,7 +713,7 @@ function addCustomPrefix() {
                 return;
         }
         
-        if (typeof window.voiceTagConfig !== 'undefined') {
+        if (typeof window.voiceTagConfig !== 'undefined' && typeof window.voiceTagConfig.getCustomPrefixes === 'function') {
                 var existingPrefixes = window.voiceTagConfig.getCustomPrefixes();
                 if (existingPrefixes.includes(prefix)) {
                         showPrefixFeedback('Este prefixo já foi adicionado.', 'warning');
@@ -725,7 +725,7 @@ function addCustomPrefix() {
                 renderCustomPrefixes();
                 showPrefixFeedback('Prefixo "' + prefix + '" adicionado com sucesso!', 'success');
         } else {
-                showPrefixFeedback('Sistema de tags não carregado. Abra o teleprompter primeiro.', 'danger');
+                showPrefixFeedback('Abra o teleprompter primeiro para configurar tags.', 'info');
         }
 }
 
@@ -742,7 +742,7 @@ function showPrefixFeedback(message, type) {
 }
 
 function removeCustomPrefix(prefix) {
-        if (typeof window.voiceTagConfig !== 'undefined') {
+        if (typeof window.voiceTagConfig !== 'undefined' && typeof window.voiceTagConfig.removeCustomPrefix === 'function') {
                 window.voiceTagConfig.removeCustomPrefix(prefix);
                 renderCustomPrefixes();
         }

@@ -273,8 +273,9 @@ function posicionarNoInicio() {
     }
     
     // Define como índice atual para o sistema de matching
+    // NÃO seta lastLockedReadableIndex aqui - reservado para locks de matching
+    // Isso garante que a primeira busca seja GLOBAL (lastLockedReadableIndex = -1)
     currentElementIndex = primeiro.index;
-    lastLockedReadableIndex = primeiro.index; // v29.7: Preserva para busca local
 }
 
 // v29.7: Reposiciona para o próximo texto legível quando o scroll para
@@ -444,6 +445,29 @@ const SILENCE_TIMEOUT_MS = 800;     // 800ms sem fala = pausa o scroll
 let silenceTimer = null;            // Timer de verificação de silêncio
 let silenceSuppressed = false;      // v29.7: Flag para suprimir re-arming durante pausa
 let pauseStartTimestamp = 0;        // v29.7: Quando a pausa começou (para calcular duração real)
+
+// v29.7: Função GLOBAL para armar o timer de silêncio
+// Precisa estar no escopo global para ser chamada por AutoScrollController.softResume()
+function armSilenceTimer() {
+    // Não arma se já existe timer ou está suprimido
+    if (silenceTimer || silenceSuppressed) return;
+    // Só arma se ativo, não pausado e em LOCKED
+    if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
+    
+    silenceTimer = setTimeout(() => {
+        silenceTimer = null;
+        // Verifica novamente antes de pausar
+        if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
+        
+        console.log(`🔇 Silêncio detectado (${SILENCE_TIMEOUT_MS}ms sem fala) - pausando scroll`);
+        AutoScrollController.softStop();
+        
+        // v29.7: Reposiciona para próximo texto legível (evita parar em tags técnicas)
+        if (currentState === STATE.LOCKED && currentElementIndex >= 0) {
+            reposicionarParaProximoLegivel();
+        }
+    }, SILENCE_TIMEOUT_MS);
+}
 
 // ========================================
 // SPEAKER MODE - Detecção de falante (âncora vs link/externo)
@@ -1090,28 +1114,6 @@ if (SpeechRecognition) {
         executarMatching(palavrasParaMatch, isFinal);
     }
 
-    // v29.7: Função centralizada para armar o timer de silêncio
-    function armSilenceTimer() {
-        // Não arma se já existe timer ou está suprimido
-        if (silenceTimer || silenceSuppressed) return;
-        // Só arma se ativo, não pausado e em LOCKED
-        if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
-        
-        silenceTimer = setTimeout(() => {
-            silenceTimer = null;
-            // Verifica novamente antes de pausar
-            if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
-            
-            console.log(`🔇 Silêncio detectado (${SILENCE_TIMEOUT_MS}ms sem fala) - pausando scroll`);
-            AutoScrollController.softStop();
-            
-            // v29.7: Reposiciona para próximo texto legível (evita parar em tags técnicas)
-            if (currentState === STATE.LOCKED && currentElementIndex >= 0) {
-                reposicionarParaProximoLegivel();
-            }
-        }, SILENCE_TIMEOUT_MS);
-    }
-    
     function executarMatching(textoFalado, isFinal) {
         // Aceita textos curtos (até 1 caractere é válido para matching)
         if (textoFalado.length === 0) return;

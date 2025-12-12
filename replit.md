@@ -20,10 +20,10 @@ This is a dual-mode application, primarily running as a static web application i
 - **Frontend**: Utilizes HTML, CSS, and JavaScript.
 - **Server (Replit)**: A simple Express.js server (`server.js`) serves static files on port 5000 (host 0.0.0.0).
 - **Local Storage**: All application data is stored client-side using browser localStorage.
-- **Voice Control System (v29.2)**:
+- **Voice Control System (v29.3)**:
     - **Architecture**: State machine (`SEARCHING` -> `LOCKED`) for robust voice synchronization.
     - **Matching**: Fuzzy matching algorithm (Levenshtein-based) with normalization (punctuation, accents) and movable window of words.
-    - **Initial Positioning**: First readable element aligns with TOP of focus area using `convertOffsetToScrollPosTop()`.
+    - **Initial Positioning**: First readable element aligns with TOP of focus area using `positionFirstTextInFocus()`.
     - **Scroll Mechanism**: Continuous scroll with variable speed, adjusting based on position difference.
     - **Soft Transitions**: `softStop()`/`softResume()` preserve velocity during LOCKED→SEARCHING→LOCKED transitions without resetting speed.
     - **Technical Tags**: Configurable system to ignore tags (e.g., `(((CAM1)))`, `(?)`) with secure DOM-based UI.
@@ -31,6 +31,12 @@ This is a dual-mode application, primarily running as a static web application i
     - **Dynamic Lookahead**: Expands search window when near end of current segment.
     - **Short Cue Detection**: Supports cues of any length (removed minimum word guards).
     - **Exclusive Voice Control**: `voiceControlActive` prevents other scroll triggers from interfering.
+- **Customizable Focus Area (v29.3)**:
+    - **Slider Control**: "Focus" slider (10-80%) allows positioning the reading area anywhere on screen.
+    - **Default Position**: 37.5% (25% above center) as recommended for professional use.
+    - **Persistence**: Focus position saved in localStorage and restored on reload.
+    - **Auto-positioning**: First readable text automatically positioned in focus area on load.
+    - **API**: `window.teleprompterFocus` exposes setPosition/getPosition for external control.
 - **Hardware Acceleration**: Supports hardware-accelerated scrolling.
 - **Feature Detection**: JavaScript code uses `inElectron()` to adapt functionality based on the environment (browser vs. Electron).
 

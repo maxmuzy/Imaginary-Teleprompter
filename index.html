@@ -487,17 +487,23 @@
                                         <hr>
                                         <h4>Prefixos Customizados</h4>
                                         <p style="color: #666; font-size: 12px;">
-                                                Adicione caracteres que indicam início de tags técnicas (ex: >>>, ###)
+                                                Digite um prefixo e clique em "Adicionar". Qualquer linha do texto que 
+                                                <strong>comece</strong> com esse prefixo será ignorada pela voz.
                                         </p>
                                         <div class="input-group" style="margin-bottom: 10px;">
-                                                <input type="text" class="form-control" id="customPrefixInput" placeholder="Ex: >>>" />
+                                                <input type="text" class="form-control" id="customPrefixInput" placeholder="Ex: >>>" onkeypress="if(event.key==='Enter'){addCustomPrefix();return false;}" />
                                                 <span class="input-group-btn">
-                                                        <button class="btn btn-default" onclick="addCustomPrefix()">Adicionar</button>
+                                                        <button class="btn btn-primary" onclick="addCustomPrefix()">Adicionar</button>
                                                 </span>
                                         </div>
-                                        <div id="customPrefixesList">
+                                        <div id="customPrefixFeedback" style="margin-bottom: 10px; display: none;"></div>
+                                        <h5>Prefixos ativos:</h5>
+                                        <div id="customPrefixesList" style="min-height: 30px; padding: 10px; background: #f9f9f9; border-radius: 4px;">
                                                 <!-- Prefixos customizados serão listados aqui -->
                                         </div>
+                                        <p style="color: #999; font-size: 11px; margin-top: 10px;">
+                                                <strong>Dica:</strong> Use prefixos como ">>>", "###", "///" ou "NOTA:" para marcar instruções técnicas no seu roteiro.
+                                        </p>
                                 </div>
                         </div>
                 </div>
@@ -642,26 +648,44 @@ function renderCustomPrefixes() {
         var container = document.getElementById('customPrefixesList');
         if (!container) return;
         
+        container.innerHTML = '';
+        
         if (typeof window.voiceTagConfig === 'undefined') {
-                container.innerHTML = '';
                 return;
         }
         
         var prefixes = window.voiceTagConfig.getCustomPrefixes();
-        var html = '';
         
         if (prefixes.length === 0) {
-                html = '<p style="color: #999; font-size: 12px;">Nenhum prefixo customizado</p>';
+                var emptyMsg = document.createElement('p');
+                emptyMsg.style.cssText = 'color: #999; font-size: 12px; margin: 0;';
+                emptyMsg.textContent = 'Nenhum prefixo customizado adicionado ainda.';
+                container.appendChild(emptyMsg);
         } else {
                 for (var i = 0; i < prefixes.length; i++) {
-                        html += '<span class="label label-default" style="margin-right: 5px; padding: 5px 10px; display: inline-block; margin-bottom: 5px;">';
-                        html += prefixes[i];
-                        html += ' <a href="#" onclick="removeCustomPrefix(\'' + prefixes[i] + '\'); return false;" style="color: #fff; margin-left: 5px;">×</a>';
-                        html += '</span>';
+                        var prefix = prefixes[i];
+                        var span = document.createElement('span');
+                        span.className = 'label label-info';
+                        span.style.cssText = 'margin-right: 5px; padding: 5px 10px; display: inline-block; margin-bottom: 5px; font-size: 13px;';
+                        
+                        var textNode = document.createTextNode(prefix + ' ');
+                        span.appendChild(textNode);
+                        
+                        var removeLink = document.createElement('a');
+                        removeLink.href = '#';
+                        removeLink.style.cssText = 'color: #fff; margin-left: 5px; font-weight: bold;';
+                        removeLink.textContent = '×';
+                        removeLink.setAttribute('data-prefix', prefix);
+                        removeLink.onclick = function(e) {
+                                e.preventDefault();
+                                var prefixToRemove = this.getAttribute('data-prefix');
+                                removeCustomPrefix(prefixToRemove);
+                        };
+                        span.appendChild(removeLink);
+                        
+                        container.appendChild(span);
                 }
         }
-        
-        container.innerHTML = html;
 }
 
 function toggleTagPattern(patternKey, enabled) {
@@ -672,14 +696,42 @@ function toggleTagPattern(patternKey, enabled) {
 
 function addCustomPrefix() {
         var input = document.getElementById('customPrefixInput');
+        var feedback = document.getElementById('customPrefixFeedback');
         if (!input) return;
         
         var prefix = input.value.trim();
-        if (prefix && typeof window.voiceTagConfig !== 'undefined') {
+        
+        if (!prefix) {
+                showPrefixFeedback('Digite um prefixo antes de adicionar.', 'warning');
+                return;
+        }
+        
+        if (typeof window.voiceTagConfig !== 'undefined') {
+                var existingPrefixes = window.voiceTagConfig.getCustomPrefixes();
+                if (existingPrefixes.includes(prefix)) {
+                        showPrefixFeedback('Este prefixo já foi adicionado.', 'warning');
+                        return;
+                }
+                
                 window.voiceTagConfig.addCustomPrefix(prefix);
                 input.value = '';
                 renderCustomPrefixes();
+                showPrefixFeedback('Prefixo "' + prefix + '" adicionado com sucesso!', 'success');
+        } else {
+                showPrefixFeedback('Sistema de tags não carregado. Abra o teleprompter primeiro.', 'danger');
         }
+}
+
+function showPrefixFeedback(message, type) {
+        var feedback = document.getElementById('customPrefixFeedback');
+        if (!feedback) return;
+        
+        feedback.innerHTML = '<div class="alert alert-' + type + '" style="margin: 0; padding: 8px 12px;">' + message + '</div>';
+        feedback.style.display = 'block';
+        
+        setTimeout(function() {
+                feedback.style.display = 'none';
+        }, 3000);
 }
 
 function removeCustomPrefix(prefix) {

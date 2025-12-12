@@ -990,6 +990,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
 
     // Converte offsetTop do DOM para posição de scroll (coordenada CSS translateY)
     // Esta função é usada pelo controlador de voz para alinhar targets corretamente
+    // O elemento fica CENTRALIZADO na área de foco
     function convertOffsetToScrollPos(offsetTop) {
         const focusCorrection = focusVerticalDisplacementCorrector();
         
@@ -999,12 +1000,35 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
             return -offsetTop + focusCorrection;
     }
     
+    // Converte offsetTop para posição que coloca o elemento no TOPO da área de foco
+    // Usado para posicionar o primeiro elemento ao iniciar reconhecimento de voz
+    function convertOffsetToScrollPosTop(offsetTop) {
+        // focusVerticalDisplacementCorrector() retorna a posição do CENTRO da área de foco
+        // Para posicionar no TOPO, subtraímos metade da altura da área de foco
+        const focusCenterOffset = focusVerticalDisplacementCorrector();
+        const focusHalfHeight = focusHeight / 2;
+        const focusTopOffset = focusCenterOffset - focusHalfHeight;
+        
+        console.log(`   📐 convertOffsetToScrollPosTop: center=${focusCenterOffset}, halfHeight=${focusHalfHeight}, topOffset=${focusTopOffset}`);
+        
+        if (flipV)
+            return -promptHeight + offsetTop + screenHeight - focusTopOffset;
+        else
+            return -offsetTop + focusTopOffset;
+    }
+    
     // Move o teleprompter para um offsetTop específico (usado pelo reconhecimento de voz)
     // smooth: se true, usa animação suave (300ms ease-out); se false, instantâneo
-    function moveToOffset(offsetTop, smooth) {
-        var jump = convertOffsetToScrollPos(offsetTop);
-        
-        console.log(`📍 moveToOffset: offset=${offsetTop}, jump=${jump}, smooth=${!!smooth}`);
+    // alignTop: se true, posiciona no TOPO da área de foco (para primeiro elemento)
+    function moveToOffset(offsetTop, smooth, alignTop) {
+        var jump;
+        if (alignTop) {
+            jump = convertOffsetToScrollPosTop(offsetTop);
+            console.log(`📍 moveToOffset (TOPO): offset=${offsetTop}, jump=${jump}, smooth=${!!smooth}`);
+        } else {
+            jump = convertOffsetToScrollPos(offsetTop);
+            console.log(`📍 moveToOffset: offset=${offsetTop}, jump=${jump}, smooth=${!!smooth}`);
+        }
         
         // Animação: suave (300ms) ou instantânea (0ms)
         if (smooth) {

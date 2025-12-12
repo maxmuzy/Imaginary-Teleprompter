@@ -208,6 +208,8 @@ function findNextReadableElement(startIndex) {
 }
 
 // Posiciona o teleprompter no primeiro elemento legível
+// O texto é posicionado no TOPO da área de foco (não centralizado)
+// Isso permite que o apresentador veja o texto pronto para começar
 function posicionarNoInicio() {
     const primeiro = findFirstReadableElement();
     if (!primeiro) {
@@ -216,12 +218,21 @@ function posicionarNoInicio() {
     }
     
     console.log(`📍 Posicionando no primeiro elemento legível (índice ${primeiro.index})`);
+    console.log(`   Texto: "${(primeiro.element.innerText || '').substring(0, 50)}..."`);
     
-    // Usa a função de scroll com jump suave
+    // O offset do elemento no DOM
+    const offsetElemento = primeiro.element.offsetTop;
+    
+    console.log(`   offsetElemento: ${offsetElemento}`);
+    
+    // Move o teleprompter para posicionar o elemento no TOPO da área de foco
+    // O terceiro parâmetro (true) indica alignTop = posicionar no topo, não centralizado
     if (window.moveTeleprompterToOffset) {
-        const offsetTop = primeiro.element.offsetTop;
-        window.moveTeleprompterToOffset(offsetTop, true);
+        window.moveTeleprompterToOffset(offsetElemento, true, true); // smooth=true, alignTop=true
     }
+    
+    // Define como índice atual para o sistema de matching
+    currentElementIndex = primeiro.index;
 }
 
 // Expõe configuração de tags globalmente para interface
@@ -309,12 +320,19 @@ const AutoScrollController = {
     
     // Inicializa o controlador e ADQUIRE controle exclusivo
     start: function() {
+        const wasActive = this.isActive; // Lembra se já estava ativo (para transição suave)
+        
         this.isActive = true;
         this.isPaused = false;
         this.lastWordCount = 0;
         this.lastProgressoEnviado = 0;
         this.targetOffset = 0;
-        this.currentVelocity = 0;
+        
+        // Só reseta velocidade se estava parado completamente
+        // Se estava em softStop, mantém velocidade para transição suave
+        if (!wasActive) {
+            this.currentVelocity = 0;
+        }
         
         // ADQUIRE controle exclusivo do scroll
         if (window.teleprompterVoiceControl) {
@@ -327,7 +345,7 @@ const AutoScrollController = {
         console.log('🚀 AutoScroll ATIVADO (modo contínuo com velocidade)');
     },
     
-    // Para o controlador e LIBERA controle
+    // Para o controlador e LIBERA controle (parada total)
     stop: function() {
         this.isActive = false;
         this.isPaused = false;
@@ -345,6 +363,26 @@ const AutoScrollController = {
             window.teleprompterVoiceControl.release();
         }
         console.log('🛑 AutoScroll DESATIVADO');
+    },
+    
+    // Para suavemente mas MANTÉM controle (para transição LOCKED -> SEARCHING)
+    // O scroll desacelera mas o sistema permanece pronto para retomar rapidamente
+    softStop: function() {
+        // NÃO altera isActive - mantém controle
+        this.isPaused = true;
+        
+        // NÃO para o loop de velocidade - deixa desacelerar naturalmente
+        // updateVelocity() vai reduzir velocidade gradualmente quando isPaused=true
+        
+        console.log('⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)');
+    },
+    
+    // Retoma após softStop - reativa o scroll
+    softResume: function() {
+        if (this.isActive) {
+            this.isPaused = false;
+            console.log('▶️ AutoScroll RETOMADO');
+        }
     },
     
     // Inicia loop de ajuste de velocidade
@@ -848,7 +886,8 @@ if (SpeechRecognition) {
                     currentState = STATE.SEARCHING;
                     parciaisSemMatchNoFim = 0;
                     consecutiveMisses = 0;
-                    AutoScrollController.stop();
+                    // Usa softStop para manter controle enquanto busca nova posição
+                    AutoScrollController.softStop();
                     return; // Sai da função para re-buscar na próxima chamada
                 }
             }
@@ -872,8 +911,8 @@ if (SpeechRecognition) {
                     currentState = STATE.SEARCHING;
                     consecutiveMisses = 0;
                     parciaisSemMatchNoFim = 0;
-                    // Para o controlador ao sair de LOCKED
-                    AutoScrollController.stop();
+                    // Usa softStop para manter controle enquanto busca nova posição
+                    AutoScrollController.softStop();
                 }
             } else {
                 console.log(`   ⏳ Aguardando (parcial)... progresso=${(progressoAtual*100).toFixed(0)}%`);

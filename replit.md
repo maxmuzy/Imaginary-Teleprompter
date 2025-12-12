@@ -32,7 +32,13 @@ This is a dual-mode application, primarily running as a static web application i
     - **Short Cue Detection**: Supports cues of any length (removed minimum word guards).
     - **Exclusive Voice Control**: `voiceControlActive` prevents other scroll triggers from interfering.
     - **Velocity Control (v29.4)**: Proportional controller with VELOCITY_GAIN=0.022, MAX_VELOCITY=9, dead zone 25px with true zero-velocity pause, proportional braking for overshoots.
-    - **Speaker Detection**: Pause-based detection disabled (caused false positives); future: cue-based diarization from script markers.
+    - **Speaker Detection (v29.5)**: Deterministic detection via script markers (NSML-based).
+        - **Speaker Mode**: `ANCHOR` (matching active) vs `EXTERNAL` (matching paused during live links).
+        - **Entry Markers**: `((ABRE LINK)`, `(LINK)`, `(ABRE SOM DO LINK)` trigger EXTERNAL mode.
+        - **Exit Markers**: `DEIXA:`, `(FIM LINK)`, `((CAM X))` trigger return to ANCHOR mode.
+        - **Auto-return**: Detects anchor voice matching text after link section.
+        - **Safety**: Auto-returns to ANCHOR after 50 elements without exit marker.
+        - **API**: `window.voiceTagConfig.getSpeakerMode()`, `forceAnchorMode()`, `forceExternalMode()`.
 - **Customizable Focus Area (v29.3)**:
     - **Slider Control**: "Focus" slider (10-80%) allows positioning the reading area anywhere on screen.
     - **Default Position**: 37.5% (25% above center) as recommended for professional use.

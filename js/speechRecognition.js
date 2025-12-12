@@ -21,6 +21,44 @@ const STATE = {
     LOCKED: 'LOCKED'
 };
 
+// Estados de falante (quem está no ar)
+const SPEAKER_MODE = {
+    ANCHOR: 'ANCHOR',      // Âncora está falando - matching ATIVO
+    EXTERNAL: 'EXTERNAL'   // Link/repórter externo - matching PAUSADO
+};
+
+// ========================================
+// CONFIGURAÇÃO DE DETECÇÃO DE LINKS/FALANTES EXTERNOS
+// ========================================
+const LINK_CONFIG = {
+    // Marcadores que indicam ENTRADA de link externo (texto do repórter/link)
+    // Quando detectados, speakerMode muda para EXTERNAL
+    entryMarkers: [
+        /\(\s*ABRE\s+LINK\s*\)/i,
+        /\(\s*LINK\s*\)/i,
+        /\(\(\s*ABRE\s+LINK\s*\)\)/i,
+        /\(\s*ABRE\s+SOM\s+DO\s+LINK\s*\)/i,
+        /\(\s*ABRE\s+SOM\s+LINK\s*\)/i,
+        /\(\(\s*LINK\s*\)\)/i,
+        /\(LINK\s+LINK\s+LINK/i
+    ],
+    
+    // Marcadores que indicam RETORNO do âncora
+    // Quando detectados, speakerMode volta para ANCHOR
+    exitMarkers: [
+        /DEIXA\s*:/i,
+        /\(\s*FIM\s+LINK\s*\)/i,
+        /\(\s*VOLTA\s+\)/i,
+        /\(\(\s*CAM\s*\d*\s*\)\)/i  // ((CAM 1)) geralmente indica volta pro estúdio
+    ],
+    
+    // Cache de elementos analisados
+    _elementCache: new Map(),
+    
+    // Contador de elementos EXTERNAL consecutivos (para auto-retorno)
+    maxExternalElements: 50  // Após 50 elementos sem marcador de retorno, volta para ANCHOR
+};
+
 // Configurações
 const CONFIG = {
     // Matching - tolerância aumentada para detecção inicial
@@ -287,7 +325,44 @@ window.voiceTagConfig = {
     },
     isTag: isTagTecnica,
     posicionarNoInicio: posicionarNoInicio,
-    customPrefixes: TAG_CONFIG.customPrefixes
+    customPrefixes: TAG_CONFIG.customPrefixes,
+    
+    // ========================================
+    // SPEAKER MODE API - Controle de modo âncora/externo
+    // ========================================
+    getSpeakerMode: function() {
+        return speakerMode;
+    },
+    setSpeakerMode: function(mode) {
+        if (mode === SPEAKER_MODE.ANCHOR || mode === SPEAKER_MODE.EXTERNAL) {
+            const anterior = speakerMode;
+            speakerMode = mode;
+            console.log(`🎙️ SpeakerMode alterado manualmente: ${anterior} → ${mode}`);
+            if (mode === SPEAKER_MODE.ANCHOR) {
+                AutoScrollController.softResume();
+            } else {
+                AutoScrollController.softStop();
+            }
+        }
+    },
+    forceAnchorMode: function() {
+        speakerMode = SPEAKER_MODE.ANCHOR;
+        externalElementCount = 0;
+        AutoScrollController.softResume();
+        console.log(`🟢 Forçado modo ANCHOR`);
+    },
+    forceExternalMode: function() {
+        speakerMode = SPEAKER_MODE.EXTERNAL;
+        externalElementCount = 0;
+        AutoScrollController.softStop();
+        console.log(`🔴 Forçado modo EXTERNAL`);
+    },
+    SPEAKER_MODE: SPEAKER_MODE,
+    
+    // Marcadores de LINK configuráveis
+    getLinkConfig: function() {
+        return LINK_CONFIG;
+    }
 };
 
 // Carrega prefixos ao iniciar o módulo
@@ -313,6 +388,267 @@ let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 let currentSpeakerSession = 1;      // Fixo em 1 - não muda mais automaticamente
 let lastSpeechTimestamp = 0;        // Timestamp do último resultado (mantido para debug)
 const SPEAKER_PAUSE_THRESHOLD = 999999; // Efetivamente desabilitado
+
+// ========================================
+// SPEAKER MODE - Detecção de falante (âncora vs link/externo)
+// ========================================
+let speakerMode = SPEAKER_MODE.ANCHOR;  // Começa assumindo que âncora está falando
+let externalElementCount = 0;            // Contador de elementos em modo EXTERNAL
+let lastLinkMarkerIndex = -1;            // Índice do último marcador de LINK detectado
+
+// Detecta se um texto contém marcador de ENTRADA de link
+function isLinkEntryMarker(texto) {
+    if (!texto) return false;
+    for (const regex of LINK_CONFIG.entryMarkers) {
+        if (regex.test(texto)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Detecta se um texto contém marcador de SAÍDA de link (retorno do âncora)
+function isLinkExitMarker(texto) {
+    if (!texto) return false;
+    for (const regex of LINK_CONFIG.exitMarkers) {
+        if (regex.test(texto)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Analisa um elemento e retorna se deve mudar o speakerMode
+// Retorna: 'ENTER_EXTERNAL' | 'EXIT_EXTERNAL' | null
+function analisarMarcadorFalante(elemento) {
+    if (!elemento) return null;
+    
+    const texto = (elemento.innerText || elemento.textContent || '').trim();
+    if (!texto) return null;
+    
+    // Verifica cache
+    if (LINK_CONFIG._elementCache.has(texto)) {
+        return LINK_CONFIG._elementCache.get(texto);
+    }
+    
+    let resultado = null;
+    
+    // Primeiro verifica saída (prioridade - retorno do âncora)
+    if (isLinkExitMarker(texto)) {
+        resultado = 'EXIT_EXTERNAL';
+        console.log(`   📢 MARCADOR DE RETORNO detectado: "${texto.substring(0, 40)}..."`);
+    }
+    // Depois verifica entrada
+    else if (isLinkEntryMarker(texto)) {
+        resultado = 'ENTER_EXTERNAL';
+        console.log(`   📡 MARCADOR DE LINK detectado: "${texto.substring(0, 40)}..."`);
+    }
+    
+    // Cache
+    LINK_CONFIG._elementCache.set(texto, resultado);
+    
+    return resultado;
+}
+
+// Atualiza speakerMode baseado no elemento atual
+function atualizarSpeakerMode(elementoIndex, elementos) {
+    if (!elementos || elementoIndex < 0) return;
+    
+    const elemento = elementos[elementoIndex];
+    const marcador = analisarMarcadorFalante(elemento);
+    
+    if (marcador === 'ENTER_EXTERNAL' && speakerMode === SPEAKER_MODE.ANCHOR) {
+        // Transição: ANCHOR -> EXTERNAL
+        speakerMode = SPEAKER_MODE.EXTERNAL;
+        externalElementCount = 0;
+        lastLinkMarkerIndex = elementoIndex;
+        
+        console.log(`🔴 ========================================`);
+        console.log(`🔴 SPEAKER MODE: ANCHOR → EXTERNAL (LINK)`);
+        console.log(`🔴 Matching de voz PAUSADO`);
+        console.log(`🔴 ========================================`);
+        
+        // Pausa suave o AutoScroll
+        AutoScrollController.softStop();
+    }
+    else if (marcador === 'EXIT_EXTERNAL' && speakerMode === SPEAKER_MODE.EXTERNAL) {
+        // Transição: EXTERNAL -> ANCHOR
+        speakerMode = SPEAKER_MODE.ANCHOR;
+        externalElementCount = 0;
+        
+        console.log(`🟢 ========================================`);
+        console.log(`🟢 SPEAKER MODE: EXTERNAL → ANCHOR`);
+        console.log(`🟢 Matching de voz RETOMADO`);
+        console.log(`🟢 ========================================`);
+        
+        // Resume o AutoScroll
+        AutoScrollController.softResume();
+    }
+    else if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+        // Conta elementos em modo EXTERNAL
+        externalElementCount++;
+        
+        // Segurança: após muitos elementos, assume que perdeu o marcador de retorno
+        if (externalElementCount > LINK_CONFIG.maxExternalElements) {
+            console.log(`⚠️ Auto-retorno: ${externalElementCount} elementos em EXTERNAL sem marcador de saída`);
+            
+            // Reset completo do estado
+            speakerMode = SPEAKER_MODE.ANCHOR;
+            externalElementCount = 0;
+            lastLinkMarkerIndex = -1;
+            consecutiveMisses = 0;
+            wordBuffer = [];
+            pendingFinalWords = [];
+            cumulativeFinalWords = [];
+            
+            // Só resume se tiver um índice válido
+            if (elementoIndex >= 0) {
+                currentElementIndex = elementoIndex;
+            }
+            currentState = STATE.SEARCHING; // Volta para busca para encontrar posição
+            
+            AutoScrollController.softResume();
+        }
+    }
+}
+
+// Verifica se deve processar matching (baseado em speakerMode)
+function deveProcessarMatching() {
+    return speakerMode === SPEAKER_MODE.ANCHOR;
+}
+
+// Limpa cache de marcadores (chamar quando roteiro muda)
+function limparCacheMarcadores() {
+    LINK_CONFIG._elementCache.clear();
+}
+
+// Tenta detectar retorno do âncora durante modo EXTERNAL
+// Busca match em elementos APÓS o último marcador de link
+// Retorna true se detectou retorno e voltou para ANCHOR
+function tentarDetectarRetornoAncora(textoFalado, isFinal) {
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) return false;
+
+    const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    const textoNormalizado = normalizarTexto(textoFalado);
+    
+    // Busca a partir do último índice conhecido, procurando marcador de DEIXA ou texto do âncora
+    const startIdx = Math.max(0, lastLinkMarkerIndex + 1);
+    const endIdx = Math.min(startIdx + 30, elementos.length); // Olha até 30 elementos à frente
+    
+    let melhorMatch = null;
+    let melhorSimilaridade = 0;
+    let melhorIndice = -1;
+    let encontrouMarcadorSaida = false;
+
+    // Primeiro, verifica se há marcador de saída nos próximos elementos
+    for (let i = startIdx; i < endIdx; i++) {
+        const elem = elementos[i];
+        const textoOriginal = elem.innerText || elem.textContent || '';
+        
+        // Verifica marcador de saída (DEIXA:, FIM LINK, etc.)
+        if (isLinkExitMarker(textoOriginal)) {
+            encontrouMarcadorSaida = true;
+            console.log(`   📢 [EXTERNAL] Marcador de saída encontrado no índice ${i}`);
+            
+            // Encontra o próximo elemento legível após o marcador
+            let proximoElementoIndex = i + 1;
+            let proximoElemento = null;
+            while (proximoElementoIndex < elementos.length) {
+                const elem = elementos[proximoElementoIndex];
+                const txt = (elem.innerText || elem.textContent || '').trim();
+                if (txt.length > 0 && !isTagTecnica(txt) && !isLinkEntryMarker(txt) && !isLinkExitMarker(txt)) {
+                    proximoElemento = elem;
+                    break;
+                }
+                proximoElementoIndex++;
+            }
+            
+            // Reset completo do estado
+            speakerMode = SPEAKER_MODE.ANCHOR;
+            externalElementCount = 0;
+            lastLinkMarkerIndex = -1;
+            consecutiveMisses = 0;
+            wordBuffer = [];
+            pendingFinalWords = [];
+            cumulativeFinalWords = [];
+            
+            // Posiciona no próximo elemento legível (ou no marcador se não encontrar)
+            currentElementIndex = proximoElemento ? proximoElementoIndex : i;
+            currentState = STATE.SEARCHING; // Vai buscar o texto do âncora
+            
+            console.log(`🟢 ========================================`);
+            console.log(`🟢 SPEAKER MODE: EXTERNAL → ANCHOR (via marcador)`);
+            console.log(`🟢 Próximo elemento legível: índice ${currentElementIndex}`);
+            console.log(`🟢 Matching de voz RETOMADO`);
+            console.log(`🟢 ========================================`);
+            
+            AutoScrollController.softResume();
+            return true;
+        }
+        
+        // Se não é tag técnica, tenta match
+        if (!isTagTecnica(textoOriginal)) {
+            const textoElemento = normalizarTexto(textoOriginal);
+            if (textoElemento.length === 0) continue;
+            
+            const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+            
+            // Threshold mais alto para detectar retorno (evita falsos positivos)
+            if (similaridade > melhorSimilaridade && similaridade >= 0.35) {
+                melhorSimilaridade = similaridade;
+                melhorMatch = elem;
+                melhorIndice = i;
+            }
+        }
+    }
+
+    // Se encontrou match forte em elemento após o link, assume que âncora voltou
+    // Threshold mais conservador (40%) para evitar falsos positivos com fala do repórter
+    if (melhorMatch && melhorSimilaridade >= 0.40) {
+        // Verifica se o elemento encontrado NÃO é um marcador de entrada de link
+        const textoMatch = (melhorMatch.innerText || melhorMatch.textContent || '').trim();
+        if (isLinkEntryMarker(textoMatch)) {
+            console.log(`   ⚠️ [EXTERNAL] Match ignorado - é marcador de LINK`);
+            return false;
+        }
+        
+        console.log(`🟢 ========================================`);
+        console.log(`🟢 RETORNO DETECTADO: Match ${(melhorSimilaridade * 100).toFixed(0)}% no índice ${melhorIndice}`);
+        console.log(`🟢 Texto: "${textoMatch.substring(0, 50)}..."`);
+        console.log(`🟢 SPEAKER MODE: EXTERNAL → ANCHOR`);
+        console.log(`🟢 ========================================`);
+        
+        // Atualiza estado de forma consistente
+        speakerMode = SPEAKER_MODE.ANCHOR;
+        externalElementCount = 0;
+        lastLinkMarkerIndex = -1; // Reseta marcador de link
+        currentElementIndex = melhorIndice;
+        currentState = STATE.LOCKED;
+        consecutiveMisses = 0; // Reseta contador de misses
+        
+        // Inicializa tracking do elemento
+        currentElementWords = normalizarTexto(textoMatch).split(/\s+/).filter(p => p.length > 1);
+        currentElementTotalWords = currentElementWords.length;
+        currentWordPointer = 0;
+        cumulativeFinalWords = [];
+        pendingFinalWords = [];
+        wordBuffer = []; // Limpa buffer de palavras
+        
+        // Resume e reinicia AutoScroll
+        AutoScrollController.start();
+        AutoScrollController.reset();
+        
+        // Scroll suave para o elemento
+        if (typeof scrollParaElemento === 'function') {
+            scrollParaElemento(melhorMatch, 0, true);
+        }
+        
+        return true;
+    }
+
+    return false;
+}
 
 // Contador de parciais sem match quando perto do fim do elemento
 let parciaisSemMatchNoFim = 0;      // Quantos parciais sem match quando progresso > 90%
@@ -669,8 +1005,29 @@ if (SpeechRecognition) {
         }
         lastSpeechTimestamp = agora;
 
+        // ========================================
+        // SPEAKER MODE CHECK - Comportamento especial durante EXTERNAL (link ao vivo)
+        // ========================================
+        if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+            // Durante EXTERNAL, ainda tenta detectar retorno do âncora
+            // Busca match em elementos APÓS o marcador de link
+            const retornoDetectado = tentarDetectarRetornoAncora(textoFalado, isFinal);
+            
+            if (!retornoDetectado) {
+                // Ainda em EXTERNAL - limpa buffers e ignora
+                if (isFinal) {
+                    console.log(`🔇 [EXTERNAL] Ignorando fala (link ao vivo): "${textoFalado.substring(0, 30)}..."`);
+                }
+                wordBuffer = [];
+                pendingFinalWords = [];
+                return; // NÃO processa matching normal
+            }
+            // Se retornoDetectado, o speakerMode já foi alterado para ANCHOR
+            // e podemos continuar com o matching normal
+        }
+
         console.log(`[P${currentSpeakerSession}] 🎤 ${isFinal ? 'FINAL' : 'parcial'}: "${textoFalado}"`);
-        console.log(`   Estado: ${currentState}, Índice: ${currentElementIndex}, Misses: ${consecutiveMisses}`);
+        console.log(`   Estado: ${currentState}, Índice: ${currentElementIndex}, Misses: ${consecutiveMisses}, SpeakerMode: ${speakerMode}`);
 
         if (currentState === STATE.SEARCHING) {
             buscarPosicaoInicial(textoFalado);
@@ -729,6 +1086,17 @@ if (SpeechRecognition) {
             currentState = STATE.LOCKED;
             currentElementIndex = melhorIndice;
             consecutiveMisses = 0;
+            
+            // ========================================
+            // SPEAKER MODE: Verifica marcadores de LINK no elemento encontrado
+            // ========================================
+            atualizarSpeakerMode(melhorIndice, elementos);
+            
+            // Se entramos em EXTERNAL no primeiro match, aguarda retorno
+            if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+                console.log(`   🔴 Primeiro match em região de LINK - aguardando retorno do âncora`);
+                return;
+            }
             
             // Inicializa tracking do elemento
             inicializarTrackingElemento(melhorMatch);
@@ -832,6 +1200,20 @@ if (SpeechRecognition) {
                 parciaisSemMatchNoFim = 0;
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
                 currentElementIndex = melhorIndice;
+                
+                // ========================================
+                // SPEAKER MODE: Verifica marcadores de LINK ao avançar
+                // Analisa elementos entre o anterior e o novo para detectar transições
+                // ========================================
+                for (let checkIdx = currentElementIndex; checkIdx <= melhorIndice; checkIdx++) {
+                    atualizarSpeakerMode(checkIdx, elementos);
+                }
+                
+                // Se entramos em EXTERNAL, não continua processando
+                if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+                    console.log(`   🔴 Entrando em modo EXTERNAL - aguardando retorno do âncora`);
+                    return;
+                }
                 
                 // Inicializa tracking do novo elemento
                 inicializarTrackingElemento(melhorMatch);

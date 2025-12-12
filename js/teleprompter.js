@@ -1193,7 +1193,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     
     // Define velocidade diretamente via valor de x
     function setVelocityDirect(xValue) {
-        x = Math.max(0, Math.min(xValue, 10)); // Limita entre 0 e 10
+        x = Math.max(0, Math.min(xValue, 10)); // Limita entre 0 e 10 (mantido seguro)
         autoScrollCurrentX = x; // Persiste
         updateVelocity();
         if (play) {

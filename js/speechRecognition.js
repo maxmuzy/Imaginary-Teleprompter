@@ -283,10 +283,12 @@ let currentWordPointer = 0;         // Ponteiro monotônico: índice da palavra 
 let currentElementWords = [];       // Array de palavras normalizadas do elemento atual
 let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 
-// Identificação de sessões de fala (para debug)
-let currentSpeakerSession = 1;      // Sessão atual de fala (Pessoa 1, 2, 3...)
-let lastSpeechTimestamp = 0;        // Timestamp do último resultado
-const SPEAKER_PAUSE_THRESHOLD = 2000; // Pausa > 2s = nova sessão de fala
+// Identificação de sessões de fala - DESABILITADO v29.4
+// A detecção por pausa causava falsos positivos. 
+// Será substituída por detecção baseada em cues do roteiro em versão futura.
+let currentSpeakerSession = 1;      // Fixo em 1 - não muda mais automaticamente
+let lastSpeechTimestamp = 0;        // Timestamp do último resultado (mantido para debug)
+const SPEAKER_PAUSE_THRESHOLD = 999999; // Efetivamente desabilitado
 
 // Contador de parciais sem match quando perto do fim do elemento
 let parciaisSemMatchNoFim = 0;      // Quantos parciais sem match quando progresso > 90%
@@ -309,12 +311,13 @@ const AutoScrollController = {
     updateInterval: null,      // Intervalo de atualização de velocidade
     UPDATE_RATE: 100,          // Atualiza velocidade a cada 100ms
     
-    // Constantes de ajuste de velocidade
-    VELOCITY_GAIN: 0.015,      // Ganho proporcional (quão rápido ajusta)
-    MAX_VELOCITY: 8,           // Velocidade máxima
-    MIN_VELOCITY: 0,           // Velocidade mínima (não volta)
-    DEAD_ZONE: 30,             // Pixels de tolerância (não ajusta se diferença < 30px)
-    SMOOTH_FACTOR: 0.3,        // Fator de suavização (0-1, menor = mais suave)
+    // Constantes de ajuste de velocidade - v29.4 ESTÁVEL
+    VELOCITY_GAIN: 0.022,      // Ganho proporcional conservador
+    MAX_VELOCITY: 9,           // Velocidade máxima segura (ergonômica)
+    MIN_VELOCITY: 0,           // Velocidade mínima
+    DEAD_ZONE: 25,             // Pixels de tolerância
+    SMOOTH_FACTOR: 0.3,        // Fator de suavização original
+    DECEL_FACTOR: 0.7,         // Fator de desaceleração rápida quando adiantado
     
     currentVelocity: 0,        // Velocidade atual suavizada
     
@@ -428,22 +431,22 @@ const AutoScrollController = {
         // targetScrollPos também é negativo
         const diferenca = currPos - targetScrollPos; // positivo = precisamos descer mais
         
-        // Dead zone: se diferença muito pequena, mantém velocidade atual
+        // Dead zone: comando explícito de velocidade zero
         if (Math.abs(diferenca) < this.DEAD_ZONE) {
-            // Mantém velocidade mínima para não parar completamente
-            const velocidadeAlvo = 1;
-            this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
+            // v29.4: Parada real - comando explícito de zero
+            this.currentVelocity = 0;
         } else if (diferenca > 0) {
             // Precisamos avançar (target está abaixo)
-            // Velocidade proporcional à diferença
+            // Velocidade proporcional à diferença com ganho adequado
             const velocidadeAlvo = Math.min(this.MAX_VELOCITY, diferenca * this.VELOCITY_GAIN);
             
-            // Suavização exponencial
+            // Suavização exponencial para aceleração suave
             this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
         } else {
-            // Estamos adiantados (raro) - desacelera suavemente
-            const velocidadeAlvo = Math.max(this.MIN_VELOCITY, 0);
-            this.currentVelocity = this.currentVelocity * (1 - this.SMOOTH_FACTOR) + velocidadeAlvo * this.SMOOTH_FACTOR;
+            // Estamos adiantados (overshoot) - FREIO PROPORCIONAL
+            // v29.4: Desaceleração proporcional ao erro negativo (1-2 ticks)
+            const brakeForce = Math.min(this.MAX_VELOCITY, Math.abs(diferenca) * 0.1); // Freio forte
+            this.currentVelocity = Math.max(0, this.currentVelocity - brakeForce);
         }
         
         // Aplica velocidade

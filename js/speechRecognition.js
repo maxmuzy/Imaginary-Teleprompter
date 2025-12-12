@@ -1118,6 +1118,28 @@ if (SpeechRecognition) {
 
         const agora = Date.now();
         
+        // ========================================
+        // SPEAKER MODE CHECK - PRIMEIRO, antes de qualquer resume/timer
+        // Durante EXTERNAL (link ao vivo), não faz resume nem arma timers
+        // ========================================
+        if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+            // Durante EXTERNAL, ainda tenta detectar retorno do âncora
+            // Busca match em elementos APÓS o marcador de link
+            const retornoDetectado = tentarDetectarRetornoAncora(textoFalado, isFinal);
+            
+            if (!retornoDetectado) {
+                // Ainda em EXTERNAL - limpa buffers e ignora
+                if (isFinal) {
+                    console.log(`🔇 [EXTERNAL] Ignorando fala (link ao vivo): "${textoFalado.substring(0, 30)}..."`);
+                }
+                wordBuffer = [];
+                pendingFinalWords = [];
+                return; // NÃO processa matching normal, NÃO arma timers, NÃO faz resume
+            }
+            // Se retornoDetectado, o speakerMode já foi alterado para ANCHOR
+            // e podemos continuar com o matching normal
+        }
+        
         // v29.7: Calcula duração REAL da pausa usando pauseStartTimestamp
         // Se não temos pauseStartTimestamp, usa tempoSemFala como fallback
         const tempoSemFala = lastSpeechTimestamp > 0 ? (agora - lastSpeechTimestamp) : 0;
@@ -1146,27 +1168,6 @@ if (SpeechRecognition) {
             const impulsoNecessario = pausaEfetiva > 1500; // 1.5 segundos para impulso
             console.log(`   ⏱️ Retomando após ${pausaEfetiva}ms de pausa${impulsoNecessario ? ' (com impulso)' : ''}`);
             AutoScrollController.softResume(impulsoNecessario);
-        }
-
-        // ========================================
-        // SPEAKER MODE CHECK - Comportamento especial durante EXTERNAL (link ao vivo)
-        // ========================================
-        if (speakerMode === SPEAKER_MODE.EXTERNAL) {
-            // Durante EXTERNAL, ainda tenta detectar retorno do âncora
-            // Busca match em elementos APÓS o marcador de link
-            const retornoDetectado = tentarDetectarRetornoAncora(textoFalado, isFinal);
-            
-            if (!retornoDetectado) {
-                // Ainda em EXTERNAL - limpa buffers e ignora
-                if (isFinal) {
-                    console.log(`🔇 [EXTERNAL] Ignorando fala (link ao vivo): "${textoFalado.substring(0, 30)}..."`);
-                }
-                wordBuffer = [];
-                pendingFinalWords = [];
-                return; // NÃO processa matching normal
-            }
-            // Se retornoDetectado, o speakerMode já foi alterado para ANCHOR
-            // e podemos continuar com o matching normal
         }
 
         console.log(`[P${currentSpeakerSession}] 🎤 ${isFinal ? 'FINAL' : 'parcial'}: "${textoFalado}"`);
@@ -1631,6 +1632,7 @@ if (SpeechRecognition) {
             console.log('🔄 Roteiro alterado, voltando para SEARCHING');
             currentState = STATE.SEARCHING;
             currentElementIndex = -1;
+            lastLockedReadableIndex = -1; // v29.7: Reseta também para busca global
             consecutiveMisses = 0;
             wordBuffer = [];
         }

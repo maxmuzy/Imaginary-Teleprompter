@@ -20,15 +20,17 @@ This is a dual-mode application, primarily running as a static web application i
 - **Frontend**: Utilizes HTML, CSS, and JavaScript.
 - **Server (Replit)**: A simple Express.js server (`server.js`) serves static files on port 5000 (host 0.0.0.0).
 - **Local Storage**: All application data is stored client-side using browser localStorage.
-- **Voice Control System**:
-    - **Architecture**: Employs a state machine (`SEARCHING` -> `LOCKED`) for robust voice synchronization.
-    - **Matching**: Uses a fuzzy matching algorithm (Levenshtein-based) with normalization (punctuation, accents) and a movable window of words for real-time progress tracking.
-    - **Scroll Mechanism**: Features a continuous scroll with variable speed, adjusting based on the difference between current and target positions, rather than discrete jumps.
-    - **Technical Tags**: Configurable system to ignore technical tags (e.g., `(CAM)`, `[PAUSE]`) during voice matching.
+- **Voice Control System (v29.2)**:
+    - **Architecture**: State machine (`SEARCHING` -> `LOCKED`) for robust voice synchronization.
+    - **Matching**: Fuzzy matching algorithm (Levenshtein-based) with normalization (punctuation, accents) and movable window of words.
+    - **Initial Positioning**: First readable element aligns with TOP of focus area using `convertOffsetToScrollPosTop()`.
+    - **Scroll Mechanism**: Continuous scroll with variable speed, adjusting based on position difference.
+    - **Soft Transitions**: `softStop()`/`softResume()` preserve velocity during LOCKED→SEARCHING→LOCKED transitions without resetting speed.
+    - **Technical Tags**: Configurable system to ignore tags (e.g., `(((CAM1)))`, `(?)`) with secure DOM-based UI.
     - **Jump Hybrid**: Combines continuous scroll for small adjustments with smooth jumps for larger movements.
-    - **Dynamic Lookahead**: Expands the search window for upcoming text when near the end of the current segment.
-    - **Speaker Session Identification**: Tracks and logs distinct speaker sessions based on pauses in speech.
-    - **Exclusive Voice Control**: A mechanism (`voiceControlActive`) prevents other scroll triggers from interfering when voice control is active.
+    - **Dynamic Lookahead**: Expands search window when near end of current segment.
+    - **Short Cue Detection**: Supports cues of any length (removed minimum word guards).
+    - **Exclusive Voice Control**: `voiceControlActive` prevents other scroll triggers from interfering.
 - **Hardware Acceleration**: Supports hardware-accelerated scrolling.
 - **Feature Detection**: JavaScript code uses `inElectron()` to adapt functionality based on the environment (browser vs. Electron).
 

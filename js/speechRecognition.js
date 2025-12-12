@@ -274,6 +274,52 @@ function posicionarNoInicio() {
     
     // Define como índice atual para o sistema de matching
     currentElementIndex = primeiro.index;
+    lastLockedReadableIndex = primeiro.index; // v29.7: Preserva para busca local
+}
+
+// v29.7: Reposiciona para o próximo texto legível quando o scroll para
+// Evita que o teleprompter pare mostrando uma tag técnica na área de foco
+// IMPORTANTE: Só faz scroll visual, NÃO altera índices (preserva estado de matching)
+function reposicionarParaProximoLegivel() {
+    // Só reposiciona se está em estado LOCKED com índice válido
+    if (currentState !== STATE.LOCKED || currentElementIndex < 0) {
+        console.log(`📍 Reposicionamento ignorado (state=${currentState}, idx=${currentElementIndex})`);
+        return;
+    }
+    
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) return;
+    
+    const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    
+    // Verifica se o elemento atual é legível
+    const elementoAtual = elementos[currentElementIndex];
+    if (elementoAtual) {
+        const textoAtual = (elementoAtual.innerText || elementoAtual.textContent || '').trim();
+        
+        // Se já está em texto legível, não precisa reposicionar
+        if (textoAtual && !isTagTecnica(textoAtual)) {
+            console.log(`📍 Pausa: Já está em texto legível`);
+            return;
+        }
+    }
+    
+    // Procura próximo elemento legível
+    const proximo = findNextReadableElement(currentElementIndex);
+    if (proximo) {
+        console.log(`📍 Reposicionando visualmente para próximo legível (índice ${proximo.index})`);
+        console.log(`   Texto: "${(proximo.element.innerText || '').substring(0, 50)}..."`);
+        
+        // Move suavemente para o próximo elemento legível (APENAS visual)
+        const offsetElemento = proximo.element.offsetTop;
+        if (window.moveTeleprompterToOffset) {
+            window.moveTeleprompterToOffset(offsetElemento, true, true); // smooth=true, alignTop=true
+        }
+        
+        // NÃO altera currentElementIndex nem lastLockedReadableIndex
+        // O matching continua a partir do índice atual - quando a fala retomar,
+        // o sistema vai fazer match normal e atualizar os índices corretamente
+    }
 }
 
 // Carrega prefixos customizados do localStorage ao iniciar
@@ -374,6 +420,7 @@ loadCustomPrefixesFromStorage();
 // Estado global
 let currentState = STATE.SEARCHING;
 let currentElementIndex = -1;       // Índice atual no roteiro
+let lastLockedReadableIndex = -1;   // v29.7: PRESERVA último índice LOCKED para busca local funcionar
 let consecutiveMisses = 0;          // Contador de misses para detectar improvisação
 let wordBuffer = [];                // Buffer de palavras reconhecidas
 let cumulativeFinalWords = [];      // Buffer cumulativo de palavras finalizadas CONFIRMADAS (não truncado)
@@ -389,8 +436,14 @@ let currentElementTotalWords = 0;   // Total de palavras no elemento atual
 // A detecção por pausa causava falsos positivos. 
 // Será substituída por detecção baseada em cues do roteiro em versão futura.
 let currentSpeakerSession = 1;      // Fixo em 1 - não muda mais automaticamente
-let lastSpeechTimestamp = 0;        // Timestamp do último resultado (mantido para debug)
-const SPEAKER_PAUSE_THRESHOLD = 999999; // Efetivamente desabilitado
+let lastSpeechTimestamp = 0;        // Timestamp do último resultado de fala
+const SPEAKER_PAUSE_THRESHOLD = 999999; // Efetivamente desabilitado para sessões
+
+// v29.7: Timer de silêncio - para o scroll quando não há fala
+const SILENCE_TIMEOUT_MS = 800;     // 800ms sem fala = pausa o scroll
+let silenceTimer = null;            // Timer de verificação de silêncio
+let silenceSuppressed = false;      // v29.7: Flag para suprimir re-arming durante pausa
+let pauseStartTimestamp = 0;        // v29.7: Quando a pausa começou (para calcular duração real)
 
 // ========================================
 // SPEAKER MODE - Detecção de falante (âncora vs link/externo)
@@ -737,6 +790,18 @@ const AutoScrollController = {
         // NÃO altera isActive - mantém controle
         this.isPaused = true;
         
+        // v29.7: Marca início da pausa para cálculo correto de duração
+        pauseStartTimestamp = Date.now();
+        
+        // v29.7: Suprime re-arming do timer de silêncio durante a pausa
+        silenceSuppressed = true;
+        
+        // v29.7: Limpa timer de silêncio ao pausar para evitar disparos duplicados
+        if (silenceTimer) {
+            clearTimeout(silenceTimer);
+            silenceTimer = null;
+        }
+        
         // NÃO para o loop de velocidade - deixa desacelerar naturalmente
         // updateVelocity() vai reduzir velocidade gradualmente quando isPaused=true
         
@@ -744,10 +809,26 @@ const AutoScrollController = {
     },
     
     // Retoma após softStop - reativa o scroll
-    softResume: function() {
+    // v29.7: Impulso inicial mais forte após pausas longas
+    softResume: function(withKick = false) {
         if (this.isActive) {
             this.isPaused = false;
-            console.log('▶️ AutoScroll RETOMADO');
+            
+            // v29.7: Libera re-arming do timer de silêncio
+            silenceSuppressed = false;
+            pauseStartTimestamp = 0;
+            
+            // v29.7: Se withKick=true, aplica velocidade inicial para resposta mais rápida
+            // Isso compensa o atraso entre fala e detecção
+            if (withKick && this.currentVelocity < 3) {
+                this.currentVelocity = 3; // Impulso inicial: velocidade 3
+                console.log('▶️ AutoScroll RETOMADO com IMPULSO (v=3)');
+            } else {
+                console.log('▶️ AutoScroll RETOMADO');
+            }
+            
+            // v29.7: Arma timer de silêncio após retomar
+            armSilenceTimer();
         }
     },
     
@@ -925,6 +1006,13 @@ if (SpeechRecognition) {
 
     recognition.onend = function() {
         console.log('🎤 Reconhecimento encerrado, reiniciando...');
+        
+        // v29.7: Limpa timer de silêncio para evitar disparos órfãos
+        if (silenceTimer) {
+            clearTimeout(silenceTimer);
+            silenceTimer = null;
+        }
+        
         setTimeout(() => {
             try {
                 recognition.start();
@@ -935,6 +1023,12 @@ if (SpeechRecognition) {
     };
 
     recognition.onerror = function(event) {
+        // v29.7: Limpa timer de silêncio em caso de erro
+        if (silenceTimer) {
+            clearTimeout(silenceTimer);
+            silenceTimer = null;
+        }
+        
         if (event.error !== 'aborted') {
             console.error('Erro no reconhecimento de voz:', event.error);
         }
@@ -996,17 +1090,63 @@ if (SpeechRecognition) {
         executarMatching(palavrasParaMatch, isFinal);
     }
 
+    // v29.7: Função centralizada para armar o timer de silêncio
+    function armSilenceTimer() {
+        // Não arma se já existe timer ou está suprimido
+        if (silenceTimer || silenceSuppressed) return;
+        // Só arma se ativo, não pausado e em LOCKED
+        if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
+        
+        silenceTimer = setTimeout(() => {
+            silenceTimer = null;
+            // Verifica novamente antes de pausar
+            if (!AutoScrollController.isActive || AutoScrollController.isPaused || currentState !== STATE.LOCKED) return;
+            
+            console.log(`🔇 Silêncio detectado (${SILENCE_TIMEOUT_MS}ms sem fala) - pausando scroll`);
+            AutoScrollController.softStop();
+            
+            // v29.7: Reposiciona para próximo texto legível (evita parar em tags técnicas)
+            if (currentState === STATE.LOCKED && currentElementIndex >= 0) {
+                reposicionarParaProximoLegivel();
+            }
+        }, SILENCE_TIMEOUT_MS);
+    }
+    
     function executarMatching(textoFalado, isFinal) {
         // Aceita textos curtos (até 1 caractere é válido para matching)
         if (textoFalado.length === 0) return;
 
-        // Detecta mudança de sessão de fala (pausa longa = possível novo falante)
         const agora = Date.now();
+        
+        // v29.7: Calcula duração REAL da pausa usando pauseStartTimestamp
+        // Se não temos pauseStartTimestamp, usa tempoSemFala como fallback
+        const tempoSemFala = lastSpeechTimestamp > 0 ? (agora - lastSpeechTimestamp) : 0;
+        const pausaEfetiva = pauseStartTimestamp > 0 ? (agora - pauseStartTimestamp) : tempoSemFala;
+        const pausaLonga = pausaEfetiva > SILENCE_TIMEOUT_MS;
+        
+        // v29.7: Reseta timer de silêncio quando recebe fala
+        if (silenceTimer) {
+            clearTimeout(silenceTimer);
+            silenceTimer = null;
+        }
+        
+        // v29.7: Arma timer de silêncio (função verifica condições internamente)
+        armSilenceTimer();
+        
+        // Detecta mudança de sessão de fala (pausa longa = possível novo falante)
         if (lastSpeechTimestamp > 0 && (agora - lastSpeechTimestamp) > SPEAKER_PAUSE_THRESHOLD) {
             currentSpeakerSession++;
             console.log(`👤 ===== NOVA SESSÃO DE FALA: Pessoa ${currentSpeakerSession} =====`);
         }
         lastSpeechTimestamp = agora;
+        
+        // v29.7: Se estava pausado e agora temos fala, retoma
+        // Usa pausaEfetiva (baseada em pauseStartTimestamp) para decisão de impulso
+        if (AutoScrollController.isPaused && currentState === STATE.LOCKED) {
+            const impulsoNecessario = pausaEfetiva > 1500; // 1.5 segundos para impulso
+            console.log(`   ⏱️ Retomando após ${pausaEfetiva}ms de pausa${impulsoNecessario ? ' (com impulso)' : ''}`);
+            AutoScrollController.softResume(impulsoNecessario);
+        }
 
         // ========================================
         // SPEAKER MODE CHECK - Comportamento especial durante EXTERNAL (link ao vivo)
@@ -1048,40 +1188,63 @@ if (SpeechRecognition) {
         if (!promptElement) return;
 
         const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+        if (elementos.length === 0) return;
+        
         const textoNormalizado = normalizarTexto(textoFalado);
+        
+        // v29.7: DECISÃO DE BUSCA LOCAL vs GLOBAL
+        // USA APENAS lastLockedReadableIndex para decidir busca local
+        // currentElementIndex pode ser 0 por posicionamento inicial, causando busca local incorreta
+        const temIndiceLocked = lastLockedReadableIndex >= 0;
+        const usarBuscaLocal = temIndiceLocked;
         
         let melhorMatch = null;
         let melhorSimilaridade = 0;
         let melhorIndice = -1;
         
-        // Se temos um índice conhecido, primeiro busca em janela LOCAL
-        // Isso evita saltos gigantes quando o apresentador está apenas improvisando
-        const temIndiceConhecido = currentElementIndex >= 0;
-        let startIdx = 0;
-        let endIdx = elementos.length;
-        
-        if (temIndiceConhecido) {
-            startIdx = Math.max(0, currentElementIndex - SEARCH_LOCAL_WINDOW);
-            endIdx = Math.min(elementos.length, currentElementIndex + SEARCH_LOCAL_WINDOW);
-            console.log(`   🔍 SEARCHING LOCAL: Buscando em janela [${startIdx}-${endIdx}] (${endIdx - startIdx} elementos)...`);
+        if (usarBuscaLocal) {
+            // BUSCA LOCAL: Janela de ±50 elementos em torno do lastLockedReadableIndex
+            const localStart = Math.max(0, lastLockedReadableIndex - SEARCH_LOCAL_WINDOW);
+            const localEnd = Math.min(elementos.length, lastLockedReadableIndex + SEARCH_LOCAL_WINDOW);
+            
+            console.log(`   🔍 SEARCHING LOCAL: ref=${lastLockedReadableIndex}, janela [${localStart}-${localEnd}] (${localEnd - localStart} elementos)...`);
+            
+            // Executa busca local
+            for (let i = localStart; i < localEnd; i++) {
+                const elem = elementos[i];
+                const textoOriginal = elem.innerText || elem.textContent || '';
+                if (isTagTecnica(textoOriginal)) continue;
+                const textoElemento = normalizarTexto(textoOriginal);
+                if (textoElemento.length === 0) continue;
+                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
+                    melhorSimilaridade = similaridade;
+                    melhorMatch = elem;
+                    melhorIndice = i;
+                }
+            }
+            
+            // Se busca local encontrou, usa o resultado
+            if (melhorMatch) {
+                console.log(`   ✅ LOCAL MATCH! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+                finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos);
+                return;
+            }
+            
+            // Se busca local NÃO encontrou, faz fallback para busca global
+            console.log(`   🔄 Busca local falhou, fazendo fallback para GLOBAL...`);
         } else {
             console.log(`   🔍 SEARCHING GLOBAL: Buscando em ${elementos.length} elementos...`);
         }
-
-        for (let i = startIdx; i < endIdx; i++) {
+        
+        // BUSCA GLOBAL: Todos os elementos
+        for (let i = 0; i < elementos.length; i++) {
             const elem = elementos[i];
             const textoOriginal = elem.innerText || elem.textContent || '';
-            
-            // IGNORA TAGS TÉCNICAS
             if (isTagTecnica(textoOriginal)) continue;
-            
             const textoElemento = normalizarTexto(textoOriginal);
-            
-            // Ignora apenas elementos vazios (textos curtos como "Oi" são válidos)
             if (textoElemento.length === 0) continue;
-            
             const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
-            
             if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
                 melhorSimilaridade = similaridade;
                 melhorMatch = elem;
@@ -1089,81 +1252,49 @@ if (SpeechRecognition) {
             }
         }
         
-        // Se busca LOCAL não encontrou nada e temos índice conhecido,
-        // tenta busca GLOBAL como fallback (apresentador pode ter pulado parte do roteiro)
-        if (!melhorMatch && temIndiceConhecido && elementos.length > SEARCH_LOCAL_WINDOW * 2) {
-            console.log(`   🔄 Busca local falhou, tentando busca GLOBAL...`);
-            
-            // Busca antes da janela local
-            for (let i = 0; i < startIdx; i++) {
-                const elem = elementos[i];
-                const textoOriginal = elem.innerText || elem.textContent || '';
-                if (isTagTecnica(textoOriginal)) continue;
-                const textoElemento = normalizarTexto(textoOriginal);
-                if (textoElemento.length === 0) continue;
-                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
-                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
-                    melhorSimilaridade = similaridade;
-                    melhorMatch = elem;
-                    melhorIndice = i;
-                }
-            }
-            
-            // Busca após a janela local
-            for (let i = endIdx; i < elementos.length; i++) {
-                const elem = elementos[i];
-                const textoOriginal = elem.innerText || elem.textContent || '';
-                if (isTagTecnica(textoOriginal)) continue;
-                const textoElemento = normalizarTexto(textoOriginal);
-                if (textoElemento.length === 0) continue;
-                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
-                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
-                    melhorSimilaridade = similaridade;
-                    melhorMatch = elem;
-                    melhorIndice = i;
-                }
-            }
-        }
-
         if (melhorMatch) {
-            console.log(`   ✅ FOUND! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
-            console.log(`   📝 "${(melhorMatch.innerText || '').substring(0, 50)}..."`);
-            
-            // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo
-            if (pendingFinalWords.length > 0) {
-                cumulativeFinalWords.push(...pendingFinalWords);
-                console.log(`   📝 Confirmadas ${pendingFinalWords.length} palavras pendentes`);
-                pendingFinalWords = [];
-            }
-            
-            // Transição para LOCKED
-            currentState = STATE.LOCKED;
-            currentElementIndex = melhorIndice;
-            consecutiveMisses = 0;
-            
-            // ========================================
-            // SPEAKER MODE: Verifica marcadores de LINK no elemento encontrado
-            // ========================================
-            atualizarSpeakerMode(melhorIndice, elementos);
-            
-            // Se entramos em EXTERNAL no primeiro match, aguarda retorno
-            if (speakerMode === SPEAKER_MODE.EXTERNAL) {
-                console.log(`   🔴 Primeiro match em região de LINK - aguardando retorno do âncora`);
-                return;
-            }
-            
-            // Inicializa tracking do elemento
-            inicializarTrackingElemento(melhorMatch);
-            
-            // INICIA AUTO-SCROLL quando entra em LOCKED
-            AutoScrollController.start();
-            AutoScrollController.reset();
-            
-            // Move o teleprompter para o início do elemento (SUAVE - jump inicial)
-            scrollParaElemento(melhorMatch, 0, true);
+            console.log(`   ✅ GLOBAL MATCH! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+            finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos);
         } else {
             console.log(`   ❌ Nenhum match encontrado (threshold: ${CONFIG.searchThreshold * 100}%)`);
         }
+    }
+    
+    // Função auxiliar para finalizar a busca e transicionar para LOCKED
+    function finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos) {
+        console.log(`   📝 "${(melhorMatch.innerText || '').substring(0, 50)}..."`);
+        
+        // MATCH CONFIRMADO: Move palavras pendentes para o cumulativo
+        if (pendingFinalWords.length > 0) {
+            cumulativeFinalWords.push(...pendingFinalWords);
+            console.log(`   📝 Confirmadas ${pendingFinalWords.length} palavras pendentes`);
+            pendingFinalWords = [];
+        }
+        
+        // Transição para LOCKED
+        currentState = STATE.LOCKED;
+        currentElementIndex = melhorIndice;
+        lastLockedReadableIndex = melhorIndice;
+        consecutiveMisses = 0;
+        
+        // SPEAKER MODE: Verifica marcadores de LINK no elemento encontrado
+        atualizarSpeakerMode(melhorIndice, elementos);
+        
+        // Se entramos em EXTERNAL no primeiro match, aguarda retorno
+        if (speakerMode === SPEAKER_MODE.EXTERNAL) {
+            console.log(`   🔴 Primeiro match em região de LINK - aguardando retorno do âncora`);
+            return;
+        }
+        
+        // Inicializa tracking do elemento
+        inicializarTrackingElemento(melhorMatch);
+        
+        // INICIA AUTO-SCROLL quando entra em LOCKED
+        AutoScrollController.start();
+        AutoScrollController.reset();
+        
+        // Move o teleprompter para o início do elemento (SUAVE - jump inicial)
+        scrollParaElemento(melhorMatch, 0, true);
     }
 
     // Inicializa tracking para um novo elemento
@@ -1254,6 +1385,7 @@ if (SpeechRecognition) {
                 parciaisSemMatchNoFim = 0;
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
                 currentElementIndex = melhorIndice;
+                lastLockedReadableIndex = melhorIndice; // v29.7: Preserva para busca local
                 
                 // ========================================
                 // SPEAKER MODE: Verifica marcadores de LINK ao avançar

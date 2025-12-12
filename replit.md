@@ -32,7 +32,10 @@ This is a dual-mode application, primarily running as a static web application i
     - **Short Cue Detection**: Supports cues of any length (removed minimum word guards).
     - **Exclusive Voice Control**: `voiceControlActive` prevents other scroll triggers from interfering.
     - **Velocity Control (v29.4)**: Proportional controller with VELOCITY_GAIN=0.022, MAX_VELOCITY=9, dead zone 25px with true zero-velocity pause, proportional braking for overshoots.
-    - **Local-First SEARCHING (v29.6)**: When already positioned, SEARCHING first looks in +/-50 element window to avoid giant jumps; falls back to global search only if local fails.
+    - **Local-First SEARCHING (v29.7)**: When already positioned (lastLockedReadableIndex >= 0), SEARCHING first looks in +/-50 element window to avoid giant jumps; falls back to global search only if local fails. Refactored with separate finalizarBusca() helper.
+    - **Silence Detection (v29.7)**: 800ms silence timer pauses scroll via softStop(); timer only armed when LOCKED and not paused; cleared on recognition end/error and softStop.
+    - **Resume Impulse (v29.7)**: After pauses >1.5s, applies velocity kick (v=3) for faster catch-up; shorter pauses resume smoothly.
+    - **Pause Repositioning (v29.7)**: When scroll pauses on a technical tag, visually repositions to next readable element without altering matching indices.
     - **Speaker Detection (v29.5)**: Deterministic detection via script markers (NSML-based).
         - **Speaker Mode**: `ANCHOR` (matching active) vs `EXTERNAL` (matching paused during live links).
         - **Entry Markers**: `((ABRE LINK)`, `(LINK)`, `(ABRE SOM DO LINK)` trigger EXTERNAL mode.

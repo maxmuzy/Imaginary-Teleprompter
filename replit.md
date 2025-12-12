@@ -73,6 +73,25 @@ The core teleprompter functionality (editing, prompting, controls, themes) works
 
 ## Recent Changes
 
+### 2024-11-25: Sistema de Tags Técnicas + Posição Inicial + Jump Híbrido (v29)
+- **Sistema de Tags Técnicas Configurável**:
+  - Padrões pré-definidos: parênteses (simples/duplos/triplos), colchetes, hashtags, CAMx
+  - Elementos que casam com padrões são IGNORADOS pelo matching de voz
+  - Teleprompter passa automaticamente por eles
+  - Configuração via modal no editor (ícone de tag no menu)
+  - API: `window.voiceTagConfig.{getPatterns, setPatternEnabled, addCustomPrefix, removeCustomPrefix}`
+
+- **Posição Inicial na Área de Leitura**:
+  - `findFirstReadableElement()` encontra primeiro elemento que não é tag
+  - `posicionarNoInicio()` move teleprompter para esse elemento
+  - Chamado automaticamente 500ms após iniciar reconhecimento
+  - Texto já aparece na área de foco desde o início
+
+- **Jump Híbrido**:
+  - Scroll contínuo para ajustes pequenos (< 500px)
+  - Jump suave automático quando diferença > 500px E progresso > 40%
+  - Combina suavidade com responsividade em saltos grandes
+
 ### 2024-11-25: Scroll Contínuo com Velocidade Variável (v28)
 - **Arquitetura reescrita**:
   - Substituído sistema de jumps discretos por scroll contínuo

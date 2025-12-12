@@ -1,0 +1,1003 @@
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "por causa"
+    Estado: LOCKED, Índice: 55, Misses: 0
+    🔒 LOCKED: Verificando elementos 55 a 60...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=11, progresso=81.8%
+    📊 PARCIAL: alinhado=81.8% → monotônico=81.8%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 81.8% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6154, prog=82%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "da chuva"
+    Estado: LOCKED, Índice: 55, Misses: 0
+    🔒 LOCKED: Verificando elementos 55 a 60...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=11, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=11, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6217, prog=100%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=1025px, targetScroll=-5701, currPos=-4676
+ [P7] 🎤 parcial: "milhares"
+    Estado: LOCKED, Índice: 55, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 55 a 75...
+    ✅ Avançou! Índice 55 → 61 (100%)
+    📊 Tracking iniciado: 21 palavras no elemento
+    📍 scrollParaElemento: JUMP SUAVE para offset=6331, prog=0%
+ 📍 moveToOffset: offset=6331, jump=-5815, smooth=true
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "estão"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=21, progresso=19.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=21, progresso=19.0%
+    📊 PARCIAL: alinhado=19.0% → monotônico=19.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 19.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6463, prog=19%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "sem"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=21, progresso=23.8%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=21, progresso=23.8%
+    📊 PARCIAL: alinhado=23.8% → monotônico=23.8%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 23.8% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6496, prog=24%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=1043px, targetScroll=-5980, currPos=-4936
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "sem energia"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=21, progresso=28.6%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=21, progresso=28.6%
+    📊 PARCIAL: alinhado=28.6% → monotônico=28.6%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 28.6% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6528, prog=29%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "energia"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=21, progresso=28.6%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=21, progresso=28.6%
+    📊 PARCIAL: alinhado=28.6% → monotônico=28.6%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=28.6%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "tem mais um dia difícil por causa da chuva milhares de pessoas estão sem energia"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=21, progresso=42.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=21, progresso=42.9%
+    📊 PARCIAL: alinhado=42.9% → monotônico=42.9%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 42.9% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6627, prog=43%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=992px, targetScroll=-6111, currPos=-5119
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "um homem"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔒 LOCKED: Verificando elementos 61 a 66...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=19, total=21, progresso=95.2%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=19, total=21, progresso=95.2%
+    📊 PARCIAL: alinhado=95.2% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 95.2% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=6989, prog=95%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "24 anos"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=21, progresso=52.4%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=21, progresso=52.4%
+    📊 PARCIAL: alinhado=52.4% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "anos"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=21, progresso=52.4%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=21, progresso=52.4%
+    📊 PARCIAL: alinhado=52.4% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=1072px, targetScroll=-6473, currPos=-5401
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "está"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=21, progresso=57.1%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=21, progresso=57.1%
+    📊 PARCIAL: alinhado=57.1% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "está desa"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=21, progresso=57.1%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=21, progresso=57.1%
+    📊 PARCIAL: alinhado=57.1% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=967px, targetScroll=-6473, currPos=-5506
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=949px, targetScroll=-6473, currPos=-5524
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "desaparecido"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=21, progresso=61.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=21, progresso=61.9%
+    📊 PARCIAL: alinhado=61.9% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "da chuva milhares de pessoas estão sem energia um homem de 24 anos está desaparecido"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=21, progresso=61.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=21, progresso=61.9%
+    📊 PARCIAL: alinhado=61.9% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "depois"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=21, progresso=66.7%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=21, progresso=66.7%
+    📊 PARCIAL: alinhado=66.7% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=755px, targetScroll=-6473, currPos=-5718
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "que o carro"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=21, progresso=76.2%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=21, progresso=76.2%
+    📊 PARCIAL: alinhado=76.2% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "dele"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=21, progresso=81.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=21, progresso=81.0%
+    📊 PARCIAL: alinhado=81.0% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "caiu"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=21, progresso=85.7%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=21, progresso=85.7%
+    📊 PARCIAL: alinhado=85.7% → monotônico=95.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=95.2%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+    🎚️ Velocidade: x=6, diff=387px, targetScroll=-6473, currPos=-6086
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "um córrego"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=95%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7022, prog=100%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+    🎚️ Velocidade: x=6, diff=385px, targetScroll=-6506, currPos=-6121
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "córrego"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=339px, targetScroll=-6506, currPos=-6167
+ [P7] 🎤 parcial: "homem de 24 anos está desaparecido depois que o carro dele caiu em um córrego"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=20, total=21, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "no Recife"
+    Estado: LOCKED, Índice: 61, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 61 a 81...
+    ✅ Avançou! Índice 61 → 67 (100%)
+    📊 Tracking iniciado: 24 palavras no elemento
+    📍 scrollParaElemento: JUMP SUAVE para offset=7138, prog=0%
+ 📍 moveToOffset: offset=7138, jump=-6622, smooth=true
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=393px, targetScroll=-6622, currPos=-6229
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=384px, targetScroll=-6622, currPos=-6238
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=339px, targetScroll=-6622, currPos=-6283
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=330px, targetScroll=-6622, currPos=-6292
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ [P7] 🎤 parcial: "uma trégua"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=24, progresso=25.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=24, progresso=25.0%
+    📊 PARCIAL: alinhado=25.0% → monotônico=25.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 25.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7369, prog=25%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ [P7] 🎤 parcial: "mas os"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=24, progresso=33.3%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=24, progresso=33.3%
+    📊 PARCIAL: alinhado=33.3% → monotônico=33.3%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 33.3% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7445, prog=33%
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+    🎚️ Velocidade: x=7, diff=473px, targetScroll=-6929, currPos=-6457
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ [P7] 🎤 parcial: "transtornos"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=24, progresso=37.5%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=8, total=24, progresso=37.5%
+    📊 PARCIAL: alinhado=37.5% → monotônico=37.5%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 37.5% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7484, prog=38%
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+    🎚️ Velocidade: x=7, diff=424px, targetScroll=-6968, currPos=-6544
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+    🎚️ Velocidade: x=6, diff=387px, targetScroll=-6968, currPos=-6581
+ [P7] 🎤 parcial: "para a população"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=24, progresso=45.8%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=24, progresso=45.8%
+    📊 PARCIAL: alinhado=45.8% → monotônico=45.8%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 45.8% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7561, prog=46%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "a população"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=24, progresso=45.8%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=10, total=24, progresso=45.8%
+    📊 PARCIAL: alinhado=45.8% → monotônico=45.8%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=45.8%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "São"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=24, progresso=50.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=11, total=24, progresso=50.0%
+    📊 PARCIAL: alinhado=50.0% → monotônico=50.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 50.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7599, prog=50%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "enormes"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=24, progresso=54.2%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=12, total=24, progresso=54.2%
+    📊 PARCIAL: alinhado=54.2% → monotônico=54.2%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 54.2% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7637, prog=54%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "sete pessoas"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=14, total=24, progresso=62.5%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=14, total=24, progresso=62.5%
+    📊 PARCIAL: alinhado=62.5% → monotônico=62.5%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 62.5% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7714, prog=63%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "morreram"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=24, progresso=66.7%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=24, progresso=66.7%
+    📊 PARCIAL: alinhado=66.7% → monotônico=66.7%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 66.7% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7753, prog=67%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=325px, targetScroll=-7237, currPos=-6912
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "e mais"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=24, progresso=70.8%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=24, progresso=70.8%
+    📊 PARCIAL: alinhado=70.8% → monotônico=70.8%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 70.8% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7791, prog=71%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "mais de 100"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=24, progresso=75.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=17, total=24, progresso=75.0%
+    📊 PARCIAL: alinhado=75.0% → monotônico=75.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 75.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7830, prog=75%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+    🎚️ Velocidade: x=4, diff=279px, targetScroll=-7314, currPos=-7034
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ [P7] 🎤 parcial: "que deixar"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔒 LOCKED: Verificando elementos 67 a 72...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=24, progresso=91.7%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=21, total=24, progresso=91.7%
+    📊 PARCIAL: alinhado=91.7% → monotônico=91.7%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 91.7% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=7983, prog=92%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "suas casas"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=92%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=8060, prog=100%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ [P7] 🎤 parcial: "casas"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ [P7] 🎤 parcial: "população São enormes sete pessoas morreram e mais de 100 tiveram que deixar suas casas"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=23, total=24, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=318px, targetScroll=-7544, currPos=-7226
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=291px, targetScroll=-7544, currPos=-7253
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+    🎚️ Velocidade: x=5, diff=282px, targetScroll=-7544, currPos=-7262
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ [P7] 🎤 parcial: "tivemos"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+    ⏳ Aguardando (parcial)... progresso=100%
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ [P7] 🎤 parcial: "deslizamentos"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=1)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+    ⏳ Aguardando (parcial)... progresso=100%
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ [P7] 🎤 parcial: "como"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=2)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+    ⏳ Aguardando (parcial)... progresso=100%
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+    🎚️ Velocidade: x=3, diff=185px, targetScroll=-7544, currPos=-7359
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+ 🎚️ Velocidade direta: x=3, velocity=19.7
+    🎚️ Velocidade: x=3, diff=160px, targetScroll=-7544, currPos=-7384
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+    🎚️ Velocidade: x=2, diff=156px, targetScroll=-7544, currPos=-7388
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ [P7] 🎤 parcial: "onde nós"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=3)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=4/5
+    ⏳ Aguardando (parcial)... progresso=100%
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+    🎚️ Velocidade: x=2, diff=132px, targetScroll=-7544, currPos=-7412
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+    🎚️ Velocidade: x=2, diff=130px, targetScroll=-7544, currPos=-7414
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ [P7] 🎤 parcial: "falamos"
+    Estado: LOCKED, Índice: 67, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=4)
+    🔒 LOCKED: Verificando elementos 67 a 87...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=5/5
+    🔄 Muitos parciais sem match no fim, voltando para SEARCHING...
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎤 Controle de voz LIBERADO - moveToAnchor reabilitado
+ 🛑 AutoScroll DESATIVADO
+ [P7] 🎤 parcial: "neste"
+    Estado: SEARCHING, Índice: 67, Misses: 0
+    🔍 SEARCHING: Buscando em 2835 elementos...
+    ✅ FOUND! Índice 133 (100%)
+    📝 "BOA TARDE, LUCIANA./ NESTE..."
+    📊 Tracking iniciado: 4 palavras no elemento
+ 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+ 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+    📍 scrollParaElemento: JUMP SUAVE para offset=16239, prog=0%
+ 📍 moveToOffset: offset=16239, jump=-15723, smooth=true
+ 🎚️ Velocidade direta: x=2, velocity=10.9
+ 🎚️ Velocidade direta: x=4, velocity=29.9
+ [P7] 🎤 parcial: "neste momento"
+    Estado: LOCKED, Índice: 133, Misses: 0
+    🔒 LOCKED: Verificando elementos 133 a 138...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=4, progresso=100.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=4, progresso=100.0%
+    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=16469, prog=100%
+ 🎚️ Velocidade direta: x=5, velocity=41.3
+ 🎚️ Velocidade direta: x=6, velocity=53.8
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+    🎚️ Velocidade: x=7, diff=8504px, targetScroll=-15953, currPos=-7449
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+    🎚️ Velocidade: x=7, diff=8490px, targetScroll=-15953, currPos=-7463
+ 🎚️ Velocidade direta: x=7, velocity=67.2
+ [P7] 🎤 parcial: "deixar suas casas tivemos deslizamentos como no caso do local onde nós falamos neste momento"
+    Estado: LOCKED, Índice: 133, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 133 a 153...
+    ✅ Avançou! Índice 133 → 136 (23%)
+    📊 Tracking iniciado: 234 palavras no elemento
+    📍 scrollParaElemento: JUMP SUAVE para offset=16469, prog=0%
+ 📍 moveToOffset: offset=16469, jump=-15953, smooth=true
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "além"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=8344px, targetScroll=-15953, currPos=-7609
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "choque"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "choques elé"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "choques elétricos"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=8009px, targetScroll=-15953, currPos=-7944
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=7939px, targetScroll=-15953, currPos=-8014
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "alagamento"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=7816px, targetScroll=-15953, currPos=-8137
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=7710px, targetScroll=-15953, currPos=-8243
+ [P7] 🎤 parcial: "enxurradas"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    ⏳ Aguardando (parcial)... progresso=0%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P7] 🎤 parcial: "caso do local onde nós falamos neste momento além de choques elétricos alagamento e enxurradas"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔒 LOCKED: Verificando elementos 136 a 141...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=225, total=234, progresso=96.6%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=225, total=234, progresso=96.6%
+    📊 PARCIAL: alinhado=96.6% → monotônico=96.6%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 96.6% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=25704, prog=97%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=16784px, targetScroll=-25188, currPos=-8405
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=16470px, targetScroll=-25188, currPos=-8718
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 👤 ===== NOVA SESSÃO DE FALA: Pessoa 8 =====
+ [P8] 🎤 parcial: "bloqueia"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=97%, parciaisSemMatch=0)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+    ⏳ Aguardando (parcial)... progresso=97%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=16347px, targetScroll=-25188, currPos=-8841
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "caso do local onde nós falamos neste momento além de choques elétricos alagamento e enxurradas"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=97%, parciaisSemMatch=1)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=225, total=234, progresso=96.6%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=225, total=234, progresso=96.6%
+    📊 PARCIAL: alinhado=96.6% → monotônico=96.6%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=96.6%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=16241px, targetScroll=-25188, currPos=-8947
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "por donal"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=97%, parciaisSemMatch=1)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=229, total=234, progresso=98.3%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=229, total=234, progresso=98.3%
+    📊 PARCIAL: alinhado=98.3% → monotônico=98.3%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=98.3%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "Donald trump"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=1)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+    ⏳ Aguardando (parcial)... progresso=98%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "Donald trump para"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=200, total=234, progresso=85.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=200, total=234, progresso=85.9%
+    📊 PARCIAL: alinhado=85.9% → monotônico=98.3%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=98.3%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "para a demissão"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=200, total=234, progresso=85.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=200, total=234, progresso=85.9%
+    📊 PARCIAL: alinhado=85.9% → monotônico=98.3%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=98.3%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "a demissão do"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=2)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+    ⏳ Aguardando (parcial)... progresso=98%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "do funcionários"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=3)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=4/5
+    ⏳ Aguardando (parcial)... progresso=98%
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=15834px, targetScroll=-25273, currPos=-9439
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+    🎚️ Velocidade: x=8, diff=15799px, targetScroll=-25273, currPos=-9474
+ 🎚️ Velocidade direta: x=8, velocity=81.6
+ [P8] 🎤 parcial: "do governo"
+    Estado: LOCKED, Índice: 136, Misses: 0
+    🔭 Lookahead EXPANDIDO: 20 (progresso=98%, parciaisSemMatch=4)
+    🔒 LOCKED: Verificando elementos 136 a 156...
+    ⚠️ Sem match perto do fim! parciaisSemMatch=5/5
+    🔄 Muitos parciais sem match no fim, voltando para SEARCHING...
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎤 Controle de voz LIBERADO - moveToAnchor reabilitado
+ 🛑 AutoScroll DESATIVADO
+ [P8] 🎤 parcial: "choques elétricos alagamento e enxurradas por Donald trump para a demissão do funcionários do governo"
+    Estado: SEARCHING, Índice: 136, Misses: 0
+    🔍 SEARCHING: Buscando em 2835 elementos...
+    ✅ FOUND! Índice 82 (64%)
+    📝 "BLOQUEIA O ULTIMATO DADO POR DONALD TRUMP PARA DEM..."
+    📊 Tracking iniciado: 27 palavras no elemento
+ 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+ 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+    📍 scrollParaElemento: JUMP SUAVE para offset=8466, prog=0%
+ 📍 moveToOffset: offset=8466, jump=-8034.5, smooth=true
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ [P8] 🎤 parcial: "a ação foi"
+    Estado: LOCKED, Índice: 82, Misses: 0
+    🔒 LOCKED: Verificando elementos 82 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=27, progresso=51.9%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=13, total=27, progresso=51.9%
+    📊 PARCIAL: alinhado=51.9% → monotônico=51.9%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 51.9% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=9063, prog=52%
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+    🎚️ Velocidade: x=0, diff=-870px, targetScroll=-8632, currPos=-9502
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+    🎚️ Velocidade: x=0, diff=-870px, targetScroll=-8632, currPos=-9502
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ [P8] 🎤 parcial: "idealizada"
+    Estado: LOCKED, Índice: 82, Misses: 0
+    🔒 LOCKED: Verificando elementos 82 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=14, total=27, progresso=55.6%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=14, total=27, progresso=55.6%
+    📊 PARCIAL: alinhado=55.6% → monotônico=55.6%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 55.6% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=9106, prog=56%
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ [P8] 🎤 parcial: "idealizada pelo"
+    Estado: LOCKED, Índice: 82, Misses: 0
+    🔒 LOCKED: Verificando elementos 82 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=27, progresso=59.3%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=15, total=27, progresso=59.3%
+    📊 PARCIAL: alinhado=59.3% → monotônico=59.3%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 59.3% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=9149, prog=59%
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ [P8] 🎤 parcial: "bilionário"
+    Estado: LOCKED, Índice: 82, Misses: 0
+    🔒 LOCKED: Verificando elementos 82 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=27, progresso=63.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=27, progresso=63.0%
+    📊 PARCIAL: alinhado=63.0% → monotônico=63.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ✓✓ FAZENDO SCROLL para 63.0% (parcial)
+    📍 scrollParaElemento: TARGET atualizado para offset=9191, prog=63%
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+ 🎚️ Velocidade direta: x=0, velocity=0.0
+editor.js:417 Uncaught (in promise) TypeError: Failed to execute 'exitFullscreen' on 'Document': Document not active
+    at exitFullscreen (editor.js:417:28)
+    at togglePromptIt (editor.js:480:17)
+    at HTMLAnchorElement.restoreEditor (editor.js:612:13)
+ [P8] 🎤 parcial: "Donald trump para a demissão do funcionários do governo a ação foi idealizada pelo bilionário"
+    Estado: LOCKED, Índice: 82, Misses: 0
+    🔒 LOCKED: Verificando elementos 82 a 87...
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=27, progresso=63.0%
+    📊 calcularProgressoPorAlinhamento: última palavra pos=16, total=27, progresso=63.0%
+    📊 PARCIAL: alinhado=63.0% → monotônico=63.0%
+    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+    ℹ️ Sem scroll: podeScroll=true, progresso=63.0%
+ 🎚️ Velocidade direta: x=2, velocity=10.9

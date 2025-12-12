@@ -28,7 +28,7 @@ const CONFIG = {
     lockedThreshold: 0.15,      // Threshold ainda mais relaxado quando já está LOCKED (15%)
     wordWindow: 15,             // Janela maior de palavras para matching (15 palavras)
     lookaheadElements: 5,       // Quantos elementos olhar à frente em LOCKED
-    minWordsForMatch: 3,        // Mínimo de palavras para tentar match
+    minWordsForMatch: 1,        // Mínimo de palavras para tentar match (1 para aceitar cues curtos)
     
     // Improvisação - pausa imediata
     maxConsecutiveMisses: 2,    // Menos misses antes de pausar (mais sensível)
@@ -37,7 +37,225 @@ const CONFIG = {
     maxBufferWords: 60,         // Buffer maior para capturar mais contexto
     
     // Debounce
-    debounceMs: 200             // Debounce menor para resposta mais rápida
+    debounceMs: 200,            // Debounce menor para resposta mais rápida
+    
+    // Jump híbrido - threshold para fazer jump em vez de scroll contínuo
+    hybridJumpThreshold: 500,   // Pixels de diferença para ativar jump híbrido
+    hybridJumpMinProgress: 0.4  // Progresso mínimo no match para permitir jump
+};
+
+// ========================================
+// CONFIGURAÇÃO DE TAGS TÉCNICAS (elementos a ignorar no matching)
+// ========================================
+const TAG_CONFIG = {
+    // Padrões pré-definidos (usuário pode ativar/desativar)
+    patterns: {
+        parentesesSimples: {
+            enabled: true,
+            name: 'Parênteses simples',
+            description: 'Texto entre ( )',
+            regex: /^\s*\([^)]+\)\s*$/
+        },
+        parentesesDuplos: {
+            enabled: true,
+            name: 'Parênteses duplos',
+            description: 'Texto entre (( ))',
+            regex: /^\s*\(\([^)]+\)\)\s*$/
+        },
+        parentesesTriplos: {
+            enabled: true,
+            name: 'Parênteses triplos',
+            description: 'Texto entre ((( )))',
+            regex: /^\s*\(\(\([^)]+\)\)\)\s*$/
+        },
+        colchetes: {
+            enabled: true,
+            name: 'Colchetes',
+            description: 'Texto entre [ ]',
+            regex: /^\s*\[[^\]]+\]\s*$/
+        },
+        hashtagMaiusculo: {
+            enabled: true,
+            name: 'Hashtag maiúsculo',
+            description: '#TAG ou #CAMERA',
+            regex: /^\s*#[A-Z0-9]+\s*$/
+        },
+        indicadorCamera: {
+            enabled: true,
+            name: 'Indicador de câmera',
+            description: 'CAM1, CAM2, CAMERA1...',
+            regex: /^\s*CAM(ERA)?\s*\d+\s*$/i
+        },
+        textoEntreSetas: {
+            enabled: false,
+            name: 'Texto entre setas',
+            description: 'Texto entre >>> <<<',
+            regex: /^\s*>{2,}[^<]+<{2,}\s*$/
+        },
+        textoEntreAsteriscos: {
+            enabled: false,
+            name: 'Texto entre asteriscos',
+            description: 'Texto entre *** ***',
+            regex: /^\s*\*{2,}[^*]+\*{2,}\s*$/
+        }
+    },
+    
+    // Caracteres iniciais que indicam tag (configurável pelo usuário)
+    customPrefixes: [],  // Ex: ['>>>', '###', '***']
+    
+    // Cache de elementos já verificados
+    _cache: new Map()
+};
+
+// Verifica se um texto é uma tag técnica (deve ser ignorado)
+// NOTA: NÃO considera textos curtos como tags - eles são legítimos (ex: "Oi", "Eu")
+function isTagTecnica(texto) {
+    // Apenas textos vazios são ignorados
+    if (!texto || texto.trim().length === 0) return true;
+    
+    const textoLimpo = texto.trim();
+    
+    // Verifica cache
+    if (TAG_CONFIG._cache.has(textoLimpo)) {
+        return TAG_CONFIG._cache.get(textoLimpo);
+    }
+    
+    let isTag = false;
+    
+    // Verifica padrões pré-definidos ativos
+    for (const [key, pattern] of Object.entries(TAG_CONFIG.patterns)) {
+        if (pattern.enabled && pattern.regex.test(textoLimpo)) {
+            isTag = true;
+            console.log(`   🏷️ TAG detectada (${pattern.name}): "${textoLimpo.substring(0, 30)}"`);
+            break;
+        }
+    }
+    
+    // Verifica prefixos customizados
+    if (!isTag && TAG_CONFIG.customPrefixes.length > 0) {
+        for (const prefix of TAG_CONFIG.customPrefixes) {
+            if (textoLimpo.startsWith(prefix)) {
+                isTag = true;
+                console.log(`   🏷️ TAG detectada (prefixo ${prefix}): "${textoLimpo.substring(0, 30)}"`);
+                break;
+            }
+        }
+    }
+    
+    // Armazena no cache
+    TAG_CONFIG._cache.set(textoLimpo, isTag);
+    
+    return isTag;
+}
+
+// Verifica se um elemento DOM é uma tag técnica
+function isElementoTag(elemento) {
+    if (!elemento) return true;
+    const texto = elemento.innerText || elemento.textContent || '';
+    return isTagTecnica(texto);
+}
+
+// Limpa cache de tags (chamar quando roteiro muda)
+function limparCacheTags() {
+    TAG_CONFIG._cache.clear();
+}
+
+// Encontra o primeiro elemento legível (não é tag)
+function findFirstReadableElement() {
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) return null;
+    
+    const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    
+    for (let i = 0; i < elementos.length; i++) {
+        const elem = elementos[i];
+        const texto = (elem.innerText || elem.textContent || '').trim();
+        
+        // Ignora apenas elementos vazios (textos curtos como "Oi" são válidos)
+        if (texto.length === 0) continue;
+        
+        // Ignora tags técnicas
+        if (isTagTecnica(texto)) continue;
+        
+        // Encontrou elemento legível
+        console.log(`📖 Primeiro elemento legível encontrado: índice ${i}`);
+        console.log(`   "${texto.substring(0, 50)}..."`);
+        return { element: elem, index: i };
+    }
+    
+    return null;
+}
+
+// Encontra o próximo elemento legível após um índice
+function findNextReadableElement(startIndex) {
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) return null;
+    
+    const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    
+    for (let i = startIndex + 1; i < elementos.length; i++) {
+        const elem = elementos[i];
+        const texto = (elem.innerText || elem.textContent || '').trim();
+        
+        // Ignora apenas elementos vazios (textos curtos como "Oi" são válidos)
+        if (texto.length === 0) continue;
+        if (isTagTecnica(texto)) continue;
+        
+        return { element: elem, index: i };
+    }
+    
+    return null;
+}
+
+// Posiciona o teleprompter no primeiro elemento legível
+function posicionarNoInicio() {
+    const primeiro = findFirstReadableElement();
+    if (!primeiro) {
+        console.log('⚠️ Nenhum elemento legível encontrado');
+        return;
+    }
+    
+    console.log(`📍 Posicionando no primeiro elemento legível (índice ${primeiro.index})`);
+    
+    // Usa a função de scroll com jump suave
+    if (window.moveTeleprompterToOffset) {
+        const offsetTop = primeiro.element.offsetTop;
+        window.moveTeleprompterToOffset(offsetTop, true);
+    }
+}
+
+// Expõe configuração de tags globalmente para interface
+window.voiceTagConfig = {
+    getPatterns: function() {
+        return TAG_CONFIG.patterns;
+    },
+    setPatternEnabled: function(patternKey, enabled) {
+        if (TAG_CONFIG.patterns[patternKey]) {
+            TAG_CONFIG.patterns[patternKey].enabled = enabled;
+            limparCacheTags();
+            console.log(`🏷️ Padrão "${patternKey}" ${enabled ? 'ativado' : 'desativado'}`);
+        }
+    },
+    getCustomPrefixes: function() {
+        return TAG_CONFIG.customPrefixes;
+    },
+    addCustomPrefix: function(prefix) {
+        if (prefix && !TAG_CONFIG.customPrefixes.includes(prefix)) {
+            TAG_CONFIG.customPrefixes.push(prefix);
+            limparCacheTags();
+            console.log(`🏷️ Prefixo customizado adicionado: "${prefix}"`);
+        }
+    },
+    removeCustomPrefix: function(prefix) {
+        const index = TAG_CONFIG.customPrefixes.indexOf(prefix);
+        if (index > -1) {
+            TAG_CONFIG.customPrefixes.splice(index, 1);
+            limparCacheTags();
+            console.log(`🏷️ Prefixo customizado removido: "${prefix}"`);
+        }
+    },
+    isTag: isTagTecnica,
+    posicionarNoInicio: posicionarNoInicio
 };
 
 // Estado global
@@ -209,6 +427,7 @@ const AutoScrollController = {
     },
     
     // NOVO: Atualiza target baseado em elemento + progresso
+    // Com verificação de JUMP HÍBRIDO para diferenças grandes
     setTargetFromElement: function(elemento, progresso) {
         if (!elemento) return;
         
@@ -216,6 +435,22 @@ const AutoScrollController = {
         const alturaElemento = elemento.offsetHeight || 0;
         const offsetAdicional = alturaElemento * progresso;
         const offsetFinal = offsetTopBase + offsetAdicional;
+        
+        // Calcula diferença atual para decidir se faz jump híbrido
+        const currPos = window.getTeleprompterCurrentPos ? window.getTeleprompterCurrentPos() : 0;
+        const targetScrollPos = window.convertOffsetToScrollPos ? 
+            window.convertOffsetToScrollPos(offsetFinal) : -offsetFinal;
+        const diferenca = Math.abs(currPos - targetScrollPos);
+        
+        // JUMP HÍBRIDO: se diferença muito grande E progresso significativo, faz jump suave
+        if (diferenca > CONFIG.hybridJumpThreshold && progresso >= CONFIG.hybridJumpMinProgress) {
+            console.log(`   🚀 JUMP HÍBRIDO: diff=${diferenca.toFixed(0)}px > ${CONFIG.hybridJumpThreshold}px, prog=${(progresso*100).toFixed(0)}%`);
+            
+            // Faz jump suave direto para a posição
+            if (window.moveTeleprompterToOffset) {
+                window.moveTeleprompterToOffset(offsetFinal, true);
+            }
+        }
         
         this.targetOffset = offsetFinal;
         this.currentElement = elemento;
@@ -277,6 +512,11 @@ if (SpeechRecognition) {
     recognition.onstart = function() {
         console.log('🎤 Reconhecimento de voz iniciado');
         console.log(`📍 Estado inicial: ${currentState}`);
+        
+        // POSICIONA NO PRIMEIRO ELEMENTO LEGÍVEL
+        setTimeout(() => {
+            posicionarNoInicio();
+        }, 500);
     };
 
     recognition.onend = function() {
@@ -353,7 +593,8 @@ if (SpeechRecognition) {
     }
 
     function executarMatching(textoFalado, isFinal) {
-        if (textoFalado.length < 3) return;
+        // Aceita textos curtos (até 1 caractere é válido para matching)
+        if (textoFalado.length === 0) return;
 
         // Detecta mudança de sessão de fala (pausa longa = possível novo falante)
         const agora = Date.now();
@@ -389,9 +630,15 @@ if (SpeechRecognition) {
 
         for (let i = 0; i < elementos.length; i++) {
             const elem = elementos[i];
-            const textoElemento = normalizarTexto(elem.innerText || elem.textContent || '');
+            const textoOriginal = elem.innerText || elem.textContent || '';
             
-            if (textoElemento.length < 3) continue;
+            // IGNORA TAGS TÉCNICAS
+            if (isTagTecnica(textoOriginal)) continue;
+            
+            const textoElemento = normalizarTexto(textoOriginal);
+            
+            // Ignora apenas elementos vazios (textos curtos como "Oi" são válidos)
+            if (textoElemento.length === 0) continue;
             
             const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
             
@@ -475,9 +722,15 @@ if (SpeechRecognition) {
 
         for (let i = startIdx; i < endIdx; i++) {
             const elem = elementos[i];
-            const textoElemento = normalizarTexto(elem.innerText || elem.textContent || '');
+            const textoOriginal = elem.innerText || elem.textContent || '';
             
-            if (textoElemento.length < 3) continue;
+            // IGNORA TAGS TÉCNICAS
+            if (isTagTecnica(textoOriginal)) continue;
+            
+            const textoElemento = normalizarTexto(textoOriginal);
+            
+            // Ignora apenas elementos vazios (textos curtos como "Oi" são válidos)
+            if (textoElemento.length === 0) continue;
             
             const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
             

@@ -103,7 +103,8 @@ var debug = false;
             new Slider("#speed", {}),
             new Slider("#acceleration", {}),
             new Slider("#fontSize", {}),
-            new Slider("#promptWidth", {})
+            new Slider("#promptWidth", {}),
+            new Slider("#focusPosition", {})
         ];
         // Data binding for advanced options
         slider[0].on("change", function(input) {
@@ -120,6 +121,13 @@ var debug = false;
             document.getElementById("promptWidthValue").textContent = input.newValue;
             updateWidth(input.newValue);
         });
+        slider[4].on("change", function(input) {
+            document.getElementById("focusPositionValue").textContent = Math.round(input.newValue);
+            updateFocusPosition(input.newValue);
+        });
+        
+        // Carrega posição do foco salva
+        loadFocusPosition();
         // Set credits button
         document.getElementById("credits-link").onclick = credits;
         // Set domain to current domain.
@@ -1026,6 +1034,24 @@ var debug = false;
         const prompt = document.getElementById("prompt");
         prompt.style.width = value+"vw";
         prompt.style.left = "calc("+(50-value/2)+"vw - 14px)";
+    }
+    
+    function updateFocusPosition(value) {
+        if (debug) console.log("Updating focus position to " + value + "%");
+        try {
+            localStorage.setItem('focusVerticalPosition', value);
+        } catch(e) {}
+    }
+    
+    function loadFocusPosition() {
+        try {
+            var saved = localStorage.getItem('focusVerticalPosition');
+            if (saved !== null) {
+                var value = parseFloat(saved);
+                slider[4].setValue(value);
+                document.getElementById("focusPositionValue").textContent = Math.round(value);
+            }
+        } catch(e) {}
     }
 
     function loadLastUseSettings() {

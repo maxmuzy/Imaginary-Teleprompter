@@ -43,6 +43,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     var settings, session, prompt, pointer, overlay, overlayFocus, styleSheet, editor, timer, clock, remote;
     // Global variables
     var unit, x, velocity, sensitivity, speedMultip, relativeLimit, steps, play, timeoutStatus, invertedWheel, focus, promptStyleOption, customStyle, flipV, flipH, fontSize, promptWidth, focusHeight, promptHeight, previousPromptHeight, screenHeight, previousScreenHeight, screenWidth, previousVerticalDisplacementCorrector, domain, debug, closing, cap, syncDelay, isMobileApp;
+    // Posição vertical customizada do overlayFocus (0-100%, padrão 37.5% = 25% acima do centro)
+    var focusVerticalPosition = 37.5;
 
     // Enums
     var command = Object.freeze({
@@ -117,6 +119,9 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         // Local Storage and Session data
         updateDatamanager();
 
+        // Carrega posição do foco salva
+        loadFocusVerticalPosition();
+        
         // Set initial relative values.
         setFocusHeight();
         setScreenHeight();
@@ -217,6 +222,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         window.setTimeout(function () {
             setScreenHeight();
             setPromptHeight();
+            
+            // Atualiza a posição visual do overlayFocus
+            updateOverlayFocusPosition();
+            
             // If flipped vertically, set start at inverted top.
             if (flipV) {
                 animate(0, -promptHeight + screenHeight);
@@ -236,9 +245,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
                 for (var i = 0; i < 2; i++)
                     increaseVelocity();
                 instaSync();
-                // Posiciona o texto no foco após iniciar e sincronizar
-                console.log("Moving to anchor: " + overlayFocus.id);
-                internalMoveToAnchor(overlayFocus.id);
+                // Posiciona o primeiro texto legível na área de foco
+                positionFirstTextInFocus();
             }, transitionDelays * 4.2);
 
             //Init Remote Controllers
@@ -625,25 +633,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     }
 
     function focusVerticalDisplacementCorrector() {
-        var vDisp;
-        switch (focus) {
-            // "None" syncs to top.
-            case 3:
-            // Sync to "Top".
-            case 1:
-                vDisp = focusHeight / 2;
-                break;
-            // Sync to "Bottom".
-            case 2:
-                vDisp = screenHeight - focusHeight / 2;
-                break;
-            // Sync to "Center" by default
-            default:
-                // If center and flip. Take a little above center
-                vDisp = screenHeight / 2;
-                break;
-        }
-        //if (debug) window.setTimeout( function() { console.log("Vertical displacement: "+vDisp) && false; };
+        // Usa a posição customizada do foco (focusVerticalPosition)
+        // focusVerticalPosition: 0% = topo, 50% = centro, 100% = base
+        // Retorna a posição do CENTRO da área de foco
+        const focusTopOffset = screenHeight * focusVerticalPosition / 100;
+        const vDisp = focusTopOffset + focusHeight / 2;
         return vDisp;
     }
 
@@ -707,6 +701,114 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     
     function isVoiceControlActive() {
         return voiceControlActive;
+    }
+    
+    // ========================================
+    // Posicionamento inicial e controle do overlayFocus
+    // ========================================
+    
+    // Encontra o primeiro elemento legível no prompt (ignora elementos vazios e tags técnicas)
+    function findFirstReadableElement() {
+        const promptEl = document.querySelector('.prompt');
+        if (!promptEl) return null;
+        
+        const allElements = promptEl.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, div, span, td, th');
+        
+        for (let i = 0; i < allElements.length; i++) {
+            const el = allElements[i];
+            const text = (el.innerText || '').trim();
+            
+            // Ignora elementos vazios
+            if (!text || text === '\u00A0' || text === '&nbsp;') continue;
+            
+            // Ignora tags técnicas comuns
+            if (/^\(\(\(.*\)\)\)$/.test(text)) continue; // (((CAM1)))
+            if (/^\(\(.*\)\)$/.test(text)) continue; // ((OFF))
+            if (/^\/.*\/$/.test(text)) continue; // /VINHETA/
+            if (/^\(\/.*\/\)$/.test(text)) continue; // (/VINHETA/)
+            
+            return el;
+        }
+        return null;
+    }
+    
+    // Posiciona o primeiro texto legível na área de foco ao iniciar
+    function positionFirstTextInFocus() {
+        const firstElement = findFirstReadableElement();
+        if (!firstElement) {
+            console.log('📍 Nenhum elemento legível encontrado para posicionar');
+            return;
+        }
+        
+        const offsetTop = firstElement.offsetTop;
+        const focusTopOffset = getFocusTopOffset();
+        
+        console.log(`📍 positionFirstTextInFocus:`);
+        console.log(`   Primeiro elemento: "${(firstElement.innerText || '').substring(0, 30)}..."`);
+        console.log(`   offsetTop: ${offsetTop}`);
+        console.log(`   focusTopOffset: ${focusTopOffset}`);
+        
+        let jump;
+        if (flipV)
+            jump = -promptHeight + offsetTop + screenHeight - focusTopOffset;
+        else
+            jump = -offsetTop + focusTopOffset;
+        
+        console.log(`   jump: ${jump}`);
+        
+        animate(0, jump);
+        resumeAnimation();
+    }
+    
+    // Calcula a posição do TOPO da área de foco baseado na posição vertical customizada
+    function getFocusTopOffset() {
+        // focusVerticalPosition: 0% = topo da tela, 50% = centro, 100% = base
+        // Retorna a posição Y onde o topo da área de foco deve estar
+        return (screenHeight * focusVerticalPosition / 100);
+    }
+    
+    // Define a posição vertical do overlayFocus (0-100%)
+    function setFocusVerticalPosition(position) {
+        focusVerticalPosition = Math.max(0, Math.min(100, position));
+        
+        // Atualiza visualmente a posição do overlayFocus
+        updateOverlayFocusPosition();
+        
+        // Salva no localStorage
+        try {
+            localStorage.setItem('focusVerticalPosition', focusVerticalPosition);
+        } catch (e) {}
+        
+        console.log(`📍 Posição do foco ajustada para ${focusVerticalPosition}%`);
+    }
+    
+    // Carrega a posição vertical salva
+    function loadFocusVerticalPosition() {
+        try {
+            const saved = localStorage.getItem('focusVerticalPosition');
+            if (saved !== null) {
+                focusVerticalPosition = parseFloat(saved);
+            }
+        } catch (e) {}
+    }
+    
+    // Atualiza a posição visual do overlayFocus na tela
+    function updateOverlayFocusPosition() {
+        const overlayTop = document.getElementById('overlayTop');
+        const overlayBottom = document.getElementById('overlayBottom');
+        
+        if (!overlayTop || !overlayBottom || !overlayFocus) return;
+        
+        // Calcula a altura do overlayTop baseado na posição
+        // focusVerticalPosition = onde o TOPO da área de foco deve estar (em %)
+        const topHeight = focusVerticalPosition;
+        
+        // A altura do overlayFocus é fixa (definida em CSS)
+        // O overlayBottom preenche o resto
+        overlayTop.style.height = topHeight + 'vh';
+        
+        // Recalcula focusHeight
+        setFocusHeight();
     }
 
     function moveToAnchor(theAnchor) {
@@ -1003,13 +1105,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     // Converte offsetTop para posição que coloca o elemento no TOPO da área de foco
     // Usado para posicionar o primeiro elemento ao iniciar reconhecimento de voz
     function convertOffsetToScrollPosTop(offsetTop) {
-        // focusVerticalDisplacementCorrector() retorna a posição do CENTRO da área de foco
-        // Para posicionar no TOPO, subtraímos metade da altura da área de foco
-        const focusCenterOffset = focusVerticalDisplacementCorrector();
-        const focusHalfHeight = focusHeight / 2;
-        const focusTopOffset = focusCenterOffset - focusHalfHeight;
+        // Usa getFocusTopOffset() que calcula baseado na posição customizada
+        const focusTopOffset = getFocusTopOffset();
         
-        console.log(`   📐 convertOffsetToScrollPosTop: center=${focusCenterOffset}, halfHeight=${focusHalfHeight}, topOffset=${focusTopOffset}`);
+        console.log(`   📐 convertOffsetToScrollPosTop: topOffset=${focusTopOffset}`);
         
         if (flipV)
             return -promptHeight + offsetTop + screenHeight - focusTopOffset;
@@ -1192,6 +1291,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         acquire: acquireVoiceControl,
         release: releaseVoiceControl,
         isActive: isVoiceControlActive
+    };
+    
+    // API de posicionamento do foco
+    window.teleprompterFocus = {
+        setPosition: setFocusVerticalPosition,
+        getPosition: function() { return focusVerticalPosition; },
+        updatePosition: updateOverlayFocusPosition
     };
 
     function incSteps() {

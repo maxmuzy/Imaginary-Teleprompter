@@ -1,0 +1,1486 @@
+eq_config.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+eq_editor-lite-17.js:1 Uncaught SyntaxError: Unexpected identifier 'option'
+VM12185 injected.js:37 🎤 Reconhecimento de voz iniciado
+VM12185 injected.js:37 📍 Estado inicial: SEARCHING
+VM12185 injected.js:37 📖 Primeiro elemento legível encontrado: índice 1
+VM12185 injected.js:37    "(/VINHETA/..."
+VM12185 injected.js:37 📍 Posicionando no primeiro elemento legível (índice 1)
+VM12185 injected.js:37    Texto: "(/VINHETA/..."
+VM12185 injected.js:37    offsetElemento: 1108
+VM12185 injected.js:37    📐 convertOffsetToScrollPosTop: topOffset=268.32
+VM12185 injected.js:37 📍 moveToOffset (TOPO): offset=1108, jump=-839.6800000000001, smooth=true
+VM12185 injected.js:37 👁️ Observer de roteiro ativado
+VM12185 injected.js:37 Aumentando Velocidade
+VM12185 injected.js:37 Aumentando Velocidade
+VM12185 injected.js:37 📍 positionFirstTextInFocus:
+VM12185 injected.js:37    Primeiro elemento: "(/VINHETA/..."
+VM12185 injected.js:37    offsetTop: 1108
+VM12185 injected.js:37    focusTopOffset: 268.32
+VM12185 injected.js:37    jump: -839.6800000000001
+VM12185 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM12185 injected.js:37    Estado: SEARCHING, Índice: 1, Misses: 0
+VM12185 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 1)))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.1)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.3)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.5)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 11.7)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(/VINHETA ABERTURA/)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 2)))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((ABRE LINK)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(ILUSTRA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((RODA VT)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 17.1)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO 17.2)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "(((RODA VT))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((OFF))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((OFF RECUPERA))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM 3)))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(OFF VIVO )"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((CAM 1))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(// RODA VINHETA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((FADE)))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.2")"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.1")"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PAUSA LOC.2" + FADE)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC.1"))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "((PAUSA LOC.1")"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC. 1"))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "((PAUSA LOC. 1" + FADE))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses duplos): "(( SOBE SOM))"
+VM12185 injected.js:37    🏷️ TAG detectada (Colchetes): "[C]"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(ENDEREÇO QUE ESTÁ FUNCIONANDO"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(. O ENDEREÇO ANTERIOR ESTÁ CO"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(61 98177-5959)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COMBATES CONGO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: EMBAIXADAS)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: SITUAÇÃO HUMANITÁRIA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: RESGATE)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: MOMENTO QUEDA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PÓS ACIDENTE)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PATINADORES)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: POST TRUMP)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(SOBE SOM)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PRINT: AGÊNCIA COVID)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(PRINTE: SITE FORA DO AR)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: AJUDA EXTERNA 1 E 2)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUMP / MÍDIA: POST TR"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: CANADÁ)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUDEAU)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: TRUMP / MÍDIA: FRONTEI"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: CHINA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: UE)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FRONTEIRA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: VISITA RÚBIO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: BUKELE / MÍDIA: CADEIA"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: MARCO RUBIO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: PROTESTOS)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: EMBARQUE)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ORDEM TRUMP)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GUANTÁNAMO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: DEPORTAÇÕES)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COLETIVA / MÍDIA: GAZA"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: DECLARAÇÃO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: NETANYAHU)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: BEZALEL SMOTRICH)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses triplos): "(((CAM )))"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GAZA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FALA TRUMP)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ISRAEL KATZ)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COLETIVA)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TRUMP)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FALAS TRUMP)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: ENTREVISTA NETANYAHU /"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(BEZALEL SMOTRICH)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: TPI)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: PUTIN)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: COMUNICADO)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: GIDEON SAAR)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MIDIA: RELATORA ONU)"
+VM12185 injected.js:37    🏷️ TAG detectada (Parênteses simples): "(MÍDIA: FACHADA ONU)"
+VM12185 injected.js:37    ✅ FOUND! Índice 7 (100%)
+VM12185 injected.js:37    📝 "OLÁ, BOA TARDE./..."
+VM12185 injected.js:37    📊 Tracking iniciado: 3 palavras no elemento
+VM12185 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM12185 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM12185 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1260, prog=0%
+VM12185 injected.js:37 📍 moveToOffset: offset=1260, jump=-923.1800000000001, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P1] 🎤 parcial: "boa tarde"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 12...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1336, prog=100%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P1] 🎤 parcial: "Olá boa tarde"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 27...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=2, total=3, progresso=100.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P1] 🎤 parcial: "um avião"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 7, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 7 a 27...
+VM12185 injected.js:37    ✅ Avançou! Índice 7 → 13 (100%)
+VM12185 injected.js:37    📊 Tracking iniciado: 6 palavras no elemento
+VM12185 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=1412, prog=0%
+VM12185 injected.js:37 📍 moveToOffset: offset=1412, jump=-1075.18, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 [P1] 🎤 parcial: "porte"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=4, total=6, progresso=83.3%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=83.3% → monotônico=83.3%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 83.3% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=1539, prog=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37    🎚️ Velocidade: x=4, diff=272px, targetScroll=-1202, currPos=-930
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 2 =====
+VM12185 injected.js:37 [P2] 🎤 parcial: "movimentada"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 [P2] 🎤 parcial: "da capital"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37    🎚️ Velocidade: x=3, diff=209px, targetScroll=-1202, currPos=-993
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 [P2] 🎤 parcial: "duas pessoas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 [P2] 🎤 parcial: "pessoas que"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37    🎚️ Velocidade: x=2, diff=160px, targetScroll=-1202, currPos=-1042
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37    🎚️ Velocidade: x=2, diff=159px, targetScroll=-1202, currPos=-1043
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P2] 🎤 parcial: "estavam na"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P2] 🎤 parcial: "morreram"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P2] 🎤 parcial: "meio de uma avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P2] 🎤 parcial: "feridas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 [P2] 🎤 parcial: "avenida movimentada da capital paulista duas pessoas que estavam na aeronave morreram vocês ficaram feridas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "as primeiras"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "informações"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=87px, targetScroll=-1202, currPos=-1114
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "capital paulista duas pessoas que estavam na aeronave morreram vocês ficaram feridas as primeiras informações"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=85px, targetScroll=-1202, currPos=-1117
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=83px, targetScroll=-1202, currPos=-1119
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=81px, targetScroll=-1202, currPos=-1121
+VM12185 injected.js:37 [P2] 🎤 parcial: "apontam que o"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=80px, targetScroll=-1202, currPos=-1122
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=79px, targetScroll=-1202, currPos=-1123
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "que estavam na aeronave morreram vocês ficaram feridas as primeiras informações apontam que o piloto"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "tentou"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=71px, targetScroll=-1202, currPos=-1131
+VM12185 injected.js:37 [P2] 🎤 parcial: "um pouso"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "forçado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=67px, targetScroll=-1202, currPos=-1135
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "e acabou"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "batendo"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "uma árvore"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "logo em"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=50px, targetScroll=-1202, currPos=-1152
+VM12185 injected.js:37 [P2] 🎤 parcial: "em seguida"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=48px, targetScroll=-1202, currPos=-1154
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=44px, targetScroll=-1202, currPos=-1157
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "a traseira"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37    🎚️ Velocidade: x=1, diff=41px, targetScroll=-1202, currPos=-1161
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "e acabou batendo em uma árvore logo em seguida atingiu a traseira de um ônibus"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "as"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "as vítimas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P2] 🎤 parcial: "batendo em uma árvore logo em seguida atingiu a traseira de um ônibus as vítimas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 3 =====
+VM12185 injected.js:37 [P3] 🎤 parcial: "já se deparou"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 [P3] 🎤 parcial: "deparou"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37    🎚️ Velocidade: x=0, diff=32px, targetScroll=-1202, currPos=-1170
+VM12185 injected.js:37 [P3] 🎤 parcial: "árvore logo em seguida atingiu a traseira de um ônibus as vítimas já se deparou"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P3] 🎤 parcial: "a"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P3] 🎤 parcial: "em chamas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P3] 🎤 parcial: "chamas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P3] 🎤 FINAL: "de um ônibus as vítimas já se deparou a aeronave que o ônibus em chamas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 1/2
+VM12185 injected.js:37    🗑️ Descartadas 61 palavras de improvisação
+VM12185 injected.js:37 ⏸️ AutoScroll PAUSADO (improvisação detectada)
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P3] 🎤 parcial: "do acidente"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "acidente são"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "o piloto"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "piloto e"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "um empresário"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "empresário ga"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "Gaúcho"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "Daniel"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "Melo"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P3] 🎤 parcial: "do acidente são o piloto e um empresário Gaúcho Daniel Melo"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 4 =====
+VM12185 injected.js:37 [P4] 🎤 parcial: "o"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "o local"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "local segue"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "segue isolado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "isolado para"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "realização"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "dos trabalhos"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "de perícia"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "perícia"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "e"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "e 10"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "linhas de ônibus"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "tiveram"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "tiveram que"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "que ser des"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 parcial: "desviadas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=83%
+VM12185 injected.js:37 [P4] 🎤 FINAL: "para realização dos trabalhos de perícia e 10 linhas de ônibus tiveram que ser desviadas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 13, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 13 a 18...
+VM12185 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 2/2
+VM12185 injected.js:37    🗑️ Descartadas 26 palavras de improvisação
+VM12185 injected.js:37    🔄 Muitos misses FINAL, voltando para SEARCHING...
+VM12185 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM12185 injected.js:37 [P4] 🎤 parcial: "o desmatamento"
+VM12185 injected.js:37    Estado: SEARCHING, Índice: 13, Misses: 0
+VM12185 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM12185 injected.js:37    ✅ FOUND! Índice 37 (100%)
+VM12185 injected.js:37    📝 "O DESMATAMENTO NO CERRADO CAIU 33% NO ANO PASSADO...."
+VM12185 injected.js:37    📊 Tracking iniciado: 10 palavras no elemento
+VM12185 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM12185 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM12185 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=3312, prog=0%
+VM12185 injected.js:37 📍 moveToOffset: offset=3312, jump=-2975.18, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 [P4] 🎤 parcial: "no cerrado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=10, progresso=60.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=10, progresso=60.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=60.0% → monotônico=60.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 60.0% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3494, prog=60%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=1940px > 500px, prog=60%
+VM12185 injected.js:37 📍 moveToOffset: offset=3494.4, jump=-3157.58, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "caiu"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=10, progresso=40.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=3, total=10, progresso=40.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=40.0% → monotônico=60.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=60.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1868px, targetScroll=-3158, currPos=-1289
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "33"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=60%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1822px, targetScroll=-3158, currPos=-1336
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "33%"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=60%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1747px, targetScroll=-3158, currPos=-1410
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "ano passado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=10, progresso=80.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=10, progresso=80.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=80.0% → monotônico=80.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 80.0% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3555, prog=80%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=1727px > 500px, prog=80%
+VM12185 injected.js:37 📍 moveToOffset: offset=3555.2, jump=-3218.3799999999997, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "Kelly Oliveira"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 42...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=10, progresso=100.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=10, progresso=100.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 100.0% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=3616, prog=100%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=1687px > 500px, prog=100%
+VM12185 injected.js:37 📍 moveToOffset: offset=3616, jump=-3279.18, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P4] 🎤 parcial: "o desmatamento no cerrado caiu 33% no ano passado Kelly Oliveira"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=10, progresso=100.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=9, total=10, progresso=100.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=100.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1531px, targetScroll=-3279, currPos=-1748
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1354px, targetScroll=-3279, currPos=-1925
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 5 =====
+VM12185 injected.js:37 [P5] 🎤 parcial: "foram"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=0)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1186px, targetScroll=-3279, currPos=-2093
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "712"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=1)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1126px, targetScroll=-3279, currPos=-2154
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1074px, targetScroll=-3279, currPos=-2205
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "hectares"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=2)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=1016px, targetScroll=-3279, currPos=-2263
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "desmatados"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=3)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=4/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=100%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "no cerrado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=4)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=10, progresso=60.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=5, total=10, progresso=60.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=60.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=855px, targetScroll=-3279, currPos=-2424
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=811px, targetScroll=-3279, currPos=-2468
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=774px, targetScroll=-3279, currPos=-2505
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=751px, targetScroll=-3279, currPos=-2529
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "no ano passado Kelly Oliveira foram 712 mil hectares desmatados no cerrado no ano passado"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=4)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=10, progresso=80.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=7, total=10, progresso=80.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=80.0% → monotônico=100.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=100.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=713px, targetScroll=-3279, currPos=-2566
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "apesar"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=100%, parciaisSemMatch=4)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 37 a 57...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=5/5
+VM12185 injected.js:37    🔄 Muitos parciais sem match no fim, voltando para SEARCHING...
+VM12185 injected.js:37 ⏸️ AutoScroll em PAUSA SUAVE (mantendo controle)
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 [P5] 🎤 parcial: "apesar da"
+VM12185 injected.js:37    Estado: SEARCHING, Índice: 37, Misses: 0
+VM12185 injected.js:37    🔍 SEARCHING: Buscando em 2835 elementos...
+VM12185 injected.js:37    ✅ FOUND! Índice 447 (100%)
+VM12185 injected.js:37    📝 "QUE NOS ACOMPANHAM. FORAM 712 MIL HECTARES DESMATA..."
+VM12185 injected.js:37    📊 Tracking iniciado: 164 palavras no elemento
+VM12185 injected.js:37 🎤 Controle de voz ADQUIRIDO - moveToAnchor desabilitado
+VM12185 injected.js:37 🚀 AutoScroll ATIVADO (modo contínuo com velocidade)
+VM12185 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=48162, prog=0%
+VM12185 injected.js:37 📍 moveToOffset: offset=48162, jump=-47825.18, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37    🎚️ Velocidade: x=7, diff=45188px, targetScroll=-47825, currPos=-2637
+VM12185 injected.js:37 [P5] 🎤 parcial: "da redução"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "redução"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "pesquisadores"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=31, total=164, progresso=19.5%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=31, total=164, progresso=19.5%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=19.5% → monotônico=19.5%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 19.5% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=49022, prog=20%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=45899px, targetScroll=-48685, currPos=-2787
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "alertam que"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=73, total=164, progresso=45.1%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=73, total=164, progresso=45.1%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=45.1% → monotônico=45.1%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 45.1% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=50151, prog=45%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=46951px > 500px, prog=45%
+VM12185 injected.js:37 📍 moveToOffset: offset=50151.42682926829, jump=-49814.60682926829, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "total"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=81, total=164, progresso=50.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=81, total=164, progresso=50.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=50.0% → monotônico=50.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 50.0% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=50367, prog=50%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=47061px > 500px, prog=50%
+VM12185 injected.js:37 📍 moveToOffset: offset=50366.5, jump=-50029.68, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "desmatada"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=36, total=164, progresso=22.6%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=36, total=164, progresso=22.6%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=22.6% → monotônico=50.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=50.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "ainda é"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "elevada"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=38, total=164, progresso=23.8%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=38, total=164, progresso=23.8%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=23.8% → monotônico=50.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=50.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "passado apesar da redução pesquisadores alertam que a área total desmatada ainda é muito elevada"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=81, total=164, progresso=50.0%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=81, total=164, progresso=50.0%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=50.0% → monotônico=50.0%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ℹ️ Sem scroll: podeScroll=true, progresso=50.0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46670px, targetScroll=-50030, currPos=-3360
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46623px, targetScroll=-50030, currPos=-3407
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "de família"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46574px, targetScroll=-50030, currPos=-3456
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46516px, targetScroll=-50030, currPos=-3514
+VM12185 injected.js:37 [P5] 🎤 parcial: "individadas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46490px, targetScroll=-50030, currPos=-3540
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46453px, targetScroll=-50030, currPos=-3577
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "caiu"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46397px, targetScroll=-50030, currPos=-3633
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=46383px, targetScroll=-50030, currPos=-3647
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "em Janeiro"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "o Alessandra"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "Alessandra Lago"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 parcial: "Lago"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P5] 🎤 FINAL: "ainda é muito elevada e o número de famílias individadas caiu em janeiro Alessandra Lago"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 1/2
+VM12185 injected.js:37    🗑️ Descartadas 41 palavras de improvisação
+VM12185 injected.js:37 ⏸️ AutoScroll PAUSADO (improvisação detectada)
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 [P5] 🎤 parcial: "é muito elevada e o número de famílias individadas caiu em janeiro o Alessandra Lago"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 👤 ===== NOVA SESSÃO DE FALA: Pessoa 6 =====
+VM12185 injected.js:37 [P6] 🎤 parcial: "cer"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=50%
+VM12185 injected.js:37 [P6] 🎤 parcial: "cerca de"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 452...
+VM12185 injected.js:37    ▶️ Retornando ao roteiro após improvisação
+VM12185 injected.js:37 ▶️ AutoScroll RESUMIDO
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=156, total=164, progresso=95.7%
+VM12185 injected.js:37    📊 calcularProgressoPorAlinhamento: última palavra pos=156, total=164, progresso=95.7%
+VM12185 injected.js:37    📊 PARCIAL: alinhado=95.7% → monotônico=95.7%
+VM12185 injected.js:37    🔍 shouldScroll()=true (isActive=true, isPaused=false)
+VM12185 injected.js:37    ✓✓ FAZENDO SCROLL para 95.7% (parcial)
+VM12185 injected.js:37    📍 scrollParaElemento: TARGET atualizado para offset=52383, prog=96%
+VM12185 injected.js:37    🚀 JUMP HÍBRIDO: diff=48047px > 500px, prog=96%
+VM12185 injected.js:37 📍 moveToOffset: offset=52382.810975609755, jump=-52045.990975609755, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37    🎚️ Velocidade: x=2, diff=48047px, targetScroll=-52046, currPos=-3999
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 [P6] 🎤 parcial: "76"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=96%, parciaisSemMatch=0)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=1/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=96%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "76%"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=96%, parciaisSemMatch=1)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=2/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=96%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47943px, targetScroll=-52046, currPos=-4103
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "das"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=96%, parciaisSemMatch=2)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM12185 injected.js:37    ⚠️ Sem match perto do fim! parciaisSemMatch=3/5
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=96%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "das famílias"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 447, Misses: 0
+VM12185 injected.js:37    🔭 Lookahead EXPANDIDO: 20 (progresso=96%, parciaisSemMatch=3)
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 447 a 467...
+VM12185 injected.js:37    ✅ Avançou! Índice 447 → 456 (50%)
+VM12185 injected.js:37    📊 Tracking iniciado: 26 palavras no elemento
+VM12185 injected.js:37    📍 scrollParaElemento: JUMP SUAVE para offset=52875, prog=0%
+VM12185 injected.js:37 📍 moveToOffset: offset=52875, jump=-52538.18, smooth=true
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=48365px, targetScroll=-52538, currPos=-4173
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=48298px, targetScroll=-52538, currPos=-4241
+VM12185 injected.js:37 [P6] 🎤 parcial: "brasileiras estava"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=48279px, targetScroll=-52538, currPos=-4259
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "estavam com"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "dívidas"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "menos"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "menos 0"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "0,"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=48009px, targetScroll=-52538, currPos=-4530
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "0,6"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "0,6 ponto"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47869px, targetScroll=-52538, currPos=-4670
+VM12185 injected.js:37 [P6] 🎤 parcial: "percentual do"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "em dezembro"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "dezembro"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "é o segundo"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47573px, targetScroll=-52538, currPos=-4965
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47561px, targetScroll=-52538, currPos=-4977
+VM12185 injected.js:37 [P6] 🎤 parcial: "mês"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "consecutivo de"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47440px, targetScroll=-52538, currPos=-5098
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 parcial: "queda"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37    🎚️ Velocidade: x=8, diff=47379px, targetScroll=-52538, currPos=-5159
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 🎚️ Velocidade direta: x=8, velocity=81.6
+VM12185 injected.js:37 [P6] 🎤 FINAL: "0,6 ponto percentual do que registrado em dezembro é o segundo mês consecutivo de queda"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 0
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏸️ Sem match FINAL (improvisação?). Misses: 1/2
+VM12185 injected.js:37    🗑️ Descartadas 23 palavras de improvisação
+VM12185 injected.js:37 ⏸️ AutoScroll PAUSADO (improvisação detectada)
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 🎚️ Velocidade direta: x=7, velocity=67.2
+VM12185 injected.js:37 [P6] 🎤 parcial: "0,6 ponto percentual do que registrado em dezembro é o segundo mês consecutivo de queda"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=6, velocity=53.8
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=5, velocity=41.3
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=4, velocity=29.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 [P6] 🎤 parcial: "São Paulo"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 🎚️ Velocidade direta: x=3, velocity=19.7
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=2, velocity=10.9
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=1, velocity=4.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 🎚️ Velocidade direta: x=0, velocity=0.0
+VM12185 injected.js:37 [P6] 🎤 parcial: "difícil"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 [P6] 🎤 parcial: "por causa"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+VM12185 injected.js:37 [P6] 🎤 parcial: "da chuva"
+VM12185 injected.js:37    Estado: LOCKED, Índice: 456, Misses: 1
+VM12185 injected.js:37    🔒 LOCKED: Verificando elementos 456 a 461...
+VM12185 injected.js:37    ⏳ Aguardando (parcial)... progresso=0%
+editor.js:425 Uncaught (in promise) TypeError: Failed to execute 'exitFullscreen' on 'Document': Document not active
+    at exitFullscreen (editor.js:425:28)
+    at togglePromptIt (editor.js:488:17)
+    at restoreEditor (editor.js:620:13)
+    at document.onkeydown (editor.js:966:17)
+exitFullscreen @ editor.js:425
+togglePromptIt @ editor.js:488
+restoreEditor @ editor.js:620
+document.onkeydown @ editor.js:966
+VM12185 injected.js:37 🔄 Roteiro alterado, voltando para SEARCHING

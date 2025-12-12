@@ -20,7 +20,7 @@ This is a dual-mode application, primarily running as a static web application i
 - **Frontend**: Utilizes HTML, CSS, and JavaScript.
 - **Server (Replit)**: A simple Express.js server (`server.js`) serves static files on port 5000 (host 0.0.0.0).
 - **Local Storage**: All application data is stored client-side using browser localStorage.
-- **Voice Control System (v29.3)**:
+- **Voice Control System (v29.4)**:
     - **Architecture**: State machine (`SEARCHING` -> `LOCKED`) for robust voice synchronization.
     - **Matching**: Fuzzy matching algorithm (Levenshtein-based) with normalization (punctuation, accents) and movable window of words.
     - **Initial Positioning**: First readable element aligns with TOP of focus area using `positionFirstTextInFocus()`.
@@ -31,6 +31,8 @@ This is a dual-mode application, primarily running as a static web application i
     - **Dynamic Lookahead**: Expands search window when near end of current segment.
     - **Short Cue Detection**: Supports cues of any length (removed minimum word guards).
     - **Exclusive Voice Control**: `voiceControlActive` prevents other scroll triggers from interfering.
+    - **Velocity Control (v29.4)**: Proportional controller with VELOCITY_GAIN=0.022, MAX_VELOCITY=9, dead zone 25px with true zero-velocity pause, proportional braking for overshoots.
+    - **Speaker Detection**: Pause-based detection disabled (caused false positives); future: cue-based diarization from script markers.
 - **Customizable Focus Area (v29.3)**:
     - **Slider Control**: "Focus" slider (10-80%) allows positioning the reading area anywhere on screen.
     - **Default Position**: 37.5% (25% above center) as recommended for professional use.

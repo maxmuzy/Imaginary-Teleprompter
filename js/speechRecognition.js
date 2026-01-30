@@ -323,6 +323,44 @@ function reposicionarParaProximoLegivel() {
     }
 }
 
+// Log do texto visível na tela para debugging
+function logVisibleText() {
+    const overlayFocus = document.getElementById('overlayFocus');
+    if (!overlayFocus) {
+        console.log('👁️ [VISUAL] overlayFocus não encontrado');
+        return;
+    }
+    const focusRect = overlayFocus.getBoundingClientRect();
+    const focusTop = focusRect.top;
+    const focusBottom = focusRect.bottom;
+    const windowHeight = window.innerHeight;
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) {
+        console.log('👁️ [VISUAL] .prompt não encontrado');
+        return;
+    }
+    const elements = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    let aboveFocus = [];
+    let inFocus = [];
+    let belowFocus = [];
+    for (const elem of elements) {
+        const rect = elem.getBoundingClientRect();
+        const text = (elem.innerText || elem.textContent || '').trim();
+        if (text.length === 0) continue;
+        if (rect.bottom < 0 || rect.top > windowHeight) continue; // not visible
+        if (rect.top >= focusTop && rect.bottom <= focusBottom) {
+            inFocus.push(text);
+        } else if (rect.bottom < focusTop) {
+            aboveFocus.push(text);
+        } else if (rect.top > focusBottom) {
+            belowFocus.push(text);
+        }
+    }
+    console.log('👁️ [VISUAL] Texto acima do foco (últimos visíveis):', aboveFocus.slice(-3).join(' | '));
+    console.log('👁️ [VISUAL] Texto no foco:', inFocus.join(' | '));
+    console.log('👁️ [VISUAL] Texto abaixo do foco (primeiros visíveis):', belowFocus.slice(0,3).join(' | '));
+}
+
 // Carrega prefixos customizados do localStorage ao iniciar
 function loadCustomPrefixesFromStorage() {
     try {
@@ -1174,6 +1212,7 @@ if (SpeechRecognition) {
 
         console.log(`[P${currentSpeakerSession}] 🎤 ${isFinal ? 'FINAL' : 'parcial'}: "${textoFalado}"`);
         console.log(`   Estado: ${currentState}, Índice: ${currentElementIndex}, Misses: ${consecutiveMisses}, SpeakerMode: ${speakerMode}`);
+        logVisibleText();
 
         if (currentState === STATE.SEARCHING) {
             buscarPosicaoInicial(textoFalado);

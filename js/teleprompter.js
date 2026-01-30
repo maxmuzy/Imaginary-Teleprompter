@@ -1281,6 +1281,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
     window.convertOffsetToScrollPos = convertOffsetToScrollPos;  // Conversão de coordenadas
     window.animateTeleprompter = animate;
     
+    // v31: Expor funções de área de foco para diagnóstico
+    window.getFocusTopOffset = getFocusTopOffset;
+    window.getFocusHeight = function() { return focusHeight; };
+    window.getScreenHeight = function() { return screenHeight; };
+    
     // API de auto-scroll para controle por voz
     window.teleprompterAutoScroll = {
         start: startAutoScroll,

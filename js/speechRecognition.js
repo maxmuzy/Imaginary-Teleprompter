@@ -1,22 +1,22 @@
 /**
  * Sistema de Reconhecimento de Voz para Teleprompter
- * v30 - Busca Restrita ao Texto Visível + Scroll Controlado
+ * v31 - Pular TAGs Automaticamente + Diagnóstico Visual
  *
  * Estados:
  * - SEARCHING: Buscando posição inicial no roteiro
  * - LOCKED: Posição encontrada, avançando sequencialmente
  *
- * Comportamento v30:
+ * Comportamento v31:
  * - Em SEARCHING: busca APENAS no texto visível na tela (não em todo o roteiro)
  * - Em LOCKED: só verifica próximos elementos (sequencial)
  * - Se não encontrar match em LOCKED: NÃO move (pode ser improvisação)
  * - Após N misses consecutivos: volta para SEARCHING
  *
- * Mudanças v30:
- * - Busca restrita ao texto visível na tela (nunca busca texto fora da tela)
- * - AutoScroll inicia PAUSADO até haver progresso confirmado na leitura
- * - Prioriza elementos na área de foco e logo abaixo (área de leitura)
- * - Scroll só começa quando o apresentador realmente está lendo (progresso > 5%)
+ * Mudanças v31:
+ * - Pula TAGs técnicas automaticamente quando progresso >= 95%
+ * - Quando avança para elemento que é TAG, redireciona para próximo legível
+ * - reposicionarParaProximoLegivel() verifica o que está VISÍVEL na tela
+ * - Função de diagnóstico visual para debug (window.diagnosticoTP)
  */
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -284,9 +284,9 @@ function posicionarNoInicio() {
     currentElementIndex = primeiro.index;
 }
 
-// v29.7: Reposiciona para o próximo texto legível quando o scroll para
+// v31: Reposiciona para o próximo texto legível quando o scroll para
 // Evita que o teleprompter pare mostrando uma tag técnica na área de foco
-// IMPORTANTE: Só faz scroll visual, NÃO altera índices (preserva estado de matching)
+// IMPORTANTE: Verifica o que está NA TELA, não o índice atual
 function reposicionarParaProximoLegivel() {
     // Só reposiciona se está em estado LOCKED com índice válido
     if (currentState !== STATE.LOCKED || currentElementIndex < 0) {
@@ -297,35 +297,44 @@ function reposicionarParaProximoLegivel() {
     const promptElement = document.querySelector('.prompt');
     if (!promptElement) return;
     
-    const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    // v31: Verifica o que está VISÍVEL NA TELA, não o índice atual
+    const elementosVisiveis = getVisibleElements();
+    const elementosNoFoco = elementosVisiveis.filter(e => e.isInFocus);
     
-    // Verifica se o elemento atual é legível
-    const elementoAtual = elementos[currentElementIndex];
-    if (elementoAtual) {
-        const textoAtual = (elementoAtual.innerText || elementoAtual.textContent || '').trim();
-        
-        // Se já está em texto legível, não precisa reposicionar
-        if (textoAtual && !isTagTecnica(textoAtual)) {
-            console.log(`📍 Pausa: Já está em texto legível`);
-            return;
-        }
+    // Se há texto legível no foco, não precisa reposicionar
+    const temTextoLegivelNoFoco = elementosNoFoco.some(e => !isTagTecnica(e.text));
+    if (temTextoLegivelNoFoco) {
+        console.log(`📍 Pausa: Já há texto legível no foco`);
+        return;
     }
     
-    // Procura próximo elemento legível
+    // Se só há TAGs no foco (ou foco vazio), procura próximo texto legível
+    console.log(`📍 Foco contém apenas TAGs ou está vazio - buscando próximo texto legível`);
+    
+    // Procura próximo elemento legível APÓS o índice atual
     const proximo = findNextReadableElement(currentElementIndex);
     if (proximo) {
-        console.log(`📍 Reposicionando visualmente para próximo legível (índice ${proximo.index})`);
+        console.log(`📍 Reposicionando para próximo legível (índice ${proximo.index})`);
         console.log(`   Texto: "${(proximo.element.innerText || '').substring(0, 50)}..."`);
         
-        // Move suavemente para o próximo elemento legível (APENAS visual)
+        // v31: ATUALIZA o índice para o próximo elemento legível
+        // O tracking será inicializado quando o matching encontrar este elemento
+        currentElementIndex = proximo.index;
+        lastLockedReadableIndex = proximo.index;
+        
+        // Reseta contadores para forçar re-inicialização do tracking
+        currentWordPointer = 0;
+        currentElementTotalWords = 0;
+        cumulativeFinalWords = [];
+        pendingFinalWords = [];
+        
+        // Move suavemente para o próximo elemento legível
         const offsetElemento = proximo.element.offsetTop;
         if (window.moveTeleprompterToOffset) {
             window.moveTeleprompterToOffset(offsetElemento, true, true); // smooth=true, alignTop=true
         }
-        
-        // NÃO altera currentElementIndex nem lastLockedReadableIndex
-        // O matching continua a partir do índice atual - quando a fala retomar,
-        // o sistema vai fazer match normal e atualizar os índices corretamente
+    } else {
+        console.log(`📍 Nenhum próximo elemento legível encontrado`);
     }
 }
 
@@ -1486,14 +1495,31 @@ if (SpeechRecognition) {
                 // SÓ AQUI reseta o contador de parciais sem match (realmente avançou)
                 parciaisSemMatchNoFim = 0;
                 console.log(`   ✅ Avançou! Índice ${currentElementIndex} → ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
-                currentElementIndex = melhorIndice;
-                lastLockedReadableIndex = melhorIndice; // v29.7: Preserva para busca local
+                
+                // v31: Verifica se o elemento de destino é uma TAG técnica
+                // Se for, procura o próximo elemento legível
+                let elementoDestino = melhorMatch;
+                let indiceDestino = melhorIndice;
+                const textoDestino = elementoDestino.innerText || elementoDestino.textContent || '';
+                
+                if (isTagTecnica(textoDestino)) {
+                    console.log(`   🏷️ Elemento destino é TAG: "${textoDestino.substring(0, 30)}..."`);
+                    const proximoLegivel = findNextReadableElement(melhorIndice);
+                    if (proximoLegivel) {
+                        console.log(`   ⏭️ Pulando TAG, redirecionando para índice ${proximoLegivel.index}`);
+                        elementoDestino = proximoLegivel.element;
+                        indiceDestino = proximoLegivel.index;
+                    }
+                }
+                
+                currentElementIndex = indiceDestino;
+                lastLockedReadableIndex = indiceDestino; // v29.7: Preserva para busca local
                 
                 // ========================================
                 // SPEAKER MODE: Verifica marcadores de LINK ao avançar
                 // Analisa elementos entre o anterior e o novo para detectar transições
                 // ========================================
-                for (let checkIdx = currentElementIndex; checkIdx <= melhorIndice; checkIdx++) {
+                for (let checkIdx = melhorIndice; checkIdx <= indiceDestino; checkIdx++) {
                     atualizarSpeakerMode(checkIdx, elementos);
                 }
                 
@@ -1504,7 +1530,7 @@ if (SpeechRecognition) {
                 }
                 
                 // Inicializa tracking do novo elemento
-                inicializarTrackingElemento(melhorMatch);
+                inicializarTrackingElemento(elementoDestino);
                 
                 // Reseta o controlador para novo elemento
                 AutoScrollController.reset();
@@ -1517,7 +1543,7 @@ if (SpeechRecognition) {
                 
                 // SCROLL para o novo elemento (SUAVE - jump para novo parágrafo)
                 if (AutoScrollController.shouldScroll()) {
-                    scrollParaElemento(melhorMatch, 0, true);
+                    scrollParaElemento(elementoDestino, 0, true);
                 }
             } else {
                 // Ainda no mesmo elemento - calcula progresso por ALINHAMENTO
@@ -1580,6 +1606,37 @@ if (SpeechRecognition) {
                     }
                 } else {
                     console.log(`   ℹ️ Sem scroll: podeScroll=${podeScroll}, progresso=${(progresso * 100).toFixed(1)}%`);
+                }
+                
+                // v31: Se progresso >= 95% e é FINAL, verifica se próximo elemento é TAG
+                // Se for TAG, avança automaticamente para o próximo texto legível
+                if (isFinal && progresso >= 0.95) {
+                    const proximoIdx = currentElementIndex + 1;
+                    if (proximoIdx < elementos.length) {
+                        const proximoElemento = elementos[proximoIdx];
+                        const textoProximo = proximoElemento.innerText || proximoElemento.textContent || '';
+                        
+                        if (isTagTecnica(textoProximo)) {
+                            console.log(`   🏷️ Próximo elemento é TAG: "${textoProximo.substring(0, 30)}..."`);
+                            
+                            // Procura o próximo texto legível após a TAG
+                            const proximoLegivel = findNextReadableElement(proximoIdx);
+                            if (proximoLegivel) {
+                                console.log(`   ⏭️ Pulando TAGs, avançando para índice ${proximoLegivel.index}`);
+                                currentElementIndex = proximoLegivel.index;
+                                lastLockedReadableIndex = proximoLegivel.index;
+                                
+                                // Inicializa tracking do novo elemento
+                                inicializarTrackingElemento(proximoLegivel.element);
+                                AutoScrollController.reset();
+                                
+                                // Scroll para o próximo elemento legível
+                                if (AutoScrollController.shouldScroll()) {
+                                    scrollParaElemento(proximoLegivel.element, 0, true);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         } else {
@@ -1800,6 +1857,187 @@ if (SpeechRecognition) {
 
     // Inicia após delay para garantir que prompt está carregado
     setTimeout(observarMudancasNoPrompt, 1000);
+
+    // ========================================
+    // v31: FUNÇÃO DE DIAGNÓSTICO VISUAL
+    // Pode ser chamada do console: window.diagnosticoTP()
+    // Gera um relatório completo do estado atual do sistema
+    // ========================================
+    window.diagnosticoTP = function() {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) {
+            console.log('❌ Elemento .prompt não encontrado');
+            return null;
+        }
+        
+        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, div:not(.prompt)');
+        const elementosVisiveis = getVisibleElements();
+        const elementosNoFoco = elementosVisiveis.filter(e => e.isInFocus);
+        const elementosAbaixoFoco = elementosVisiveis.filter(e => !e.isInFocus);
+        
+        // Informações da área de foco (funções expostas pelo teleprompter.js)
+        const focusTop = typeof window.getFocusTopOffset === 'function' ? window.getFocusTopOffset() : 'N/A';
+        const focusHeightVal = typeof window.getFocusHeight === 'function' ? window.getFocusHeight() : 'N/A';
+        const screenHeightVal = typeof window.getScreenHeight === 'function' ? window.getScreenHeight() : 'N/A';
+        
+        // Elemento atual
+        let elementoAtual = null;
+        let textoElementoAtual = '';
+        if (currentElementIndex >= 0 && currentElementIndex < elementos.length) {
+            elementoAtual = elementos[currentElementIndex];
+            textoElementoAtual = (elementoAtual.innerText || elementoAtual.textContent || '').substring(0, 100);
+        }
+        
+        // Próximo elemento legível
+        const proximoLegivel = findNextReadableElement(currentElementIndex);
+        let textoProximoLegivel = '';
+        if (proximoLegivel) {
+            textoProximoLegivel = (proximoLegivel.element.innerText || '').substring(0, 100);
+        }
+        
+        const diagnostico = {
+            versao: 'v31',
+            timestamp: new Date().toISOString(),
+            estado: {
+                currentState: currentState,
+                speakerMode: speakerMode,
+                currentElementIndex: currentElementIndex,
+                lastLockedReadableIndex: lastLockedReadableIndex,
+                consecutiveMisses: consecutiveMisses,
+                parciaisSemMatchNoFim: parciaisSemMatchNoFim
+            },
+            tracking: {
+                currentWordPointer: currentWordPointer,
+                currentElementTotalWords: currentElementTotalWords,
+                progresso: currentElementTotalWords > 0 ? ((currentWordPointer / currentElementTotalWords) * 100).toFixed(1) + '%' : '0%',
+                cumulativeFinalWords: cumulativeFinalWords.length,
+                pendingFinalWords: pendingFinalWords.length
+            },
+            autoScroll: {
+                isActive: AutoScrollController.isActive,
+                isPaused: AutoScrollController.isPaused,
+                lastProgressoEnviado: (AutoScrollController.lastProgressoEnviado * 100).toFixed(1) + '%'
+            },
+            focusArea: {
+                topOffset: focusTop,
+                height: focusHeightVal,
+                screenHeight: screenHeightVal
+            },
+            elementoAtual: {
+                indice: currentElementIndex,
+                texto: textoElementoAtual,
+                isTag: textoElementoAtual ? isTagTecnica(textoElementoAtual) : false
+            },
+            proximoLegivel: proximoLegivel ? {
+                indice: proximoLegivel.index,
+                texto: textoProximoLegivel
+            } : null,
+            elementosVisiveis: {
+                total: elementosVisiveis.length,
+                noFoco: elementosNoFoco.length,
+                abaixoFoco: elementosAbaixoFoco.length,
+                textoNoFoco: elementosNoFoco.map(e => ({
+                    indice: e.index,
+                    texto: e.text.substring(0, 50),
+                    isTag: isTagTecnica(e.text)
+                })),
+                textoAbaixoFoco: elementosAbaixoFoco.slice(0, 3).map(e => ({
+                    indice: e.index,
+                    texto: e.text.substring(0, 50),
+                    isTag: isTagTecnica(e.text)
+                }))
+            },
+            totalElementos: elementos.length
+        };
+        
+        // Log formatado
+        console.log('═══════════════════════════════════════════════════════════');
+        console.log('📊 DIAGNÓSTICO DO TELEPROMPTER v31');
+        console.log('═══════════════════════════════════════════════════════════');
+        console.log(`⏰ ${diagnostico.timestamp}`);
+        console.log('');
+        console.log('📍 ESTADO:');
+        console.log(`   Estado: ${diagnostico.estado.currentState}`);
+        console.log(`   Speaker Mode: ${diagnostico.estado.speakerMode}`);
+        console.log(`   Índice atual: ${diagnostico.estado.currentElementIndex} / ${diagnostico.totalElementos}`);
+        console.log(`   Misses: ${diagnostico.estado.consecutiveMisses}`);
+        console.log('');
+        console.log('📊 TRACKING:');
+        console.log(`   Progresso: ${diagnostico.tracking.progresso}`);
+        console.log(`   Palavras: ${diagnostico.tracking.currentWordPointer} / ${diagnostico.tracking.currentElementTotalWords}`);
+        console.log('');
+        console.log('🎯 ELEMENTO ATUAL:');
+        console.log(`   Índice: ${diagnostico.elementoAtual.indice}`);
+        console.log(`   É TAG: ${diagnostico.elementoAtual.isTag}`);
+        console.log(`   Texto: "${diagnostico.elementoAtual.texto}..."`);
+        console.log('');
+        console.log('👁️ ELEMENTOS VISÍVEIS:');
+        console.log(`   Total: ${diagnostico.elementosVisiveis.total}`);
+        console.log(`   No foco: ${diagnostico.elementosVisiveis.noFoco}`);
+        console.log(`   Abaixo do foco: ${diagnostico.elementosVisiveis.abaixoFoco}`);
+        console.log('');
+        console.log('🎯 TEXTO NO FOCO:');
+        diagnostico.elementosVisiveis.textoNoFoco.forEach(e => {
+            const tagMark = e.isTag ? '🏷️' : '📝';
+            console.log(`   ${tagMark} [${e.indice}] "${e.texto}..."`);
+        });
+        console.log('');
+        console.log('⬇️ TEXTO ABAIXO DO FOCO (próximos 3):');
+        diagnostico.elementosVisiveis.textoAbaixoFoco.forEach(e => {
+            const tagMark = e.isTag ? '🏷️' : '📝';
+            console.log(`   ${tagMark} [${e.indice}] "${e.texto}..."`);
+        });
+        console.log('');
+        console.log('⏭️ PRÓXIMO LEGÍVEL:');
+        if (diagnostico.proximoLegivel) {
+            console.log(`   Índice: ${diagnostico.proximoLegivel.indice}`);
+            console.log(`   Texto: "${diagnostico.proximoLegivel.texto}..."`);
+        } else {
+            console.log('   Nenhum encontrado');
+        }
+        console.log('═══════════════════════════════════════════════════════════');
+        
+        return diagnostico;
+    };
+    
+    // Também expõe função para forçar reposicionamento
+    window.forcarReposicionamento = function() {
+        console.log('🔄 Forçando reposicionamento para próximo texto legível...');
+        reposicionarParaProximoLegivel();
+        return window.diagnosticoTP();
+    };
+    
+    // Expõe função para pular para índice específico
+    window.pularParaIndice = function(indice) {
+        const promptElement = document.querySelector('.prompt');
+        if (!promptElement) return null;
+        
+        const elementos = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, div:not(.prompt)');
+        if (indice < 0 || indice >= elementos.length) {
+            console.log(`❌ Índice ${indice} fora do range (0-${elementos.length - 1})`);
+            return null;
+        }
+        
+        const elemento = elementos[indice];
+        currentElementIndex = indice;
+        lastLockedReadableIndex = indice;
+        currentState = STATE.LOCKED;
+        
+        inicializarTrackingElemento(elemento);
+        AutoScrollController.reset();
+        
+        if (window.moveTeleprompterToOffset) {
+            window.moveTeleprompterToOffset(elemento.offsetTop, true, true);
+        }
+        
+        console.log(`✅ Pulou para índice ${indice}`);
+        return window.diagnosticoTP();
+    };
+
+    console.log('🔧 Funções de diagnóstico disponíveis:');
+    console.log('   - window.diagnosticoTP() : Mostra estado atual do sistema');
+    console.log('   - window.forcarReposicionamento() : Força reposicionamento para próximo texto legível');
+    console.log('   - window.pularParaIndice(n) : Pula para índice específico');
 
     // Inicia reconhecimento
     recognition.start();

@@ -1,16 +1,22 @@
 /**
  * Sistema de Reconhecimento de Voz para Teleprompter
- * v21 - Arquitetura Simplificada com Máquina de Estados
- * 
+ * v30 - Busca Restrita ao Texto Visível + Scroll Controlado
+ *
  * Estados:
  * - SEARCHING: Buscando posição inicial no roteiro
  * - LOCKED: Posição encontrada, avançando sequencialmente
- * 
- * Comportamento:
- * - Em SEARCHING: busca no roteiro todo para encontrar onde o apresentador está
+ *
+ * Comportamento v30:
+ * - Em SEARCHING: busca APENAS no texto visível na tela (não em todo o roteiro)
  * - Em LOCKED: só verifica próximos elementos (sequencial)
  * - Se não encontrar match em LOCKED: NÃO move (pode ser improvisação)
  * - Após N misses consecutivos: volta para SEARCHING
+ *
+ * Mudanças v30:
+ * - Busca restrita ao texto visível na tela (nunca busca texto fora da tela)
+ * - AutoScroll inicia PAUSADO até haver progresso confirmado na leitura
+ * - Prioriza elementos na área de foco e logo abaixo (área de leitura)
+ * - Scroll só começa quando o apresentador realmente está lendo (progresso > 5%)
  */
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -359,6 +365,60 @@ function logVisibleText() {
     console.log('👁️ [VISUAL] Texto acima do foco (últimos visíveis):', aboveFocus.slice(-3).join(' | '));
     console.log('👁️ [VISUAL] Texto no foco:', inFocus.join(' | '));
     console.log('👁️ [VISUAL] Texto abaixo do foco (primeiros visíveis):', belowFocus.slice(0,3).join(' | '));
+}
+
+// v30: Obtém elementos visíveis na tela (para busca restrita)
+// Retorna array de {element, index, isInFocus, isAboveFocus, isBelowFocus}
+function getVisibleElements() {
+    const overlayFocus = document.getElementById('overlayFocus');
+    if (!overlayFocus) return [];
+    
+    const focusRect = overlayFocus.getBoundingClientRect();
+    const focusTop = focusRect.top;
+    const focusBottom = focusRect.bottom;
+    const windowHeight = window.innerHeight;
+    
+    const promptElement = document.querySelector('.prompt');
+    if (!promptElement) return [];
+    
+    const elements = promptElement.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, strong, em, b, i');
+    const visibleElements = [];
+    
+    for (let i = 0; i < elements.length; i++) {
+        const elem = elements[i];
+        const rect = elem.getBoundingClientRect();
+        const text = (elem.innerText || elem.textContent || '').trim();
+        
+        // Ignora elementos vazios ou fora da tela
+        if (text.length === 0) continue;
+        if (rect.bottom < 0 || rect.top > windowHeight) continue;
+        
+        // Classifica posição relativa ao foco
+        const isInFocus = rect.top >= focusTop && rect.bottom <= focusBottom;
+        const isAboveFocus = rect.bottom < focusTop;
+        const isBelowFocus = rect.top > focusBottom;
+        
+        visibleElements.push({
+            element: elem,
+            index: i,
+            text: text,
+            isInFocus: isInFocus,
+            isAboveFocus: isAboveFocus,
+            isBelowFocus: isBelowFocus
+        });
+    }
+    
+    return visibleElements;
+}
+
+// v30: Obtém apenas elementos no foco ou logo abaixo (área de leitura)
+// Estes são os únicos elementos que o apresentador pode estar lendo
+function getReadableElements() {
+    const visible = getVisibleElements();
+    // Retorna elementos no foco + primeiros 5 abaixo do foco (próximos a serem lidos)
+    const inFocus = visible.filter(v => v.isInFocus);
+    const belowFocus = visible.filter(v => v.isBelowFocus).slice(0, 5);
+    return [...inFocus, ...belowFocus];
 }
 
 // Carrega prefixos customizados do localStorage ao iniciar
@@ -1222,7 +1282,9 @@ if (SpeechRecognition) {
     }
 
     // SEARCHING: Busca posição no roteiro
-    // Se já temos um índice conhecido, busca primeiro em janela LOCAL antes de expandir
+    // v30: BUSCA APENAS NO TEXTO VISÍVEL NA TELA
+    // O apresentador só pode estar lendo texto que está visível na tela
+    // Nunca busca em texto que não está sendo exibido
     const SEARCH_LOCAL_WINDOW = 50; // Janela de busca local: 50 elementos para frente e para trás
     
     function buscarPosicaoInicial(textoFalado) {
@@ -1234,71 +1296,63 @@ if (SpeechRecognition) {
         
         const textoNormalizado = normalizarTexto(textoFalado);
         
-        // v29.7: DECISÃO DE BUSCA LOCAL vs GLOBAL
-        // USA APENAS lastLockedReadableIndex para decidir busca local
-        // currentElementIndex pode ser 0 por posicionamento inicial, causando busca local incorreta
-        const temIndiceLocked = lastLockedReadableIndex >= 0;
-        const usarBuscaLocal = temIndiceLocked;
+        // v30: SEMPRE busca apenas no texto visível na tela
+        // O apresentador só pode estar lendo o que está na tela
+        const elementosVisiveis = getVisibleElements();
         
         let melhorMatch = null;
         let melhorSimilaridade = 0;
         let melhorIndice = -1;
         
-        if (usarBuscaLocal) {
-            // BUSCA LOCAL: Janela de ±50 elementos em torno do lastLockedReadableIndex
-            const localStart = Math.max(0, lastLockedReadableIndex - SEARCH_LOCAL_WINDOW);
-            const localEnd = Math.min(elementos.length, lastLockedReadableIndex + SEARCH_LOCAL_WINDOW);
-            
-            console.log(`   🔍 SEARCHING LOCAL: ref=${lastLockedReadableIndex}, janela [${localStart}-${localEnd}] (${localEnd - localStart} elementos)...`);
-            
-            // Executa busca local
-            for (let i = localStart; i < localEnd; i++) {
-                const elem = elementos[i];
-                const textoOriginal = elem.innerText || elem.textContent || '';
-                if (isTagTecnica(textoOriginal)) continue;
-                const textoElemento = normalizarTexto(textoOriginal);
-                if (textoElemento.length === 0) continue;
-                const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
-                if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
-                    melhorSimilaridade = similaridade;
-                    melhorMatch = elem;
-                    melhorIndice = i;
-                }
-            }
-            
-            // Se busca local encontrou, usa o resultado
-            if (melhorMatch) {
-                console.log(`   ✅ LOCAL MATCH! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
-                finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos);
-                return;
-            }
-            
-            // Se busca local NÃO encontrou, faz fallback para busca global
-            console.log(`   🔄 Busca local falhou, fazendo fallback para GLOBAL...`);
-        } else {
-            console.log(`   🔍 SEARCHING GLOBAL: Buscando em ${elementos.length} elementos...`);
-        }
+        // v30: Prioriza elementos no foco e logo abaixo (área de leitura)
+        const elementosLegiveis = getReadableElements();
         
-        // BUSCA GLOBAL: Todos os elementos
-        for (let i = 0; i < elementos.length; i++) {
-            const elem = elementos[i];
-            const textoOriginal = elem.innerText || elem.textContent || '';
+        console.log(`   🔍 SEARCHING VISÍVEL: ${elementosLegiveis.length} elementos na área de leitura, ${elementosVisiveis.length} visíveis total`);
+        
+        // PRIMEIRA PASSADA: Busca apenas na área de leitura (foco + próximos)
+        for (const item of elementosLegiveis) {
+            const textoOriginal = item.text;
             if (isTagTecnica(textoOriginal)) continue;
             const textoElemento = normalizarTexto(textoOriginal);
             if (textoElemento.length === 0) continue;
             const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
             if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
                 melhorSimilaridade = similaridade;
-                melhorMatch = elem;
-                melhorIndice = i;
+                melhorMatch = item.element;
+                melhorIndice = item.index;
+            }
+        }
+        
+        // Se encontrou na área de leitura, usa o resultado
+        if (melhorMatch) {
+            console.log(`   ✅ MATCH NA ÁREA DE LEITURA! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+            finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos);
+            return;
+        }
+        
+        // SEGUNDA PASSADA: Busca em todos os elementos visíveis na tela
+        console.log(`   🔄 Não encontrou na área de leitura, buscando em toda a tela visível...`);
+        
+        for (const item of elementosVisiveis) {
+            const textoOriginal = item.text;
+            if (isTagTecnica(textoOriginal)) continue;
+            const textoElemento = normalizarTexto(textoOriginal);
+            if (textoElemento.length === 0) continue;
+            const similaridade = calcularSimilaridade(textoNormalizado, textoElemento);
+            if (similaridade > melhorSimilaridade && similaridade >= CONFIG.searchThreshold) {
+                melhorSimilaridade = similaridade;
+                melhorMatch = item.element;
+                melhorIndice = item.index;
             }
         }
         
         if (melhorMatch) {
-            console.log(`   ✅ GLOBAL MATCH! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
+            console.log(`   ✅ MATCH NA TELA VISÍVEL! Índice ${melhorIndice} (${(melhorSimilaridade * 100).toFixed(0)}%)`);
             finalizarBusca(melhorMatch, melhorIndice, melhorSimilaridade, elementos);
         } else {
-            console.log(`   ❌ Nenhum match encontrado (threshold: ${CONFIG.searchThreshold * 100}%)`);
+            // v30: NÃO faz busca global - se não está na tela, não está sendo lido
+            console.log(`   ❌ Nenhum match no texto visível (threshold: ${CONFIG.searchThreshold * 100}%)`);
+            console.log(`   ℹ️ O texto falado não corresponde ao que está na tela`);
         }
     }
     
@@ -1331,11 +1385,17 @@ if (SpeechRecognition) {
         // Inicializa tracking do elemento
         inicializarTrackingElemento(melhorMatch);
         
-        // INICIA AUTO-SCROLL quando entra em LOCKED
+        // v30: INICIA AUTO-SCROLL em modo PAUSADO (velocidade 0)
+        // O scroll só começa quando houver progresso confirmado na leitura
+        // Isso evita que o teleprompter comece a rolar antes do apresentador
         AutoScrollController.start();
         AutoScrollController.reset();
+        AutoScrollController.softStop(); // v30: Inicia pausado!
+        
+        console.log(`   ⏸️ AutoScroll iniciado em modo PAUSADO - aguardando progresso na leitura`);
         
         // Move o teleprompter para o início do elemento (SUAVE - jump inicial)
+        // Mas NÃO inicia o scroll automático ainda
         scrollParaElemento(melhorMatch, 0, true);
     }
 
@@ -1449,6 +1509,12 @@ if (SpeechRecognition) {
                 // Reseta o controlador para novo elemento
                 AutoScrollController.reset();
                 
+                // v30: Se estava pausado, retoma o scroll ao avançar para novo elemento
+                if (AutoScrollController.isPaused) {
+                    console.log(`   ▶️ Avançou para novo elemento - RETOMANDO scroll`);
+                    AutoScrollController.softResume(true); // Com impulso inicial
+                }
+                
                 // SCROLL para o novo elemento (SUAVE - jump para novo parágrafo)
                 if (AutoScrollController.shouldScroll()) {
                     scrollParaElemento(melhorMatch, 0, true);
@@ -1478,6 +1544,13 @@ if (SpeechRecognition) {
                         currentWordPointer = Math.round(progresso * currentElementTotalWords);
                     }
                     console.log(`   📊 PARCIAL: alinhado=${(calcularProgressoPorAlinhamento(textoNormalizado, melhorMatch)*100).toFixed(1)}% → monotônico=${(progresso*100).toFixed(1)}%`);
+                }
+                
+                // v30: Se o AutoScroll está pausado e temos progresso > 5%, retoma o scroll
+                // Isso garante que o scroll só começa quando o apresentador realmente está lendo
+                if (AutoScrollController.isPaused && progresso > 0.05) {
+                    console.log(`   ▶️ Progresso detectado (${(progresso * 100).toFixed(1)}%) - RETOMANDO scroll`);
+                    AutoScrollController.softResume(true); // Com impulso inicial
                 }
                 
                 // Só faz scroll se progresso aumentou significativamente (evita jitter)
